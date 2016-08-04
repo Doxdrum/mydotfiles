@@ -240,3 +240,22 @@
 (setq ido-default-buffer-method 'selected-window)
 ; Use the current window for indirect buffer display
 (setq org-indirect-buffer-display 'current-window)
+
+(defun bh/verify-refile-target ()
+  "Exclude todo keywords with a done state from refile targets"
+  (not (member (nth 2 (org-heading-components)) org-done-keywords)))
+
+(setq org-refile-target-verify-function 'bh/verify-refile-target)
+
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("E" "\\begin\{equation\}\n?\n\\end\{equation\}" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("j" "\\begin\{split\}\n?\n\\end\{split\}" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist   
+                '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))

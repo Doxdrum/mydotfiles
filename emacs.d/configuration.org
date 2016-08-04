@@ -426,4 +426,21 @@ We file directly with IDO and Targets complete directly with IDO
   (not (member (nth 2 (org-heading-components)) org-done-keywords)))
 
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
-#+END_S
+#+END_SRC
+
+** New =org-structure-templates=
+
+#+BEGIN_SRC emacs-lisp
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("E" "\\begin\{equation\}\n?\n\\end\{equation\}" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("j" "\\begin\{split\}\n?\n\\end\{split\}" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist
+                '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "")))
+(eval-after-load "org"
+  '(add-to-list 'org-structure-template-alist   
+                '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))  
+#+END_SRC
