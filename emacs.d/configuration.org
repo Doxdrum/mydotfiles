@@ -444,3 +444,45 @@ We file directly with IDO and Targets complete directly with IDO
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))  
 #+END_SRC
+
+** Publishing and Exporting
+
+*** New exporter Setup
+
+#+BEGIN_SRC emacs-lisp
+(setq org-alphabetical-lists t)
+
+;; Explicitly load required exporters
+(require 'ox-html)
+(require 'ox-latex)
+(require 'ox-ascii)
+#+END_SRC
+
+*** Setting =ditta=
+
+The variable =org-ditaa-jar-path= 
+
+#+BEGIN_SRC emacs-lisp
+(setq org-ditaa-jar-path
+      "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/scripts/ditaa.jar")
+#+END_SRC
+
+**** Enable languages evaluation
+
+The option =org-babel-load-languages= controls which languages are enabled 
+for evaluation (by default only =emacs-lisp= is enabled). This variable can 
+be set using the customization interface or by adding code like the 
+following to your emacs configuration. 
+
+#+BEGIN_SRC emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (ditaa . t)
+   (R . t)
+   (python . t)
+   (gnuplot . t)
+   (sh . t)
+   (org . t)
+   (latex . t)))
+#+END_SRC
