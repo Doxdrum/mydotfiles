@@ -1,47 +1,8 @@
 
-;; (require 'package)
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/")
-               t)
-  (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp")
-  (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp" t)
-  (package-initialize))
-;; (package-initialize)
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(setq package-enable-at-startup nil)
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
-(require 'use-package)
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
-
-(setq user-full-name "Oscar Castillo-Felisola"
-      user-mail-address "o.castillo.felisola@gmail.com"
-      calendar-latitude -33.66
-      calendar-longitude -71.51
-      calendar-location-name "Valparaiso, CHILE")
-
-;; (require 'package)
+(package-initialize)
+(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (package-initialize t)
-;; (unless (assoc-default "melpa" package-archives)
-;;   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;; ;  (package-refresh-contents)
-;; )
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (setq use-package-always-ensure t)
-  (require 'use-package)
-)
 
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
@@ -94,10 +55,12 @@
 (define-key global-map (kbd "C--") 'hrs/decrease-font-size)
 
 (load-theme 'deeper-blue)
-; (custom-safe-themes
-;    (quote
-;     ("a301332a57e8de1b2996ee2d0b2439c18bd0cec9f8cc6ccaa73fac6e239462a8"
-;  "0aca3a26459bbb43a77f34bc22851c05c0a5d70d3230cbcdbda4fec20fef77e6" default)))
+
+(setq user-full-name "Oscar Castillo-Felisola"
+      user-mail-address "o.castillo.felisola@gmail.com"
+      calendar-latitude -33.66
+      calendar-longitude -71.51
+      calendar-location-name "Valparaiso, CHILE")
 
 (setq backup-directory-alist '(("." . "/home/oscar/mydotfiles/emacs.d/backups")))
 
@@ -129,50 +92,22 @@
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 
-(setq-default tab-width 2)
-
-(setq python-indent 2)
-
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (setq sh-basic-offset 2
-                  sh-indentation 2)))
-
-(setq latex-block-names '("theorem" "corollary" "proof" "frame" "block" "alertblock"
- "definition" "example" "align" "align*" "columns" "tikzpicture" "axis"
- "cases" "matrix" "pmatrix" "vmatrix" "parts" "questions" "solution" "Ebox" "WEbox"
- "widetext" "dmath" "dmath*" "split"))
-
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; (setq load-path (cons "/home/oscar/Software/org-mode/lisp" load-path))
-;; (setq load-path (cons "/home/oscar/Software/org-mode/contrib/lisp" load-path))
-;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp")
-;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp" t)
-
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 
 (global-set-key "\C-cl" 'org-store-link) 
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key (kbd "C-c c") 'org-capture)
 
 (setq org-indirect-buffer-display 'current-window)
 (setq org-startup-indented t)
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
 
-(use-package org-bullets
-  :init
-  (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
-;; (require 'org-bullets)
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (org-bullets-mode t)))
+(require 'org-bullets)
+(setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-bullets-mode 1)))
 
 (setq org-hide-leading-stars t)
 

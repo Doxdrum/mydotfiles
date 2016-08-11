@@ -1,67 +1,23 @@
 #+TITLE: Emacs configuration
 
-* Initialization
-
-#+BEGIN_SRC emacs-lisp
-;; (require 'package)
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/")
-               t)
-  (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp")
-  (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp" t)
-  (package-initialize))
-;; (package-initialize)
-;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(setq package-enable-at-startup nil)
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(setq use-package-verbose t)
-(setq use-package-always-ensure t)
-(require 'use-package)
-(use-package auto-compile
-  :config (auto-compile-on-load-mode))
-(setq load-prefer-newer t)
-#+END_SRC
-
-* Set personal information
-
-#+BEGIN_SRC emacs-lisp
-  (setq user-full-name "Oscar Castillo-Felisola"
-        user-mail-address "o.castillo.felisola@gmail.com"
-        calendar-latitude -33.66
-        calendar-longitude -71.51
-        calendar-location-name "Valparaiso, CHILE")
-#+END_SRC
-
 * Melpa repository
-#+begin_src emacs-lisp
-  ;; (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  ;; (package-initialize t)
-  ;; (unless (assoc-default "melpa" package-archives)
-  ;;   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  ;; ;  (package-refresh-contents)
-  ;; )
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
 
-  (eval-when-compile
-    (setq use-package-always-ensure t)
-    (require 'use-package)
-  )
-#+end_src
-
+#+BEGIN_SRC emacs-lisp
+(package-initialize)
+(require 'package)
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+#+END_SRC
+  
 * GUI
+
 ** Do not show splash screen, scroll bar nor tool bar
 #+begin_src emacs-lisp
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 #+end_src
+
 ** Use fancy lambdas
 
 Why not?
@@ -79,7 +35,9 @@ pairing or presenting code.
 #+begin_src emacs-lisp
 (global-hl-line-mode 1)
 #+end_src
+
 ** Set default font and size configuration
+
 #+begin_src emacs-lisp
 (setq hrs/default-font "Inconsolata")
 (setq hrs/default-font-size 12)
@@ -123,16 +81,25 @@ pairing or presenting code.
 ;; (define-key global-map (kbd "C-_") 'hrs/decrease-font-size)
 (define-key global-map (kbd "C--") 'hrs/decrease-font-size)
 #+end_src
+
 ** Custom theme
 
 #+BEGIN_SRC emacs-lisp
 (load-theme 'deeper-blue)
-; (custom-safe-themes
-;    (quote
-;     ("a301332a57e8de1b2996ee2d0b2439c18bd0cec9f8cc6ccaa73fac6e239462a8"
-;  "0aca3a26459bbb43a77f34bc22851c05c0a5d70d3230cbcdbda4fec20fef77e6" default)))
 #+END_SRC
+
+* Set personal information
+
+#+BEGIN_SRC emacs-lisp
+  (setq user-full-name "Oscar Castillo-Felisola"
+        user-mail-address "o.castillo.felisola@gmail.com"
+        calendar-latitude -33.66
+        calendar-longitude -71.51
+        calendar-location-name "Valparaiso, CHILE")
+#+END_SRC
+
 * Functionality
+
 ** Save backups on a folder
 
 #+BEGIN_SRC emacs-lisp
@@ -140,39 +107,53 @@ pairing or presenting code.
 #+END_SRC
 
 ** Sellects the dictionary
+
 #+begin_src emacs-lisp
 (ispell-change-dictionary "british" t)
 #+end_src
+
 ** Turns the orthographic correction (in Flyspell mode) on 
+
 #+begin_src emacs-lisp
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
 #+end_src
+
 ** Open shell
+
 #+begin_src emacs-lisp
 (define-key global-map (kbd "<f10>") 'shell)
 #+end_src
+
 ** Obligates the Enter (or RET) key to indent if necessary
+
 #+begin_src emacs-lisp
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (setq-default indent-tabs-mode t)
 #+end_src
+
 ** Highlight text selection, bracket match, and expression within
+
 #+begin_src emacs-lisp
 (transient-mark-mode 1)
 (show-paren-mode 1)
 (setq show-paren-style 'expression)
 #+end_src
+
 ** Wrap lines at the edges of windows
+
 #+begin_src emacs-lisp
 (setq-default truncate-lines nil)
 ;; Even for org-mode
 ;; (setq org-startup-truncated nil)
 #+end_src
+
 ** Completion
+
 #+begin_src emacs-lisp
 (define-key global-map "\C-x\t" 'pcomplete)
 #+end_src
+
 ** Open files vertically
 
 From [[http://stackoverflow.com/a/6697992/1777293]]
@@ -187,104 +168,45 @@ From [[http://stackoverflow.com/a/6697992/1777293]]
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 #+END_SRC
 
-* Programming customizations
-
-I like shallow indentation, but tabs are displayed as 8 characters by default.
-This reduces that.
-
-#+BEGIN_SRC emacs-lisp
-  (setq-default tab-width 2)
-#+END_SRC
-
-** Python
-
-Indent 2 spaces.
-
-#+BEGIN_SRC emacs-lisp
-  (setq python-indent 2)
-#+END_SRC
-** =sh=
-
-Indent with 2 spaces.
-
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'sh-mode-hook
-            (lambda ()
-              (setq sh-basic-offset 2
-                    sh-indentation 2)))
-#+END_SRC
-** LaTeX
-
-Addition of personal =latex-block-names=, which intend to complete LaTeX environment
-
-#+begin_src emacs-lisp
-(setq latex-block-names '("theorem" "corollary" "proof" "frame" "block" "alertblock"
- "definition" "example" "align" "align*" "columns" "tikzpicture" "axis"
- "cases" "matrix" "pmatrix" "vmatrix" "parts" "questions" "solution" "Ebox" "WEbox"
- "widetext" "dmath" "dmath*" "split"))
-#+end_src
-
-** Markdown
-#+begin_src emacs-lisp
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-#+end_src
-
 * Org-mode configuration
 
-** Settings 
-In order to configure the =org-mode= from the git repository
-Following [[http://dto.github.io/notebook/orgtutorial.html]]
-Following [[http://doc.norang.ca/org-mode.html]]
+** Settings
 
-#+begin_src emacs-lisp
-;; (setq load-path (cons "/home/oscar/Software/org-mode/lisp" load-path))
-;; (setq load-path (cons "/home/oscar/Software/org-mode/contrib/lisp" load-path))
-;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp")
-;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp" t)
-#+end_src
+*** The /alist/ for =org= and =txt= files
 
-Associate =org-mode= with =txt= and =org= extensions
+ #+BEGIN_SRC emacs-lisp
+ (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+ #+END_SRC
 
-#+begin_src emacs-lisp
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-#+end_src
+*** Key bindings
 
-Standard Key binding
+ #+BEGIN_SRC emacs-lisp
+ (global-set-key "\C-cl" 'org-store-link) 
+ (global-set-key "\C-ca" 'org-agenda)
+ (global-set-key "\C-cb" 'org-iswitchb)
+ #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-(global-set-key "\C-cl" 'org-store-link) 
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key (kbd "C-c c") 'org-capture)
-#+END_SRC
+*** Indentation
 
-Indentation
-
-#+BEGIN_SRC emacs-lisp
-(setq org-indirect-buffer-display 'current-window)
-(setq org-startup-indented t)
-(setq org-src-preserve-indentation nil)
-(setq org-edit-src-content-indentation 0)
-#+END_SRC
+ #+BEGIN_SRC emacs-lisp
+ (setq org-indirect-buffer-display 'current-window)
+ (setq org-startup-indented t)
+ (setq org-src-preserve-indentation nil)
+ (setq org-edit-src-content-indentation 0)
+ #+END_SRC
 
 ** Display preferences
 
 I like to see an outline of pretty bullets instead of a list of asterisks.
 
 #+BEGIN_SRC emacs-lisp
-(use-package org-bullets
-  :init
+  (require 'org-bullets)
   (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-)
-;; (require 'org-bullets)
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (org-bullets-mode t)))
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (org-bullets-mode 1)))
 
-(setq org-hide-leading-stars t)
+  (setq org-hide-leading-stars t)
 #+END_SRC
 
 I like seeing a little downward-pointing arrow instead of the usual ellipsis
@@ -428,7 +350,7 @@ We file directly with IDO and Targets complete directly with IDO
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
 #+END_SRC
 
-** New =org-structure-templates=
+**** New =org-structure-templates=
 
 #+BEGIN_SRC emacs-lisp
 (eval-after-load "org"
@@ -443,46 +365,4 @@ We file directly with IDO and Targets complete directly with IDO
 (eval-after-load "org"
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))  
-#+END_SRC
-
-** Publishing and Exporting
-
-*** New exporter Setup
-
-#+BEGIN_SRC emacs-lisp
-(setq org-alphabetical-lists t)
-
-;; Explicitly load required exporters
-(require 'ox-html)
-(require 'ox-latex)
-(require 'ox-ascii)
-#+END_SRC
-
-*** Setting =ditta=
-
-The variable =org-ditaa-jar-path= 
-
-#+BEGIN_SRC emacs-lisp
-(setq org-ditaa-jar-path
-      "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/scripts/ditaa.jar")
-#+END_SRC
-
-**** Enable languages evaluation
-
-The option =org-babel-load-languages= controls which languages are enabled 
-for evaluation (by default only =emacs-lisp= is enabled). This variable can 
-be set using the customization interface or by adding code like the 
-following to your emacs configuration. 
-
-#+BEGIN_SRC emacs-lisp
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (ditaa . t)
-   (R . t)
-   (python . t)
-   (gnuplot . t)
-   (sh . t)
-   (org . t)
-   (latex . t)))
 #+END_SRC
