@@ -1,5 +1,3 @@
-;(package-initialize)
-;(require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
@@ -12,12 +10,8 @@
 (global-hl-line-mode 1)
 
 (setq hrs/default-font "Inconsolata")
-(setq hrs/default-font-size 12)
+(setq hrs/default-font-size 14)
 (setq hrs/current-font-size hrs/default-font-size)
-
-;; (if (hrs/mac?)
-;;     (setq hrs/default-font-size 18)
-;;   (setq hrs/default-font-size 12))
 
 (setq hrs/font-change-increment 1.1)
 
@@ -49,8 +43,6 @@
 
 (define-key global-map (kbd "C-)") 'hrs/reset-font-size)
 (define-key global-map (kbd "C-+") 'hrs/increase-font-size)
-;; (define-key global-map (kbd "C-=") 'hrs/increase-font-size)
-;; (define-key global-map (kbd "C-_") 'hrs/decrease-font-size)
 (define-key global-map (kbd "C--") 'hrs/decrease-font-size)
 
 (load-theme 'deeper-blue)
