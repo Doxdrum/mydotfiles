@@ -424,6 +424,19 @@ TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 #+BEGIN_SRC emacs-lisp
 (setq org-latex-to-pdf-process (list "latexmk -pdf %f"))
 #+END_SRC
+
+** Properties for inline images 
+
+Set the image width to its original, unless there is a =width=
+attribute assigned to it.
+
+#+BEGIN_SRC emacs-lisp
+(setq org-image-actual-width nil)
+#+END_SRC
+
+Notice that one can set a fixed width by changing =nil= to ='(700)=
+where the number indicated the width in pixels
+
 * Settings for =sage-shell-mode=
 
 See the [[https://github.com/stakemori/sage-shell-mode][github web-page]] for details
