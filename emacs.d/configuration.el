@@ -83,11 +83,24 @@
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 
+(setq latex-block-names '("theorem" "corollary" "proof"
+                          "frame" "block" "alertblock"
+                          "definition" "example" "align"
+                          "align*" "columns" "tikzpicture"
+                          "axis" "cases" "matrix" "pmatrix"
+                          "vmatrix" "parts" "questions"
+                          "solution" "Ebox" "WEbox" "widetext"
+                          "dmath" "dmath*" "split"))
+
+;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
+;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
+
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 
 (global-set-key "\C-cl" 'org-store-link) 
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key "\C-cc" 'org-capture)
 
 (setq org-indirect-buffer-display 'current-window)
 (setq org-startup-indented t)
@@ -149,6 +162,8 @@
 
 (setq org-agenda-files (quote ("/home/oscar/Documents/Dropbox/Org")))
 
+(setq org-default-notes-file "~/git/org/refile.org")
+
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
 
@@ -173,6 +188,24 @@
 
 (setq org-refile-target-verify-function 'bh/verify-refile-target)
 
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* TODO %?\n%U\n%a\n")
+              ("r" "respond" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n")
+              ("n" "note" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* %? :NOTE:\n%U\n%a\n")
+              ("j" "Journal" entry (file+datetree "~/Documents/Dropbox/Org/diary.org")
+               "* %?\n%U\n")
+              ("w" "org-protocol" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* TODO Review %c\n%U\n" )
+              ("m" "Meeting" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* MEETING with %? :MEETING:\n%U" )
+              ("p" "Phone call" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* PHONE %? :PHONE:\n%U" )
+              ("h" "Habit" entry (file "~/Documents/Dropbox/Org/refile.org")
+               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+
 (eval-after-load "org"
   '(add-to-list 'org-structure-template-alist
                 '("E" "\\begin\{equation\}\n?\n\\end\{equation\}" "")))
@@ -185,3 +218,37 @@
 (eval-after-load "org"
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))
+
+;; (eval-after-load 'org (require 'ox-bibtex))
+;; (require 'ox-bibtex) ;; This is working
+
+(setq org-latex-to-pdf-process (list "latexmk -pdf %f"))
+
+(setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
+
+(sage-shell:define-alias)
+;; Turn on eldoc-mode
+(add-hook 'sage-shell-mode-hook #'eldoc-mode)
+(add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
+
+;; ;; Start .emacs
+
+
+;; ;; After installation of the spkg, you must add something like the
+;; ;; following to your .emacs:
+
+;; (add-to-list 'load-path "/home/oscar/Software/sage/local/share/emacs/site-lisp/sage-mode")
+;; (require 'sage "sage")
+;; (setq sage-command "/home/oscar/Software/sage/sage")
+
+;; ;; If you want sage-view to typeset all your output and display plot()
+;; ;; commands inline, uncomment the following line and configure sage-view:
+;; ;; (add-hook 'sage-startup-after-prompt-hook 'sage-view)
+;; ;; In particular customize the variables `sage-view-default-commands'
+;; ;; and `sage-view-inline-plots-method'.
+;; ;; Using sage-view to typeset output requires a working LaTeX
+;; ;; installation with the preview package.
+
+;; ;; Also consider running (customize-group 'sage) to see more options.
+
+;; ;; End .emacs
