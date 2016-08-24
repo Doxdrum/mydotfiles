@@ -162,6 +162,27 @@ From [[http://stackoverflow.com/a/6697992/1777293]]
 
 * Programming Languages 
 
+** Python
+
+Indent 2 spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (setq python-indent 2)
+#+END_SRC
+
+
+** =sh=
+
+Indent with 2 spaces.
+
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'sh-mode-hook
+            (lambda ()
+              (setq sh-basic-offset 2
+                    sh-indentation 2)))
+#+END_SRC
+
+
 ** LaTeX
 
 *** New environments
