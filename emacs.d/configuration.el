@@ -45,6 +45,8 @@
 (define-key global-map (kbd "C-+") 'hrs/increase-font-size)
 (define-key global-map (kbd "C--") 'hrs/decrease-font-size)
 
+(hrs/reset-font-size)
+
 (load-theme 'deeper-blue)
 
 (setq user-full-name "Oscar Castillo-Felisola"
@@ -82,6 +84,13 @@
       (set-window-buffer (split-window-horizontally) (cadr buffers)))))
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
+
+(setq python-indent 2)
+
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (setq sh-basic-offset 2
+                  sh-indentation 2)))
 
 (setq latex-block-names '("theorem" "corollary" "proof"
                           "frame" "block" "alertblock"
@@ -222,7 +231,24 @@
 ;; (eval-after-load 'org (require 'ox-bibtex))
 ;; (require 'ox-bibtex) ;; This is working
 
-(setq org-latex-to-pdf-process (list "latexmk -pdf %f"))
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+
+(setq org-image-actual-width nil)
+
+(require 'org-ref)
+
+(setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
+
+(setq org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
+
+(setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+
+(setq org-file-apps
+      (quote
+       ((auto-mode . emacs)
+        ("\\.mm\\'" . default)
+        ("\\.x?html?\\'" . default)
+        ("\\.pdf\\'" . "evince %s"))))
 
 (setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
 
