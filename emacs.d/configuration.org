@@ -476,6 +476,29 @@ I followed the simple configuration settings
 (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
 #+END_SRC
 
+*** Opening the article's PDF
+
+From the helm-bibtex search window, one of the actions is to open the pdf. This relies on a link in the corresponding BiBTeX entry. When exporting from Zotero, the files are listed in a file field (there is no need to export both entries and files, since BetterBibTex will link directly to the Zotero attached file). You must tell helm-bibtex which field to look for. It will open all the specified files, by default in Emacs itself, but you can change this to another viewer as shown:
+
+#+BEGIN_SRC emacs-lisp
+(setq  helm-bibtex-pdf-field "file")
+(setq helm-bibtex-pdf-open-function
+  (lambda (fpath)
+    (start-process "evince" "*helm-bibtex-evince*" "/usr/bin/evince" fpath)))
+#+END_SRC
+
+*** Notes
+
+With helm-bibtex one can link BibTeX entries to notes in an org-mode file. I use a single .org file for all bibliographic notes, which can be accessed as one of the actions (press TAB) from the helm-bibtex search window. The file is specified in your .emacs with something like
+
+#+BEGIN_SRC emacs-lisp
+(setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
+#+END_SRC
+
+You can also access the notes from a previously-inserted citation like you access the PDF (except you select a different action from the search window). All comments above apply also to opening the notes. 
+
+From [[http://iflysib14.iflysib.unlp.edu.ar/tomas/en/blog/reference-management.html][this page]]
+
 ** Open file applications
 
 #+BEGIN_SRC emacs-lisp
