@@ -239,9 +239,22 @@
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
 
-(setq org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
+(setq org-ref-bibliography-notes"/home/oscar/Documents/Dropbox/Org/RefNotes.org"
+      org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
+      org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
 
 (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+
+(setq  helm-bibtex-pdf-field "file")
+(setq helm-bibtex-pdf-open-function
+  (lambda (fpath)
+    (start-process "evince" "*helm-bibtex-evince*" "/usr/bin/evince" fpath)))
+
+(require 'org-ref-arxiv)
+
+(require 'org-ref-isbn)
+
+(setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
 (setq org-file-apps
       (quote

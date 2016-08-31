@@ -471,7 +471,9 @@ I followed the simple configuration settings
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
 
-(setq org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
+(setq org-ref-bibliography-notes"/home/oscar/Documents/Dropbox/Org/RefNotes.org"
+      org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
+      org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
 
 (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
 #+END_SRC
@@ -485,6 +487,27 @@ From the helm-bibtex search window, one of the actions is to open the pdf. This 
 (setq helm-bibtex-pdf-open-function
   (lambda (fpath)
     (start-process "evince" "*helm-bibtex-evince*" "/usr/bin/evince" fpath)))
+#+END_SRC
+
+*** Requiring extra references 
+
+**** arXiv
+
+This library provides an org-mode link to [[http://arxiv.org][arXiv]] entries:
+arxiv:cond-mat/0410285, and a function to get a bibtex entry and pdfs
+for arxiv entries:
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-ref-arxiv)
+#+END_SRC
+
+- =arxiv-add-bibtex-entry=
+- =arxiv-get-pdf=
+
+**** ISBN
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-ref-isbn)
 #+END_SRC
 
 *** Notes
