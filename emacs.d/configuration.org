@@ -202,8 +202,9 @@ Indent with 2 spaces.
 ** Magit
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x G") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
+
 * Org-mode configuration
 
 ** Settings
