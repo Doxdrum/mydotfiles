@@ -161,7 +161,6 @@ From [[http://stackoverflow.com/a/6697992/1777293]]
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 #+END_SRC
-
 * Programming Languages 
 
 ** Python
@@ -198,6 +197,12 @@ Indent with 2 spaces.
                           "vmatrix" "parts" "questions"
                           "solution" "Ebox" "WEbox" "widetext"
                           "dmath" "dmath*" "split"))
+#+END_SRC
+
+** Magit
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x G") 'magit-status)
 #+END_SRC
 * Org-mode configuration
 
