@@ -528,6 +528,21 @@ You can also access the notes from a previously-inserted citation like you acces
 
 From [[http://iflysib14.iflysib.unlp.edu.ar/tomas/en/blog/reference-management.html][this page]]
 
+
+** configure =org-gcal=
+
+The package =ORG-GCAL= must be installed from MELPA.
+
+Change the dropbox path
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-gcal) 
+(setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
+      org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
+      org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/gmail-agenda.org") 
+                           (" ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/gmail-agenda.org")))
+#+END_SRC
+
 ** Open file applications
 
 #+BEGIN_SRC emacs-lisp
