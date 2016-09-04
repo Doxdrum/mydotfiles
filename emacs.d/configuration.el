@@ -101,7 +101,7 @@
                           "solution" "Ebox" "WEbox" "widetext"
                           "dmath" "dmath*" "split"))
 
-(global-set-key (kbd "C-x G") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
