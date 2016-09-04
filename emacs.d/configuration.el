@@ -271,6 +271,12 @@
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
+(require 'org-gcal) 
+(setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
+      org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
+      org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") 
+                           (" ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org")))
+
 (setq org-file-apps
       (quote
        ((auto-mode . emacs)
