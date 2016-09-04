@@ -535,6 +535,9 @@ The package =ORG-GCAL= must be installed from MELPA.
 
 Change the dropbox path
 
+More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]] and
+[[https://github.com/myuhe/org-gcal.el]]
+
 #+BEGIN_SRC emacs-lisp
 (require 'org-gcal) 
 (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
