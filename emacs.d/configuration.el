@@ -132,6 +132,19 @@
 
 (setq org-src-window-setup 'current-window)
 
+(org-babel-do-load-languages 'org-babel-load-languages 
+  '((R . t) 
+    (emacs-lisp . t) 
+    (latex . t)
+    (python . t)
+    (shell . t)
+    (gnuplot . t)
+    (maxima . t)
+    (ledger . t)
+    (org . t)
+    (octave . t)
+))
+
 (setq org-log-done 'note)
 
 (setq org-directory "/home/oscar/Documents/Dropbox/Org")

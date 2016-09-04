@@ -284,9 +284,10 @@ Active Babel languages:
     (python . t)
     (shell . t)
     (gnuplot . t)
-    (max . t)
+    (maxima . t)
     (ledger . t)
     (org . t)
+    (octave . t)
 ))
 #+END_SRC
 
