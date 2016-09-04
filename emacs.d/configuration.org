@@ -272,6 +272,24 @@ new one (which shows the same information).
 (setq org-src-window-setup 'current-window)
 #+END_SRC
 
+** babel languages
+
+Active Babel languages:
+
+#+BEGIN_SRC emacs-lisp
+(org-babel-do-load-languages 'org-babel-load-languages 
+  '((R . t) 
+    (emacs-lisp . t) 
+    (latex . t)
+    (python . t)
+    (shell . t)
+    (gnuplot . t)
+    (max . t)
+    (ledger . t)
+    (org . t)
+))
+#+END_SRC
+
 ** Task management 
 
 Record the time that a todo was archived.
