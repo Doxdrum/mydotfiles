@@ -460,13 +460,6 @@ TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))  
 #+END_SRC
 
-** Citing 
-
-#+BEGIN_SRC emacs-lisp
-;; (eval-after-load 'org (require 'ox-bibtex))
-;; (require 'ox-bibtex) ;; This is working
-#+END_SRC
-
 ** LaTeX export process
 
 #+BEGIN_SRC emacs-lisp
@@ -547,7 +540,6 @@ You can also access the notes from a previously-inserted citation like you acces
 
 From [[http://iflysib14.iflysib.unlp.edu.ar/tomas/en/blog/reference-management.html][this page]]
 
-
 ** configure =org-gcal=
 
 The package =ORG-GCAL= must be installed from MELPA.
@@ -575,6 +567,7 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
 #+END_SRC
+
 * Settings for =sage-shell-mode=
 
 See the [[https://github.com/stakemori/sage-shell-mode][github web-page]] for details
