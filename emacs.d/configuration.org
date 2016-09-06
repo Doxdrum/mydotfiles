@@ -82,6 +82,12 @@ when pairing or presenting code.
 (load-theme 'deeper-blue)
 #+END_SRC
 
+** Powerline
+
+#+BEGIN_SRC emacs-lisp
+(powerline-center-theme)
+#+END_SRC
+
 * Set personal information
 
 #+BEGIN_SRC emacs-lisp

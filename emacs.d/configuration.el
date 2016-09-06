@@ -49,6 +49,8 @@
 
 (load-theme 'deeper-blue)
 
+(powerline-center-theme)
+
 (setq user-full-name "Oscar Castillo-Felisola"
       user-mail-address "o.castillo.felisola@gmail.com"
       calendar-latitude -33.66
