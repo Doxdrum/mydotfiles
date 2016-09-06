@@ -248,8 +248,6 @@
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))
 
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
-
 (setq org-image-actual-width nil)
 
 (require 'org-ref)
@@ -285,6 +283,17 @@
         ("\\.mm\\'" . default)
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
+
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+
+(setq org-publish-project-alist
+      '( ("paper"
+          :base-directory "~/Documents/Dropbox/Org"
+          :base-extension "org"
+          :publishing-directory "~/Documents/Dropbox/Org/export"
+          :publishing-function org-latex-publish-to-pdf)
+         )
+      )
 
 (setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
 

@@ -478,12 +478,6 @@ TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))  
 #+END_SRC
 
-** LaTeX export process
-
-#+BEGIN_SRC emacs-lisp
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
-#+END_SRC
-
 ** Properties for inline images 
 
 Set the image width to its original, unless there is a =width=
@@ -584,6 +578,27 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
         ("\\.mm\\'" . default)
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
+#+END_SRC
+
+** Publishing and exporting
+
+*** LaTeX export process
+
+#+BEGIN_SRC emacs-lisp
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+#+END_SRC
+
+*** Publishing projects
+
+#+BEGIN_SRC emacs-lisp
+(setq org-publish-project-alist
+      '( ("paper"
+          :base-directory "~/Documents/Dropbox/Org"
+          :base-extension "org"
+          :publishing-directory "~/Documents/Dropbox/Org/export"
+          :publishing-function org-latex-publish-to-pdf)
+         )
+      )
 #+END_SRC
 
 * Settings for =sage-shell-mode=
