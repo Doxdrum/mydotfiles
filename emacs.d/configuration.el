@@ -85,6 +85,9 @@
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 
+(set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
+(set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
+
 (setq python-indent 2)
 
 (add-hook 'sh-mode-hook

@@ -161,6 +161,18 @@ From [[http://stackoverflow.com/a/6697992/1777293]]
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 #+END_SRC
+
+** Setting a couple of registers
+
+This registers serve as ~shortcuts~ to visit a couple of configuration
+files. For /jumping/ to a registers one uses =C-x r j= and the
+identifier of the register
+
+#+BEGIN_SRC emacs-lisp
+(set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
+(set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
+#+END_SRC
+
 * Programming Languages 
 
 ** Python
