@@ -291,6 +291,12 @@ Active Babel languages:
 ))
 #+END_SRC
 
+Don't ask before evaluating code blocks.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-confirm-babel-evaluate nil)
+#+END_SRC
+
 ** Task management 
 
 Record the time that a todo was archived.

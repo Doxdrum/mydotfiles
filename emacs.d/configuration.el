@@ -145,6 +145,8 @@
     (octave . t)
 ))
 
+(setq org-confirm-babel-evaluate nil)
+
 (setq org-log-done 'note)
 
 (setq org-directory "/home/oscar/Documents/Dropbox/Org")
@@ -242,9 +244,6 @@
 (eval-after-load "org"
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))
-
-;; (eval-after-load 'org (require 'ox-bibtex))
-;; (require 'ox-bibtex) ;; This is working
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 
