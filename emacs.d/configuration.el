@@ -51,6 +51,11 @@
 
 (powerline-center-theme)
 
+(require 'diff-hl)
+
+(add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+
 (setq user-full-name "Oscar Castillo-Felisola"
       user-mail-address "o.castillo.felisola@gmail.com"
       calendar-latitude -33.66
@@ -89,6 +94,12 @@
 
 (set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
 (set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
+
+(defun hrs/unfill-paragraph ()
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive)
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil)))
 
 (setq python-indent 2)
 
@@ -285,6 +296,8 @@
         ("\\.mm\\'" . default)
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
+
+(setq org-export-latex-listings t)
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 
