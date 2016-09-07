@@ -88,6 +88,18 @@ when pairing or presenting code.
 (powerline-center-theme)
 #+END_SRC
 
+** Highlight uncommitted changes
+
+Use the =diff-hl= package to highlight changed-and-uncommitted lines
+when programming.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'diff-hl)
+
+  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+#+END_SRC
+
 * Set personal information
 
 #+BEGIN_SRC emacs-lisp
@@ -177,6 +189,18 @@ identifier of the register
 #+BEGIN_SRC emacs-lisp
 (set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
 (set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
+#+END_SRC
+
+** Un-fill paragraph
+
+Taken from *hrs* configuration
+
+#+BEGIN_SRC emacs-lisp
+(defun hrs/unfill-paragraph ()
+    "Takes a multi-line paragraph and makes it into a single line of text."
+    (interactive)
+    (let ((fill-column (point-max)))
+      (fill-paragraph nil)))
 #+END_SRC
 
 * Programming Languages 
@@ -589,6 +613,14 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
 ** Publishing and exporting
 
 *** LaTeX export process
+
+I want to add the package =listings= to the LaTeX export
+
+#+BEGIN_SRC emacs-lisp
+(setq org-export-latex-listings t)
+#+END_SRC
+
+And to use the =latexmk= process to generate the PDF files
 
 #+BEGIN_SRC emacs-lisp
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
