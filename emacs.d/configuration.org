@@ -643,7 +643,6 @@ I want to add the package =listings= to the LaTeX export
               (sql "SQL")
               (sqlite "sql")
               (R-mode "R"))))
-
 #+END_SRC
 
 And to use the =latexmk= process to generate the PDF files
