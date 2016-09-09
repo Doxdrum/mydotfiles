@@ -617,6 +617,7 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
 I want to add the package =listings= to the LaTeX export
 
 #+BEGIN_SRC emacs-lisp
+(require 'ox-latex)
 (setq org-export-latex-listings t)
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))

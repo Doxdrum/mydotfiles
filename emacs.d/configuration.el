@@ -297,6 +297,7 @@
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
 
+(require 'ox-latex)
 (setq org-export-latex-listings t)
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
