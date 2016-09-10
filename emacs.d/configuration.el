@@ -1,5 +1,7 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives 
+             '("org" . "http://orgmode.org/elpa/") t)
 
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
