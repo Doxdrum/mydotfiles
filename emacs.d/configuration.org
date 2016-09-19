@@ -529,6 +529,7 @@ The main code is hosted at [[https://github.com/jkitchin/org-ref]]
 I followed the simple configuration settings
 
 #+BEGIN_SRC emacs-lisp
+(global-unset-key (kbd "C-c ["))
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -613,6 +614,13 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
 #+END_SRC
 
 ** Publishing and exporting
+
+This line allows to use the user =CUSTUM_ID= as labels when exported
+to LaTeX
+
+#+BEGIN_SRC emacs-lisp
+(setq org-latex-prefer-user-labels t)
+#+END_SRC
 
 *** LaTeX export process
 
