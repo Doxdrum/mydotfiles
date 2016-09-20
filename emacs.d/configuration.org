@@ -193,16 +193,51 @@ identifier of the register
 (set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
 #+END_SRC
 
+** Autofill mode enabled
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+#+END_SRC
+
+Sometimes, though, I don’t wanna wrap text. This toggles wrapping with =C-c q=:
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
+#+END_SRC
+
 ** Un-fill paragraph
 
 Taken from *hrs* configuration
 
 #+BEGIN_SRC emacs-lisp
-(defun hrs/unfill-paragraph ()
+(defun ocf/unfill-paragraph ()
     "Takes a multi-line paragraph and makes it into a single line of text."
     (interactive)
     (let ((fill-column (point-max)))
       (fill-paragraph nil)))
+#+END_SRC
+
+And a function to toggle fill/un-fill paragraph
+from [[http://ergoemacs.org/emacs/elisp_toggle_command.html][xah's page]]
+
+#+BEGIN_SRC emacs-lisp
+(defun ocf/toggle-fill-paragraph ()
+  "Toggle fill paragraph Version 2016-09-20"
+  (interactive)
+  ;; use a property “state”. Value is t or nil
+  (if (get 'ocf/toggle-fill-paragraph 'state)
+      (progn (ocf/unfill-paragraph)
+             (put 'ocf/toggle-fill-paragraph 'state nil))
+    (progn
+      (fill-paragraph)
+      (put 'ocf/toggle-fill-paragraph 'state t))))
+#+END_SRC
+
+assigning a keybinding
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-q") 'ocf/toggle-fill-paragraph)
 #+END_SRC
 
 ** Subword mode enabled

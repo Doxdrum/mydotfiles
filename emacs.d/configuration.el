@@ -97,11 +97,29 @@
 (set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
 (set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
 
-(defun hrs/unfill-paragraph ()
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+(global-set-key (kbd "C-c q") 'auto-fill-mode)
+
+(defun ocf/unfill-paragraph ()
     "Takes a multi-line paragraph and makes it into a single line of text."
     (interactive)
     (let ((fill-column (point-max)))
       (fill-paragraph nil)))
+
+(defun ocf/toggle-fill-paragraph ()
+  "Toggle fill paragraph Version 2016-09-20"
+  (interactive)
+  ;; use a property “state”. Value is t or nil
+  (if (get 'ocf/toggle-fill-paragraph 'state)
+      (progn (ocf/unfill-paragraph)
+             (put 'ocf/toggle-fill-paragraph 'state nil))
+    (progn
+      (fill-paragraph)
+      (put 'ocf/toggle-fill-paragraph 'state t))))
+
+(global-set-key (kbd "M-q") 'ocf/toggle-fill-paragraph)
 
 (subword-mode 1)
 
