@@ -205,6 +205,12 @@ Taken from *hrs* configuration
       (fill-paragraph nil)))
 #+END_SRC
 
+** Subword mode enabled
+
+#+BEGIN_SRC emacs-lisp
+(subword-mode 1)
+#+END_SRC
+
 * Programming Languages 
 
 ** Python
@@ -341,7 +347,7 @@ Don't ask before evaluating code blocks.
   (setq org-confirm-babel-evaluate nil)
 #+END_SRC
 
-** Task management 
+** Task management (agenda)
 
 Record the time that a todo was archived.
 
@@ -366,6 +372,32 @@ and archive finished tasks in =~/Documents/Dropdox/Org/archive.org=.
   ;; (setq org-index-file (org-file-path "index.org"))
   (setq org-archive-location
         (concat (org-file-path "archive.org") "::* From %s"))
+#+END_SRC
+
+*** Define a default task to clock in
+
+This has been made following the [[http://doc.norang.ca/org-mode.html][norang's configuration]] page.
+
+#+BEGIN_SRC emacs-lisp
+(defvar ocf/organization-task-id "c047fc98-58f3-4291-87e3-99465facb9aa")
+#+END_SRC
+
+This number identify the =Task/Organization= in my =agenda.org= file
+
+Now we define a function to clock-in in the default task
+
+#+BEGIN_SRC emacs-lisp
+(defun ocf/clock-in-organization-task-as-default ()
+  (interactive)
+  (org-with-point-at (org-id-find ocf/organization-task-id 'marker)
+                     (org-clock-in '(16))))
+#+END_SRC
+
+Finally, we assign a =KeyBinding= to our function
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "<f9> I")
+                'ocf/clock-in-organization-task-as-default)
 #+END_SRC
 
 *** Personal Todo Sequence

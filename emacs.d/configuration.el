@@ -103,6 +103,8 @@
     (let ((fill-column (point-max)))
       (fill-paragraph nil)))
 
+(subword-mode 1)
+
 (setq python-indent 2)
 
 (add-hook 'sh-mode-hook
@@ -177,6 +179,16 @@
 ;; (setq org-index-file (org-file-path "index.org"))
 (setq org-archive-location
       (concat (org-file-path "archive.org") "::* From %s"))
+
+(defvar ocf/organization-task-id "c047fc98-58f3-4291-87e3-99465facb9aa")
+
+(defun ocf/clock-in-organization-task-as-default ()
+  (interactive)
+  (org-with-point-at (org-id-find ocf/organization-task-id 'marker)
+                     (org-clock-in '(16))))
+
+(global-set-key (kbd "<f9> I")
+                'ocf/clock-in-organization-task-as-default)
 
 (setq org-use-fast-todo-selection t)
 
@@ -265,6 +277,7 @@
 
 (setq org-image-actual-width nil)
 
+(global-unset-key (kbd "C-c ["))
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -298,6 +311,8 @@
         ("\\.mm\\'" . default)
         ("\\.x?html?\\'" . default)
         ("\\.pdf\\'" . "evince %s"))))
+
+(setq org-latex-prefer-user-labels t)
 
 (require 'ox-latex)
 (setq org-export-latex-listings t)
