@@ -361,6 +361,8 @@
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
 (setq org-publish-project-alist
       '( ("paper"
           :base-directory "~/Documents/Dropbox/Org"

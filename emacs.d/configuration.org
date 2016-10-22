@@ -728,6 +728,11 @@ And to use the =latexmk= process to generate the PDF files
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 #+END_SRC
 
+In order to see the rendered LaTeX equations scaled
+#+BEGIN_SRC emacs-lisp
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+#+END_SRC
+
 *** Publishing projects
 
 #+BEGIN_SRC emacs-lisp
