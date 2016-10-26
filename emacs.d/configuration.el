@@ -145,6 +145,7 @@
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
 
 (global-set-key "\C-cl" 'org-store-link) 
 (global-set-key "\C-ca" 'org-agenda)
@@ -304,7 +305,8 @@
       org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
       org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
 
-(setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+(setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib"
+      bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
 
 (setq  helm-bibtex-pdf-field "file")
 (setq helm-bibtex-pdf-open-function
@@ -314,6 +316,8 @@
 (require 'org-ref-arxiv)
 
 (require 'org-ref-isbn)
+
+(require 'org-ref-latex)
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
