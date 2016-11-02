@@ -780,13 +780,32 @@ See the [[https://github.com/stakemori/sage-shell-mode][github web-page]] for de
 (setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
 #+END_SRC
 
-** Run SageMath by =M-x run-sage= instead of =M-x sage-shell:run-sage=
+** Define aliases
+
+Run SageMath by =M-x run-sage= instead of =M-x sage-shell:run-sage=
 
 #+BEGIN_SRC emacs-lisp
 (sage-shell:define-alias)
 ;; Turn on eldoc-mode
 (add-hook 'sage-shell-mode-hook #'eldoc-mode)
 (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
+#+END_SRC
+
+** Completion mode for Sage
+
+#+BEGIN_SRC emacs-lisp
+(setq sage-shell:completion-function 'pcomplete)
+#+END_SRC
+
+** Using =helm-sage=
+
+#+BEGIN_SRC emacs-lisp
+(eval-after-load "sage-shell-mode" 
+  '(sage-shell:define-keys sage-shell-mode-map 
+    "C-c C-i" 'helm-sage-complete 
+    "C-c C-h" 'helm-sage-describe-object-at-point 
+    "M-r" 'helm-sage-command-history 
+    "C-c o" 'helm-sage-output-history))
 #+END_SRC
 
 * Settings of =sage-mode=
