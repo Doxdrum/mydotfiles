@@ -1,5 +1,5 @@
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives 
              '("org" . "http://orgmode.org/elpa/") t)
 
@@ -32,15 +32,15 @@
   "Increase current font size by a factor of `hrs/font-change-increment'."
   (interactive)
   (setq hrs/current-font-size
-        (ceiling (* hrs/current-font-size hrs/font-change-increment)))
+	(ceiling (* hrs/current-font-size hrs/font-change-increment)))
   (hrs/set-font-size))
 
 (defun hrs/decrease-font-size ()
   "Decrease current font size by a factor of `hrs/font-change-increment', down to a minimum size of 1."
   (interactive)
   (setq hrs/current-font-size
-        (max 1
-             (floor (/ hrs/current-font-size hrs/font-change-increment))))
+	(max 1
+	     (floor (/ hrs/current-font-size hrs/font-change-increment))))
   (hrs/set-font-size))
 
 (define-key global-map (kbd "C-)") 'hrs/reset-font-size)
@@ -171,6 +171,7 @@
 
 (setq org-src-window-setup 'current-window)
 
+;;(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
   '((R . t) 
     (emacs-lisp . t) 
@@ -182,6 +183,8 @@
     (ledger . t)
     (org . t)
     (octave . t)
+    (ipython . t)
+    (mathematica . t)
 ))
 
 (setq org-confirm-babel-evaluate nil)
@@ -384,13 +387,6 @@
 (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
 
 (setq sage-shell:completion-function 'pcomplete)
-
-(eval-after-load "sage-shell-mode" 
-  '(sage-shell:define-keys sage-shell-mode-map 
-    "C-c C-i" 'helm-sage-complete 
-    "C-c C-h" 'helm-sage-describe-object-at-point 
-    "M-r" 'helm-sage-command-history 
-    "C-c o" 'helm-sage-output-history))
 
 ;; Ob-sagemath supports only evaluating with a session.
 (setq org-babel-default-header-args:sage '((:session . t)
