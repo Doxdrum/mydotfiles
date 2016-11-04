@@ -9,7 +9,7 @@
              '("org" . "http://orgmode.org/elpa/") t)
 #+END_SRC
   
-* GUI
+* GUI 
 
 ** Do not show splash screen, scroll bar nor tool bar
 #+begin_src emacs-lisp
@@ -303,7 +303,7 @@ Indent with 2 spaces.
 
  #+BEGIN_SRC emacs-lisp
  (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
- (add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
+ (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
  #+END_SRC
 
 *** Key bindings
@@ -363,6 +363,7 @@ new one (which shows the same information).
 Active Babel languages:
 
 #+BEGIN_SRC emacs-lisp
+;;(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
   '((R . t) 
     (emacs-lisp . t) 
@@ -374,6 +375,8 @@ Active Babel languages:
     (ledger . t)
     (org . t)
     (octave . t)
+    (ipython . t)
+    (mathematica . t)
 ))
 #+END_SRC
 
@@ -754,7 +757,7 @@ And to use the =latexmk= process to generate the PDF files
 
 In order to see the rendered LaTeX equations scaled
 #+BEGIN_SRC emacs-lisp
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 #+END_SRC
 
 *** Publishing projects
@@ -795,17 +798,6 @@ Run SageMath by =M-x run-sage= instead of =M-x sage-shell:run-sage=
 
 #+BEGIN_SRC emacs-lisp
 (setq sage-shell:completion-function 'pcomplete)
-#+END_SRC
-
-** Using =helm-sage=
-
-#+BEGIN_SRC emacs-lisp
-(eval-after-load "sage-shell-mode" 
-  '(sage-shell:define-keys sage-shell-mode-map 
-    "C-c C-i" 'helm-sage-complete 
-    "C-c C-h" 'helm-sage-describe-object-at-point 
-    "M-r" 'helm-sage-command-history 
-    "C-c o" 'helm-sage-output-history))
 #+END_SRC
 
 ** Configuration of =ob-sagemath=

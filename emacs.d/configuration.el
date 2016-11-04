@@ -145,7 +145,7 @@
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
 
 (global-set-key "\C-cl" 'org-store-link) 
 (global-set-key "\C-ca" 'org-agenda)
@@ -368,7 +368,7 @@
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 
 (setq org-publish-project-alist
       '( ("paper"
