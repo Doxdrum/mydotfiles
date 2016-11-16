@@ -1,0 +1,2 @@
+machine imap.gmail.com login o.castillo.felisola@gmail.com port imaps
+machine smtp.gmail.com login o.castillo.felisola@gmail.com port 587
