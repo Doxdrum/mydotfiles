@@ -129,6 +129,8 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
 
+
+
 (setq python-indent 2)
 
 (add-hook 'sh-mode-hook
@@ -349,6 +351,7 @@
 (setq org-export-latex-listings t)
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
+(add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (setq org-latex-listings-langs
       (quote ((emacs-lisp "Lisp")
               (lisp "Lisp")
@@ -371,6 +374,11 @@
               (sql "SQL")
               (sqlite "sql")
               (R-mode "R"))))
+
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+
+(setq org-latex-create-formula-image-program 'imagemagick)
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
 

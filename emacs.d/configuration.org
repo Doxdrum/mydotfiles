@@ -258,6 +258,14 @@ assigning a keybinding
 (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
 #+END_SRC
 
+** Extra features of =dired=
+
+I've installed =dired+= and =dired-k=
+
+#+BEGIN_SRC emacs-lisp
+
+#+END_SRC
+
 * Programming Languages 
 
 ** Python
@@ -730,13 +738,14 @@ to LaTeX
 
 *** LaTeX export process
 
-I want to add the package =listings= to the LaTeX export
+I want to add the packages =listings=, =xcolor= and =tikz= to the LaTeX export
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-latex)
 (setq org-export-latex-listings t)
 (add-to-list 'org-latex-packages-alist '("" "listings"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
+(add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (setq org-latex-listings-langs
       (quote ((emacs-lisp "Lisp")
               (lisp "Lisp")
@@ -760,6 +769,14 @@ I want to add the package =listings= to the LaTeX export
               (sqlite "sql")
               (R-mode "R"))))
 #+END_SRC
+
+In order to preview =tikz= plots
+#+begin_src emacs-lisp
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
+
+(setq org-latex-create-formula-image-program 'imagemagick)
+#+end_src
 
 And to use the =latexmk= process to generate the PDF files
 

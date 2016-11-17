@@ -423,6 +423,20 @@ REDIRECT-URL is where the pdf url will be in."
             (when (re-search-forward "<frame src=\"\\(http[[:ascii:]]*?\\)\"" nil t)
               (match-string 1))))))))
 
+;; At least some IEEE papers need the following new pdf-link parsing
+;; Example: 10.1109/35.667413
+(defun ieee2-pdf-url (*doi-utils-redirect*)
+  "Get a url to the pdf from *DOI-UTILS-REDIRECT* for IEEE urls."
+  (when (string-match "^http://ieeexplore.ieee.org" *doi-utils-redirect*)
+    (with-current-buffer (url-retrieve-synchronously *doi-utils-redirect*)
+      (goto-char (point-min))
+      (when (re-search-forward "\"pdfUrl\":\"\\([[:ascii:]]*?\\)\"" nil t)
+    (let ((framed-url (match-string 1)))
+          (with-current-buffer (url-retrieve-synchronously (concat "http://ieeexplore.ieee.org" framed-url))
+            (goto-char (point-min))
+            (when (re-search-forward "<frame src=\"\\(http[[:ascii:]]*?\\)\"" nil t)
+              (match-string 1))))))))
+
 ;; ACM Digital Library
 ;; http://dl.acm.org/citation.cfm?doid=1368088.1368132
 ;; <a name="FullTextPDF" title="FullText PDF" href="ft_gateway.cfm?id=1368132&ftid=518423&dwn=1&CFID=766519780&CFTOKEN=49739320" target="_blank">
@@ -460,6 +474,7 @@ REDIRECT-URL is where the pdf url will be in."
        'sage-pdf-url
        'jneurosci-pdf-url
        'ieee-pdf-url
+       'ieee2-pdf-url
        'acm-pdf-url
        'generic-full-pdf-url))
 
@@ -1063,21 +1078,37 @@ Argument LINK-STRING Passed in on link click."
         2)
        link-string))))
 
-(org-add-link-type
- "doi"
- 'doi-link-menu
- (lambda (doi desc format)
-   (cond
-    ((eq format 'html)
-     (format "<a href=\"%s%s\">%s</a>"
-	     doi-utils-dx-doi-org-url
-             doi
-             (or desc (concat "doi:" doi))))
-    ((eq format 'latex)
-     (format "\\href{%s%s}{%s}"
-	     doi-utils-dx-doi-org-url
-             doi
-             (or desc (concat "doi:" doi)))))))
+(if (fboundp 'org-link-set-parameters)
+    (org-link-set-parameters
+     "doi"
+     :follow #'doi-link-menu
+     :export (lambda (doi desc format)
+	       (cond
+		((eq format 'html)
+		 (format "<a href=\"%s%s\">%s</a>"
+			 doi-utils-dx-doi-org-url
+			 doi
+			 (or desc (concat "doi:" doi))))
+		((eq format 'latex)
+		 (format "\\href{%s%s}{%s}"
+			 doi-utils-dx-doi-org-url
+			 doi
+			 (or desc (concat "doi:" doi)))))))
+  (org-add-link-type
+   "doi"
+   'doi-link-menu
+   (lambda (doi desc format)
+     (cond
+      ((eq format 'html)
+       (format "<a href=\"%s%s\">%s</a>"
+	       doi-utils-dx-doi-org-url
+	       doi
+	       (or desc (concat "doi:" doi))))
+      ((eq format 'latex)
+       (format "\\href{%s%s}{%s}"
+	       doi-utils-dx-doi-org-url
+	       doi
+	       (or desc (concat "doi:" doi))))))))
 
 
 ;;* Getting a doi for a bibtex entry missing one
