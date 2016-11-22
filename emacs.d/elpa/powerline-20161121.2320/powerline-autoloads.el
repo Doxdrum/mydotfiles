@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "powerline" "powerline.el" (22479 7489 539416
-;;;;;;  578000))
+;;;### (autoloads nil "powerline" "powerline.el" (22580 29645 575652
+;;;;;;  272000))
 ;;; Generated autoloads from powerline.el
 
 (autoload 'powerline-hud "powerline" "\
@@ -47,8 +47,8 @@ Return empty space using FACE and leaving RESERVE space on the right.
 
 ;;;***
 
-;;;### (autoloads nil "powerline-themes" "powerline-themes.el" (22479
-;;;;;;  7489 279416 582000))
+;;;### (autoloads nil "powerline-themes" "powerline-themes.el" (22580
+;;;;;;  29645 327652 282000))
 ;;; Generated autoloads from powerline-themes.el
 
 (autoload 'powerline-default-theme "powerline-themes" "\
@@ -74,7 +74,7 @@ Setup a nano-like mode-line.
 ;;;***
 
 ;;;### (autoloads nil nil ("powerline-pkg.el" "powerline-separators.el")
-;;;;;;  (22479 7489 820657 488000))
+;;;;;;  (22580 29645 864401 729000))
 
 ;;;***
 
