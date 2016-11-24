@@ -313,6 +313,7 @@
 (setq org-image-actual-width nil)
 
 (global-unset-key (kbd "C-c ["))
+
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -397,6 +398,8 @@
           :publishing-function org-latex-publish-to-pdf)
          )
       )
+
+(pdf-tools-install)
 
 (setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
 

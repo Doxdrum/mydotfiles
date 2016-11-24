@@ -630,6 +630,7 @@ I followed the simple configuration settings
 
 #+BEGIN_SRC emacs-lisp
 (global-unset-key (kbd "C-c ["))
+
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -809,6 +810,12 @@ In order to see the rendered LaTeX equations scaled
           :publishing-function org-latex-publish-to-pdf)
          )
       )
+#+END_SRC
+
+* Activating =PDF-tools=
+
+#+BEGIN_SRC emacs-lisp
+(pdf-tools-install)
 #+END_SRC
 
 * Settings for =sage-shell-mode=
