@@ -112,7 +112,7 @@ when programming.
         calendar-location-name "Valparaiso, CHILE")
 #+END_SRC
 
-* Functionality
+* Functionalities
 
 ** Save backups on a folder
 
@@ -120,7 +120,7 @@ when programming.
 (setq backup-directory-alist '(("." . "/home/oscar/mydotfiles/emacs.d/backups")))
 #+END_SRC
 
-** Sellects the dictionary
+** Selects the dictionary
 
 #+begin_src emacs-lisp
 (ispell-change-dictionary "british" t)
@@ -144,6 +144,15 @@ when programming.
 #+begin_src emacs-lisp
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (setq-default indent-tabs-mode t)
+#+end_src
+
+** Configuration of =smex=
+
+#+begin_src emacs-lisp 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 #+end_src
 
 ** Highlight text selection, bracket match, and expression within

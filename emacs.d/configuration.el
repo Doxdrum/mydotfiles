@@ -76,6 +76,11 @@
 (define-key global-map (kbd "RET") 'newline-and-indent)
 (setq-default indent-tabs-mode t)
 
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 (transient-mark-mode 1)
 (show-paren-mode 1)
 (setq show-paren-style 'expression)
