@@ -338,6 +338,9 @@
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
+(require 'calfw)
+(require 'calfw-org)
+
 (require 'org-gcal) 
 (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
       org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
@@ -400,6 +403,13 @@
       )
 
 (pdf-tools-install)
+
+(require 'google-contacts)
+(require 'google-contacts-gnus)
+;; (require 'google-contacts-message) ; for message-mode (not yet installed)
+
+;(auth-source-save-behavior nil)
+;(send-mail-function (quote smtpmail-send-it))
 
 (setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
 

@@ -709,9 +709,9 @@ search window). All comments above apply also to opening the notes.
 
 From [[http://iflysib14.iflysib.unlp.edu.ar/tomas/en/blog/reference-management.html][this page]]
 
-** configure =org-gcal=
+** configure =org-gcal= and =calfw=
 
-The package =ORG-GCAL= must be installed from MELPA.
+Both packages must be installed from MELPA: =calfw= and =org-gcal=
 
 Change the dropbox path
 
@@ -719,6 +719,9 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
 [[https://github.com/myuhe/org-gcal.el]]
 
 #+BEGIN_SRC emacs-lisp
+(require 'calfw)
+(require 'calfw-org)
+
 (require 'org-gcal) 
 (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
       org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
@@ -816,6 +819,24 @@ In order to see the rendered LaTeX equations scaled
 
 #+BEGIN_SRC emacs-lisp
 (pdf-tools-install)
+#+END_SRC
+
+* =Google-contacts=
+
+From [[https://julien.danjou.info/projects/emacs-packages#google-contacts][Julien's webpage]]
+
+#+BEGIN_SRC emacs-lisp
+(require 'google-contacts)
+(require 'google-contacts-gnus)
+;; (require 'google-contacts-message) ; for message-mode (not yet installed)
+#+END_SRC
+
+After you run =M-x google-contacts= the first time, this lines are
+added to your =init= file. I move them here.
+
+#+BEGIN_SRC emacs-lisp
+;(auth-source-save-behavior nil)
+;(send-mail-function (quote smtpmail-send-it))
 #+END_SRC
 
 * Settings for =sage-shell-mode=
