@@ -313,11 +313,21 @@ Indent with 2 spaces.
                           "dmath" "dmath*" "split"))
 #+END_SRC
 
-** Magit
+** Magit and magithub
 
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
+
+Magithub can be installed from =MELPA= repository, and needs to be
+called after =magit=
+
+#+BEGIN_SRC emacs-lisp
+(use-package magithub
+  :after magit)
+#+END_SRC
+
+It's integrated into =magit= workflow, and it is called with ~H~
 
 * Org-mode configuration
 

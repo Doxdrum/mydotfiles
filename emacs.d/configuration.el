@@ -154,6 +154,9 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(use-package magithub
+  :after magit)
+
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
 
