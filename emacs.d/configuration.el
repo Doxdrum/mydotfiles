@@ -366,7 +366,8 @@
 
 (require 'ox-latex)
 (setq org-export-latex-listings t)
-(add-to-list 'org-latex-packages-alist '("" "listings"))
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
 (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (setq org-latex-listings-langs
@@ -397,7 +398,8 @@
 
 (setq org-latex-create-formula-image-program 'imagemagick)
 
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"
+				  "latexmk -c %f"))
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 

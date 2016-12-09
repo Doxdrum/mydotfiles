@@ -766,12 +766,13 @@ to LaTeX
 
 *** LaTeX export process
 
-I want to add the packages =listings=, =xcolor= and =tikz= to the LaTeX export
+I want to add the packages +listings+, =minted=, =xcolor= and =tikz= to the LaTeX export
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-latex)
 (setq org-export-latex-listings t)
-(add-to-list 'org-latex-packages-alist '("" "listings"))
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
 (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (setq org-latex-listings-langs
@@ -809,7 +810,8 @@ In order to preview =tikz= plots
 And to use the =latexmk= process to generate the PDF files
 
 #+BEGIN_SRC emacs-lisp
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"
+				  "latexmk -c %f"))
 #+END_SRC
 
 In order to see the rendered LaTeX equations scaled
