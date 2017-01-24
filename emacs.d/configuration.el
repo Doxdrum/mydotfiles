@@ -317,6 +317,7 @@
 
 (global-unset-key (kbd "C-c ["))
 
+(setq org-ref-completion-library 'org-ref-ivy-cite)
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -413,6 +414,9 @@
       )
 
 (pdf-tools-install)
+
+;; (setq auto-revert-interval 0.5)
+;; (auto-revert-set-timer)
 
 (require 'google-contacts)
 (require 'google-contacts-gnus)

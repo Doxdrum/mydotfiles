@@ -641,6 +641,7 @@ I followed the simple configuration settings
 #+BEGIN_SRC emacs-lisp
 (global-unset-key (kbd "C-c ["))
 
+(setq org-ref-completion-library 'org-ref-ivy-cite)
 (require 'org-ref)
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
@@ -836,6 +837,14 @@ In order to see the rendered LaTeX equations scaled
 
 #+BEGIN_SRC emacs-lisp
 (pdf-tools-install)
+#+END_SRC
+
+Revert buffer after it has changed
+[[https://github.com/politza/pdf-tools/issues/25][From the github page]]
+
+#+BEGIN_SRC emacs-lisp
+;; (setq auto-revert-interval 0.5)
+;; (auto-revert-set-timer)
 #+END_SRC
 
 * =Google-contacts=
