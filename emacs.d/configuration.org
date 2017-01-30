@@ -632,11 +632,27 @@ attribute assigned to it.
 Notice that one can set a fixed width by changing =nil= to ='(700)=
 where the number indicated the width in pixels
 
-** =org-ref=
+** =org-ref= and =ivy-bibtex=
 
-The main code is hosted at [[https://github.com/jkitchin/org-ref]]
+The main codes are hosted at [[https://github.com/jkitchin/org-ref]] and
+[[https://github.com/tmalsburg/helm-bibtex][https://github.com/tmalsburg/helm-bibtex]], were the configuration can
+be found.
 
-I followed the simple configuration settings
+For =ivy-bibtex= I found this configuration on [[http://nasseralkmim.github.io/blog/2016/08/21/my-latex-environment/#org7788824][this post]]
+#+BEGIN_SRC emacs-lisp
+(use-package ivy-bibtex
+  :ensure t
+  :config
+  (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+  (setq bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+
+  ;; using bibtex path reference to pdf file
+  (setq bibtex-completion-pdf-field "File")
+
+  (setq ivy-bibtex-default-action 'bibtex-completion-insert-citation))
+#+END_SRC
+
+For =org-ref= I followed the simple configuration settings
 
 #+BEGIN_SRC emacs-lisp
 (global-unset-key (kbd "C-c ["))
@@ -656,7 +672,13 @@ I followed the simple configuration settings
 
 *** Opening the article's PDF
 
-From the helm-bibtex search window, one of the actions is to open the pdf. This relies on a link in the corresponding BiBTeX entry. When exporting from Zotero, the files are listed in a file field (there is no need to export both entries and files, since BetterBibTex will link directly to the Zotero attached file). You must tell helm-bibtex which field to look for. It will open all the specified files, by default in Emacs itself, but you can change this to another viewer as shown:
+From the helm-bibtex search window, one of the actions is to open the
+pdf. This relies on a link in the corresponding BiBTeX entry. When
+exporting from Zotero, the files are listed in a file field (there is
+no need to export both entries and files, since BetterBibTex will link
+directly to the Zotero attached file). You must tell helm-bibtex which
+field to look for. It will open all the specified files, by default in
+Emacs itself, but you can change this to another viewer as shown:
 
 #+BEGIN_SRC emacs-lisp
 (setq  helm-bibtex-pdf-field "file")

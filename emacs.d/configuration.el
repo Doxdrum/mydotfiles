@@ -315,6 +315,17 @@
 
 (setq org-image-actual-width nil)
 
+(use-package ivy-bibtex
+  :ensure t
+  :config
+  (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+  (setq bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+
+  ;; using bibtex path reference to pdf file
+  (setq bibtex-completion-pdf-field "File")
+
+  (setq ivy-bibtex-default-action 'bibtex-completion-insert-citation))
+
 (global-unset-key (kbd "C-c ["))
 
 (setq org-ref-completion-library 'org-ref-ivy-cite)
