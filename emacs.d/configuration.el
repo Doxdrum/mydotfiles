@@ -205,6 +205,15 @@
 
 (setq org-confirm-babel-evaluate nil)
 
+(use-package org
+  :defer t
+  :config 
+  (setq org-src-block-faces '(("emacs-lisp" (:background "DarkSlateGrey"))
+			      ("python" (:background "DarkOrange4"))
+			      ("ipython" (:background "AntiqueWhite4"))
+			      ("latex" (:background "MidnightBlue"))
+			      ("shell" (:background "DarkGreen")))))
+
 (setq org-log-done 'note)
 
 (setq org-directory "/home/oscar/Documents/Dropbox/Org")
