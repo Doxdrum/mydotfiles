@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "helm" "helm.el" (22680 33267 535940 826000))
+;;;### (autoloads nil "helm" "helm.el" (22681 35456 351993 395000))
 ;;; Generated autoloads from helm.el
 
 (autoload 'helm-define-multi-key "helm" "\
@@ -198,7 +198,7 @@ Enable/disable helm debugging from outside of helm session.
 ;;;***
 
 ;;;### (autoloads nil nil ("helm-core-pkg.el" "helm-lib.el" "helm-multi-match.el"
-;;;;;;  "helm-source.el") (22680 33267 940853 275000))
+;;;;;;  "helm-source.el") (22681 35456 688898 935000))
 
 ;;;***
 
