@@ -57,6 +57,7 @@
 
 (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
 (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
 (setq user-full-name "Oscar Castillo-Felisola"
       user-mail-address "o.castillo.felisola@gmail.com"
@@ -135,6 +136,13 @@
 (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
 
 
+
+(mapc (lambda (x)
+        (add-to-list 'completion-ignored-extensions x))
+      '(".aux" ".bbl" ".blg" ".exe"
+        ".log" ".meta" ".out" ".pyg"
+        ".synctex.gz" ".tdo" ".toc"
+        "-pkg.el" "_latexmk" ".fls"))
 
 (setq python-indent 2)
 

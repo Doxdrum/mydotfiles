@@ -140,10 +140,11 @@ Use the =diff-hl= package to highlight changed-and-uncommitted lines
 when programming.
 
 #+BEGIN_SRC emacs-lisp
-  (require 'diff-hl)
+(require 'diff-hl)
 
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 #+END_SRC
 
 * Set personal information
@@ -317,6 +318,18 @@ I've installed =dired+= and =dired-k=
 
 #+BEGIN_SRC emacs-lisp
 
+#+END_SRC
+
+** Improving =emacs= file name completion
+
+From the webpage [[http://endlessparentheses.com/improving-emacs-file-name-completion.html][endlessparentheses]]
+#+BEGIN_SRC emacs-lisp
+(mapc (lambda (x)
+        (add-to-list 'completion-ignored-extensions x))
+      '(".aux" ".bbl" ".blg" ".exe"
+        ".log" ".meta" ".out" ".pyg"
+        ".synctex.gz" ".tdo" ".toc"
+        "-pkg.el" "_latexmk" ".fls"))
 #+END_SRC
 
 * Programming Languages 
