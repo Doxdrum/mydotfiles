@@ -1,3 +1,4 @@
+
 #+TITLE: Emacs configuration
 
 * Before starting:
@@ -912,6 +913,48 @@ And to use the =latexmk= process to generate the PDF files
 In order to see the rendered LaTeX equations scaled
 #+BEGIN_SRC emacs-lisp
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+#+END_SRC
+
+**** Exporting classes
+
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :defer t
+  :config
+  (use-package ox-latex
+    :defer 5
+    :config
+    (add-to-list 'org-latex-classes
+		 '("book"
+		   "\\documentclass{book}"
+		   ("\\part{%s}" . "\\part*{%s}")
+		   ("\\chapter{%s}" . "\\chapter*{%s}")
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+		 )
+
+    (add-to-list 'org-latex-classes
+		 '("report"
+		   "\\documentclass{report}"
+		   ("\\part{%s}" . "\\part*{%s}")
+		   ("\\chapter{%s}" . "\\chapter*{%s}")
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+		 )
+
+    ;; (add-to-list 'org-latex-classes
+    ;; 		 '("usm-thesis"
+    ;; 		   "\\documentclass{usm-thesis}"
+    ;; 		   ("\\part{%s}" . "\\part*{%s}")
+    ;; 		   ("\\chapter{%s}" . "\\chapter*{%s}")
+    ;; 		   ("\\section{%s}" . "\\section*{%s}")
+    ;; 		   ("\\subsection{%s}" . "\\subsection*{%s}")
+    ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+    ;; 		 )
+    )
+  )
 #+END_SRC
 
 *** Publishing projects

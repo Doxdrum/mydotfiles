@@ -432,6 +432,44 @@
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 
+(use-package org
+  :defer t
+  :config
+  (use-package ox-latex
+    :defer 5
+    :config
+    (add-to-list 'org-latex-classes
+		 '("book"
+		   "\\documentclass{book}"
+		   ("\\part{%s}" . "\\part*{%s}")
+		   ("\\chapter{%s}" . "\\chapter*{%s}")
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+		 )
+
+    (add-to-list 'org-latex-classes
+		 '("report"
+		   "\\documentclass{report}"
+		   ("\\part{%s}" . "\\part*{%s}")
+		   ("\\chapter{%s}" . "\\chapter*{%s}")
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+		 )
+
+    ;; (add-to-list 'org-latex-classes
+    ;; 		 '("usm-thesis"
+    ;; 		   "\\documentclass{usm-thesis}"
+    ;; 		   ("\\part{%s}" . "\\part*{%s}")
+    ;; 		   ("\\chapter{%s}" . "\\chapter*{%s}")
+    ;; 		   ("\\section{%s}" . "\\section*{%s}")
+    ;; 		   ("\\subsection{%s}" . "\\subsection*{%s}")
+    ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+    ;; 		 )
+    )
+  )
+
 (setq org-publish-project-alist
       '( ("paper"
           :base-directory "~/Documents/Dropbox/Org"
