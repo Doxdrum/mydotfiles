@@ -513,3 +513,7 @@
 
 (setq paradox-github-token "c9b5c0c7c8ec912862ce5da3b186722a661aa914")
 (setq paradox-automatically-star t)
+
+(custom-set-variables
+ '(paperless-capture-directory "/home/oscar/Documents/SCANS/")
+ '(paperless-root-directory "/home/oscar/Documents/Dropbox/"))
