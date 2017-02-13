@@ -446,14 +446,40 @@
 ;; (setq auto-revert-interval 0.5)
 ;; (auto-revert-set-timer)
 
+(defun prelude-google ()
+  "Googles a region, if any, or prompts for a Google search string."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google: ")))))
+; (global-set-key (kbd "C-x C-g") 'prelude-google)
+(global-set-key (kbd "M-g M-g") 'prelude-google)
+;; (global-set-key (kbd "M-g g")   'prelude-google)
+
+(defun google-scholar ()
+  "Googles a region, if any, or prompts for a Google search string."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/scholar?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google Scholar: ")))))
+
+(global-set-key (kbd "M-g M-s") 'google-scholar)
+;; (global-set-key (kbd "M-g s")   'google-scholar)
+
 (require 'google-contacts)
-(require 'google-contacts-gnus)
+;; (require 'google-contacts-gnus)
 ;; (require 'google-contacts-message) ; for message-mode (not yet installed)
 
 ;(auth-source-save-behavior nil)
 ;(send-mail-function (quote smtpmail-send-it))
 
-(setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
+(setq sage-shell:sage-executable "/home/oscar/Software/SageMath/sage")
 
 (sage-shell:define-alias)
 ;; Turn on eldoc-mode

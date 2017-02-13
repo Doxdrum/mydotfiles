@@ -941,13 +941,46 @@ Revert buffer after it has changed
 ;; (auto-revert-set-timer)
 #+END_SRC
 
-* =Google-contacts=
+* =Google=
+
+** Search on =google= and =scholar-google=
+
+#+BEGIN_SRC emacs-lisp
+(defun prelude-google ()
+  "Googles a region, if any, or prompts for a Google search string."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google: ")))))
+; (global-set-key (kbd "C-x C-g") 'prelude-google)
+(global-set-key (kbd "M-g M-g") 'prelude-google)
+;; (global-set-key (kbd "M-g g")   'prelude-google)
+
+(defun google-scholar ()
+  "Googles a region, if any, or prompts for a Google search string."
+  (interactive)
+  (browse-url
+   (concat
+    "http://www.google.com/scholar?ie=utf-8&oe=utf-8&q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Google Scholar: ")))))
+
+(global-set-key (kbd "M-g M-s") 'google-scholar)
+;; (global-set-key (kbd "M-g s")   'google-scholar)
+
+#+END_SRC
+
+** =Google-contacts=
 
 From [[https://julien.danjou.info/projects/emacs-packages#google-contacts][Julien's webpage]]
 
 #+BEGIN_SRC emacs-lisp
 (require 'google-contacts)
-(require 'google-contacts-gnus)
+;; (require 'google-contacts-gnus)
 ;; (require 'google-contacts-message) ; for message-mode (not yet installed)
 #+END_SRC
 
@@ -966,7 +999,7 @@ See the [[https://github.com/stakemori/sage-shell-mode][github web-page]] for de
 ** Path to the executable file
 
 #+BEGIN_SRC emacs-lisp
-(setq sage-shell:sage-executable "/home/oscar/Software/sage/sage")
+(setq sage-shell:sage-executable "/home/oscar/Software/SageMath/sage")
 #+END_SRC
 
 ** Define aliases
@@ -1063,6 +1096,8 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
 #+END_SRC
 
 * Configuration of =paperless=
+
+[[https://github.com/atgreen/paperless][Github page!]]
 
 #+BEGIN_SRC emacs-lisp
 (custom-set-variables
