@@ -160,6 +160,12 @@ when programming.
 
 * Functionalities
 
+** Set =y/n=
+
+#+BEGIN_SRC emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
 ** Save backups on a folder
 
 #+BEGIN_SRC emacs-lisp

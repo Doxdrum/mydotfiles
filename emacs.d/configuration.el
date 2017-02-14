@@ -65,6 +65,8 @@
       calendar-longitude -71.51
       calendar-location-name "Valparaiso, CHILE")
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (setq backup-directory-alist '(("." . "/home/oscar/mydotfiles/emacs.d/backups")))
 
 (ispell-change-dictionary "british" t)
