@@ -55,6 +55,12 @@
   
 * GUI 
 
+** The file name and the major mode as window name
+
+#+BEGIN_SRC emacs-lisp
+(setq-default frame-title-format '("%f [%m]"))
+#+END_SRC
+
 ** Do not show splash screen, scroll bar nor tool bar
 #+begin_src emacs-lisp
 (setq inhibit-splash-screen t)
@@ -740,7 +746,7 @@ For =org-ref= I followed the simple configuration settings
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
 
-(setq org-ref-bibliography-notes"/home/oscar/Documents/Dropbox/Org/RefNotes.org"
+(setq org-ref-bibliography-notes "/home/oscar/Documents/Dropbox/Org/RefNotes.org"
       org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
       org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
 

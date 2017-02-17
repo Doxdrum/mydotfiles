@@ -3,6 +3,8 @@
 (add-to-list 'package-archives 
              '("org" . "http://orgmode.org/elpa/") t)
 
+(setq-default frame-title-format '("%f [%m]"))
+
 (setq inhibit-splash-screen t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -352,7 +354,7 @@
 
 (setq reftex-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib"))
 
-(setq org-ref-bibliography-notes"/home/oscar/Documents/Dropbox/Org/RefNotes.org"
+(setq org-ref-bibliography-notes "/home/oscar/Documents/Dropbox/Org/RefNotes.org"
       org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
       org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
 
