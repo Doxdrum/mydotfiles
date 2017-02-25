@@ -317,7 +317,7 @@
               ("m" "Meeting" entry (file "~/Documents/Dropbox/Org/refile.org")
                "* MEETING with %? :MEETING:\n%U" )
               ("p" "Phone call" entry (file "~/Documents/Dropbox/Org/refile.org")
-               "* PHONE %? :PHONE:\n%U" )
+               "* PHONE %? :PHONE:\n%U\n" )
               ("h" "Habit" entry (file "~/Documents/Dropbox/Org/refile.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
 
