@@ -344,6 +344,35 @@ From the webpage [[http://endlessparentheses.com/improving-emacs-file-name-compl
         "-pkg.el" "_latexmk" ".fls"))
 #+END_SRC
 
+** Personal commands
+
+I defined the commands for adding inline equations and displaymode
+withing =org= and =LaTeX= modes.
+
+- Change to the =*scratch*= buffer
+- Use =F3= to start defining a macro
+- define your macro
+- Use =F4= to the definition
+- Use the command =M-x insert-kbd-macro RET RET= to insert the command
+  in your buffer.
+- Now you can give a name to it and add it to your =.emacs=
+
+*** Inline equation
+
+#+BEGIN_SRC emacs-lisp
+;; (setq ocf/inline-eq
+;;    [?\\ ?\( ?\\ ?\) ?\C-2 ?\C-b])
+;; (global-set-key (kbd "C-¿") 'ocf/inline-eq)
+#+END_SRC
+
+*** Display Math Mode
+
+#+BEGIN_SRC emacs-lisp
+;; (setq ocf/displaymode
+;;    [?\\ ?\[ return return ?\\ ?\] up])
+;; (global-set-key (kbd "C-¡") 'ocf/displaymode)
+#+END_SRC
+
 * Programming Languages 
 
 ** Python
@@ -728,7 +757,7 @@ For =ivy-bibtex= I found this configuration on [[http://nasseralkmim.github.io/b
   :ensure t
   :config
   (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
-  (setq bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+  (setq bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
   ;; using bibtex path reference to pdf file
   (setq bibtex-completion-pdf-field "File")
@@ -748,10 +777,10 @@ For =org-ref= I followed the simple configuration settings
 
 (setq org-ref-bibliography-notes "/home/oscar/Documents/Dropbox/Org/RefNotes.org"
       org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
-      org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
+      org-ref-pdf-directory "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
 (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib"
-      bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+      bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 #+END_SRC
 
 *** Opening the article's PDF

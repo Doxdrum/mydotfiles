@@ -148,6 +148,14 @@
         ".synctex.gz" ".tdo" ".toc"
         "-pkg.el" "_latexmk" ".fls"))
 
+;; (setq ocf/inline-eq
+;;    [?\\ ?\( ?\\ ?\) ?\C-2 ?\C-b])
+;; (global-set-key (kbd "C-¿") 'ocf/inline-eq)
+
+;; (setq ocf/displaymode
+;;    [?\\ ?\[ return return ?\\ ?\] up])
+;; (global-set-key (kbd "C-¡") 'ocf/displaymode)
+
 (setq python-indent 2)
 
 (add-hook 'sh-mode-hook
@@ -340,7 +348,7 @@
   :ensure t
   :config
   (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
-  (setq bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+  (setq bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
   ;; using bibtex path reference to pdf file
   (setq bibtex-completion-pdf-field "File")
@@ -356,10 +364,10 @@
 
 (setq org-ref-bibliography-notes "/home/oscar/Documents/Dropbox/Org/RefNotes.org"
       org-ref-default-bibliography '("/home/oscar/Documents/LatexFiles/References.bib")
-      org-ref-pdf-directory "/home/oscar/Bibliography/bibtex-pdf/")
+      org-ref-pdf-directory "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
 (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib"
-      bibtex-completion-library-path "/home/oscar/Bibliography/bibtex-pdf/")
+      bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
 (setq  helm-bibtex-pdf-field "file")
 (setq helm-bibtex-pdf-open-function
