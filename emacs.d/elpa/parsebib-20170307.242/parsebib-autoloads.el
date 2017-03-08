@@ -1,9 +1,9 @@
 ;;; parsebib-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("parsebib.el") (22464 22922 978508 875000))
+;;;### (autoloads nil nil ("parsebib.el") (22719 55559 831987 181000))
 
 ;;;***
 

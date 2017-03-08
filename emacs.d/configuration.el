@@ -148,13 +148,15 @@
         ".synctex.gz" ".tdo" ".toc"
         "-pkg.el" "_latexmk" ".fls"))
 
-;; (setq ocf/inline-eq
-;;    [?\\ ?\( ?\\ ?\) ?\C-2 ?\C-b])
-;; (global-set-key (kbd "C-¿") 'ocf/inline-eq)
+(fset 'ocf/inline-eq
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([92 40 92 41 67108914 2] 0 "%d")) arg)))
 
-;; (setq ocf/displaymode
-;;    [?\\ ?\[ return return ?\\ ?\] up])
-;; (global-set-key (kbd "C-¡") 'ocf/displaymode)
+(global-set-key (kbd "C-¿") 'ocf/inline-eq)
+
+(fset 'ocf/displaymode
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([92 91 return return 92 93 16] 0 "%d")) arg)))
+
+(global-set-key (kbd "C-¡") 'ocf/displaymode)
 
 (setq python-indent 2)
 
@@ -446,7 +448,11 @@
 
 (setq org-latex-prefer-user-labels t)
 
+(require 'ox)
 (require 'ox-latex)
+(setq org-latex-create-formula-image-program 'imagemagick)
+;; (setq org-preview-latex-process-alist 'imagemagick)
+
 (setq org-export-latex-listings t)
 (setq org-latex-listings 'minted)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
@@ -477,8 +483,6 @@
 
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
-
-(setq org-latex-create-formula-image-program 'imagemagick)
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"
 				  "latexmk -c %f"))

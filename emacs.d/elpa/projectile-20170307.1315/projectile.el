@@ -4,7 +4,7 @@
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/projectile
-;; Package-Version: 20170225.2320
+;; Package-Version: 20170307.1315
 ;; Keywords: project, convenience
 ;; Version: 0.15.0-cvs
 ;; Package-Requires: ((pkg-info "0.4"))
@@ -2124,6 +2124,7 @@ a COMPILE-CMD, a TEST-CMD, and a RUN-CMD."
 (defvar-local projectile-project-type nil
   "Buffer local var for overriding the auto-detected project type.
 Normally you'd set this from .dir-locals.el.")
+(put 'projectile-project-type 'safe-local-variable #'symbolp)
 
 (defun projectile-detect-project-type ()
   "Detect the type of the current project."

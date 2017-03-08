@@ -1,9 +1,9 @@
 ;;; ivy-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ivy" "ivy.el" (22707 32000 585410 232000))
+;;;### (autoloads nil "ivy" "ivy.el" (22719 55553 703987 438000))
 ;;; Generated autoloads from ivy.el
 
 (autoload 'ivy-resume "ivy" "\
@@ -81,7 +81,8 @@ INHERIT-INPUT-METHOD is currently ignored.
 
 (defvar ivy-mode nil "\
 Non-nil if Ivy mode is enabled.
-See the command `ivy-mode' for a description of this minor mode.
+See the `ivy-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `ivy-mode'.")
@@ -115,7 +116,7 @@ Switch to another buffer in another window.
 ;;;***
 
 ;;;### (autoloads nil nil ("colir.el" "ivy-overlay.el" "ivy-pkg.el")
-;;;;;;  (22707 32000 732519 273000))
+;;;;;;  (22719 55553 443987 449000))
 
 ;;;***
 
