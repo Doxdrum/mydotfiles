@@ -25,3 +25,7 @@ PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 export EMAIL="o.castillo.felisola@gmail.com"
 export NAME="Oscar Castillo-Felisola"
 export SMTPSERVER="smtp.gmail.com"
+
+PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH

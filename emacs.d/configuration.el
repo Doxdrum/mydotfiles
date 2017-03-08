@@ -639,7 +639,7 @@
  '(paperless-capture-directory "/home/oscar/Documents/SCANS/")
  '(paperless-root-directory "/home/oscar/Documents/Dropbox/"))
 
-(global-set-key (kbd "s-<pause>") #'spotify-playpause)
-(global-set-key (kbd "s-M-<pause>") #'spotify-next)
+;;(global-set-key (kbd "s-<S>") #'spotify-playpause)
+;;(global-set-key (kbd "s-M-<pause>") #'spotify-next)
 
-(spotify-enable-song-notifications)
+;;(spotify-enable-song-notifications)
