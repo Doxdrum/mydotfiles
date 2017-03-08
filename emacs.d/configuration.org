@@ -1239,3 +1239,12 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
  '(paperless-capture-directory "/home/oscar/Documents/SCANS/")
  '(paperless-root-directory "/home/oscar/Documents/Dropbox/"))
 #+END_SRC
+
+* Spotify
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "s-<pause>") #'spotify-playpause)
+(global-set-key (kbd "s-M-<pause>") #'spotify-next)
+
+(spotify-enable-song-notifications)
+#+END_SRC
