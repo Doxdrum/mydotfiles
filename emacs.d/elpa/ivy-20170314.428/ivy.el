@@ -1767,7 +1767,7 @@ INHERIT-INPUT-METHOD is currently ignored."
       (ivy-read (replace-regexp-in-string "%" "%%" prompt)
                 collection
                 :predicate predicate
-                :require-match require-match
+                :require-match (and collection require-match)
                 :initial-input (if (consp initial-input)
                                    (car initial-input)
                                  (if (and (stringp initial-input)
@@ -1779,7 +1779,10 @@ INHERIT-INPUT-METHOD is currently ignored."
                 :history history
                 :keymap nil
                 :sort t
-                :caller this-command))))
+                :caller (cond ((called-interactively-p 'any)
+                               this-command)
+                              ((and collection (symbolp collection))
+                               collection))))))
 
 (defvar ivy-completion-beg nil
   "Completion bounds start.")

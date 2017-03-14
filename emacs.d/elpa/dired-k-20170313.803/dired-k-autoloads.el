@@ -1,10 +1,10 @@
 ;;; dired-k-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "dired-k" "dired-k.el" (22573 45277 360363
-;;;;;;  97000))
+;;;### (autoloads nil "dired-k" "dired-k.el" (22727 64285 599212
+;;;;;;  949000))
 ;;; Generated autoloads from dired-k.el
 
 (autoload 'dired-k-no-revert "dired-k" "\
@@ -20,8 +20,8 @@ This is inspired by `k' zsh script
 
 ;;;***
 
-;;;### (autoloads nil "direx-k" "direx-k.el" (22573 45277 432363
-;;;;;;  93000))
+;;;### (autoloads nil "direx-k" "direx-k.el" (22727 64285 683212
+;;;;;;  946000))
 ;;; Generated autoloads from direx-k.el
 
 (autoload 'direx-k "direx-k" "\
@@ -31,8 +31,8 @@ This is inspired by `k' zsh script
 
 ;;;***
 
-;;;### (autoloads nil nil ("dired-k-pkg.el") (22573 45277 711176
-;;;;;;  314000))
+;;;### (autoloads nil nil ("dired-k-pkg.el") (22727 64285 783212
+;;;;;;  942000))
 
 ;;;***
 

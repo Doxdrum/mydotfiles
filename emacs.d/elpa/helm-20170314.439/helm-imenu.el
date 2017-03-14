@@ -61,6 +61,20 @@ When nil all candidates are displayed in a single source."
   :type 'boolean
   :group 'helm-imenu)
 
+(defcustom helm-imenu-type-faces
+  '(("^Variables$" . font-lock-variable-name-face)
+    ("^\\(Function\\|Functions\\|Defuns\\)$" . font-lock-function-name-face)
+    ("^\\(Types\\|Provides\\|Requires\\|Classes\\|Includes\\|Imports\\|Misc\\|Code\\)$" . font-lock-type-face))
+  "Faces for showing type in helm-imenu.
+This is a list of cons cells.  The cdr of each cell is a face to be used,
+and it can also just be like \\='(:foreground \"yellow\").
+Each car is a regexp match pattern of the imenu type string."
+  :group 'helm-faces
+  :type '(repeat
+          (cons
+           (regexp :tag "Imenu type regexp pattern")
+           (sexp :tag "Face"))))
+
 
 ;;; keymap
 (defvar helm-imenu-map
@@ -231,7 +245,8 @@ When nil all candidates are displayed in a single source."
                         (setcdr elm (pcase (cdr elm) ; Same as [1].
                                       ((and ov (pred overlayp))
                                        (copy-overlay ov))
-                                      ((and mk (pred markerp))
+                                      ((and mk (or (pred markerp)
+                                                   (pred integerp)))
                                        (copy-marker mk))))
                         (list elm))))))
 
@@ -259,15 +274,10 @@ When nil all candidates are displayed in a single source."
         for disp1 = (mapconcat
                      (lambda (x)
                        (propertize
-                        x 'face (cond ((string= x "Variables")
-                                       'font-lock-variable-name-face)
-                                      ((member x '("Function" "Functions" "Defuns"))
-                                       'font-lock-function-name-face)
-                                      ((member x '("Types" "Provides"
-                                                   "Requires" "Classes"
-                                                   "Includes" "Imports"
-                                                   "Misc" "Code"))
-                                       'font-lock-type-face))))
+                        x 'face
+                        (cl-loop for (p . f) in helm-imenu-type-faces
+                                 when (string-match p x)
+                                 return f)))
                      types helm-imenu-delimiter)
         for disp = (propertize disp1 'help-echo bufname)
         collect

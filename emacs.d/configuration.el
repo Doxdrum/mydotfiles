@@ -172,12 +172,12 @@
                           "axis" "cases" "matrix" "pmatrix"
                           "vmatrix" "parts" "questions"
                           "solution" "Ebox" "WEbox" "widetext"
-                          "dmath" "dmath*" "split"))
+                          "dmath" "dmath*" "split" "cdbexample"
+			  "cdbexample*"))
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(use-package magithub
-  :after magit)
+(require 'magithub)
 
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
@@ -227,14 +227,15 @@
 
 (setq org-confirm-babel-evaluate nil)
 
-(use-package org
-  :defer t
-  :config 
-  (setq org-src-block-faces '(("emacs-lisp" (:background "DarkSlateGrey"))
-			      ("python" (:background "DarkOrange4"))
-			      ("ipython" (:background "AntiqueWhite4"))
-			      ("latex" (:background "MidnightBlue"))
-			      ("shell" (:background "DarkGreen")))))
+(setq org-src-block-faces '(("emacs-lisp" (:background "DarkSlateGrey"))
+			    ("python" (:background "DarkOrange4"))
+			    ("ipython" (:background "AntiqueWhite4"))
+			    ("latex" (:background "MidnightBlue"))
+			    ("shell" (:background "DarkGreen"))))
+
+(define-derived-mode cadabra-mode python-mode "cadabra"
+  ; make #a symbol constituent
+  (modify-syntax-entry ?# "_" cadabra-mode-syntax-table))
 
 (setq org-log-done 'note)
 
@@ -346,16 +347,15 @@
 
 (setq org-image-actual-width nil)
 
-(use-package ivy-bibtex
-  :ensure t
-  :config
-  (setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
-  (setq bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
+(require 'ivy-bibtex)
 
-  ;; using bibtex path reference to pdf file
-  (setq bibtex-completion-pdf-field "File")
+(setq bibtex-completion-bibliography "/home/oscar/Documents/LatexFiles/References.bib")
+(setq bibtex-completion-library-path "/home/oscar/Documents/Bibliography/bibtex-pdfs/")
 
-  (setq ivy-bibtex-default-action 'bibtex-completion-insert-citation))
+;; using bibtex path reference to pdf file
+(setq bibtex-completion-pdf-field "File")
+
+(setq ivy-bibtex-default-action 'bibtex-completion-insert-citation)
 
 (global-unset-key (kbd "C-c ["))
 
@@ -384,10 +384,10 @@
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
-;; (require 'calfw)
-;; (require 'calfw-org)
+(require 'calfw)
+(require 'calfw-org)
 
-;; (require 'org-gcal) 
+(require 'org-gcal) 
 ;; (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
 ;;       org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
 ;;       org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
@@ -400,44 +400,35 @@
 
 (setq package-check-signature nil)
 
-(use-package org-gcal
-  :ensure t
-  :config
-  (setq org-gcal-client-id "471626867829-v6jolihkoha5oiinftb5d7kksvr4ev3e.apps.googleusercontent.com"
-	org-gcal-client-secret "cFzd9lSj2R37Qr-Ln7P6o1Rm"
-	org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
+(setq org-gcal-client-id "471626867829-v6jolihkoha5oiinftb5d7kksvr4ev3e.apps.googleusercontent.com"
+      org-gcal-client-secret "cFzd9lSj2R37Qr-Ln7P6o1Rm"
+      org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
 			    ("ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Research Ideas
 			    ("mfrmolv12h6sjdfbo8iobd1h1o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Seminaries
 			    ("q6pkpsevenacdctgcj9dur1c8o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Lecture prep.
 			    ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Work meeting
-			      )))
+			    ))
 
 ;; (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
 ;; (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
 
-(use-package calfw
-  :ensure ;TODO: 
-  :config
-  (require 'calfw) 
-  (require 'calfw-org)
-  (setq cfw:org-overwrite-default-keybinding t)
-  (require 'calfw-ical)
+(require 'calfw) 
+(require 'calfw-org)
+(setq cfw:org-overwrite-default-keybinding t)
+(require 'calfw-ical)
 
-  ;; (defun mycalendar ()
-  ;;   (interactive)
-  ;;   (cfw:open-calendar-buffer
-  ;;    :contents-sources
-  ;;    (list
-  ;;     ;; (cfw:org-create-source "Green")  ; orgmode source
-  ;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/aetptsksd2rroqmq5ealbd9oec%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Personal calender
-  ;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/ok0q79kgahqiu6mkp7uplamahk%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Research ideas
-  ;;     ))) 
-  (setq cfw:org-overwrite-default-keybinding t))
+;; (defun mycalendar ()
+;;   (interactive)
+;;   (cfw:open-calendar-buffer
+;;    :contents-sources
+;;    (list
+;;     ;; (cfw:org-create-source "Green")  ; orgmode source
+;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/aetptsksd2rroqmq5ealbd9oec%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Personal calender
+;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/ok0q79kgahqiu6mkp7uplamahk%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Research ideas
+;;     ))) 
+(setq cfw:org-overwrite-default-keybinding t)
 
-(use-package calfw-gcal
-	:ensure t
-	:config
-	(require 'calfw-gcal))
+(require 'calfw-gcal)
 
 (setq org-file-apps
       (quote
@@ -489,43 +480,38 @@
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 
-(use-package org
-  :defer t
-  :config
-  (use-package ox-latex
-    :defer 5
-    :config
-    (add-to-list 'org-latex-classes
-		 '("book"
-		   "\\documentclass{book}"
-		   ("\\part{%s}" . "\\part*{%s}")
-		   ("\\chapter{%s}" . "\\chapter*{%s}")
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-		 )
+(require 'ox-latex)
 
-    (add-to-list 'org-latex-classes
-		 '("report"
-		   "\\documentclass{report}"
-		   ("\\part{%s}" . "\\part*{%s}")
-		   ("\\chapter{%s}" . "\\chapter*{%s}")
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-		 )
+(add-to-list 'org-latex-classes
+	     '("book"
+	       "\\documentclass{book}"
+	       ("\\part{%s}" . "\\part*{%s}")
+	       ("\\chapter{%s}" . "\\chapter*{%s}")
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+	     )
 
-    ;; (add-to-list 'org-latex-classes
-    ;; 		 '("usm-thesis"
-    ;; 		   "\\documentclass{usm-thesis}"
-    ;; 		   ("\\part{%s}" . "\\part*{%s}")
-    ;; 		   ("\\chapter{%s}" . "\\chapter*{%s}")
-    ;; 		   ("\\section{%s}" . "\\section*{%s}")
-    ;; 		   ("\\subsection{%s}" . "\\subsection*{%s}")
-    ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
-    ;; 		 )
-    )
-  )
+(add-to-list 'org-latex-classes
+	     '("report"
+	       "\\documentclass{report}"
+	       ("\\part{%s}" . "\\part*{%s}")
+	       ("\\chapter{%s}" . "\\chapter*{%s}")
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+	     )
+
+;; (add-to-list 'org-latex-classes
+;; 		 '("usm-thesis"
+;; 		   "\\documentclass{usm-thesis}"
+;; 		   ("\\part{%s}" . "\\part*{%s}")
+;; 		   ("\\chapter{%s}" . "\\chapter*{%s}")
+;; 		   ("\\section{%s}" . "\\section*{%s}")
+;; 		   ("\\subsection{%s}" . "\\subsection*{%s}")
+;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+;; 		 )
+;; )
 
 (setq org-publish-project-alist
       '( ("paper"
@@ -587,9 +573,9 @@
 (setq org-babel-default-header-args:sage '((:session . t)
                                            (:results . "output")))
 
-;; C-c c for asynchronous evaluating (only for SageMath code blocks).
+;; C-c s for asynchronous evaluating (only for SageMath code blocks).
 (with-eval-after-load "org"
-  (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
+  (define-key org-mode-map (kbd "C-c s") 'ob-sagemath-execute-async))
 
 ;; Do not confirm before evaluation
 (setq org-confirm-babel-evaluate nil)

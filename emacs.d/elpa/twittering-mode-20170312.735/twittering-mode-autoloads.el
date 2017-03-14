@@ -1,10 +1,10 @@
 ;;; twittering-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "twittering-mode" "twittering-mode.el" (22707
-;;;;;;  32313 301423 197000))
+;;;### (autoloads nil "twittering-mode" "twittering-mode.el" (22726
+;;;;;;  46177 351510 697000))
 ;;; Generated autoloads from twittering-mode.el
 
 (autoload 'twit "twittering-mode" "\
