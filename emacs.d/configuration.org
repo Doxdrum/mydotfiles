@@ -1240,3 +1240,7 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
 
 (spotify-enable-song-notifications)
 #+END_SRC
+with the package =helm-spotify-plus=
+#+BEGIN_SRC emacs-lisp
+(require 'helm-spotify-plus)
+#+END_SRC
