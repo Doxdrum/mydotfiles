@@ -375,6 +375,11 @@ withing =org= and =LaTeX= modes.
 (global-set-key (kbd "C-¡") 'ocf/displaymode)
 #+END_SRC
 
+** =GNUS=
+
+#+BEGIN_SRC emacs-lisp
+(setq send-mail-function 'smtpmail-send-it)
+#+END_SRC
 * Programming Languages 
 
 ** Python
@@ -844,9 +849,9 @@ Make cites in LaTeX documents clickable, and with tooltips
 *** Notes
 
 With helm-bibtex one can link BibTeX entries to notes in an org-mode
-file. I use a single .org file for all bibliographic notes, which can
+file. I use a single =.org= file for all bibliographic notes, which can
 be accessed as one of the actions (press TAB) from the helm-bibtex
-search window. The file is specified in your .emacs with something
+search window. The file is specified in your =.emacs= with something
 like
 
 #+BEGIN_SRC emacs-lisp
@@ -1223,16 +1228,15 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
 [[https://github.com/atgreen/paperless][Github page!]]
 
 #+BEGIN_SRC emacs-lisp
-(custom-set-variables
- '(paperless-capture-directory "/home/oscar/Documents/SCANS/")
- '(paperless-root-directory "/home/oscar/Documents/Dropbox/"))
+(setq paperless-capture-directory "/home/oscar/Documents/SCANS/")
+(setq paperless-root-directory "/home/oscar/Documents/Dropbox/")
 #+END_SRC
 
 * Spotify
 
 #+BEGIN_SRC emacs-lisp
-;;(global-set-key (kbd "s-<S>") #'spotify-playpause)
-;;(global-set-key (kbd "s-M-<pause>") #'spotify-next)
+(global-set-key (kbd "s-<down>") #'spotify-playpause)
+(global-set-key (kbd "s-<right>") #'spotify-next)
 
-;;(spotify-enable-song-notifications)
+(spotify-enable-song-notifications)
 #+END_SRC

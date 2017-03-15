@@ -158,6 +158,8 @@
 
 (global-set-key (kbd "C-¡") 'ocf/displaymode)
 
+(setq send-mail-function 'smtpmail-send-it)
+
 (setq python-indent 2)
 
 (add-hook 'sh-mode-hook
@@ -621,11 +623,10 @@
 (setq paradox-github-token "c9b5c0c7c8ec912862ce5da3b186722a661aa914")
 (setq paradox-automatically-star t)
 
-(custom-set-variables
- '(paperless-capture-directory "/home/oscar/Documents/SCANS/")
- '(paperless-root-directory "/home/oscar/Documents/Dropbox/"))
+(setq paperless-capture-directory "/home/oscar/Documents/SCANS/")
+(setq paperless-root-directory "/home/oscar/Documents/Dropbox/")
 
-;;(global-set-key (kbd "s-<S>") #'spotify-playpause)
-;;(global-set-key (kbd "s-M-<pause>") #'spotify-next)
+(global-set-key (kbd "s-<down>") #'spotify-playpause)
+(global-set-key (kbd "s-<right>") #'spotify-next)
 
-;;(spotify-enable-song-notifications)
+(spotify-enable-song-notifications)
