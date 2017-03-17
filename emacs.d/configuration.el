@@ -630,3 +630,5 @@
 (global-set-key (kbd "s-<right>") #'spotify-next)
 
 (spotify-enable-song-notifications)
+
+(require 'helm-spotify-plus)
