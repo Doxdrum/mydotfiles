@@ -1,4 +1,4 @@
-(define-package "ivy-bibtex" "20170308.36" "A bibliography manager based on Ivy"
+(define-package "ivy-bibtex" "20170321.1306" "A bibliography manager based on Ivy"
   '((swiper "0.7.0")
     (parsebib "1.0")
     (s "1.9.0")

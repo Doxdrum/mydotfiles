@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "ivy-bibtex" "ivy-bibtex.el" (22720 13377 438748
-;;;;;;  247000))
+;;;### (autoloads nil "ivy-bibtex" "ivy-bibtex.el" (22738 14531 787776
+;;;;;;  762000))
 ;;; Generated autoloads from ivy-bibtex.el
 
 (autoload 'ivy-bibtex "ivy-bibtex" "\
@@ -26,7 +26,7 @@ reread.
 ;;;***
 
 ;;;### (autoloads nil nil ("bibtex-completion.el" "ivy-bibtex-pkg.el")
-;;;;;;  (22720 13377 294748 253000))
+;;;;;;  (22738 14531 723776 765000))
 
 ;;;***
 
