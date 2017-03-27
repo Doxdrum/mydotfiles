@@ -504,6 +504,14 @@
 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
 	     )
 
+(add-to-list 'org-latex-classes
+	     '("ws-mpla"
+	       "\\documentclass{ws-mpla}"
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+	     )
+
 ;; (add-to-list 'org-latex-classes
 ;; 		 '("usm-thesis"
 ;; 		   "\\documentclass{usm-thesis}"

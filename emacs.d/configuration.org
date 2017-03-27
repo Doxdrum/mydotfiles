@@ -1005,7 +1005,7 @@ In order to see the rendered LaTeX equations scaled
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 #+END_SRC
 
-**** Exporting classes
+*** Exporting classes
 
 #+BEGIN_SRC emacs-lisp
 (require 'ox-latex)
@@ -1025,6 +1025,14 @@ In order to see the rendered LaTeX equations scaled
 	       "\\documentclass{report}"
 	       ("\\part{%s}" . "\\part*{%s}")
 	       ("\\chapter{%s}" . "\\chapter*{%s}")
+	       ("\\section{%s}" . "\\section*{%s}")
+	       ("\\subsection{%s}" . "\\subsection*{%s}")
+	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
+	     )
+
+(add-to-list 'org-latex-classes
+	     '("ws-mpla"
+	       "\\documentclass{ws-mpla}"
 	       ("\\section{%s}" . "\\section*{%s}")
 	       ("\\subsection{%s}" . "\\subsection*{%s}")
 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
