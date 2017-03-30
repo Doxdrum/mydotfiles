@@ -627,7 +627,7 @@
 
 ;; ;; End .emacs
 
-(setq paradox-github-token "c9b5c0c7c8ec912862ce5da3b186722a661aa914")
+(setq paradox-github-token "8311678a7da07f0b250436cfcce5db58015a657a")
 (setq paradox-automatically-star t)
 
 (setq paperless-capture-directory "/home/oscar/Documents/SCANS/")
