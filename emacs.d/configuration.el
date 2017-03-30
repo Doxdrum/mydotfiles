@@ -477,8 +477,7 @@
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t))
 
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"
-				  "latexmk -c %f"))
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex -f %f"))
 
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
 

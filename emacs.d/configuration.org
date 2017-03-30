@@ -996,9 +996,9 @@ In order to preview =tikz= plots
 And to use the =latexmk= process to generate the PDF files
 
 #+BEGIN_SRC emacs-lisp
-(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"
-				  "latexmk -c %f"))
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex -f %f"))
 #+END_SRC
+add this after =%f"= :   "latexmk -c %f"
 
 In order to see the rendered LaTeX equations scaled
 #+BEGIN_SRC emacs-lisp
