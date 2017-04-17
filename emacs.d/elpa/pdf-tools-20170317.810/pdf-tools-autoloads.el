@@ -3,9 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "pdf-annot" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el"
+;;;### (autoloads nil "pdf-annot" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el"
 ;;;;;;  "1875c27703440ad0473feca5d56490fe")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el
 
 (autoload 'pdf-annot-minor-mode "pdf-annot" "\
 Support for PDF Annotations.
@@ -16,9 +16,9 @@ Support for PDF Annotations.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-history" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el"
+;;;### (autoloads nil "pdf-history" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el"
 ;;;;;;  "3f92248b9ce69e277dbeaa44cc69f085")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el
 
 (autoload 'pdf-history-minor-mode "pdf-history" "\
 Keep a history of previously visited pages.
@@ -33,9 +33,9 @@ may be navigated with the following keys.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-isearch" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el"
+;;;### (autoloads nil "pdf-isearch" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el"
 ;;;;;;  "1d1ff16cd82e4c7b57b2dbc4c69f0de0")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el
 
 (autoload 'pdf-isearch-minor-mode "pdf-isearch" "\
 Isearch mode for PDF buffer.
@@ -72,9 +72,9 @@ that not every isearch command work as expected.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-links" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el"
+;;;### (autoloads nil "pdf-links" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el"
 ;;;;;;  "7c69c6316cc2b5112d98a11fb49971fa")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el
 
 (autoload 'pdf-links-minor-mode "pdf-links" "\
 Handle links in PDF documents.\\<pdf-links-minor-mode-map>
@@ -105,9 +105,9 @@ scroll the current page.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-misc" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el"
+;;;### (autoloads nil "pdf-misc" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el"
 ;;;;;;  "249ba0105f555ccb98cfdefb6c666084")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el
 
 (autoload 'pdf-misc-minor-mode "pdf-misc" "\
 FIXME:  Not documented.
@@ -133,9 +133,9 @@ Provide a right-click context menu in PDF buffers.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-occur" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el"
+;;;### (autoloads nil "pdf-occur" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el"
 ;;;;;;  "57b77a0ca09ff0270240b7f765f00a3b")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el
 
 (autoload 'pdf-occur "pdf-occur" "\
 List lines matching STRING or PCRE.
@@ -197,9 +197,9 @@ and otherwise fallback to `dired-do-search'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-outline" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el"
+;;;### (autoloads nil "pdf-outline" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el"
 ;;;;;;  "9b866ed1d505e5611804feeeee7bf7b0")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el
 
 (autoload 'pdf-outline-minor-mode "pdf-outline" "\
 Display an outline of a PDF document.
@@ -227,9 +227,9 @@ Enable imenu in the current PDF buffer.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-sync" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el"
+;;;### (autoloads nil "pdf-sync" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el"
 ;;;;;;  "fc235934ab699bcdacd9084e5eacbdfa")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el
 
 (autoload 'pdf-sync-minor-mode "pdf-sync" "\
 Correlate a PDF position with the TeX file.
@@ -261,9 +261,9 @@ with AUCTeX.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-tools" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el"
+;;;### (autoloads nil "pdf-tools" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el"
 ;;;;;;  "f2b5f070800b55ade488110ce9efdae8")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el
 
 (defvar pdf-tools-handle-upgrades t "\
 Whether PDF Tools should handle upgrading itself.")
@@ -305,9 +305,9 @@ See `pdf-view-mode' and `pdf-tools-enabled-modes'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-view" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el"
+;;;### (autoloads nil "pdf-view" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el"
 ;;;;;;  "d98734985047a17a69c569722bdfb833")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el
 
 (autoload 'pdf-view-bookmark-jump-handler "pdf-view" "\
 The bookmark handler-function interface for PDF bookmarks.
@@ -318,9 +318,9 @@ See also `pdf-view-bookmark-make-record'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-virtual" "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el"
+;;;### (autoloads nil "pdf-virtual" "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el"
 ;;;;;;  "72e6959fa3a8c6eafb10a0caadcfc1a2")
-;;; Generated autoloads from ../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el
+;;; Generated autoloads from ../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el
 
 (autoload 'pdf-virtual-edit-mode "pdf-virtual" "\
 Major mode when editing a virtual PDF buffer.
@@ -354,24 +354,24 @@ Enable recognition and handling of VPDF files.
 
 ;;;***
 
-;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-cache.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-dev.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-info.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools-autoloads.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools-pkg.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-util.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el"
-;;;;;;  "../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el")
-;;;;;;  (22749 26480 507808 505000))
+;;;### (autoloads nil nil ("../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-annot.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-cache.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-dev.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-history.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-info.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-isearch.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-links.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-misc.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-occur.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-outline.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-sync.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools-autoloads.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools-pkg.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-tools.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-util.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-view.el"
+;;;;;;  "../../../../../../.emacs.d/elpa/pdf-tools-20170317.810/pdf-virtual.el")
+;;;;;;  (22755 25694 306757 485000))
 
 ;;;***
 

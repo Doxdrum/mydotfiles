@@ -69,7 +69,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq backup-directory-alist '(("." . "/home/oscar/mydotfiles/emacs.d/backups")))
+(setq backup-directory-alist '(("." . "/home/oscar/Software/git.src/mydotfiles/emacs.d/backups")))
 
 (ispell-change-dictionary "british" t)
 
@@ -104,7 +104,7 @@
 
 (add-hook 'emacs-startup-hook '2-windows-vertical-to-horizontal)
 
-(set-register ?c '(file . "~/mydotfiles/emacs.d/configuration.org"))
+(set-register ?c '(file . "~/Software/git.src/mydotfiles/emacs.d/configuration.org"))
 (set-register ?a '(file . "~/Documents/Dropbox/Org/agenda.org"))
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -266,29 +266,50 @@
 
 (setq org-todo-keywords     
       '((sequence "TODO(t)" "STARTED(s!)" "NEXT(n)" "FEEDBACK(f@/!)" "VERIFY(v)" "WAITING(w@/!)" 
-                  "|" "DONE(d)" "DELEGATED(l@/!)" "CANCELLED(c@/!)")))
+                  "|" "DONE(d)" "DELEGATED(l@/!)" "CANCELLED(c@/!)")
+	(sequence "TASK(f)" "|" "DONE(d)")
+	(sequence "MAYBE(m)" "|" "CANCELLED(c)")))
 
 (setq org-todo-keyword-faces
-      (quote (("TODO" :foreground "red" :weight bold)
-              ("STARTED" :foreground "yellow" :weight bold)
-              ("NEXT" :foreground "blue" :weight bold)
-              ("FEEDBACK" :foreground "blue" :weight bold)
-              ("VERIFY" :foreground "magenta" :weight bold)
-              ("WAITING" :foreground "orange" :weight bold)
-              ("DONE" :foreground "forest green" :weight bold)
-              ("DELEGATED" :foreground "forest green" :weight bold)
-              ("CANCELLED" :foreground "forest green" :weight bold))))
+      '(("TODO" :foreground "red" :weight bold)
+	("MAYBE" . (:foreground "sea green"))
+	("TASK" . (:foreground "blue"))
+	("STARTED" :foreground "yellow" :weight bold)
+	("NEXT" :foreground "blue" :weight bold)
+	("FEEDBACK" :foreground "blue" :weight bold)
+	("VERIFY" :foreground "magenta" :weight bold)
+	("WAITING" :foreground "orange" :weight bold)
+	("DONE" :foreground "forest green" :weight bold)
+	("DELEGATED" :foreground "forest green" :weight bold)
+	("CANCELLED" :foreground "forest green" :weight bold)))
 
 (setq org-todo-state-tags-triggers
-      (quote (("CANCELLED" ("CANCELLED" . t))
-              ("WAITING" ("WAITING" . t))
-              ("FEEDBACK" ("WAITING") ("FEEDBACK" . t))
-              (done ("WAITING") ("FEEDBACK"))
-              ("TODO" ("WAITING") ("CANCELLED") ("FEEDBACK"))
-              ("NEXT" ("WAITING") ("CANCELLED") ("FEEDBACK"))
-              ("DONE" ("WAITING") ("CANCELLED") ("FEEDBACK")))))
+      '(("CANCELLED" ("CANCELLED" . t))
+	("WAITING" ("WAITING" . t))
+	("FEEDBACK" ("WAITING") ("FEEDBACK" . t))
+	(done ("WAITING") ("FEEDBACK"))
+	("TODO" ("WAITING") ("CANCELLED") ("FEEDBACK"))
+	("NEXT" ("WAITING") ("CANCELLED") ("FEEDBACK"))
+	("DONE" ("WAITING") ("CANCELLED") ("FEEDBACK"))))
 
 (setq org-agenda-files (quote ("/home/oscar/Documents/Dropbox/Org")))
+
+(setq org-agenda-custom-commands
+      '(("h" "Work todos" tags-todo
+         "-personal-doat={.+}-dowith={.+}/!-TASK"
+         ((org-agenda-todo-ignore-scheduled t)))
+        ("H" "All work todos" tags-todo "-personal/!-TASK-MAYBE"
+         ((org-agenda-todo-ignore-scheduled nil)))
+        ("A" "Work todos with doat or dowith" tags-todo
+         "-personal+doat={.+}|dowith={.+}/!-TASK"
+         ((org-agenda-todo-ignore-scheduled nil)))
+        ("j" "TODO dowith and TASK with"
+         ((org-sec-with-view "TODO dowith")
+          (org-sec-where-view "TODO doat")
+          (org-sec-assigned-with-view "TASK with")
+          (org-sec-stuck-with-view "STUCK with")))
+        ("J" "Interactive TODO dowith and TASK with"
+         ((org-sec-who-view "TODO dowith")))))
 
 (setq org-default-notes-file "~/git/org/refile.org")
 
@@ -530,6 +551,80 @@
           :publishing-function org-latex-publish-to-pdf)
          )
       )
+
+(define-key org-mode-map "\C-cn" 'org-mactions-new-numbered-action)
+
+(defcustom org-mactions-numbered-action-format "TODO Action #%d "
+  "Default structure of the headling of a new action.
+    %d will become the number of the action."
+  :group 'org-edit-structure
+  :type 'string)
+
+(defcustom org-mactions-change-id-on-copy t
+  "Non-nil means make new IDs in copied actions.
+If an action copied with the command `org-mactions-collect-todos-in-subtree'
+contains an ID, that ID will be replaced with a new one."
+  :group 'org-edit-structure
+  :type 'string)
+
+(defun org-mactions-new-numbered-action (&optional inline)
+  "Insert a new numbered action, using `org-mactions-numbered-action-format'.
+    With prefix argument, insert an inline task."
+  (interactive "P")
+  (let* ((num (let ((re "\\`#\\([0-9]+\\)\\'"))
+                (1+ (apply 'max 0
+                           (mapcar
+                            (lambda (e)
+                              (if (string-match re (car e))
+                                  (string-to-number (match-string 1 (car e)))
+                                0))
+                            (org-get-buffer-tags))))))
+         (tag (concat "#" (number-to-string num))))
+    (if inline
+        (org-inlinetask-insert-task)
+      (org-insert-heading 'force))
+    (unless (eql (char-before) ?\ ) (insert " "))
+    (insert (format org-mactions-numbered-action-format num))
+    (org-toggle-tag tag 'on)
+    (if (= (point-max) (point-at-bol))
+        (save-excursion (goto-char (point-at-eol)) (insert "\n")))
+    (unless (eql (char-before) ?\ ) (insert " "))))
+
+(defun org-mactions-collect-todos-in-subtree ()
+  "Collect all TODO items in the current subtree into a flat list."
+  (interactive)
+  (let ((buf (get-buffer-create "Org TODO Collect"))
+        (cnt 0) beg end string s)
+    (with-current-buffer buf (erase-buffer) (org-mode))
+    (org-map-entries
+     (lambda ()
+       (setq beg (point) end (org-end-of-subtree t t) cnt (1+ cnt)
+             string (buffer-substring beg end)
+             s 0)
+       (when org-mactions-change-id-on-copy
+         (while (string-match "^\\([ \t]*:ID:\\)[ \t\n]+\\([^ \t\n]+\\)[ \t]*$"
+                              string s)
+           (setq s (match-end 1)
+                 string (replace-match (concat "\\1 "
+                                               (save-match-data (org-id-new)))
+                                       t nil string))))
+       (with-current-buffer buf (org-paste-subtree 1 string)
+                            (goto-char (point-max))))
+     (format "TODO={%s}" (regexp-opt org-not-done-keywords))
+     'tree)
+    (if (= cnt 0)
+        (message "No TODO items in subtree")
+      (message "%d TODO entries copied to kill ring" cnt)
+      (prog1 (with-current-buffer buf
+               (kill-new (buffer-string)))
+        (kill-buffer buf)))))
+
+(require 'org-secretary)
+(setq org-tags-exclude-from-inheritance '("prj")
+      org-stuck-projects '("+prj/-MAYBE-DONE"
+			   ("TODO" "TASK") ()))
+
+(setq org-sec-me "OCF")
 
 (pdf-tools-install)
 

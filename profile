@@ -20,7 +20,8 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+
+PATH="$HOME/Software/git.src/emacs-25.1/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 export EMAIL="o.castillo.felisola@gmail.com"
 export NAME="Oscar Castillo-Felisola"
