@@ -657,9 +657,9 @@ contains an ID, that ID will be replaced with a new one."
 (global-set-key (kbd "M-g M-s") 'google-scholar)
 ;; (global-set-key (kbd "M-g s")   'google-scholar)
 
-;; (require 'google-contacts)
-;; (require 'google-contacts-gnus)
-;; (require 'google-contacts-message) ; for message-mode (not yet installed)
+(require 'google-contacts)
+(require 'google-contacts-gnus)
+(require 'google-contacts-message) ; for message-mode (not yet installed)
 
 ;; (auth-source-save-behavior nil)
 ;; (send-mail-function (quote smtpmail-send-it))

@@ -1224,9 +1224,9 @@ Revert buffer after it has changed
 From [[https://julien.danjou.info/projects/emacs-packages#google-contacts][Julien's webpage]]
 
 #+BEGIN_SRC emacs-lisp
-;; (require 'google-contacts)
-;; (require 'google-contacts-gnus)
-;; (require 'google-contacts-message) ; for message-mode (not yet installed)
+(require 'google-contacts)
+(require 'google-contacts-gnus)
+(require 'google-contacts-message) ; for message-mode (not yet installed)
 #+END_SRC
 
 After you run =M-x google-contacts= the first time, this lines are
