@@ -1256,6 +1256,8 @@ Run SageMath by =M-x run-sage= instead of =M-x sage-shell:run-sage=
 ;; Turn on eldoc-mode
 (add-hook 'sage-shell-mode-hook #'eldoc-mode)
 (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
+
+(setq sage-shell:use-prompt-toolkit t)
 #+END_SRC
 
 ** Completion mode for Sage
@@ -1302,6 +1304,18 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
      "C-c C-h"  'helm-sage-describe-object-at-point
      "M-r"      'helm-sage-command-history
      "C-c o"    'helm-sage-output-history))
+#+END_SRC
+
+** History
+
+#+BEGIN_SRC emacs-lisp
+(setq sage-shell:input-history-cache-file "~/.emacs.d/.sage_shell_input_history")
+#+END_SRC
+
+** Inline display of LaTeX and plots
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'sage-shell-after-prompt-hook #'sage-shell-view-mode)
 #+END_SRC
 
 * Settings of =sage-mode=
