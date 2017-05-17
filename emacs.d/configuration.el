@@ -664,7 +664,7 @@ contains an ID, that ID will be replaced with a new one."
 ;; (auth-source-save-behavior nil)
 ;; (send-mail-function (quote smtpmail-send-it))
 
-(setq sage-shell:sage-executable "/home/oscar/Software/SageMath/sage")
+(setq sage-shell:sage-root "/home/oscar/Software/SageMath")
 
 (sage-shell:define-alias)
 ;; Turn on eldoc-mode
