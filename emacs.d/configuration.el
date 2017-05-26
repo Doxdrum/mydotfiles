@@ -671,8 +671,6 @@ contains an ID, that ID will be replaced with a new one."
 (add-hook 'sage-shell-mode-hook #'eldoc-mode)
 (add-hook 'sage-shell:sage-mode-hook #'eldoc-mode)
 
-(setq sage-shell:use-prompt-toolkit t)
-
 (setq sage-shell:completion-function 'pcomplete)
 
 ;; Ob-sagemath supports only evaluating with a session.
@@ -701,10 +699,6 @@ contains an ID, that ID will be replaced with a new one."
      "C-c C-h"  'helm-sage-describe-object-at-point
      "M-r"      'helm-sage-command-history
      "C-c o"    'helm-sage-output-history))
-
-(setq sage-shell:input-history-cache-file "~/.emacs.d/.sage_shell_input_history")
-
-(add-hook 'sage-shell-after-prompt-hook #'sage-shell-view-mode)
 
 ;; ;; Start .emacs
 
