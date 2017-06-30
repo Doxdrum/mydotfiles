@@ -1244,7 +1244,7 @@ See the [[https://github.com/stakemori/sage-shell-mode][github web-page]] for de
 ** Path to the executable file
 
 #+BEGIN_SRC emacs-lisp
-(setq sage-shell:sage-executable "/home/oscar/Software/SageMath/sage")
+(setq sage-shell:sage-executable "/home/oscar/Software/git.src/sage/sage")
 #+END_SRC
 
 ** Define aliases
