@@ -9,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (twittering-mode spotify smex powerline pcache paradox paperless org2blog org-tree-slide org-ref org-projectile org-plus-contrib org-gcal ob-translate ob-sagemath ob-ipython magithub ivy-bibtex helm-swoop helm-spotify-plus helm-spotify helm-sage helm-projectile google-contacts gnuplot-mode ess epresent elpy djvu dired-k dired+ diff-hl counsel-projectile common-lisp-snippets calfw-gcal calfw bbdb auto-complete-sage auto-compile all-ext 2048-game))))
+    (twittering-mode spotify smex powerline pcache paradox paperless org2blog org-tree-slide org-ref org-projectile org-plus-contrib org-gcal org-bullets ob-translate ob-sagemath ob-ipython magithub ivy-bibtex helm-swoop helm-spotify-plus helm-spotify helm-sage helm-projectile google-contacts gnuplot-mode ess epresent elpy djvu dired-k dired+ diff-hl counsel-projectile calfw-gcal calfw bbdb auto-complete-sage auto-compile all-ext 2048-game))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
