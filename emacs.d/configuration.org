@@ -891,7 +891,7 @@ search window). All comments above apply also to opening the notes.
 
 From [[http://iflysib14.iflysib.unlp.edu.ar/tomas/en/blog/reference-management.html][this page]]
 
-** COMMENT configure =org-gcal= and =calfw=
+** configure =org-gcal= and =calfw=
 
 Both packages must be installed from MELPA: =calfw= and =org-gcal=
 
@@ -1029,7 +1029,7 @@ add this after =%f"= :   "latexmk -c %f"
 
 In order to see the rendered LaTeX equations scaled
 #+BEGIN_SRC emacs-lisp
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 #+END_SRC
 
 *** Exporting classes
@@ -1075,6 +1075,15 @@ In order to see the rendered LaTeX equations scaled
 ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
 ;; 		 )
 ;; )
+#+END_SRC
+
+*** =org-tree-slide=
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-tree-slide)
+
+(global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
 #+END_SRC
 
 *** Publishing projects

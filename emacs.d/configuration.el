@@ -408,6 +408,52 @@
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
+;; (require 'calfw)
+;; (require 'calfw-org)
+
+(require 'org-gcal) 
+;; (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
+;;       org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
+;;       org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
+;; 			    ("ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Research Ideas
+;; 			    ("mfrmolv12h6sjdfbo8iobd1h1o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Seminaries
+;; 			    ("q6pkpsevenacdctgcj9dur1c8o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Lecture prep.
+;; 			    ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Work meeting
+;; 			    )
+;;       )
+
+;; (setq package-check-signature nil)
+
+(setq org-gcal-client-id "471626867829-v6jolihkoha5oiinftb5d7kksvr4ev3e.apps.googleusercontent.com"
+      org-gcal-client-secret "cFzd9lSj2R37Qr-Ln7P6o1Rm"
+      org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
+			    ;; ("ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Research Ideas
+			    ;; ("mfrmolv12h6sjdfbo8iobd1h1o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Seminaries
+			    ;; ("q6pkpsevenacdctgcj9dur1c8o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Lecture prep.
+			    ;; ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Work meeting
+			    ))
+
+;; (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+;; (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
+
+;; (require 'calfw) 
+;; (require 'calfw-org)
+;; (setq cfw:org-overwrite-default-keybinding t)
+;; (require 'calfw-ical)
+
+;; ;; (defun mycalendar ()
+;; ;;   (interactive)
+;; ;;   (cfw:open-calendar-buffer
+;; ;;    :contents-sources
+;; ;;    (list
+;; ;;     ;; (cfw:org-create-source "Green")  ; orgmode source
+;; ;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/aetptsksd2rroqmq5ealbd9oec%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Personal calender
+;; ;;     (cfw:ical-create-source "gcal" "https://calendar.google.com/calendar/ical/ok0q79kgahqiu6mkp7uplamahk%40group.calendar.google.com/public/basic.ics" "IndianRed") ; Research ideas
+;; ;;     ))) 
+;; (setq cfw:org-overwrite-default-keybinding t)
+
+;; (require 'calfw-gcal)
+
 (setq org-file-apps
       (quote
        ((auto-mode . emacs)
@@ -497,6 +543,11 @@
 ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
 ;; 		 )
 ;; )
+
+(require 'org-tree-slide)
+
+(global-set-key (kbd "<f8>") 'org-tree-slide-mode)
+(global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
 
 (setq org-publish-project-alist
       '( ("paper"
