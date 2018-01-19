@@ -133,11 +133,12 @@
 
 (subword-mode 1)
 
-;; (yas-global-mode 1)
+(require 'yasnippet)
+(yas-global-mode 1)
 
-;; (define-key yas-minor-mode-map (kbd "<tab>") nil)
-;; (define-key yas-minor-mode-map (kbd "TAB") nil)
-;; (define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-<tab>") 'yas-expand)
 
 
 
@@ -618,7 +619,7 @@ contains an ID, that ID will be replaced with a new one."
 ;; (auth-source-save-behavior nil)
 ;; (send-mail-function (quote smtpmail-send-it))
 
-(setq sage-shell:sage-executable "/home/oscar/Software/git.src/sage/sage")
+(setq sage-shell:sage-executable "/usr/bin/sage")
 
 (sage-shell:define-alias)
 ;; Turn on eldoc-mode
