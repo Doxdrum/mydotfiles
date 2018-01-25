@@ -193,10 +193,90 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-cc" 'org-capture)
 
+(setq org-use-speed-commands t)
+
+(add-to-list 'org-speed-commands-user (cons "m" 'org-mark-subtree))
+
+(add-to-list 'org-speed-commands-user (cons "P" 'org-set-property))
+(add-to-list 'org-speed-commands-user (cons "d" 'org-deadline))
+
 (setq org-indirect-buffer-display 'current-window)
 (setq org-startup-indented t)
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
+(setq org-src-tab-acts-natively t)
+
+; add <p for python expansion
+(add-to-list 'org-structure-template-alist
+	     '("p" "#+BEGIN_SRC python :results output org drawer\n?\n#+END_SRC"
+	       "<src lang=\"python\">\n?\n</src>"))
+
+;; add <por for python expansion with raw output
+(add-to-list 'org-structure-template-alist
+	     '("por" "#+BEGIN_SRC python :results output raw\n?\n#+END_SRC"
+	       "<src lang=\"python\">\n?\n</src>"))
+
+;; add <pv for python expansion with value
+(add-to-list 'org-structure-template-alist
+	     '("pv" "#+BEGIN_SRC python :results value\n?\n#+END_SRC"
+	       "<src lang=\"python\">\n?\n</src>"))
+
+;; add <el for emacs-lisp expansion
+(add-to-list 'org-structure-template-alist
+	     '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
+	       "<src lang=\"emacs-lisp\">\n?\n</src>"))
+
+(add-to-list 'org-structure-template-alist
+	     '("ell" "#+BEGIN_SRC emacs-lisp :lexical t\n?\n#+END_SRC"
+	       "<src lang=\"emacs-lisp\">\n?\n</src>"))
+
+;; add <sh for shell
+(add-to-list 'org-structure-template-alist
+	     '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC"
+	       "<src lang=\"shell\">\n?\n</src>"))
+
+(add-to-list 'org-structure-template-alist
+	     '("lh" "#+latex_header: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("lc" "#+latex_class: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("lco" "#+latex_class_options: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("ao" "#+attr_org: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("al" "#+attr_latex: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("ca" "#+caption: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("tn" "#+tblname: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("n" "#+name: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("o" "#+options: " ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("ti" "#+title: " ""))
+
+;; ;; table expansions
+;; (loop for i from 1 to 6
+;;       do
+;;       (let ((template (make-string i ?t))
+;; 	    (expansion (concat "|"
+;; 			       (mapconcat
+;; 				'identity
+;; 				(loop for j to i collect "   ")
+;; 				"|"))))
+;; 	(setf (substring expansion 2 3) "?")
+;; 	(add-to-list 'org-structure-template-alist
+;; 		     '(,template ,expansion ""))))
 
 (require 'org-bullets)
 (setq org-bullets-bullet-list '("◉" "◎" "⚫" "○" "►" "◇"))
