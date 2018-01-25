@@ -408,10 +408,25 @@
 
 (setq helm-bibtex-notes-path "/home/oscar/Documents/Dropbox/Org/RefNotes.org")
 
+(require 'ox-reveal)
+
+(setq org-reveal-root "file:///home/oscar/Software/git.src/reveal.js")
+
+(setq package-check-signature nil)
+
+(require 'org-gcal) 
+
+(setq org-gcal-client-id "985116132042-bhd0v4athudjc6mjoi0u0knlqpnjep6s.apps.googleusercontent.com"
+	org-gcal-client-secret "_tYU0MGrYsFjqjm5GrjmeOfN"
+	org-gcal-file-alist '(("o.castillo.felisola@gmail.com" .  "~/Documents/Dropbox/Org/gmail-agenda.org")))
+
+(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+(add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
+
 ;; (require 'calfw)
 ;; (require 'calfw-org)
 
-(require 'org-gcal) 
+;; (require 'org-gcal) 
 ;; (setq org-gcal-client-id "459480878076-s0md9sb6s3tq7irlhmmk7hjt7r391o6n.apps.googleusercontent.com" 
 ;;       org-gcal-client-secret "-SphSdn3WDrZJ1Z_JFTXEkcc" 
 ;;       org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
@@ -424,17 +439,14 @@
 
 ;; (setq package-check-signature nil)
 
-(setq org-gcal-client-id "471626867829-v6jolihkoha5oiinftb5d7kksvr4ev3e.apps.googleusercontent.com"
-      org-gcal-client-secret "cFzd9lSj2R37Qr-Ln7P6o1Rm"
-      org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
-			    ;; ("ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Research Ideas
-			    ;; ("mfrmolv12h6sjdfbo8iobd1h1o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Seminaries
-			    ;; ("q6pkpsevenacdctgcj9dur1c8o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Lecture prep.
-			    ;; ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Work meeting
-			    ))
-
-;; (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
-;; (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
+;; (setq org-gcal-client-id "471626867829-v6jolihkoha5oiinftb5d7kksvr4ev3e.apps.googleusercontent.com"
+;;       org-gcal-client-secret "cFzd9lSj2R37Qr-Ln7P6o1Rm"
+;;       org-gcal-file-alist '(("aetptsksd2rroqmq5ealbd9oec@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Personal
+;; 			    ;; ("ok0q79kgahqiu6mkp7uplamahk@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Research Ideas
+;; 			    ;; ("mfrmolv12h6sjdfbo8iobd1h1o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Seminaries
+;; 			    ;; ("q6pkpsevenacdctgcj9dur1c8o@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Lecture prep.
+;; 			    ;; ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org") ;; Work meeting
+;; 			    ))
 
 ;; (require 'calfw) 
 ;; (require 'calfw-org)
@@ -501,7 +513,7 @@
 
 (setq org-latex-pdf-process (list "latexmk -pdf -bibtex -f %f"))
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.4))
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.6))
 
 (require 'ox-latex)
 
