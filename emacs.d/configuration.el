@@ -304,6 +304,8 @@
     (ledger . t)
     (org . t)
     (octave . t)
+    (fortran . t)
+    (C . t)
     (ipython . t)
     (mathematica . t)
 ))
@@ -449,7 +451,23 @@
   '(add-to-list 'org-structure-template-alist   
                 '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))
 
+(setq org-startup-with-inline-images "inlineimages")
+
 (setq org-image-actual-width nil)
+
+(add-hook 'org-babel-after-execute-hook
+	  'org-display-inline-images)
+
+;; Suggested on the org-mode maillist by Julian Burgos
+(add-to-list 'image-file-name-extensions "pdf")
+(add-to-list 'image-file-name-extensions "eps")
+
+(add-to-list 'image-type-file-name-regexps '("\\.eps\\'" . imagemagick))
+(add-to-list 'image-file-name-extensions "eps")
+(add-to-list 'image-type-file-name-regexps '("\\.pdf\\'" . imagemagick))
+(add-to-list 'image-file-name-extensions "pdf")
+
+(setq imagemagick-types-inhibit (remove 'PDF imagemagick-types-inhibit))
 
 (require 'ivy-bibtex)
 
@@ -554,6 +572,10 @@
         ("\\.pdf\\'" . "evince %s"))))
 
 (setq org-latex-prefer-user-labels t)
+
+;; avoid getting \maketitle right after begin{document}
+;; you should put \maketitle if and where you want it.
+(setq org-latex-title-command "")
 
 (require 'ox)
 (require 'ox-latex)
