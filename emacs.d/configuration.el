@@ -204,7 +204,14 @@
 (setq org-startup-indented t)
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
-(setq org-src-tab-acts-natively t)
+;; (setq org-src-tab-acts-natively t)
+
+(defun my-org-latex-yas ()
+  "Activate org and LaTeX yas expansion in org-mode buffers."
+  ;; (yas-minor-mode)
+  (yas-activate-extra-mode 'latex-mode))
+
+(add-hook 'org-mode-hook #'my-org-latex-yas)
 
 ; add <p for python expansion
 (add-to-list 'org-structure-template-alist
@@ -294,20 +301,20 @@
 
 ;;(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
-  '((R . t) 
+  '((C . t)
     (emacs-lisp . t) 
-    (latex . t)
-    (python . t)
-    (shell . t)
-    (gnuplot . t)
-    (maxima . t)
-    (ledger . t)
-    (org . t)
-    (octave . t)
     (fortran . t)
-    (C . t)
+    (gnuplot . t)
     (ipython . t)
+    (latex . t)
+    (ledger . t)
+    (python . t)
     (mathematica . t)
+    (maxima . t)
+    (octave . t)
+    (org . t)
+    (R . t) 
+    (shell . t)
 ))
 
 (setq org-confirm-babel-evaluate nil)
@@ -662,6 +669,22 @@
 
 (global-set-key (kbd "<f8>") 'org-tree-slide-mode)
 (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+
+(require 'org2web)
+
+(org2web-add-project
+ '("Doxdrum.github.io"
+   :repository-directory "~/Software/git.src/Doxdrum.github.io"
+   :remote (git "https://github.com/Doxdrum/Doxdrum.github.io.git" "master")
+   ;; you can use `rclone` with `:remote (rclone "remote-name" "/remote/path/location")` instead.
+   :site-domain "http://Doxdrum.github.io/"
+   :site-main-title "Personal page"
+   :site-sub-title "(Here it is!)"
+   :theme (worg)
+   :source-browse-url ("Github" "https://github.com/Doxdrum/Doxdrum.github.io")
+   :personal-avatar ""
+   :personal-duoshuo-shortname "Doxdrum-website"
+   :web-server-port 7654))
 
 (setq org-publish-project-alist
       '( ("paper"

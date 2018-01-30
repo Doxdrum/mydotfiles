@@ -487,8 +487,21 @@ Look at this [[https://emacs.stackexchange.com/a/33330/2441][post]]
  (setq org-startup-indented t)
  (setq org-src-preserve-indentation nil)
  (setq org-edit-src-content-indentation 0)
- (setq org-src-tab-acts-natively t)
+ ;; (setq org-src-tab-acts-natively t)
  #+END_SRC
+
+*** Activate =latex-mode= yasnippets 
+
+within =org-mode= [[https://emacs.stackexchange.com/a/38431/2441][emacs.stackexchange post]]
+
+#+BEGIN_SRC emacs-lisp
+(defun my-org-latex-yas ()
+  "Activate org and LaTeX yas expansion in org-mode buffers."
+  ;; (yas-minor-mode)
+  (yas-activate-extra-mode 'latex-mode))
+
+(add-hook 'org-mode-hook #'my-org-latex-yas)
+#+END_SRC
 
 ** Block templates
 
@@ -608,20 +621,20 @@ Active Babel languages:
 #+BEGIN_SRC emacs-lisp
 ;;(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
-  '((R . t) 
+  '((C . t)
     (emacs-lisp . t) 
-    (latex . t)
-    (python . t)
-    (shell . t)
-    (gnuplot . t)
-    (maxima . t)
-    (ledger . t)
-    (org . t)
-    (octave . t)
     (fortran . t)
-    (C . t)
+    (gnuplot . t)
     (ipython . t)
+    (latex . t)
+    (ledger . t)
+    (python . t)
     (mathematica . t)
+    (maxima . t)
+    (octave . t)
+    (org . t)
+    (R . t) 
+    (shell . t)
 ))
 #+END_SRC
 
@@ -1235,6 +1248,28 @@ In order to see the rendered LaTeX equations scaled
 #+END_SRC
 
 *** Publishing projects
+
+**** =org2web=
+
+#+BEGIN_SRC emacs-lisp
+(require 'org2web)
+
+(org2web-add-project
+ '("Doxdrum.github.io"
+   :repository-directory "~/Software/git.src/Doxdrum.github.io"
+   :remote (git "https://github.com/Doxdrum/Doxdrum.github.io.git" "master")
+   ;; you can use `rclone` with `:remote (rclone "remote-name" "/remote/path/location")` instead.
+   :site-domain "http://Doxdrum.github.io/"
+   :site-main-title "Personal page"
+   :site-sub-title "(Here it is!)"
+   :theme (worg)
+   :source-browse-url ("Github" "https://github.com/Doxdrum/Doxdrum.github.io")
+   :personal-avatar ""
+   :personal-duoshuo-shortname "Doxdrum-website"
+   :web-server-port 7654))
+#+END_SRC
+
+**** Papers (OBSOLETE)
 
 #+BEGIN_SRC emacs-lisp
 (setq org-publish-project-alist
