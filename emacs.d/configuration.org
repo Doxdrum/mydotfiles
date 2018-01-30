@@ -619,7 +619,7 @@ new one (which shows the same information).
 Active Babel languages:
 
 #+BEGIN_SRC emacs-lisp
-;;(require 'ob-ipython)
+(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
   '((C . t)
     (emacs-lisp . t) 
@@ -1465,6 +1465,7 @@ The default configuration found in
 [[https://github.com/stakemori/ob-sagemath][the git page]]
 
 #+BEGIN_SRC emacs-lisp
+(require 'ob-sagemath)
 ;; Ob-sagemath supports only evaluating with a session.
 (setq org-babel-default-header-args:sage '((:session . t)
                                            (:results . "output")))

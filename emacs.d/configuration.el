@@ -299,7 +299,7 @@
 
 (setq org-src-window-setup 'current-window)
 
-;;(require 'ob-ipython)
+(require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
   '((C . t)
     (emacs-lisp . t) 
@@ -818,6 +818,7 @@ contains an ID, that ID will be replaced with a new one."
 
 (setq sage-shell:completion-function 'pcomplete)
 
+(require 'ob-sagemath)
 ;; Ob-sagemath supports only evaluating with a session.
 (setq org-babel-default-header-args:sage '((:session . t)
                                            (:results . "output")))
