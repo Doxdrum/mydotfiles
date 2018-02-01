@@ -54,6 +54,11 @@
 (load-theme 'deeper-blue)
 
 (powerline-center-theme)
+;; (setq powerline-arrow-shape 'curve)
+;; (setq powerline-default-separator-dir '(right . left))
+
+;; (setq sml/theme 'respectful)
+;; (sml/setup)
 
 (require 'diff-hl)
 
@@ -163,6 +168,19 @@
 
 (setq python-indent 2)
 
+(elpy-enable)
+(setq python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-prompt")
+
+;; use flycheck not flymake with elpy
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
 (add-hook 'sh-mode-hook
           (lambda ()
             (setq sh-basic-offset 2
@@ -205,6 +223,8 @@
 (setq org-src-preserve-indentation nil)
 (setq org-edit-src-content-indentation 0)
 ;; (setq org-src-tab-acts-natively t)
+
+(setq org-highlight-latex-and-related '(latex))
 
 (defun my-org-latex-yas ()
   "Activate org and LaTeX yas expansion in org-mode buffers."
@@ -773,6 +793,14 @@ contains an ID, that ID will be replaced with a new one."
 
 ;; (setq auto-revert-interval 0.5)
 ;; (auto-revert-set-timer)
+
+(define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
+(define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)
+(define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete)
+
+(setq pdf-annot-activate-created-annotations t)
+
+(setq pdf-view-resize-factor 1.1)
 
 (defun prelude-google ()
   "Googles a region, if any, or prompts for a Google search string."
