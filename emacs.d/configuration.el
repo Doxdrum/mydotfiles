@@ -14,7 +14,7 @@
 (global-hl-line-mode 1)
 
 (setq hrs/default-font "Inconsolata")
-(setq hrs/default-font-size 14)
+(setq hrs/default-font-size 18)
 (setq hrs/current-font-size hrs/default-font-size)
 
 (setq hrs/font-change-increment 1.1)
@@ -259,7 +259,7 @@
 
 ;; add <sh for shell
 (add-to-list 'org-structure-template-alist
-	     '("sh" "#+BEGIN_SRC sh\n?\n#+END_SRC"
+	     '("sh" "#+BEGIN_SRC shell\n?\n#+END_SRC"
 	       "<src lang=\"shell\">\n?\n</src>"))
 
 (add-to-list 'org-structure-template-alist
@@ -321,21 +321,22 @@
 
 (require 'ob-ipython)
 (org-babel-do-load-languages 'org-babel-load-languages 
-  '((C . t)
-    (emacs-lisp . t) 
-    (fortran . t)
-    (gnuplot . t)
-    (ipython . t)
-    (latex . t)
-    (ledger . t)
-    (python . t)
-    (mathematica . t)
-    (maxima . t)
-    (octave . t)
-    (org . t)
-    (R . t) 
-    (shell . t)
-))
+			     '((C . t)
+			       (ditaa . t)
+			       (emacs-lisp . t) 
+			       (fortran . t)
+			       (gnuplot . t)
+			       (ipython . t)
+			       (latex . t)
+			       (ledger . t)
+			       (mathematica . t)
+			       (maxima . t)
+			       (octave . t)
+			       (org . t)
+			       (python . t)
+			       (R . t) 
+			       (shell . t)
+			       ))
 
 (setq org-confirm-babel-evaluate nil)
 
