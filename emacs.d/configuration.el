@@ -262,6 +262,13 @@
 	     '("sh" "#+BEGIN_SRC shell\n?\n#+END_SRC"
 	       "<src lang=\"shell\">\n?\n</src>"))
 
+;; LaTeX structures
+(add-to-list 'org-structure-template-alist
+	     '("leq" "\\begin{equation}\n?\n\\end{equation}" ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("la" "\\begin{align}\n?\n\\end{align}" ""))
+
 (add-to-list 'org-structure-template-alist
 	     '("lh" "#+latex_header: " ""))
 
