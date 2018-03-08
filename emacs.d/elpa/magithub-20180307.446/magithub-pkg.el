@@ -1,4 +1,4 @@
-(define-package "magithub" "20180305.2023" "Magit interfaces for GitHub"
+(define-package "magithub" "20180307.446" "Magit interfaces for GitHub"
   '((emacs "25")
     (magit "2.8")
     (s "1.12.0")

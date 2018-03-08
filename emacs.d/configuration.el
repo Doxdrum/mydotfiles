@@ -264,7 +264,7 @@
 
 ;; LaTeX structures
 (add-to-list 'org-structure-template-alist
-	     '("leq" "\\begin{equation}\n?\n\\end{equation}" ""))
+	     '("le" "\\begin{equation}\n?\n\\end{equation}" ""))
 
 (add-to-list 'org-structure-template-alist
 	     '("la" "\\begin{align}\n?\n\\end{align}" ""))
