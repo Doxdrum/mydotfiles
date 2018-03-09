@@ -233,7 +233,10 @@
 
 (add-hook 'org-mode-hook #'my-org-latex-yas)
 
-; add <p for python expansion
+(add-to-list 'org-structure-template-alist
+	     '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" ""))
+
+					; add <p for python expansion
 (add-to-list 'org-structure-template-alist
 	     '("p" "#+BEGIN_SRC python :results output org drawer\n?\n#+END_SRC"
 	       "<src lang=\"python\">\n?\n</src>"))
@@ -268,6 +271,9 @@
 
 (add-to-list 'org-structure-template-alist
 	     '("la" "\\begin{align}\n?\n\\end{align}" ""))
+
+(add-to-list 'org-structure-template-alist
+	     '("j" "\\begin\{split\}\n?\n\\end\{split\}" ""))
 
 (add-to-list 'org-structure-template-alist
 	     '("lh" "#+latex_header: " ""))
@@ -472,19 +478,6 @@
                "* PHONE %? :PHONE:\n%U\n" )
               ("h" "Habit" entry (file "~/Documents/Dropbox/Org/refile.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
-
-(eval-after-load "org"
-  '(add-to-list 'org-structure-template-alist
-                '("E" "\\begin\{equation\}\n?\n\\end\{equation\}" "")))
-(eval-after-load "org"
-  '(add-to-list 'org-structure-template-alist
-                '("j" "\\begin\{split\}\n?\n\\end\{split\}" "")))
-(eval-after-load "org"
-  '(add-to-list 'org-structure-template-alist
-                '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" "")))
-(eval-after-load "org"
-  '(add-to-list 'org-structure-template-alist   
-                '("G" "\\begin\{align\}\n?\n\\end\{align\}" "")))
 
 (setq org-startup-with-inline-images "inlineimages")
 
@@ -796,6 +789,10 @@ contains an ID, that ID will be replaced with a new one."
 			   ("TODO" "TASK") ()))
 
 (setq org-sec-me "OCF")
+
+(eval-after-load 'org '(require 'org-pdfview))
+
+(add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
 
 (pdf-tools-install)
 
