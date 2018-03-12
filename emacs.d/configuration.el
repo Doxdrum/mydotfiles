@@ -611,8 +611,8 @@
 ;; (setq org-preview-latex-process-alist 'imagemagick)
 
 (setq org-export-latex-listings t)
-(setq org-latex-listings 'minted)
-(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; (setq org-latex-listings 'minted)
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
 (add-to-list 'org-latex-packages-alist '("" "xcolor"))
 (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 (setq org-latex-listings-langs
