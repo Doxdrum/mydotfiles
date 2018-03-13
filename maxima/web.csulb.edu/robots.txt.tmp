@@ -1,0 +1,33 @@
+User-agent: gsa-crawler
+Disallow: *.csi
+Disallow: /js/
+Disallow: /xml/
+Disallow: /cgi-bin/
+Disallow: /config/
+Disallow: /conf/
+Disallow: /oldsite
+Disallow: /php/
+Disallow: /images/
+Disallow: /connect/
+Disallow: /depts/music/wordpress/bccm/
+Disallow: /calendars/
+Disallow: /HealthEquity/biblio
+Disallow: /web/
+Disallow: /depts/math/?q=node/
+Disallow: /aux/49ershops/wp/dining/area_3/?page_id=
+Disallow: *.php
+Disallow: *.cgi
+
+User-agent: *
+Disallow: /~*/
+Disallow: /oldsite/
+
+user-agent: *
+Disallow: /sites/wp-content/blogs.dir/*.pdf
+Disallow: /sites/49erfoundation/files/*.pdf
+Disallow: /webtree/gobeach/sites/wp-content/blogs.dir/4/files/*.pdf
+
+user-agent: googlebot
+Disallow: /sites/wp-content/blogs.dir/*.pdf
+Disallow: /sites/49erfoundation/files/*.pdf
+Disallow: /webtree/gobeach/sites/wp-content/blogs.dir/4/files/*.pdf

@@ -1,0 +1,147 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+k1util.mac is a utility file associated with Ch. 1 of
+Computational Physics with Maxima or R, Numerical
+Differentiation, Quadrature, and Roots.
+ See  cp1.pdf for more info.
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+
+fll(x) := [first(x),last(x),length(x)]$
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+    
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+
+merge(list1,list2) := (flatten ( cons(list1, list2) ) )$
+
+/*
+(%i21) aa : [a1,a2,a3]$
+(%i22) bb : [b1,b2,b3]$    
+(%i25) merge(aa,bb);
+(%o25) [a1,a2,a3,b1,b2,b3]
+*/
+
+/*  print(" merge(list1, list2) ")$  
+    print(" fll(mylist), head(mylist), tail(mylist), take(mylist,mm) ")$
+*/
+
+/*
+example using fll and take:
+
+SHO WITH UNIT PERIOD
+
+fll, head, tail, and take are loaded by maxima-init.mac
+and are in k1util.mac
+
+SHO WITH UNIT PERIOD
+
+(%i13) pts : rk([vx,-4*%pi^2*x],[x,vx],[1,0],[t,0,1,0.01])$
+
+(%i15) fll(pts);
+(%o15) [[0.0,1.0,0.0],[1.0,0.99999995729235,5.1201813129342355E-6],101]
+
+list of times:
+
+(%i16) tL : take(pts,1)$
+(%i17) fll(tL);
+(%o17) [0.0,1.0,101]
+---------------
+plot of x(t) vs. t:
+
+list of positions:
+
+(%i18) xL : take(pts,2)$
+(%i19) fll(xL);
+(%o19) [1.0,0.99999995729235,101]
+(%i20) plot2d([discrete,tL,xL],[x,0,1],[xlabel,"T"],[ylabel,"X"])$
+(%i21) plot2d([discrete,tL,xL],[x,0,1],[xlabel,"T"],[ylabel,"X"],
+          [style,[lines,3]])$
+		 
+---------------------
+plot of vx(t) vs. t:
+
+list of velocities:
+		  
+(%i22) vxL : take(pts,3)$
+(%i23) fll(vxL);
+(%o23) [0.0,5.1201813129342355E-6,101]
+(%i24) plot2d([discrete,tL,vxL],[x,0,1],[xlabel,"T"],[ylabel,"Vx"],
+            [style,[lines,3]])$
+
+-------------------------------------
+*/
+
+/*  make_pts(x1,y1,xf,yf,N), an example of Maxima
+    list arithmetic methods and use of makelist,
+    fills in intermediate points along a straight line
+    between (x1,y1) and (xf,yf), and returns the list
+    [xL,yL].
+    N = number of intervals, N+1 = number of points  */
+    
+
+make_pts(x1,y1,%xf,%yf,N):=
+block([h, slope, %xL,%yL, numer], numer:true,   
+   h : (%xf - x1)/N,
+   slope : (%yf-y1)/(%xf-x1),
+   %xL : makelist(x,x,x1,%xf,h),
+   %yL :  y1 + slope*(%xL - x1),
+   [ %xL, %yL ])$    
+
+/*
+(%i7) make_pts(0,0,4,4,8);
+(%o7) [[0,0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0],[0,0.5,1.0,1.5,2.0,2.5,3.0,3.5,
+                                            4.0]]
+*/
+
+/*   find_x( x_list, y_list )
+    given two equal length lists, a x_list and a list
+   of the corresponding y values, y_list, find the
+   value of x corresponding to the minimum value of y. */
+
+
+which_min(aL) :=
+block([amin,j,jval:0,numer ],numer:true,
+    amin:lmin(aL),
+    for j thru length(aL) do 
+       if is(equal(aL[j], amin)) then (
+	         jval : j,
+		       return()),
+		jval)$
+		
+/*		
+(%i2) xL : makelist(x,x,1,10);
+(%o2) [1,2,3,4,5,6,7,8,9,10]
+(%i3) which_min(xL);
+(%o3) 1
+*/
+
+find_x(xL,yL) := (xL[which_min(yL)])$
+
+

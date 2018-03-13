@@ -1,0 +1,112 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2013, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+exampl1.mac is a utility file needed for
+Example 1 (semiclassical quantization of molecular vibrations)
+ associated with Ch. 1 (Numerical Differentiation, Quadrature, and Roots)
+ in the series Computational Physics with Maxima or R, 
+ See  example1.pdf for more info.
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+wkb(gam,e,n) := 
+block([x,v,xmin,xin,xout,numer,qlist],numer:true,
+	if e <= -1.0 then error(" e must be greater than -1 "),
+	if e >= 0.0 then error(" e must be less than zero "),
+	xmin : 2^(1/6),
+	v : 4*(1/x^12 - 1/x^6),
+	xin : xmin*(sqrt(e+1)/e-1/e)^(1/6),
+	xout : xmin*(sqrt(e+1)+1)^(1/6)/(-e)^(1/6),
+	qlist: quad_qags(sqrt(e - v),x,xin,xout),
+	if qlist[4] # 0 then error(" quad_qags errcode = ",qlist[4]),
+	qlist[1] - (n+1/2)*%pi/gam)$
+	
+
+find_e(gam,ebott,etop,n) := (find_root('wkb(gam,ee,n),ee,ebott,etop))$
+
+levels(gam,num) :=
+block([bott:-0.99,top:-5e-4,nn,en],
+    for nn:0 thru (num-1) do (
+        en : find_e(gam,bott,top,nn),
+        print("  ",nn,"  ",en),
+        bott : en))$
+        
+levels_info(gam,num) :=
+block([bott:-0.99,top:-5e-4,nn,en,xmin],local(x1,x2),numer:true,
+    xmin : 2^(1/6),
+    x1(e) := xmin*(sqrt(e+1)/e-1/e)^(1/6),
+    x2(e) := xmin*(sqrt(e+1)+1)^(1/6)/(-e)^(1/6),    
+    for nn:0 thru (num-1) do (
+        en : find_e(gam,bott,top,nn),
+        print("  ",nn,"  ",en," ",abs(wkb(gam,en,nn))," ",x1(en)," ",x2(en)),
+        bott : en))$
+        
+levels_plot(gam,num) :=
+block([bott:-0.99,top:-5e-4,nn,en,level_list:[]],
+    for nn:0 thru (num-1) do (
+        en : find_e(gam,bott,top,nn),
+        print("  ",nn,"  ",en),
+        level_list : cons(en, level_list),
+        bott : en),    
+    plot2d(reverse(level_list),[x,0,1],[y,-1,0],[style,[lines,3,1],
+               [lines,3,2],[lines,3,3],[lines,3,4]],
+               [xlabel,""],[ylabel,"energy"],[legend,false]))$
+               
+
+find_xin(e,xstart) :=
+block([x,fstart,xnew,fnew,dx:0.001,numer],local(fdiff),numer:true,
+    fdiff(x) := e - 4*(1/x^12 - 1/x^6),
+    fstart : fdiff(xstart),
+    xnew : xstart - dx,
+    fnew : fdiff(xnew),
+    do (if fnew*fstart < 0 then return(),        
+        xnew : xnew - dx,
+        fnew : fdiff(xnew)),    
+    find_root('fdiff(x),x,xnew,xstart))$
+    
+find_xout(e,xstart) :=
+block([x,fstart,xnew,fnew,dx:0.001,numer],local(fdiff),numer:true,
+    fdiff(x) := e - 4*(1/x^12 - 1/x^6),
+    fstart : fdiff(xstart),
+    xnew : xstart + dx,
+    fnew : fdiff(xnew),
+    do (if fnew*fstart < 0 then return(),        
+        xnew : xnew + dx,
+        fnew : fdiff(xnew)),    
+    find_root('fdiff(x),x,xstart,xnew))$
+    
+
+wkb1(gam,e,n) :=
+block([xmin,xin,xout,x,v,qlist,numer],numer:true,
+    xmin : 2^(1/6),
+    xin : find_xin(e,xmin),
+    xout : find_xout(e,xmin),
+    v : 4*(1/x^12 - 1/x^6),
+    qlist: quad_qags(sqrt(e - v),x,xin,xout),
+	  if qlist[4] # 0 then error(" quad_qags errcode = ",qlist[4]),
+	  qlist[1] - (n+1/2)*%pi/gam)$
+	  
+find1_e(gam,ebott,etop,n) := (find_root('wkb1(gam,ee,n),ee,ebott,etop))$
+
+levels1(gam,num) :=
+block([bott:-0.99,top:-5e-4,nn,en],
+    for nn:0 thru (num-1) do (
+        en : find1_e(gam,bott,top,nn),
+        print("  ",nn,"  ",en),
+        bott : en))$
+        

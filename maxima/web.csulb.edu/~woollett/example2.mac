@@ -1,0 +1,643 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+example2.mac is a supplement to Ch.2,
+   Computational Physics with Maxima or R: Initial Value Problems
+See example2.pdf for discussion
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+
+*/
+
+/* example2.mac,  june, 2014 */
+/* 6/2/14  goback calls rk41 instead of rk4. */
+/* 5/22/14 fix -> round in rk4 */
+
+
+PE(x,y) := (x^2 + y^2)/2 + y*x^2 - y^3/3$
+
+
+
+/*  yminmax(E) assumes KE = 0 and x = 0
+    to find limits on initial y from energy
+    conservation */
+
+yminmax(E) :=
+block([soln,numer],numer:true,
+   soln : float(realroots(E - y^2/2 + y^3/3 )),   
+   soln : map('rhs,soln),
+   rest(soln, -1))$
+   
+/*
+(%i4) float(realroots(0.1 - y^2/2 + y^3/3 ));
+(%o4) [y = -0.39761,y = 0.56707,y = 1.330541]
+(%i2) yminmax(0.1);
+(%o2) [-0.39761,0.56707]
+*/
+   
+gety0(E) := 
+block([ylim,ymin,ymax,ok,y0,numer],numer:true,
+    ylim : yminmax(E),
+    ymin : ylim[1],
+    ymax : ylim[2],      
+    ok : false,
+    while not ok do (
+        print(" need ",ymin," < y0 < ",ymax),
+        y0 : read(" input y0 "),
+        if (y0 > ymin) and (y0 < ymax) then ok : true,
+        if y0 < -10 then ok : true),
+    y0)$
+    
+get_py0(pymax) :=
+block([ok,py,numer],numer:true,
+    ok : false,
+    while not ok do (
+        print(" need ",0.0," < py0 < ",pymax),
+        py : read(" input py0 "),
+        if (py > 0) and (py < pymax) then ok : true,
+        if py < 0 then ok : true),
+    py)$
+    
+    
+/*** trajectory(E,tf, dt) uses rk4 for integration
+     and returns a list with elements of
+     the form [t,x,y,px,py].
+     The initial time is 0.
+     Includes interactive input of y0 and py0.
+     Need 0 < E <= 1/6 .            ***/
+
+trajectory(E,tf, dt) :=
+block([u,v,x,y,t,x0:0,y0,py0max,py0,px0,dpxdt,dpydt,
+         initL,varL,odeL,numer], numer:true,
+         
+      local(V),      
+      define(V(u,v),PE(u,v)),
+      
+      if E <= 0 or E > 1/6 then (
+        print(" need 0 < E <= ", 1/6 ),
+        print(" aborting program "),
+        return(done)), 
+            
+      /**** get y0  *****/
+      
+      y0 : gety0(E),
+      if y0 < -10 then (
+         print(" aborting program "),
+         return(done)),  /* case abort program */
+      
+      /**** get py0  ****/
+      
+      py0max : sqrt(2*(E - V(0,y0))),      
+      py0 : get_py0(py0max),
+      if py0 < 0 then (
+         print(" aborting program "),
+         return(done)),  /* case abort program */
+      
+      /**** get px0 from conservation of energy ***/
+      
+      px0 : sqrt(2*(E - V(0,y0)) - py0^2),
+      print(" E = ",E," x0 = ",x0," y0 = ",y0),
+      print(" px0 = ",px0," py0 = ",py0),
+      
+      /* prepare for integration */
+      
+      dpxdt : -diff(V(x,y),x),
+      dpydt : -diff(V(x,y),y),            
+      initL : [x0,y0,px0,py0],
+      varL : [x,y,px,py],
+      odeL : [px,py, dpxdt,dpydt],
+      
+      print(" odeL = ",odeL),
+      print(" varL = ",varL," initL = ",initL),      
+      print("   working ... "),
+      rk4(odeL,varL,initL,[t,0,tf,dt]))$
+
+
+          
+    
+    
+
+/***  getsection calls goback which calls rk41.
+       each element of pts has the form
+       [t,x,y,px,py] ***/
+
+getsection(pts, xtol) :=
+block([u,v,x,y,xold,xnew,ypyL,rkstep,
+        rgoback,ode_gb,var_gb, px,py,dpxdt,dpydt,
+        numer], numer:true,    
+        
+    dpxdt : -2*x*y - x,
+    dpydt : y^2 - y - x^2,    
+    
+    xold : pts[1][2],
+    /* print(" xold = ",xold), */
+    
+    ypyL : [ [pts[1][3],pts[1][5]]],
+    /* print(" ypyL = ",ypyL), */
+    
+    /* ode_gb = [dydx,dpxdx,dpydx] */
+      
+    ode_gb : [py/px,dpxdt/px, dpydt/px],
+    var_gb : [y,px,py],
+    /* print(" ode_gb = ",ode_gb," var_gb = ",var_gb), */
+    print("   working... "),
+    
+    for i:2 thru length(pts)  do (      
+         rkstep : pts[i],         
+         xnew : rkstep[2],
+         
+         if xold*xnew < 0 then (
+             /* print(" change sign; rkstep = ",rkstep),  */
+             rgoback : goback(ode_gb,var_gb,rest(rkstep),xtol),
+             /* print(" rgoback = ",rgoback), */
+             ypyL : cons(rgoback, ypyL)),
+             
+         xold : xnew),  
+         
+    reverse(ypyL))$
+    
+/*
+(%i45) ypy : getsection(rkpts,0.01);
+(%o45) [[0.095,0.096],[-0.24415,-0.096235]]
+*/
+
+
+
+
+    
+    
+    
+    
+/*  goback  modified 6/2/14 to call rk41.
+      xprec should be a small positive number.
+      goback calls rk41 with x as the independent
+      variable,  and integrates back to x = 0,
+      returning [y,py] corresponding to the final
+      point.
+      
+      eqns has the form [dydx,dpxdx,dpydx],
+      dvar = [y, px, py],
+      rkpoint has the form [xi,yi,pxi,pyi]
+        */
+
+goback(eqns,dvar,rkpoint,xprec):= 
+block([init_gb,xi,dx_gb,domain_gb,
+         rrk4,rrk4_last,numer],numer:true,
+    init_gb : rest(rkpoint),
+    /* print(" init_gb = ",init_gb),  */
+    xi : rkpoint[1],
+    xprec : min (xprec, abs(xi)/10),
+    /* print(" xprec = ",xprec),  */
+    if xi > 0 then dx_gb : -xprec
+    else dx_gb : xprec,
+    /* print(" xi = ",xi," dx_gb = ",dx_gb),  */
+    rrk4 : rk41(eqns,dvar,init_gb,[x,xi,0,dx_gb]),
+    rrk4_last : last(rrk4),
+    /*  print(" last(rrk4) = ", rrk4_last),
+       print(" final x value = ", rrk4_last[1]),  */
+    [rrk4_last[2], rrk4_last[4]])$
+    
+    
+    
+/* with debug printouts visible:
+  these tests done with goback calling rk4.
+case xi > 0
+
+(%i12) rkpts : trajectory(0.1,3,0.1)$
+ need  -0.39761  < y0 <  0.56707 
+ input y0  
+0.095;
+ need  0.0  < py0 <  0.43766 
+ input py0  
+0.096;
+ E =  0.1  x0 =  0  y0 =  0.095 
+ px0 =  0.427  py0 =  0.096 
+ odeL =  [px,py,-2*x*y-1.0*x,1.0*y^2-1.0*y-x^2] 
+ varL =  [x,y,px,py]  initL =  [0,0.095,0.427,0.096] 
+   working ...  
+(%i17) last(rkpts);
+(%o17) [3.0,0.0033057,-0.24322,-0.34846,-0.09911]
+(%i18) pnt : last(rkpts);
+(%o18) [3.0,0.0033057,-0.24322,-0.34846,-0.09911]
+(%i19) var : [y,px,py];
+(%o19) [y,px,py]
+(%i20) odeL : [py/px,-(2*x*y + x)/px,(y^2 - y - x^2)/px];
+(%o20) [py/px,(-2*x*y-x)/px,(y^2-y-x^2)/px]
+(%i29) pnt : rest(pnt);
+(%o29) [0.0033057,-0.24322,-0.34846,-0.09911]
+(%i30) goback(odeL,var,pnt,0.01);
+ init_gb =  [-0.24322,-0.34846,-0.09911] 
+ xprec =  3.3056909E-4 
+ xi =  0.0033057  dx_gb =  -3.3056909E-4 
+ last(rrk4) =  [0.0,-0.24415,-0.34846,-0.096235] 
+ final x value =  0.0 
+(%o30) [-0.24415,-0.096235]
+---------------------------------------------
+case xi < 0
+
+(%i31) rkpts : trajectory(0.1,3.1,0.1)$
+ need  -0.39761  < y0 <  0.56707 
+ input y0  
+0.095;
+ need  0.0  < py0 <  0.43766 
+ input py0  
+0.096;
+ E =  0.1  x0 =  0  y0 =  0.095 
+ px0 =  0.427  py0 =  0.096 
+ odeL =  [px,py,-2*x*y-1.0*x,1.0*y^2-1.0*y-x^2] 
+ varL =  [x,y,px,py]  initL =  [0,0.095,0.427,0.096] 
+   working ...  
+(%i32) last(rkpts);
+(%o32) [3.1,-0.031519,-0.2516,-0.34775,-0.068239]
+(%i33) pnt : rest(%);
+(%o33) [-0.031519,-0.2516,-0.34775,-0.068239]
+(%i34) goback(odeL,var,pnt,0.01);
+ init_gb =  [-0.2516,-0.34775,-0.068239] 
+ xprec =  0.0031519 
+ xi =  -0.031519  dx_gb =  0.0031519 
+ last(rrk4) =  [0.0,-0.24415,-0.34846,-0.096235] 
+ final x value =  0.0 
+(%o34) [-0.24415,-0.096235]
+
+*/
+
+
+
+/* rk41 has same syntax as rk4 but lands on tf 
+   by adjusting the number of steps and the size of the last step. */
+
+rk41(ode, var, init, domain) :=
+block([uvw,rksoln,n2,k1,k2,k3,k4,t0,t1,dt,tf,t2f,
+          small:1e-12,doend:true,dtc,tc0,r,numer:true],
+  
+  init : float(init),
+  domain : float(domain),
+  
+  if (not(listp(ode))) then (
+      ode : [ode],
+      var : [var],
+      init : [init]),  
+  
+  local(rkfunc),
+  define(funmake(rkfunc,cons(domain[1],var)),float(ode)),
+  translate(rkfunc), 
+  dt : domain[4],  
+  t0 : domain[2],
+  tf : domain[3],  
+  n2: round((tf - t0)/dt),
+  t2f : t0 + n2*dt,
+  /* print(" n2 = ",n2," t2f = ",t2f), */
+  
+  uvw: init,
+  
+  if (not(numberp(last(apply(rkfunc,cons(t0,uvw)))))) then
+    error("Expecting a number when the initial state is 
+    replaced in the equations, but instead found:"
+       ,last(apply(rkfunc,cons(t0,uvw)))),              
+       
+  rksoln: [cons(t0, init)],
+  
+  if abs(t2f - tf) < small then (
+        n : n2,
+        doend : false)
+        
+  else if dt > 0 then (      
+       if t2f > tf then (
+           n : n2 -1,           
+           tc0 : t2f - dt)           
+       else (  /* case t2f < tf  */
+           n : n2,           
+           tc0 : t2f))
+           
+  else (  /* case dt < 0 */
+       if t2f > tf then (
+           n : n2,
+           tc0 : t2f)           
+       else (  /* case t2f < tf */
+           n : n2 -1,
+           tc0 : t2f - dt)),
+           
+  if doend then dtc : tf - tc0,
+           
+  /* print(" n = ",n," doend = ",doend),
+     if doend then print(" tc0 = ",tc0," dtc = ",dtc), */
+  
+  
+  
+  for i thru n do (
+    r: errcatch (
+      t1: domain[2]+i*dt,
+      k1: apply(rkfunc,cons(t0,uvw)),
+      k2: apply(rkfunc,cons((t0+t1)/2, uvw+k1*dt/2)),
+      k3: apply(rkfunc,cons((t0+t1)/2,uvw+k2*dt/2)),
+      k4: apply(rkfunc,cons(t1,uvw+k3*dt))),
+    if length(r)=0 then return()
+    else uvw: uvw + dt*(k1+2*k2+2*k3+k4)/6,
+    t0: t1,
+    rksoln : cons(cons(t0,uvw), rksoln)),
+    
+    
+  if doend then (
+     r: errcatch (
+        k1: apply(rkfunc,cons(tc0,uvw)),
+        k2: apply(rkfunc,cons((tc0+tf)/2, uvw+k1*dtc/2)),
+        k3: apply(rkfunc,cons((tc0+tf)/2, uvw+k2*dtc/2)),
+        k4: apply(rkfunc,cons(tf,uvw+k3*dtc))),
+        
+     if length(r)=0 then return()
+       else uvw: uvw + dtc*(k1+2*k2+2*k3+k4)/6,
+      rksoln : cons(cons(tf,uvw), rksoln)),
+    
+  reverse(rksoln))$
+
+    
+    
+    
+/****   example2(E,tf,dt,xtol)  calls trajectory and
+          getsection, returns list [ypyL, trajL]  *******/      
+    
+example2(E,tf,dt,xtol) :=
+block([trajL, ypyL,numer], numer:true,
+    trajL : trajectory(E,tf,dt),
+    ypyL : getsection(trajL, xtol),
+    [ypyL, trajL])$
+    
+    
+/**** xsection_plot(E,y0,py0,tf) does not accumulate the
+        trajectory points, but only the (y-py) pairs when
+        x = 0. First draws the plot and then returns ypyL as
+        a list for later use. *****/
+    
+    
+xsection_plot(E,y0,py0,tf) :=
+block([u,v,x,y,px,py,dt:0.1,xtol:0.01,ylim,ymin,ymax,py0max,px0,
+        dpxdt,dpydt,initL,varL,odeL,xold:0,told:0,
+        ypyL,n,ode_gb,var_gb,rkstep,xnew,numer],numer:true,
+    local(V),      
+    define(V(u,v),PE(u,v)),
+      
+    ylim : yminmax(E),
+    ymin : ylim[1],
+    ymax : ylim[2],       
+    if y0 <= ymin or y0 >= ymax then (
+       print(" need ",ymin," <= y0 <= ",ymax),
+       return(done)),
+    py0max : sqrt(2*(E - V(0,y0))),
+    if py0 < 0 or py0 >= py0max then (
+       print("  need  0 < py0 < ", py0max),
+       return(done)),
+    px0 : sqrt(2*(E - V(0,y0)) - py0^2),
+    
+    /* prepare for integration */      
+    dpxdt : -diff(V(x,y),x),
+    dpydt : -diff(V(x,y),y),
+    initL : [xold,y0,px0,py0],
+    varL : [x,y,px,py],
+    odeL : [px,py, dpxdt,dpydt],    
+    ypyL : [[y0,py0]],
+      /* print(" trajectory = ",trajectory),
+         print(" ypyL = ",ypyL),  */
+    n : fix(tf/dt),
+      
+    /* prepare for goback args       
+         ode_gb = [dydx,dpxdx,dpydx] */
+      
+    ode_gb : [py/px,dpxdt/px, dpydt/px],
+    var_gb : [y,px,py],
+    /* do integration */
+      
+    for i thru n do (      
+         rkstep : rk4_step(odeL,varL,initL,[t,told,dt]),    
+         xnew : rkstep[2],         
+         if xold*xnew < 0 then (             
+             rgoback : goback(ode_gb,var_gb,rest(rkstep),xtol),             
+             ypyL : cons(rgoback, ypyL)),             
+         xold : xnew,  
+         initL : rest(rkstep),
+         told : rkstep[1]),
+         
+    ypyL : reverse(ypyL),
+    plot2d([discrete, ypyL],[xlabel,"y"],[ylabel,"py"],
+          [style,[points,1,5,1]],[x,-0.6,0.6],[y,-0.6,0.6]),
+    ypyL)$
+        
+
+    
+    
+         
+    
+    
+   
+   
+/*  xsection(E) calls gety0, get_py0, and rk4_step.
+     Looks at the value of x each step and calls
+     goback (which calls rk4) if x changes sign.
+     xsection is hardwired to integrate the Henon-Heiles
+     potential problem, given the energy E, the final time tf,
+     the step size dt and xtol = precision requested
+     for x=0 backward integration. The initial time is 0 and
+     the initial x value is 0.   */
+     
+xsection(E,tf,dt,xtol) :=
+block([u,v,py0max,y0,py0,px0,xold:0,xnew,told:0,
+       x,y,px,py,dpxdt,dpydt,initL,trajectory,ypyL,
+       varL, odeL,n,rkstep,i,ode_gb,var_gb,
+       rgoback, numer],numer:true,
+       
+      local(V),      
+      define(V(u,v),PE(u,v)),
+      
+      if E <= 0 or E >= 1/6 then (
+        print(" need 0 <= E <= ", 1/6 ),
+        print(" aborting program "),
+        return(done)),       
+            
+      /**** get y0  *****/
+      
+      y0 : gety0(E),
+      if y0 < -10 then (
+         print(" aborting program "),
+         return(done)),  /* case abort program */
+      
+      /**** get py0  ****/
+      
+      py0max : sqrt(2*(E - V(0,y0))),      
+      py0 : get_py0(py0max),
+      if py0 < 0 then (
+         print(" aborting program "),
+         return(done)),  /* case abort program */
+      
+      /**** get px0 from conservation of energy ***/
+      
+      px0 : sqrt(2*(E - V(0,y0)) - py0^2),
+      print(" E = ",E," x0 = ",xold," y0 = ",y0),
+      print(" px0 = ",px0," py0 = ",py0),
+      
+      /* prepare for integration */
+      
+      dpxdt : -diff(V(x,y),x),
+      dpydt : -diff(V(x,y),y),            
+      initL : [xold,y0,px0,py0],
+      varL : [x,y,px,py],
+      odeL : [px,py, dpxdt,dpydt],      
+      trajectory : [[told,xold,y0,px0,py0]],
+      ypyL : [[y0,py0]],      
+      n : fix(tf/dt),
+      
+      /* prepare for goback args */
+      
+      /* ode_gb = [dydx,dpxdx,dpydx] */
+      
+      ode_gb : [py/px,dpxdt/px, dpydt/px],
+      var_gb : [y,px,py],    
+      
+      /* do integration */
+      
+      print("  working... "),
+      
+      for i thru n do (      
+         rkstep : rk4_step(odeL,varL,initL,[t,told,dt]),        
+         trajectory : cons(rkstep, trajectory),
+         xnew : rkstep[2],
+         
+         if xold*xnew < 0 then (             
+             rgoback : goback(ode_gb,var_gb,rest(rkstep),xtol),            
+             ypyL : cons(rgoback, ypyL)),
+             
+         xold : xnew,  
+         initL : rest(rkstep),
+         told : rkstep[1]),
+         
+      trajectory : reverse(trajectory),
+      ypyL : reverse(ypyL),
+      [ypyL,trajectory])$
+      
+      
+      
+
+/* syntax rk4_step(-t*y,y,2,[t,0.1,0.001])
+         or rk4_step(ode,var,init,domain) where
+          domain = [t, t0, dt] to advance the solution
+          one rk step from t0 to t0+dt.
+          
+       rk4_step([vx,-4*%pi^2*x],[x,vx],[1, 0],[t, 0.1, 0.001])
+       for two ode's.   
+            */
+ 
+ 
+rk4_step(ode, var, init, domain) :=
+block([uvw,k1,k2,k3,k4,t0,t1,dt,
+            numer:true,display2d:false],
+  init : float(init),
+  domain : float(domain),         
+  if (not(listp(ode))) then (
+      ode : [ode],
+      var : [var],
+      init : [init]),  
+  
+  local(rkfunc),
+  define(funmake(rkfunc,cons(domain[1],var)),float(ode)),
+  
+  dt : domain[3],  
+  t0 : domain[2],
+  t1 : t0 + dt,  
+  uvw: init,
+  k1: apply(rkfunc,cons(t0,uvw)),
+  k2: apply(rkfunc,cons((t0+t1)/2, uvw+k1*dt/2)),
+  k3: apply(rkfunc,cons((t0+t1)/2,uvw+k2*dt/2)),
+  k4: apply(rkfunc,cons(t1,uvw+k3*dt)),
+  uvw: uvw + dt*(k1+2*k2+2*k3+k4)/6,
+  cons(t1,uvw))$
+    
+/*
+(%i24) rk4_step(-t*y,y,2,[t,0,0.1]);
+(%o24) [0.1,1.990025]
+
+(%i25) rk4_step([vx,-4*%pi^2*x],[x,vx],[1,0],[t,0,0.1]);
+(%o25) [0.1,0.8091,-3.688084]
+
+
+*/
+
+
+/* rk4 syntax:
+   rk4(-t*y,y,2,[t, 0, 1, 0.01]) 
+   rk4([vx,-4*%pi^2*x],[x,vx],[1,0],[t, 0, 1, 0.01]);
+   */
+ 
+rk4(ode, var, init, domain) :=
+block([uvw,rksoln,n,k1,k2,k3,k4,t0,t1,dt,
+            r,numer:true,display2d:false],
+  
+  init : float(init),
+  domain : float(domain),
+  
+  if (not(listp(ode))) then (
+      ode : [ode],
+      var : [var],
+      init : [init]),  
+  
+  local(rkfunc),
+  define(funmake(rkfunc,cons(domain[1],var)),float(ode)),
+  translate(rkfunc), 
+  dt : domain[4],  
+  t0 : domain[2],
+  /* n: fix((domain[3] - t0)/dt),   */
+  n: round((domain[3] - t0)/dt),  
+  uvw: init,
+  
+  if (not(numberp(last(apply(rkfunc,cons(t0,uvw)))))) then
+    error("Expecting a number when the initial state is 
+    replaced in the equations, but instead found:"
+       ,last(apply(rkfunc,cons(t0,uvw)))),
+       
+  rksoln: [cons(t0, init)],
+  for i thru n do (
+    r: errcatch (
+      t1: domain[2]+i*dt,
+      k1: apply(rkfunc,cons(t0,uvw)),
+      k2: apply(rkfunc,cons((t0+t1)/2, uvw+k1*dt/2)),
+      k3: apply(rkfunc,cons((t0+t1)/2,uvw+k2*dt/2)),
+      k4: apply(rkfunc,cons(t1,uvw+k3*dt))),
+    if length(r)=0 then return()
+    else uvw: uvw + dt*(k1+2*k2+2*k3+k4)/6,
+    t0: t1,
+    rksoln : cons(cons(t0,uvw), rksoln)),
+  reverse(rksoln))$
+  
+
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+
+/* a better name for take would be get_vec */
+
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+range(aaL) := print(" min = ",lmin(aaL),"  max = ", lmax(aaL))$
+
+fll(x) := [first(x),last(x),length(x)]$
+  
+
+ ratprint:false$
+ fpprintprec:7$
+ 

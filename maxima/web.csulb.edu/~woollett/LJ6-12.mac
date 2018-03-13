@@ -1,0 +1,737 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+
+
+/* LJ6-12.mac:   hashed array wf(E) Numerov method 
+          for Lennard Jones 6/12 Potential
+	Ch.3:  Computational Physics with Maxima or R:
+       Boundary Value and Eigenvalue Problems
+ */
+
+ /*     initial global parameters:      */
+  
+ (  h : 0.01,
+    h2 : h^2/12,    /* Numerov constants */
+    h52 : 5*h2, 	 
+	gam2 : 2500,  /* square of gam = 50  */
+	x1decay : 0.3,   /*  start yL integration at (x1 - x1decay)   */
+    x2decay : 1,    /* start yR integration at (x2 + x2decay)   */
+	y2left : 1e-19,     /*  y(x_left + h)  value chosen from E = -0.9 case */
+     y2right : 1e-16,  /*      y(x_right - h)  value chosen from E = -0.9 case  */  
+	 print(" gam2 = ", gam2),
+	 print(" h = ", h, ",   x1decay = ", x1decay, ",  x2decay = ", x2decay),
+	 print(" y2left = ",y2left, "   y2right = ", y2right ),	
+     xm : float(2^(1/6)),   /* this is where V(x) =  -1 = minimum value  */
+     /* for given energy -1 < E < 0 , these are the turning points  */
+     xin(E) :=  xm*(sqrt(E+1)/E-1/E)^(1/6),
+     xout(E) := xm*(sqrt(E+1)+1)^(1/6)/(-E)^(1/6),
+      /* dimensionless potential V(x) for Lennard-Jones 6/12 potential */
+      V(z) := ( 4*(z^(-12) - z^(-6)) ) )$
+	  
+	  
+/*  wf(E)    creates ** un-normalized **  wave functions
+      for the Lennard-Jones 6/12 potential case.
+      limits of numerical integration, x_left and x_right are
+ 	  determined by energy E and xdecay values.
+       The wave functions are stored in global xL, yL, xR, yR.
+	   Program also defines **global**  x2c, nleft, nright,  x_left, x_right.
+	   See example run at end.
+	   
+	  nleft = the number of steps from x_left to x2c =  grid point nearest to
+	  x1 = xin(E) =  classical turning point < xm = 1.122462
+	   x2 = xout(E) =  classical turning point > xm. 
+	   the global xL grid extends from x_left to x2c + h   and
+	   the global  xR grid extends from  x2c - h to   x_right,
+	   so we can compute y'(x2c) using a 3 pt. symmetric formula.
+*/
+
+
+
+
+
+wf(E) := block( [x1,x2,x, fac,numer],numer:true,
+
+     if (E > 0) or (E < -1) then (
+	      print(" need -1 < E < 0 "),
+		  return(false)),	 		  
+	
+    local(g,xl,yl,xr,yr),
+	g(z) :=  gam2*( E - V(z) ),  /*  coeff. func. in ode:  y''(x) + g(x) y(x) = 0  */
+	x1 : xin(E),  /* classical turning point for x < xm   */
+	x2 : xout(E),  /* classical turning point for x> xm   */
+	if wfdebug then print("  x1 = ", x1, "   x2 = ", x2),
+
+	x_left : x1 - x1decay,
+	nleft : round ( (x2 - x_left)/h ),  /* number of steps from x_left to x2c = match point */
+	x2c : x_left + h*nleft,
+	if wfdebug then print(" x_left = ",x_left," nleft = ",nleft,"  x2c = ", x2c),	
+	if wfdebug then print(" y2left = ", y2left, " y2right = ", y2right),	
+
+	nright : round ( (x2 + x2decay - x2c)/h ),   /* number of steps from x2c to x_right  */
+	x_right : x2c + h*nright,
+	if wfdebug then print("  nright = ",nright," x_right = ",x_right),
+
+	/* find yL for x_left <=  x <= x2c + h using Numerov algorithm  */ 		
+	
+	xl[1] : x_left,
+	xl[2] : x_left + h,
+	yl[1] : 0,
+	yl[2] : y2left,
+	
+	for j:2 thru nleft + 1 do (
+	   x : x_left + j*h,
+	   xl[j+1] : x,
+	   yl[j+1] : ( 2*(1 - h52*g(x-h)) * yl[ j ] - (1 + h2*g(x-2*h)) * yl[ j-1] )/ (1 + h2*g(x)) ),
+	   
+	/* find yR for  x2c - h  <= x  <= x_right using Numerov method */
+	
+	xr[nright + 2 ] : x_right,
+	xr[nright + 1] : x_right - h,
+	yr[nright + 2] : 0,
+	yr[nright + 1] : y2right,
+	
+	for j:nright+1  step -1  thru 2 do (
+	   x : x2c + h*(j -3),
+	   xr[ j - 1] : x,
+	   yr[j - 1] : ( 2*(1-h52*g(x+h)) * yr [ j ]  - (1 + h2*g(x+2*h)) * yr [j + 1] ) / (1 + h2*g(x)) ),	   	
+	   
+	fac : yr[2]/yl[nleft + 1],     /*   yR(x2c) / yL(x2c)    */			
+	for j thru nleft+2 do   yl[ j ] : fac * yl[ j ],		
+	   
+	xL : listarray(xl),
+	yL : listarray(yl),
+	xR : listarray(xr),
+	yR : listarray(yr),
+	
+	done)$
+
+/*
+(%i24) wf(-0.9);
+(%o24) done
+(%i25) plot2d([[discrete,xL,yL],[discrete,xR,yR]],[legend,false],
+            [xlabel,"x"],[ylabel,"y"])$
+			
+(%i29) wf(-0.5);
+(%o29) done
+(%i30) num_nodes();
+(%o30) 3
+(%i31) wf(-0.9);
+(%o31) done
+(%i32) num_nodes();
+(%o32) 0
+*/
+			
+/* position(xv, aL) is designed to be used with xL to locate 
+  position of first element which is equal to or greater than x1,
+   since in this package xL has just increasing positive numbers in it
+*/   
+	
+position(xv, aL) := ( first (sublist_indices(aL,lambda([x], x >= xv))))$
+
+/*  count the number of nodes in yL
+     ignore region where elements of yL are
+	 tiny in magnitude.
+     uses position(...)   */
+
+num_nodes() :=
+block([x11, j0, yLm2, n, numer], numer:true,   
+	x11 : x_left + x1decay,
+	j0 : position(x11, xL),
+	yLm2 : rest(yL,-2),  /* ignore y(x2c) and y(x2c+h) values in count */		  
+	n : 0,
+	for j : j0  thru (length(yLm2) - 1) do 
+	    if yLm2[j] * yLm2[j + 1] < 0 then n : n + 1,
+	n)$
+	
+	
+/*  dy_diff() uses global yL, yR,nleft, h 
+     computes numerical y'(x2c)  using
+	 symmetric three point method for
+	 both yL and yR, and returns the difference
+	 divided by y(x2c)  
+*/
+
+dy_diff() :=
+block([ypL, ypR,  numer],numer:true,
+     ypL : ( last(yL) - yL[nleft] ) / (2*h),
+	ypR : (yR[3] - first(yR)) / (2*h),
+	(ypL - ypR)/ abs (yR[2]) )$
+	
+/* dy_diff2() prints out values of ypL and
+      ypR, returns same as dy_diff()  
+*/	  
+	
+dy_diff2() :=
+block([ypL, ypR,  numer],numer:true,
+     ypL : ( last(yL) - yL[nleft] ) / (2*h),
+	ypR : (yR[3] - first(yR)) / (2*h),
+	print(" ypL = ",ypL," ypR = ",ypR),
+	(ypL - ypR)/ abs (yR[2]) )$
+	
+	
+/* energy eigenvalue if global function F(E) = 0 .
+  F(E) calls wf(E) then returns dy_diff(), but
+    returns false if E > 0.
+  
+ */	
+	
+F(E) :=
+block( [ numer],numer:true,
+    if E > 0 then (
+         print(" in F(E), E = ",E,"  should be negative "),
+  	    return(false)),
+    wf(E),	
+	dy_diff())$
+	
+/* this function implementation of bracket, designed to work with
+    the package LJ2.mac,  looks for a sign change in func,
+	starting with xx,  and increasing xx by dxx each step.
+	If sign change is found,  then we back up to the previous xx 
+	and search with new  dxx value one half of the previous value.
+   normally returns [ea,eb], but if can't find change in sign,
+   then returns [0,0], and if func returns false, then 
+   bracket returns false.
+*/
+
+bracket(func,xx,dxx,xacc) :=
+block([f1,f2, x:xx, dx:dxx,xx1,xx2,it:0,itmax:1000],        	
+    
+    do (
+	  it : it + 1,	  
+	  if debug then print(it),
+	  if it > itmax then (
+          print(" can't find change in sign "),    
+	      return([0, 0 ])),
+	  xx1 : x,
+	  xx2 : x + dx,
+	  
+	  if debug then print(" it = ",it," xx1 = ",xx1," xx2 = ",xx2," dx = ", dx),
+	  f1 : func(xx1),
+	  if not f1 then (
+	      print(" in bracket, f1 = false , xx1 = ",xx1, "  dx = ", dx),
+		  return(f1)),
+		  
+	  f2 : func(xx2),
+	  if not f2 then (
+	      print(" in bracket, f2 = false ,  xx2 = ",xx2, "  dx = ", dx),
+		  return(f2)),
+	  if debug then print (" f1 = ",f1,"  f2 = ",f2),  
+	  if f1*f2 < 0 then (
+	       if abs(dx) < xacc then return([xx1,xx2]),
+		   x : x - dx,
+		   dx : dx/2)
+	  else x : xx2))$
+	  
+/*  Fplot calls F(E)   */
+
+Fplot(Emin, Emax, dE) := 
+block([EL,FL,ymin,ymax, numer],numer:true,
+     EL : makelist (E,E, Emin, Emax, dE),
+     FL : map(F, EL),
+	 ymin : floor( lmin(FL) ),
+	 ymax : 1 + floor( lmax (FL) ),
+     plot2d( [discrete, EL, FL], [y, ymin, ymax], [xlabel, "E"],
+              [ylabel, "F" ], [legend, false] ) )$
+			  
+			  
+/* Fplot2 allows user assignment of ymin and ymax */
+
+Fplot2 (Emin, Emax, dE, ymin, ymax) := 
+block([EL,FL,numer],numer:true,
+     EL : makelist (E,E, Emin, Emax, dE),
+     FL : map(F, EL),	 
+     plot2d( [discrete, EL, FL], [y, ymin, ymax], [xlabel, "E"],
+              [ylabel, "F" ], [legend, false] ) )$
+			  
+/*
+wf_plot (E) calls wf(E) and plot2d 	   
+	       creates ** un-normalized **  wave functions
+          stored in global xL, yL, xR, yR.
+           prints out number of nodes in yL
+		    prints out dy_diff .
+*/
+
+				  
+wf_plot(E) :=
+block([xxL, yyL, ymn,ymx, numer], numer:true,
+     wf(E),	 
+	 xxL : rest(xL, -1),
+	 yyL : rest(yL, -1),
+	 ymn : float( floor ( lmin(yyL))),
+	 ymx : float(1 + floor ( lmax(yyL))),
+	 print( " E = ", E, ",      ymax = ", lmax(yyL) ),
+	 print(" number of nodes = ",num_nodes(), ",      dy_diff = ",dy_diff() ),
+	 /* print(" dy_diff2() = ", dy_diff2() ),  */
+	 plot2d([ [discrete, xxL, yyL],  [discrete, rest(xR,1), rest(yR,1)] ],
+				 [y,ymn,ymx],  [ylabel,"y"],  [xlabel,"x"], [style, [lines,3]],
+					  [legend, false],  [gnuplot_preamble,"set grid"]))$
+					  
+/*
+
+(%i33) load(LJ2);
+ gam2 =  2500 
+ h =  0.01 ,   x1decay =  0.3 ,  x2decay =  1 
+ y2left =  1.0E-19    y2right =  1.0E-16 
+(%o33) "c:/k3/LJ2.mac"
+------------------------------------
+zero node solution:
+
+(%i34) e : find_root(F, -0.91,-0.88);
+(%o34) -0.896404
+(%i35) wf_plot(e);
+ E =  -0.896404 ,      ymax =  27.422334 
+ number of nodes =  0 ,      dy_diff =  -5.41191607E-14 
+ 
+ spurious zero node soln:
+ 
+(%i36) [ea,eb]:bracket(F,-0.87,0.02,0.01);
+(%o36) [-0.87,-0.865]
+(%i37) e : find_root(F,ea,eb);
+(%o37) -0.865689
+(%i38) wf_plot(e);
+ E =  -0.865689 ,      ymax =  9.8122825 
+ number of nodes =  0 ,      dy_diff =  9.98636342E+15 
+ plot shows yL negative with min value -6e15.
+ ----------------------------------------------
+ 1 node solution:
+ 
+ (%i40) [ea,eb]:bracket(F,-0.91,0.05,0.02);
+(%o40) [-0.7225,-0.71]
+(%i41) e : find_root(F,ea,eb);
+(%o41) -0.71066
+(%i42) wf_plot(e);
+ E =  -0.71066 ,      ymax =  0.44718 
+ number of nodes =  1 ,      dy_diff =  8.68128554E-15 
+ 
+ spurious 1 node solution:
+ (%i43) [ea,eb]:bracket(F,-0.69,0.01,0.005);
+(%o43) [-0.685,-0.6825]
+(%i44) e : find_root(F,ea,eb);
+(%o44) -0.684654
+(%i45) wf_plot(e);
+ E =  -0.684654 ,      ymax =  4.26658545E+13 
+ number of nodes =  1 ,      dy_diff =  3.70434122E+15 
+ 
+ --------------------------------------------------------------
+  2 nodes solution
+
+(%i47) [ea,eb]:bracket(F,-0.67,0.01,0.005);
+(%o47) [-0.5525,-0.55]
+(%i48) e : find_root(F,ea,eb);
+(%o48) -0.551436
+(%i51) wf_plot2(e,0.8,1.6)$
+ E =  -0.551436  ymin =  -0.00666332  ymax =  0.00864451 
+ number of nodes =  2  dy_diff =  -7.17260262E-15 
+ 
+ spurious 2 node solution:
+ (%i52) [ea,eb]:bracket(F,-0.54,0.01,0.005);
+(%o52) [-0.5275,-0.525]
+(%i53) e : find_root(F,ea,eb);
+(%o53) -0.525458
+(%i54) wf_plot2(e,0.8,1.6)$
+ E =  -0.525458  ymin =  -0.100725  ymax =  0.121783 
+ number of nodes =  2  dy_diff =  -776.51395
+ ---------------------------------------------
+ 3 nodes solution
+ 
+ (%i55) [ea,eb]:bracket(F,-0.51,0.01,0.005);
+(%o55) [-0.4175,-0.415]
+(%i56) e : find_root(F,ea,eb);
+(%o56) -0.417053
+(%i57) wf_plot2(e,0.8,1.6)$
+ E =  -0.417053  ymin =  -1.35605124E-4  ymax =  1.79589591E-4 
+ number of nodes =  3  dy_diff =  3.52444781E-14 
+ 
+ spurious 3 node soln:
+ 
+ (%i58) [ea,eb]:bracket(F,-0.4,0.01,0.005);
+(%o58) [-0.3975,-0.395]
+(%i59) e : find_root(F,ea,eb);
+(%o59) -0.396412
+(%i60) wf_plot2(e,0.8,1.6)$
+ E =  -0.396412  ymin =  -7.62345359E+9  ymax =  6.08635611E+9 
+ number of nodes =  3  dy_diff =  2.0447456E+15 
+ ----------------------------------------------
+ 4 nodes solution:
+ 
+ (%i61) [ea,eb]:bracket(F,-0.38,0.01,0.005);
+(%o61) [-0.3075,-0.305]
+(%i62) e : find_root(F,ea,eb);
+(%o62) -0.305745
+(%i63) wf_plot2(e,0.8,1.6)$
+ E =  -0.305745  ymin =  -2.65752332E-6  ymax =  3.61448501E-6 
+ number of nodes =  4  dy_diff =  2.66006286E-14 
+ 
+ spurious 4 node soln:
+ 
+ (%i64) [ea,eb]:bracket(F,-0.3,0.01,0.005);
+(%o64) [-0.29,-0.2875]
+(%i65) e : find_root(F,ea,eb);
+(%o65) -0.28887
+(%i66) wf_plot2(e,0.8,1.6)$
+ E =  -0.28887  ymin =  -2.05683828E-5  ymax =  2.61493219E-5 
+ number of nodes =  4  dy_diff =  -288.73328 
+ -------------------------------------
+ 5 nodes solution:
+ 
+ (%i67) [ea,eb]:bracket(F,-0.27,0.01,0.005);
+(%o67) [-0.2175,-0.215]
+(%i68) e : find_root(F,ea,eb);
+(%o68) -0.215653
+(%i69) wf_plot2(e,0.8,2)$
+ E =  -0.215653  ymin =  -6.42915512E-8  ymax =  8.80771028E-8 
+ number of nodes =  5  dy_diff =  -2.08612889E-14 
+ 
+ spurious 5 node soln:
+ 
+ (%i70) [ea,eb]:bracket(F,-0.21,0.001,0.0005);
+(%o70) [-0.20275,-0.2025]
+(%i71) e : find_root(F,ea,eb);
+(%o71) -0.202624
+(%i72) wf_plot2(e,0.8,2)$
+ E =  -0.202624  ymin =  -2.97696581E+7  ymax =  2.30645836E+7 
+ number of nodes =  5  dy_diff =  9.75561892E+15 
+ ------------------------------------------------
+ 6 nodes solution:
+ 
+ (%i73) [ea,eb]:bracket(F,-0.2,0.01,0.005);
+(%o73) [-0.145,-0.1425]
+(%i74) e : find_root(F,ea,eb);
+(%o74) -0.144815
+(%i75) wf_plot2(e,0.8,2)$
+ E =  -0.144815  ymin =  -2.12989379E-9  ymax =  2.94345342E-9 
+ number of nodes =  6  dy_diff =  0.0 
+ 
+ spurious 6 node soln:
+ 
+ (%i76) [ea,eb]:bracket(F,-0.14,0.001,0.0005);
+(%o76) [-0.13425,-0.134]
+(%i77) e : find_root(F,ea,eb);
+(%o77) -0.134182
+(%i78) wf_plot2(e,0.8,2)$
+ E =  -0.134182  ymin =  -416255.7  ymax =  541394.47 
+ number of nodes =  6  dy_diff =  -4.92181161E+15 
+ 
+ -------------------------------------------------------------
+ 7 nodes solution:
+ 
+ (%i79) [ea,eb]:bracket(F,-0.1,0.001,0.0005);
+(%o79) [-0.09125,-0.091]
+(%i80) e : find_root(F,ea,eb);
+(%o80) -0.0911638
+(%i81) wf_plot2(e,0.8,2)$
+ E =  -0.0911638  ymin =  -9.81319617E-11  ymax =  1.37476586E-10 
+ number of nodes =  7  dy_diff =  -2.78516304E-14 
+ 
+ spurious 7 node soln:
+ 
+ (%i82) [ea,eb]:bracket(F,-0.09,0.001,0.0005);
+(%o82) [-0.08375,-0.0835]
+(%i83) e : find_root(F,ea,eb);
+(%o83) -0.0835761
+(%i84) wf_plot2(e,0.8,2)$
+ E =  -0.0835761  ymin =  -1.88785395E-9  ymax =  2.48766221E-9 
+ number of nodes =  7  dy_diff =  -390.28043 
+ 
+ 
+ 
+ 
+ */
+ 
+ 
+ 
+ wf_plot2(E,xmin,xmax) :=
+block([xxL, yyL,ymin,ymax, numer], numer:true,
+     wf(E),	 
+	 xxL : rest(xL, -1),
+	 yyL : rest(yL, -1),
+	 ym : lmax(yyL),
+	 ymin : lmin(yyL),
+	 ymax : lmax(yyL),	 
+	 print(" E = ",E, " ymin = ", ymin," ymax = ",ymax),
+     print( " number of nodes = ",num_nodes()," dy_diff = ",dy_diff() ),
+	 plot2d([ [discrete, xxL, yyL],  [discrete, rest(xR,1), rest(yR,1)] ],
+	             ['x, xmin,xmax],  ['y,ymin,ymax],  [ylabel,"y"],  [xlabel,"x"], 
+					  [legend, false],  [gnuplot_preamble,"set grid"]))$
+					  
+
+					  
+ /* normalize() uses the current global xL,yL, xR, yR and
+  the  utility functions  merge and simp  to define global
+  xn and yn, with the latter being normalized.
+  */
+  
+  
+
+normalize() :=
+block ( [AA,x_mean,x2_mean,delx,delx2, numer ], numer:true,     
+     xn : merge( rest(xL,-1), rest(xR, 2) ),
+	 yn : merge( rest(yL,-1), rest(yR, 2) ),
+	 /* we need xn to have odd # of elements to use simp */
+	 if evenp ( length (xn) ) then (
+	     xn : rest (xn),
+		 yn : rest (yn)),	 
+	 if debug then print ( " fll(xn) = ", xn ),
+	 if debug then print( " fll(yn) = ", yn ),
+	 AA : simp(xn,yn^2),			 
+	 print( " AA = ",AA),	
+	 yn : yn/sqrt(AA),
+	 if debug then print( " fll(yn) = ", yn ),
+	 
+	 x_mean : simp(xn, xn * yn^2),
+     print(" x_mean = ", x_mean),							 
+
+     x2_mean : simp(xn, xn^2 * yn^2),
+
+     delx2 : x2_mean - x_mean^2,   /* this should be positive!  */
+
+     delx : sqrt(delx2),
+	 
+	 print(" delx = ", delx),
+	 done)$
+	 
+	 
+/*   yn_plot_current() uses the currently defined normalized set (xn,yn) 
+
+*/
+
+	 
+yn_plot_current() :=
+block([ymn, ymx, numer],numer:true,
+	 ymn : float(floor( lmin(yn) )),
+	 ymx : float( 1 + floor( lmax (yn) ) ),
+	 print(" ymax = ", lmax(yn) ),
+	 plot2d( [discrete, xn, yn], ['y,ymn,ymx],
+        	 [ylabel,"y"],  [xlabel,"x"],
+		 [style,[lines,3]], [legend, false],  [gnuplot_preamble,"set grid"]))$
+					  
+					  
+/*   yn_plot(E,xmin,xmax) first calls wf(E) to create 
+     un-normalized wave functions corresponding to the
+	 given energy E. Then normalizes those wave functions
+	 to produce the lists xn and yn. Finally makes a plot
+	 of yn over only the region (xmn, xmx)   */
+					  
+yn_plot(E,xmn,xmx) :=
+block([ymn, ymx, numer],numer:true,
+     wf(E),
+	 print(" E = ",E ),
+	 print(" number of nodes = ",num_nodes(),",       dy_diff = ",dy_diff() ),
+	 normalize(),
+	 print(" normalized ymax = ", lmax(yn) ),
+	 ymn : floor( lmin(yn) ),
+	 ymx : 1 + floor( lmax (yn) ),
+	 plot2d( [discrete, xn, yn], ['x,xmn, xmx],
+				 ['y,ymn,ymx],  [ylabel,"y"],  [xlabel,"x"],
+				  [style, [lines, 3] ], [legend, false],  [gnuplot_preamble,"set grid"]))$
+				  
+				  
+/*   7 node normalized solution  
+
+(%i5) [ea,eb]:bracket(F,-0.1,0.001,0.0005);
+(%o5) [-0.09125,-0.091]
+(%i6) e : find_root(F,ea,eb);
+(%o6) -0.0911638
+(%i7) normalize();
+ AA =  5.5786197E-21 
+ x_mean =  1.6306327 
+ delx =  0.251236 
+(%o7) done
+(%i8) yn_plot_current();
+ ymax =  1.8406252 
+(%o8) ""
+(%i9) yn_plot(e,0.8,2);
+ E =  -0.0911638 
+ number of nodes =  7 ,       dy_diff =  3.20850782E-13 
+ AA =  5.5786197E-21 
+ x_mean =  1.6306327 
+ delx =  0.251236 
+ normalized ymax =  1.8406252 
+ 
+ */
+ 
+ 
+/* levels(Emin,Emax,dE, Eacc ) returns a list  [Ea, Eb,...] of energy levels with
+     increasingly larger number of nodes in energy range (Emin, Emax).
+	 uses F(E) to find  roots, and calls wf, num_nodes() and dy_diff() for each root found,
+    Uses bracket and find_root.
+	The arguments (dE, Eacc) are used to call bracket, and do not describe
+	  the accuracy of the energy levels found.
+	Once a good energy e.v. is found we look for the region of
+	energies with one more node and search there.
+	interactive continue or stop.
+*/
+	
+
+levels(Emin,Emax,dE, Eacc ) := 
+block([ e,enext, eroot, eL, ea, eb, nn, nlast : -1, r, numer], numer:true,
+     e : Emin,	      
+	 eL : [ ],     /*    list eL will hold energy eigenvalues found  */
+	 
+	 do (  if e > Emax then return(),    /* exit do loop  */
+	         print("---------------- levels -------------------"),
+	        print(" nlast = ", nlast),
+	        print(" Estart = ", e," dE = ", dE ),			
+            [ea, eb] : bracket(F,e, dE, Eacc),	 
+			print(" ea = ",ea," eb = ",eb),
+			if float(ea) = 0.0 then (
+			    print(" can't find bracket interval "),
+				print(" e = ",e),
+				return() ),
+			eroot : find_root(F, ea, eb),
+            print(" eroot = ", eroot),
+			wf(eroot),
+			nn : num_nodes(),
+			print(" number of nodes = ", nn),
+			print(" dy_diff at x2c  = ", dy_diff() ),
+			eL : cons(eroot, eL),
+            nlast : nn,				
+			r : read (" input c; or s; "),
+			if string(r) = "s" then return(),	/* exit do loop  */		
+
+			/* search for an energy greater than eb which produces
+			      a wave function with nn + 1 nodes */
+			enext : eb + dE,
+			do (
+			        wf(enext),
+					if num_nodes() > nlast then (
+					     e : enext,
+						 return() )
+					else enext : enext + dE)),
+			
+	 reverse(eL) )$
+	 
+	 
+/*
+
+(%i11) load(LJ2);
+ gam2 =  2500 
+ h =  0.01 ,   x1decay =  0.3 ,  x2decay =  1 
+ y2left =  1.0E-19    y2right =  1.0E-16 
+(%o11) "c:/k3/LJ2.mac"
+(%i12) levels(-0.95, -0.3, 0.02,0.01);
+---------------- levels ------------------- 
+ nlast =  -1 
+ Estart =  -0.95  dE =  0.02 
+ ea =  -0.9  eb =  -0.895 
+ eroot =  -0.896404 
+ number of nodes =  0 
+ dy_diff at x2c  =  -5.41191607E-14 
+ input c; or s;  
+c;
+---------------- levels ------------------- 
+ nlast =  0 
+ Estart =  -0.835  dE =  0.02 
+ ea =  -0.715  eb =  -0.71 
+ eroot =  -0.71066 
+ number of nodes =  1 
+ dy_diff at x2c  =  1.73625711E-14 
+ input c; or s;  
+c;
+---------------- levels ------------------- 
+ nlast =  1 
+ Estart =  -0.67  dE =  0.02 
+ ea =  -0.555  eb =  -0.55 
+ eroot =  -0.551436 
+ number of nodes =  2 
+ dy_diff at x2c  =  -7.17260262E-15 
+ input c; or s;  
+c;
+---------------- levels ------------------- 
+ nlast =  2 
+ Estart =  -0.51  dE =  0.02 
+ ea =  -0.42  eb =  -0.415 
+ eroot =  -0.417053 
+ number of nodes =  3 
+ dy_diff at x2c  =  3.52444781E-14 
+ input c; or s;  
+c;
+---------------- levels ------------------- 
+ nlast =  3 
+ Estart =  -0.375  dE =  0.02 
+ ea =  -0.31  eb =  -0.305 
+ eroot =  -0.305745 
+ number of nodes =  4 
+ dy_diff at x2c  =  2.66006286E-14 
+ input c; or s;  
+c;
+(%o12) [-0.896404,-0.71066,-0.551436,-0.417053,-0.305745]
+(%i13) [E0,E1,E2,E3,E4] : %;
+(%o13) [-0.896404,-0.71066,-0.551436,-0.417053,-0.305745]
+(%i14) E0;
+(%o14) -0.896404
+(%i15) yn_plot(E0,0.8,1.6)$
+ E =  -0.896404 
+ number of nodes =  0 ,       dy_diff =  -5.41191607E-14 
+ AA =  85.006868 
+ x_mean =  1.1406875 
+ delx =  0.0455039 
+ normalized ymax =  2.9742495 
+(%i16) yn_plot(E1,0.8,1.6)$
+ E =  -0.71066 
+ number of nodes =  1 ,       dy_diff =  1.98222687E-13 
+ AA =  0.0295798 
+ x_mean =  1.1806289 
+ delx =  0.0807403 
+ normalized ymax =  2.6000666 
+(%i17) yn_plot(E2,0.8,1.6)$
+ E =  -0.551436 
+ number of nodes =  2 ,       dy_diff =  2.03223741E-13 
+ AA =  1.24980723E-5 
+ x_mean =  1.2265982 
+ delx =  0.108671 
+ normalized ymax =  2.4452266 
+(%i18) yn_plot(E3,0.8,1.6)$
+ E =  -0.417053 
+ number of nodes =  3 ,       dy_diff =  6.08430991E-13 
+ AA =  6.00901642E-9 
+ x_mean =  1.2801417 
+ delx =  0.134767 
+ normalized ymax =  2.3167516 
+(%i19) yn_plot(E4,0.8,1.6)$
+ E =  -0.305745 
+ number of nodes =  4 ,       dy_diff =  5.25012406E-13 
+ AA =  2.68598604E-12 
+ x_mean =  1.3433997 
+ delx =  0.160886 
+ normalized ymax =  2.2054365 
+ 
+ */
+ 
+/* aids to create eps file for already defined global  (xn,yn)  */
+					  
+get_ya_yb() := 
+block( [  numer], numer:true,
+    [ floor( lmin(yn) ),  1 + floor( lmax (yn) ) ] )$
+	
+	
+/*
+
+[ya,yb] : get_ya_yb();
+
+plot2d( [discrete, xn, yn], ['x,0.8, 1.6],
+				 ['y,ya,yb],  [ylabel,"y"],  [xlabel,"x"],
+				  [style, [lines, 5] ], [legend, false],
+				  [gnuplot_preamble,"set grid"],
+				  [psfile, "c:/k3/LJ7.eps"]);
+				  
+*/
+

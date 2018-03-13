@@ -1,0 +1,549 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+lennard_jones.mac is a utility file associated with
+Project 1 (Classical Scattering in a Central Potential)
+ associated with Ch. 1 (Numerical Differentiation, Quadrature, and Roots)
+ in the series Computational Physics with Maxima or R, 
+ See  project1.pdf for more info.
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+deg(z) := block([numer],numer:true, z*180/%pi)$
+  
+
+
+
+/*  make_pts(x1,y1,xf,yf,N), an example of Maxima
+    list arithmetic methods and use of makelist,
+    fills in intermediate points along a straight line
+    between (x1,y1) and (xf,yf), and returns the list
+    [xL,yL].
+    N = number of intervals, N+1 = number of points  */
+    
+
+make_pts(x1,y1,%xf,%yf,N):=
+block([h, slope, %xL,%yL, numer], numer:true,   
+   h : (%xf - x1)/N,
+   slope : (%yf-y1)/(%xf-x1),
+   %xL : makelist(x,x,x1,%xf,h),
+   %yL :  y1 + slope*(%xL - x1),
+   [ %xL, %yL ])$    
+
+/*
+(%i7) make_pts(0,0,4,4,8);
+(%o7) [[0,0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0],[0,0.5,1.0,1.5,2.0,2.5,3.0,3.5,
+                                            4.0]]
+*/
+
+
+/*  fplot(e,b,xmin,xmax,ymin,ymax) makes a simple plot
+    of the argument of the radical whose zero is the
+    parameter rmin  */
+   
+
+fplot(e,b,xmin,xmax,ymin,ymax) :=
+block([f,numer], numer : true,
+		f : e*x^12 - e*b^2*x^10 + 4*x^6 - 4,		 
+    plot2d(f,[x, xmin, xmax],[y,ymin,ymax],
+            [style, [lines, 3]], [ylabel, "f"],
+            [xlabel, "r"],[nticks,200]))$
+            
+/*
+(%i2) fplot(1,1,0.01,2,-10,10)$
+plot2d: some values were clipped.
+*/
+            
+
+fplot_eps(e,b,xmin,xmax,ymin,ymax,fname) :=
+block([f,numer], numer : true,
+		f : e*x^12 - e*b^2*x^10 + 4*x^6 - 4,		 
+    plot2d(f,[x, xmin, xmax],[y,ymin,ymax],
+            [style, [lines, 5]], [ylabel, "f"],
+            [xlabel, "r"],[nticks,200],[psfile,fname]))$
+            
+/*
+(%i4) fplot_eps(1,1,0.01,2,-10,10,"c:/k1/lj1.eps");
+plot2d: some values were clipped.
+(%o4) "c:/k1/lj1.eps"
+*/
+  
+   
+/* angle_n(e,b) uses numerical methods to return the
+    scattering angle in degrees for the lennard-jones
+    potential. The scattering angle can be either
+    positive or negative (see init(e,b))  */
+    
+angle_n(e,b) :=
+block([root_expr,rmin,phi_inf,numer],numer:true,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : map('rhs, realroots(root_expr,1e-15)),
+    rmin : lmax(rmin),
+    phi_inf : b*quad_qagi(1/r^2/sqrt(root_expr),r,rmin,inf)[1],
+    (%pi - 2*phi_inf)*180/%pi)$
+    
+/*
+(%i24) angle_n(1,1);
+(%o24) 57.119973
+(%i25) bval : [1,0.8];
+(%o25) [1,0.8]
+(%i26) map('lambda([x],angle_n(1,x)),bval);
+(%o26) [57.119973,85.630912]
+*/
+
+/* anglef(e,b,xm,xp) uses find_root to find signed
+    scattering angle in degrees  */
+
+anglef(e,b,xm,xp) :=
+block([root_expr,rmin,phi_inf,numer],numer:true,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : find_root(root_expr,r,xm,xp),    
+    phi_inf : b*quad_qagi(1/r^2/sqrt(root_expr),r,rmin,inf)[1],
+    (%pi - 2*phi_inf)*180/%pi)$
+    
+/*
+(%i46) anglef(e,b,xm,xp) :=
+block([root_expr,rmin,phi_inf,numer],numer:true,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : find_root(root_expr,r,xm,xp),    
+    phi_inf : b*quad_qagi(1/r^2/sqrt(root_expr),r,rmin,inf)[1],
+    (%pi - 2*phi_inf)*180/%pi)$
+(%i47) anglef(1,1.6654,1.1,1.3);
+(%o47) -185.3681857689883
+*/
+
+/* Veff_plot for lennard-jones case */
+
+Veff_plot(e,b,r0,r1,xmin,xmax,ymin,ymax) :=
+block([r,veff,root_expr,rmin,energy_line,numer],numer:true,
+    veff : 4*(r^(-12) - r^(-6)) + e*b^2/r^2,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : map('rhs, realroots(root_expr,1e-15)),
+    rmin : lmax(rmin),
+    energy_line : [discrete,[[rmin,e],[r1,e]]],
+    plot2d([veff, energy_line],[r,r0,r1], [x,xmin,xmax],
+           [y,ymin,ymax],[style,[lines,3,1],[lines,3,2]],
+           [legend,false],[xlabel,"r"],[ylabel,"Veff"]))$
+           
+/*
+(%i41) Veff_plot(1,1,0.9,3,0.8,3,-0.5,2);
+*/
+
+           
+           
+Veff_plot_eps(e,b,r0,r1,xmin,xmax,ymin,ymax,fname) :=
+block([r,veff,root_expr,rmin,energy_line,numer],numer:true,
+    veff : 4*(r^(-12) - r^(-6)) + e*b^2/r^2,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : map('rhs, realroots(root_expr,1e-15)),
+    rmin : lmax(rmin),
+    energy_line : [discrete,[[rmin,e],[r1,e]]],
+    plot2d([veff, energy_line],[r,r0,r1], [x,xmin,xmax],
+           [y,ymin,ymax],[style,[lines,5,1],[lines,5,2]],
+           [legend,false],[xlabel,"r"],[ylabel,"Veff"],
+           [psfile, fname]))$
+           
+
+/*
+(%i49) Veff_plot_eps(1,1.66597,1,5,1,5,-0.5,2,"c:/k1/lj8.eps");
+*/
+
+
+
+/*  init(e,b), with 'root_expr' specific to lennard-jones case,
+     produces global definitions of chi,xc,yc
+    vcx,vcy,and xa. Besides printing out these values,
+    init(e,b) also prints out the values of rmin,
+    phi_inf, and theta0. */
+    
+
+init(e,b) :=
+block([root_expr,r,rmin,phi_inf,theta0,numer],numer:true,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : map('rhs, realroots(root_expr,1e-15)),
+    rmin : lmax(rmin),
+    print(" rmin = ",rmin),
+    phi_inf : b*quad_qagi(1/r^2/sqrt(root_expr),r,rmin,inf)[1],
+    print(" phi_inf = ", phi_inf," rad or ", phi_inf*180/%pi," deg"),
+    theta0 : %pi - phi_inf,
+    print(" theta0 = ",theta0," rad or ", theta0*180/%pi," deg"),
+    chi : (%pi - 2*phi_inf), /* global parameter chi in radians */
+    print(" chi = ", chi, " rad, or ", chi*180/%pi," deg"),
+    /* point of closest approach  */
+    xc : rmin*cos(theta0),  /* global */
+    yc : rmin*sin(theta0),  /* global */
+    vcx : b*sin(theta0)/rmin,  /* global */
+    vcy : -b*cos(theta0)/rmin,  /* global */
+    print(" xc = ", xc," yc = ", yc),
+    print(" vcx = ", vcx," vcy = ", vcy),
+    /* x-intersection of rmin line with y=b line */
+    xa : xc*b/yc,  /* global */
+    print(" xa = ",xa))$
+    
+    
+    
+/*
+restart maxima, load def:
+
+(%i3) init(1,1)$
+ rmin =  1 
+ phi_inf =  1.0723305  rad or  61.440014  deg 
+ theta0 =  2.0692621  rad or  118.55999  deg 
+ chi =  0.996932  rad, or  57.119973  deg 
+ xc =  -0.478079  yc =  0.878317 
+ vcx =  0.878317  vcy =  0.478079 
+ xa =  -0.544312 
+(%i4) rmin;
+(%o4) rmin
+(%i5) phi_inf;
+(%o5) phi_inf
+(%i6) theta0;
+(%o6) theta0
+(%i7) chi;
+(%o7) 0.996932
+(%i8) xc;
+(%o8) -0.478079
+(%i9) yc;
+(%o9) 0.878317
+(%i10) vcx;
+(%o10) 0.878317
+(%i11) vcy;
+(%o11) 0.478079
+(%i12) xa;
+(%o12) -0.544312
+*/
+
+
+/* orbit_plot1 for lennard-jones potential.
+   calls init(e,b) to define local values of
+     xc,yc,xa,vcx,vcy,chi. Calls make_pts to produce
+     rmin_line extension. The final two args are
+     used to control the number of points and their
+     size for the rmin_line extension.
+      Calls utility function take()
+     to extract xL and yL from rkpts. */
+
+orbit_plot1(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax,nextend,psize) :=
+block([xc,yc,vcx,vcy,xa,chi,rkpts,r8,r14,dvxdt,dvydt,
+       xL, yL,pm,pp,vxf,vyf,bline,rmin_line,
+       xf,yf,chi_line,rmin_extend,numer],numer:true,
+       
+     /* define xc, yc, vcx, vcy, xa, chi */
+    init(e,b),
+    
+    /* symbolic expressions for acceleration components */
+    
+    r8 : (x^2 + y^2)^4,  /* r^8 in terms of x and y */     
+    r14 : (x^2 + y^2)^7,  /* r^(14) in terms of x and y */
+    dvxdt : -12*x*(1/r8 - 2/r14)/e,  /* dvx/dt */
+    dvydt : -12*y*(1/r8 - 2/r14)/e,  /* dvy/dt */
+    
+    
+    /* integrate backwards from xc, yc */
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,-tm,-dt]),    
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pm : [discrete, xL, yL],
+    print(" backwards from xc, yc "),    
+    print(" xfirst = ",last(xL)),        
+
+    /* integrate forwards from xc,yc */
+    
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,tp,dt]),
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pp : [discrete, xL, yL],
+    print(" forwards from xc, yc "),    
+    print(" xlast = ",last(xL)," ylast = ",last(yL)),
+    vxf : last(rkpts)[3],
+    vyf : last(rkpts)[5],
+    print(" vx_last = ", vxf," vy_last = ", vyf),    
+    
+    /* make plot of orbit */
+    
+    bline : [discrete,[ [xmin,b],[xmax,b] ]],
+    rmin_line : [discrete,[ [0,0],[xc,yc] ]],
+    yf : b + rchi*sin(chi),
+    xf : xa + rchi*cos(chi),
+    print(" xf = ", xf," yf = ", yf),
+    chi_line : [discrete, [ [xa,b],[xf,yf]]],
+    rmin_extend : make_pts(xc,yc,xa,b,nextend),    
+    rmin_extend : [discrete, rmin_extend[1],rmin_extend[2]],
+    plot2d( [ bline, rmin_line, chi_line, pm, pp, rmin_extend ],
+              [x, xmin, xmax],[y, ymin, ymax],              
+              [style,[lines,2,5],[lines,2,2],[lines,2,5],
+               [lines,3,1],[lines,3,1],
+               [points, psize, 2, 1]],[legend,false]))$
+
+
+/*  example e = 1, b = 1
+
+(%i4) orbit_plot1(1,1,5,5,0.01,5,-2,1.2,0,2,4,0.4)$
+ rmin =  1 
+ phi_inf =  1.0723305  rad or  61.440014  deg 
+ theta0 =  2.0692621  rad or  118.55999  deg 
+ chi =  0.996932  rad, or  57.119973  deg 
+ xc =  -0.478079  yc =  0.878317 
+ vcx =  0.878317  vcy =  0.478079 
+ xa =  -0.544312 
+ backwards from xc, yc  
+ xfirst =  -5.6624496 
+ forwards from xc, yc  
+ xlast =  2.2342414  ylast =  5.2982522 
+ vx_last =  0.542905  vy_last =  0.839859  
+ xf =  2.1700966  yf =  5.1990458 
+ 
+ */
+ 
+ 
+
+orbit_plot1_eps(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax,nextend,psize,fname) :=
+block([xc,yc,vcx,vcy,xa,chi,rkpts,r8,r14,dvxdt,dvydt,
+       xL, yL,pm,pp,vxf,vyf,bline,rmin_line,
+       xf,yf,chi_line,rmin_extend,numer],numer:true,
+       
+     /* define xc, yc, vcx, vcy, xa, chi */
+    init(e,b),
+    
+    /* symbolic expressions for acceleration components */
+    
+    r8 : (x^2 + y^2)^4,  /* r^8 in terms of x and y */     
+    r14 : (x^2 + y^2)^7,  /* r^(14) in terms of x and y */
+    dvxdt : -12*x*(1/r8 - 2/r14)/e,  /* dvx/dt */
+    dvydt : -12*y*(1/r8 - 2/r14)/e,  /* dvy/dt */
+    
+    
+    /* integrate backwards from xc, yc */
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,-tm,-dt]),    
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pm : [discrete, xL, yL],
+    print(" backwards from xc, yc "),
+    print(" xfirst = ",last(xL)),        
+
+    /* integrate forwards from xc,yc */
+    
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,tp,dt]),
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pp : [discrete, xL, yL],
+    print(" forwards from xc, yc "),    
+    print(" xlast = ",last(xL)," ylast = ",last(yL)),
+    vxf : last(rkpts)[3],
+    vyf : last(rkpts)[5],
+    print(" vx_last = ", vxf," vy_last = ", vyf),    
+    
+    /* make plot of orbit */
+    
+    bline : [discrete,[ [xmin,b],[xmax,b] ]],
+    rmin_line : [discrete,[ [0,0],[xc,yc] ]],
+    yf : b + rchi*sin(chi),
+    xf : xa + rchi*cos(chi),
+    print(" xf = ", xf," yf = ", yf),
+    chi_line : [discrete, [ [xa,b],[xf,yf]]],
+    rmin_extend : make_pts(xc,yc,xa,b,nextend),    
+    rmin_extend : [discrete, rmin_extend[1],rmin_extend[2]],
+    plot2d( [ bline, rmin_line, chi_line, pm, pp, rmin_extend ],
+              [x, xmin, xmax],[y, ymin, ymax],              
+              [style,[lines,3,5],[lines,5,2],[lines,3,5],
+               [lines,5,1],[lines,5,1],
+               [points, psize, 2, 1]],[legend,false],
+               [psfile, fname]))$
+               
+ 
+
+/******  DIFFERENTIAL CROSS SECTION PLOT FUNCTIONS ********/              
+
+
+
+
+/* f1d(nv,hh,gL) returns a list of first derivatives
+    at the nv grid points for a function whose
+     nv values at the grid points separated by hh
+      are in the list gL. Would be more accurate if
+      we used quadratic interpolation to define the
+      end of grid derivatives. See rutherford_repulse.mac
+      for notes on use. */
+
+f1d(nv,hh,gL) :=
+block([j,fpL:[],fp0,fpl,numer],numer:true,
+   for j:2 thru nv-1 do 
+       fpL : cons( (gL[j+1] - gL[j-1])/2/hh,fpL),       
+   fpL : reverse(fpL),      
+   /* use linear interpolation to define first and
+       last elements of fpL */
+   fp0 : 2*fpL[1] - fpL[2],
+   fpl : 2*fpL[nv-2] - fpL[nv-3],
+   fpL : cons(fp0,fpL),
+   fpL : append(fpL,[fpl]),   
+   fpL)$
+   
+/* achi(e,b), here specific to the lennard-jones potential,
+   returns the scattering angle in radians 
+     using numerical methods.
+*/
+
+achi(e,b) :=
+block([root_expr,rmin,phi_inf,numer],numer:true,
+    root_expr : 1 - 4*(1/r^12 - 1/r^6)/e - b^2/r^2,
+    rmin : map('rhs, realroots(root_expr,1e-15)),
+    rmin : lmax(rmin),
+    phi_inf : b*quad_qagi(1/r^2/sqrt(root_expr),r,rmin,inf)[1],
+	  (%pi - 2*phi_inf))$
+
+/*
+(%i2) achi(1,1);
+(%o2) 0.996932
+(%i12) find_root(lambda([x],achi(1,x)),x,1.3,1.4);
+(%o12) 1.3124992
+*/
+
+/*   find_b( b_list, chi_list )
+    given two equal length lists, a b_list and a list
+   of the corresponding chi values, chi_list, find the
+   value of b corresponding to the minimum value of chi. */
+
+
+which_min(aL) :=
+block([amin,j,jval:0,numer ],numer:true,
+    amin:lmin(aL),
+    for j thru length(aL) do 
+       if is(equal(aL[j], amin)) then (
+	         jval : j,
+		       return()),
+		jval)$
+		
+/*		
+(%i2) xL : makelist(x,x,1,10);
+(%o2) [1,2,3,4,5,6,7,8,9,10]
+(%i3) which_min(xL);
+(%o3) 1
+*/
+
+find_b(xL,yL) := (xL[which_min(yL)])$
+
+/*
+(%i6) zL : sin(xL),numer;
+(%o6) [0.8414709848079,0.90929742682568,0.14112000805987,-0.75680249530793,
+       -0.95892427466314,-0.27941549819893,0.65698659871879,0.98935824662338,
+       0.41211848524176,-0.54402111088937]
+(%i10) find_b(xL,zL);
+(%o10) 5
+*/
+
+
+
+
+
+
+/*   chi_sigma1(e,b,db)
+    calculate the  list [chival,log(sig)] for
+   one impact parameter, given the small
+   interval db around b. */
+   
+chi_sigma1(e,b,db):=
+block([chival,dchi_db,sig,numer],numer:true,
+   chival : achi(e,b),
+   dchi_db : (achi(e,b+db) - achi(e,b-db))/2/db,
+   sig : abs(b/sin(chival)/dchi_db),
+   [chival,log(sig)])$
+   
+/*
+(%i12) chi_sigma1(1,0.1,0.01);
+(%o12) [2.9475046,-1.3216832]
+(%i13) bL : [0.1,0.2]$
+(%i14) map('lambda([x],chi_sigma1(1,x,0.01)), bL);
+(%o14) [[2.9475046,-1.3216832],[2.752433,-1.3127418]]
+*/
+
+sigma_plot(e,b0,bmax,db) :=
+block([bL,pts,chiL,chi_min,chi_max, numer],numer:true,
+    bL : makelist(b,b,b0,bmax,db),
+    pts :  map('lambda([x],chi_sigma1(1,x,db)), bL),
+    chiL : take(pts,1),
+    chi_min : lmin(chiL),
+    chi_max : lmax(chiL),
+    plot2d([discrete, pts],[x,chi_min,chi_max],
+         [xlabel,"chi"], [ylabel,"ln(dsigma/do)"],
+         [style,[lines,3]]))$
+         
+sigma_plot_eps(e,b0,bmax,db,fname) :=
+block([bL,pts,chiL,chi_min,chi_max, numer],numer:true,
+    bL : makelist(b,b,b0,bmax,db),
+    pts :  map('lambda([x],chi_sigma1(1,x,db)), bL),
+    chiL : take(pts,1),
+    chi_min : lmin(chiL),
+    chi_max : lmax(chiL),
+    plot2d([discrete, pts],[x,chi_min,chi_max],
+         [xlabel,"chi"], [ylabel,"ln(dsigma/do)"],
+         [style,[lines,5]],[psfile,fname]))$
+   
+
+
+/* sigma_points(e,b0,bmax,db) produces a list of two lists:
+    [chi-list, log(d_sig/d_omega)-list] using numerical methods.
+    Typical list arithmetic Maxima methods replace
+    conventional loop methods here.
+    calls achi() and f1d() */
+    
+
+
+
+sigma_points(ee,b0,bmax,db):=
+block([nb,bL,chiL,dchi_dbL,sigL,numer],numer:true,    
+    bL : makelist(b,b,b0,bmax,db),  
+    nb : length(bL),  
+    chiL : map(lambda([x], achi(ee,x)), bL),  
+    dchi_dbL : f1d(nb,db,chiL),       
+    sigL : abs(bL/sin(chiL)/dchi_dbL),
+    [chiL,log(sigL)])$
+
+/*
+(%i20) [chival,sigval] : sigma_points(1,0.1,1.3,0.025)$
+ fll(bL) =  [0.1,1.3,49] 
+ nb =  49 
+ fll(chiL) =  [2.9475046,0.0490855,49] 
+*/
+
+
+/* homemade list utilities  */
+
+fll(x) := [first(x),last(x),length(x)]$
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+    
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+    
+fpprintprec:8$
+ratprint : false$    
+quad_control ('control,0)$
+
+
+

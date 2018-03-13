@@ -1,0 +1,97 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015,  Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+cpnewton.mac is a utility file which accompanies
+Ch. 1 (Numerical Differentiation, Quadrature, and Roots)
+ of the series Computational Physics with Maxima or R.
+ See cp1.pdf.
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+/*  cpnewton.mac  2014, 2015  */
+
+
+newton(exp,var,x0,eps):=
+block([xn,s,numer,dv],numer:true,
+     s:diff(exp,var),
+     xn:x0,   
+     do (if abs(subst(xn,var,exp)) < eps then return(xn), 
+        dv:subst(xn,var,s),
+        if equal(dv,0) then (
+           print ("  derivative at",xn,"is zero"),
+           return("newton failed")),
+        xn:xn-subst(xn,var,exp)/ dv))$
+     
+bfnewton(expr,var,guess,digits):= 
+block([fpprec, y,eps0,prec,s,xn,bb:2],
+       fpprec : digits + bb,
+       eps0 : bfloat(10^(-rp)),       
+       prec : 10^(fpprec/-2.0b0),
+       s:diff(expr,var),
+       xn:bfloat(guess),
+       do (y:subst(xn,var,s),	         
+		       if abs(y) < prec then (
+		           print(" derivative at",xn,"is zero"),
+		           return(" bfnewton failed")),
+	         xn : xn - subst(xn,var,expr)/y,
+		       xn : rectform(expand(xn)),
+	       if abs(subst(xn,var,expr)) < eps0 then return(xn)))$
+	       
+
+
+
+/* modification of .../share/numeric/newton1.mac
+   initially modified by Richard Fateman on mailing list
+   http://www.math.utexas.edu/pipermail/maxima/2008/010712.html
+    
+
+newton(exp,var,x0,eps):=
+block([xn,s,numer,dv],numer:true,
+     s:diff(exp,var),
+     xn:x0,   
+loop,if abs(subst(xn,var,exp)) < eps then return(xn), 
+     dv:subst(xn,var,s),
+     if equal(dv,0) then (
+        print ("  derivative at",xn,"is zero"),
+        return("newton failed")),
+     xn:xn-subst(xn,var,exp)/ dv,
+go(loop))$
+
+*/
+
+
+
+
+
+/* modification of bigfloat newton in .../share/numeric/newton.mac 
+
+bfnewton(expr,guess):= 
+block([y,prec:10^(fpprec/-2.0b0),var,s,xn,listconstvars : false],
+       var:listofvars(expr)[1],
+       s:diff(expr,var),
+       xn:bfloat(guess),
+       do (y:subst(xn,var,s),
+	         y:expand(y),
+		       if abs(y) < prec then (
+		           print(" derivative at",xn,"is zero"),
+		           return(" bfnewton failed")),
+	         xn : xn - subst(xn,var,expr)/y,
+		       xn : rectform(expand(xn)),
+	       if abs(subst(xn,var,expr)) < prec then return(xn)))$
+	       
+*/
+

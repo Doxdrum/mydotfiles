@@ -1,0 +1,514 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+
+*/
+
+
+
+/* project2.mac, August 2015
+   Ch.2, Computational Physics with Maxima or R:
+       Initial Value Problems
+  ted woollett
+  http://www.csulb.edu/~woollett
+  */
+
+/* syntax rk4_step(-t*y,y,2,[t,0.1,0.001])
+         or rk4_step(ode,var,init,domain) where
+          domain = [t, t0, dt] to advance the solution
+          one rk step from t0 to t0+dt.
+          
+       rk4_step([vx,-4*%pi^2*x],[x,vx],[1, 0],[t, 0.1, 0.001])
+       for two ode's.   
+            */
+ 
+ 
+rk4_step(ode, var, init, domain) :=
+block([uvw,k1,k2,k3,k4,t0,t1,dt,
+            numer:true,display2d:false],
+  init : float(init),
+  domain : float(domain),         
+  if (not(listp(ode))) then (
+      ode : [ode],
+      var : [var],
+      init : [init]),  
+  
+  local(rkfunc),
+  define(funmake(rkfunc,cons(domain[1],var)),float(ode)),
+  
+  dt : domain[3],  
+  t0 : domain[2],
+  t1 : t0 + dt,  
+  uvw: init,
+  k1: apply(rkfunc,cons(t0,uvw)),
+  k2: apply(rkfunc,cons((t0+t1)/2, uvw+k1*dt/2)),
+  k3: apply(rkfunc,cons((t0+t1)/2,uvw+k2*dt/2)),
+  k4: apply(rkfunc,cons(t1,uvw+k3*dt)),
+  /*  print(" k1 = ",k1,"  k2 = ",k2),
+     print(" k3 = ",k3," k4 = ",k4),   */
+  uvw: uvw + dt*(k1+2*k2+2*k3+k4)/6,
+  uvw : expand(uvw),
+  cons(t1,uvw))$
+    
+/*
+(%i24) rk4_step(-t*y,y,2,[t,0,0.1]);
+(%o24) [0.1,1.990025]
+
+(%i25) rk4_step([vx,-4*%pi^2*x],[x,vx],[1,0],[t,0,0.1]);
+(%o25) [0.1,0.8091,-3.688084]
+
+
+*/
+
+
+/* rk4 syntax:
+   rk4(-t*y,y,2,[t, 0, 1, 0.01]) 
+   rk4([vx,-4*%pi^2*x],[x,vx],[1,0],[t, 0, 1, 0.01]);
+   */
+ 
+rk4(ode, var, init, domain) :=
+block([uvw,rksoln,n,k1,k2,k3,k4,t0,t1,dt,
+            r,numer:true,display2d:false],
+  
+  init : float(init),
+  domain : float(domain),
+  
+  if (not(listp(ode))) then (
+      ode : [ode],
+      var : [var],
+      init : [init]),  
+  
+  local(rkfunc),
+  define(funmake(rkfunc,cons(domain[1],var)),float(ode)),
+  translate(rkfunc), 
+  dt : domain[4],  
+  t0 : domain[2],
+  /* n: fix((domain[3] - t0)/dt),   */
+  n: round((domain[3] - t0)/dt),  
+  uvw: init,
+  
+  if (not(numberp(last(apply(rkfunc,cons(t0,uvw)))))) then
+    error("Expecting a number when the initial state is 
+    replaced in the equations, but instead found:"
+       ,last(apply(rkfunc,cons(t0,uvw)))),
+       
+  rksoln: [cons(t0, init)],
+  for i thru n do (
+    r: errcatch (
+      t1: domain[2]+i*dt,
+      k1: apply(rkfunc,cons(t0,uvw)),
+      k2: apply(rkfunc,cons((t0+t1)/2, uvw+k1*dt/2)),
+      k3: apply(rkfunc,cons((t0+t1)/2,uvw+k2*dt/2)),
+      k4: apply(rkfunc,cons(t1,uvw+k3*dt))),
+    if length(r)=0 then return()
+    else uvw: uvw + dt*(k1+2*k2+2*k3+k4)/6,
+    t0: t1,
+    rksoln : cons(cons(t0,uvw), rksoln)),
+  reverse(rksoln))$
+  
+  
+/*        with rbar -> r, rhobar -> rho,  mbar -> m, rhobar_c -> rhoc, drbar -> dr
+     dwarf1(rhoc, dr, rtol) returns a list with elements [r,m,rho], given the central density rhoc at
+     r = 0, the step size dr, and the rtol value. 
+    
+  dwarf1(rhoc, dr, rtol) integrates white dwarf ode's using rk4_step with step size dr,
+  (after taylor expanding the dependent variables out to r1=small) watching
+  for rho to pass from positive to negative.
+   If rho is found to be negative, we return to the previous step and let rtol be the
+   step size, integrating forward again until rho is found to be negative, then
+   taking the previous step as the final value of r,m and rho   
+   and using that value of r to define the radius R and that value of m(r) to define M.
+
+	
+The signal that rho is negative is that rk4_step returns a value for
+  rho that is not a floating point number, containing things like
+  (-1)^0.3333.  
+  
+(%i4) gam : rho^(2/3)/3/sqrt(1 + rho^(2/3))$
+(%i5) rk4_step([rho*r^2, -m*rho/gam/r^2],
+           [m,rho],[0.70582,0.0036087],[r,2.5,0.1]);
+(%o5) [2.6,0.70678,
+       2.7270606E-4-4.192083E-4*(-1)^0.33333*(0.0064245*(-1)^0.66667+1.0)^0.5]
+
+	*/
+	
+
+		 
+		 
+/*  June 11
+(%i9) soln : dwarf1(1,0.1,0.01)$
+(%i10) fll(soln);
+(%o10) [[0,0,1],[2.49,0.70664,9.7524488E-5],35]
+(%i11) soln;
+(%o11) [[0,0,1],[1.0E-12,3.3333333E-37,1.0],[0.1,3.297978E-4,0.99118],
+        [0.2,0.0026136,0.97034],[0.3,0.0086434,0.9368],[0.4,0.019904,0.89197],
+        [0.5,0.037461,0.83773],[0.6,0.061897,0.77623],[0.7,0.09329,0.70971],
+        [0.8,0.13124,0.6404],[0.9,0.17493,0.57035],[1.0,0.22321,0.50135],
+        [1.1,0.27471,0.43491],[1.2,0.32795,0.3722],[1.3,0.38141,0.31406],
+        [1.4,0.43364,0.26104],[1.5,0.48333,0.21343],[1.6,0.52934,0.17131],
+        [1.7,0.57077,0.13456],[1.8,0.60694,0.10298],[1.9,0.6374,0.076269],
+        [2.0,0.66198,0.054064],[2.1,0.68071,0.036007],[2.2,0.69387,0.021749],
+        [2.3,0.70197,0.010999],[2.4,0.70582,0.0036087],
+        [2.41,0.70601,0.003056],[2.42,0.70617,0.0025395],
+        [2.43,0.70631,0.0020602],[2.44,0.70642,0.0016195],
+        [2.45,0.7065,0.0012191],[2.46,0.70656,8.6174615E-4],
+        [2.47,0.70661,5.5097716E-4],[2.48,0.70663,2.9262378E-4],
+        [2.49,0.70664,9.7524488E-5]]
+(%i12) last(soln);
+(%o12) [2.49,0.70664,9.7524488E-5]
+
+with new version dwarf1:
+(%i17) last(soln);
+(%o17) [2.49,0.70664,9.7524488E-5]
+*/
+
+
+
+dwarf1(rhoc, dr, rtol) :=
+block([r1:1e-12, gam, gamc, m1, rho1, rksoln,rkstep,
+                   rho,r,m, previous, num:1, nmax:1000, numer:true], 
+
+         gam : rho^(2/3)/3/sqrt(1 + rho^(2/3)),
+         gamc : subst( rho = rhoc, gam),
+		 
+		 /* taylor expansion away from r = 0 */
+		 
+		 m1 : rhoc*r1^3/3,
+		 rho1 : rhoc - r1^2*rhoc^2/gamc/6,
+		 rksoln : [ [r1,m1,rho1],  [0, 0, rhoc]],          
+		   
+         /* first do loop: search for rho = 0 position using step dr */		   
+		 
+		 do ( rkstep : rk4_step([rho*r^2, -m*rho/gam/r^2],
+			                       [m,rho],[m1,rho1],[r,r1,dr]), 			   
+			  rho1 : rkstep[3],
+			   if not floatnump(rho1) then return(), 			  								
+			  if num = nmax then (
+			       print(" num = nmax; abort integration"),
+			       return()), 			  
+			  rksoln : cons(rkstep,rksoln),
+			  r1 : rkstep[1],
+			  m1 : rkstep[2],			  
+			  num : num + 1),			  
+			  
+		 /* second do loop: search for rho=0 location using step = rtol */
+		 
+		 num : 1,
+		 previous : first(rksoln),		 
+		 r1 : previous[1],
+		 m1 : previous[2],
+		 rho1 : previous[3],
+		 do (rkstep : rk4_step([rho*r^2, -m*rho/gam/r^2],
+			                       [m,rho],[m1,rho1],[r,r1,rtol]), 			   
+			  rho1 : rkstep[3],
+			  if not floatnump(rho1) then return(),			  
+			  if num = nmax then return(), 			  
+			  rksoln : cons(rkstep,rksoln),
+			  r1 : rkstep[1],
+			  m1 : rkstep[2],
+			  num : num + 1),			 
+		 reverse(rksoln))$
+		 
+		 
+/* june 11
+
+(%i27) soln : dwarf1(1,0.1,0.01)$
+(%i28) fll(soln);
+(%o28) [[0,0,1],[2.49,0.70664,9.7524488E-5],35]
+(%i29) soln;
+(%o29) [[0,0,1],[1.0E-12,3.3333333E-37,1.0],[0.1,3.297978E-4,0.99118],
+        [0.2,0.0026136,0.97034],[0.3,0.0086434,0.9368],[0.4,0.019904,0.89197],
+        [0.5,0.037461,0.83773],[0.6,0.061897,0.77623],[0.7,0.09329,0.70971],
+        [0.8,0.13124,0.6404],[0.9,0.17493,0.57035],[1.0,0.22321,0.50135],
+        [1.1,0.27471,0.43491],[1.2,0.32795,0.3722],[1.3,0.38141,0.31406],
+        [1.4,0.43364,0.26104],[1.5,0.48333,0.21343],[1.6,0.52934,0.17131],
+        [1.7,0.57077,0.13456],[1.8,0.60694,0.10298],[1.9,0.6374,0.076269],
+        [2.0,0.66198,0.054064],[2.1,0.68071,0.036007],[2.2,0.69387,0.021749],
+        [2.3,0.70197,0.010999],[2.4,0.70582,0.0036087],
+        [2.41,0.70601,0.003056],[2.42,0.70617,0.0025395],
+        [2.43,0.70631,0.0020602],[2.44,0.70642,0.0016195],
+        [2.45,0.7065,0.0012191],[2.46,0.70656,8.6174615E-4],
+        [2.47,0.70661,5.5097716E-4],[2.48,0.70663,2.9262378E-4],
+        [2.49,0.70664,9.7524488E-5]]
+
+*/
+
+/* dwarf6.mac
+   modifies dwarf1 code to non-relativistic limit case (NR).
+     assumes x^2 << 1, or rho^(2/3) << 1 .
+    using scaled r, m(r) and rho(r):
+   dm/dr = r^2*rho(r),
+   drho/dr = -3*m(r)*rho^(1/3)/r^2.
+   (doesn't use gam and gamc).
+   returns a list with elements [r, m(r), rho(r)].
+   */
+   
+dwarf6(rhoc, dr, rtol) :=
+block([r1:1e-12,  m1, rho1, rksoln,rkstep,
+                   rho,r,m, previous, num:1, nmax:100000, numer:true], 
+				   
+		/* print(" nmax = ",nmax),		    */
+         		 
+		 /* taylor expansion away from r = 0 */
+		 
+		 m1 : rhoc*r1^3/3,
+		 rho1 : rhoc - r1^2*rhoc^(4/3)/2,
+		 
+		 rksoln : [ [r1,m1,rho1],  [0, 0, rhoc]],
+          /*  print(" rksoln = ",rksoln),   */
+		   
+         /* first do loop: search for rho = 0 position using step dr */		   
+		 
+		 do ( /* if num < nmax then print(num),  */		      
+		      rkstep : rk4_step([rho*r^2, -3*m*rho^(1/3)/r^2],
+			                       [m,rho],[m1,rho1],[r,r1,dr]), 	   
+			  rho1 : rkstep[3],
+			   if not floatnump(rho1) then return(), 
+			  
+			  /* if not floatnump(rho1) then (
+			        print(" r = ",rkstep[1]," rho = ",rho1),
+			        return()),  */
+					
+			/*  if num < nmax then print(" rkstep = ",rkstep),  */
+			  if num = nmax then (
+			       print(" num = nmax; abort integration"),
+			       return()), 			  
+			  rksoln : cons(rkstep,rksoln),
+			  r1 : rkstep[1],
+			  m1 : rkstep[2],			  
+			  num : num + 1),
+			  
+			  /* print(" num = ",num), */
+			  
+		 /* second do loop: search for rho=0 location using step = rtol */
+		 
+		 num : 1,
+		 previous : first(rksoln),
+		 /* print(" second loop, precious = ",previous), */
+		 r1 : previous[1],
+		 m1 : previous[2],
+		 rho1 : previous[3],
+		 do ( /* if num < nmax then print(num), */
+		      rkstep : rk4_step([rho*r^2, -3*m*rho^(1/3)/r^2],
+			                       [m,rho],[m1,rho1],[r,r1,rtol]), 			   
+			  rho1 : rkstep[3],
+			  if not floatnump(rho1) then return(),
+			  
+			  /* if not floatnump(rho1) then (
+			        print(" r = ",rkstep[1]," rho = ",rho1),
+			        return()), */
+					
+			  /* if num < nmax then print(" rkstep = ",rkstep),  */
+			  if num = nmax then return(), 			  
+			  rksoln : cons(rkstep,rksoln),
+			  r1 : rkstep[1],
+			  m1 : rkstep[2],
+			  num : num + 1),			 
+		 reverse(rksoln))$
+		 
+/*
+(%i4) soln6 : dwarf6(1,0.1,0.01);
+ rksoln =  [[1.0E-12,3.3333333E-37,1.0],[0,0,1]] 
+(%o4) [[0,0,1],[1.0E-12,3.3333333E-37,1.0],[0.1,3.3083333E-4,0.99376],
+       [0.2,0.002629,0.97889],[0.3,0.0087452,0.95466],[0.4,0.020304,0.9217],
+       [0.5,0.038611,0.88087],[0.6,0.064579,0.83324],[0.7,0.098685,0.78],
+       [0.8,0.14095,0.72244],[0.9,0.19094,0.66187],[1.0,0.24783,0.59961],
+       [1.1,0.31041,0.53689],[1.2,0.37722,0.47487],[1.3,0.4466,0.41458],
+       [1.4,0.51675,0.35691],[1.5,0.58592,0.30259],[1.6,0.65237,0.25218],
+       [1.7,0.71454,0.2061],[1.8,0.77108,0.16462],[1.9,0.8209,0.12787],
+       [2.0,0.86319,0.095874],[2.1,0.8975,0.068575],[2.2,0.9237,0.045847],
+       [2.3,0.94202,0.027545],[2.4,0.95312,0.01356],[2.5,0.95811,0.0039705],
+       [2.51,0.95833,0.0032677],[2.52,0.95852,0.0026169],
+       [2.53,0.95867,0.0020206],[2.54,0.95878,0.0014821],
+       [2.55,0.95886,0.0010058],[2.56,0.95891,5.9836121E-4],
+       [2.57,0.95894,2.7091787E-4],[2.58,0.95895,4.8467118E-5]]
+
+*/
+
+
+
+
+
+
+/* dwarf4() calls dwarf3 to accumulate a list of values of [M,R]  */
+
+dwarf4() :=
+block([rhoL,drv:0.01,rtolv:0.001,mrL:[],rd3,numer:true],
+      rhoL : [0.1,0.5,1,5,10,100,1e3,1e4,1e5, 2e5,3e5,4e5],
+	  print("  rhoc           M             R"),
+	  for vv in rhoL do (
+	        rd3 : dwarf3(vv,drv,rtolv),
+			mrL : cons(rd3, mrL),
+			printf(true,"~&  ~8f   ~10f   ~10f ", vv, rd3[1], rd3[2])),
+	  reverse(mrL))$
+	  
+
+/* dwarf3(rhoc, dr, rtol) calls dwarf1 and returns [Mbar, Rbar] */
+
+dwarf3(rhoc, dr, rtol) :=
+block([soln,surf,numer:true],
+     soln : dwarf1(rhoc, dr, rtol),
+	 surf : last(soln),
+	 [surf[2], surf[1]])$
+	 
+/*
+(%i1) load(project2);
+(%o1) "c:/k2/project2.mac"
+(%i2) dwarf3(1,0.1,0.01);
+ (%o2) [0.70664,2.49]
+(%i3) dwarf3(10,0.1,0.01);
+(%o3) [1.297092,1.59]
+(%i4) dwarf3(100,0.1,0.01);
+(%o4) [1.745998,0.96]
+(%i5) dwarf3(1e3,0.1,0.01);
+(%o5) [1.932804,0.53]
+(%i6) dwarf3(1e4,0.1,0.01);
+(%o6) [1.99707,0.27]
+(%i7) dwarf3(1e5,0.1,0.01);
+(%o7) [2.027317,0.13]
+(%i8) dwarf3(1e6,0.1,0.01);
+(%o8) [3.3333333E-31,1.0E-12]
+(%i9) dwarf3(2e5,0.1,0.01);
+(%o9) [2.050469,0.1]
+(%i10) dwarf3(4e5,0.1,0.01);
+(%o10) [2.096836,0.07]
+(%i11) dwarf3(1e5,0.01,0.001);
+(%o11) [2.027825,0.14]
+(%i12) dwarf3(2e5,0.01,0.001);
+(%o12) [2.052412,0.114]
+(%i13) dwarf3(4e5,0.01,0.001);
+(%o13) [2.114596,0.092]
+(%i14) dwarf3(0.1,0.01,0.001);
+(%o14) [0.27982,3.759]
+*/
+
+
+
+/*  dwarf2(sL) evaluates the dimensionless kinetic (Ek),  gravitational energy (Eg),
+      and kinetic plus rest mass energy (Ekm) of the white dwarf using the
+    output of dwarf1 as input, and returns the list [Ek, Eg, Ekm] */
+	
+dwarf2(sL) :=
+block([rL,mL,rhoL,kL,uL,Ek, Eg,Ekm,tempL, numer:true],local(eps,epsm1),
+      eps(rh) := (3/8/rh)*(rh^(1/3)*(1+2*rh^(2/3))*sqrt(1+rh^(2/3)) - 
+                   log(rh^(1/3) + sqrt(1+rh^(2/3)))),
+	  epsm1(z) := eps(z) - 1,
+      rL : take(sL,1),
+	  mL : take(sL,2),
+	  rhoL : take(sL,3),
+      kL : rL^2*rhoL*map('epsm1, rhoL),
+	  Ek : trapz(rL,kL),
+	  uL : rL*mL*rhoL,
+	  Eg : -trapz(rL,uL),	  
+	  tempL : float(map('eps, rhoL)),	  
+	  kmL : rL^2*rhoL*tempL,	  
+	  Ekm : trapz(rL,kmL),
+	  [Ek, Eg , Ekm  ])$
+	  
+/*
+(%i3) load(project2);
+(%o3) "c:/k2/project2.mac"
+(%i26) EL(rhvc):= dwarf2(dwarf1(rhvc,0.01,0.001))$
+(%i27) EL(1);
+(%o27) [0.096598,-0.17803,0.80366]
+(%i28) EL(10);
+(%o28) [0.62231,-1.008495,1.920303]
+(%i29) EL(1e2);
+(%o29) [2.435038,-3.355281,4.170529]
+(%i30) EL(1e3);
+(%o30) [6.974003,-8.383828,8.906817]
+(%i31) EL(1e4);
+(%o31) [17.09202,-18.80989,19.08944]
+(%i32) EL(1e5);
+(%o32) [39.16687,-41.08195,41.20077]
+(%i33) EL(1e6);
+(%o33) [86.5433,-88.49602,88.56048]
+
+shows Ekm + Eg --> 0 at high density
+
+*/
+/* dwarf5 calls dwarf1 and dwarf2 to accumulate a list
+   with elements [M,Ekm+Eg]  */
+   
+   
+dwarf5() :=
+block([rhoL,drv:0.01,rtolv:0.001,MEL:[],rd1,rd2,
+               M,Et, numer:true],
+      rhoL : [0.1,0.5,1,5,10,100,1e3,1e4,1e5, 2e5,3e5,4e5],
+	  print("     rhoc        M          Et "),
+	  for vv in rhoL do (
+	        rd1 : dwarf1(vv,drv,rtolv),
+			M : last(rd1)[2],
+	        rd2 : dwarf2(rd1),	
+			Et : rd2[2] + rd2[3],
+			MEL : cons([M, Et], MEL),
+			printf(true,"~&  ~8e  ~10f   ~10f   ", vv, M, Et)),
+	  reverse(MEL))$
+
+/*
+(%i35) mel : dwarf5()$
+      rhoc             M                 Et  
+    1.0E-1   0.2798235    0.2710139   
+    5.0E-1   0.5498911    0.5057441   
+    1.0E+0   0.7070609    0.6256286   
+    5.0E+0  1.12278661    0.8608924   
+    1.0E+1  1.29799605    0.9118089   
+    1.0E+2  1.73549443    0.8152481   
+    1.0E+3  1.93281009    0.5229894   
+    1.0E+4  1.99719275    0.2795461   
+    1.0E+5  2.02782531    0.1188195   
+    2.0E+5  2.05241163    0.0464371   
+    3.0E+5  2.08105322    0.0018255   
+    4.0E+5  2.11459555    -0.045787   
+*/
+
+
+	  
+/* sec. 1.5.8  Trapezoidal Rule: Non-uniform grid  
+  this code is from our chapter 1 cp1code.mac file.
+ */
+
+trapz(xv,yv) := 
+block([n:length(xv)],
+   dxx : makelist( xv[i] - xv[i-1], i, 2, n),
+   yy : makelist( yv[i-1] + yv[i], i, 2, n),
+   float(dxx . yy/2))$ 
+		 
+/*  list utilities  */
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+
+/* a better name for take would be get_vec */
+
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+range(aaL) := print(" min = ",lmin(aaL),"  max = ", lmax(aaL))$
+
+fll(x) := [first(x),last(x),length(x)]$
+  
+
+ ratprint:false$
+ fpprintprec:7$
+ 

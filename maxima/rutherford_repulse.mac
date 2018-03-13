@@ -1,0 +1,464 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015 Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+rutherford_repulse.mac is a utility file associated with
+Project 1 (Classical Scattering in a Central Potential)
+ associated with Ch. 1 (Numerical Differentiation, Quadrature, and Roots)
+ in the series Computational Physics with Maxima or R, 
+ See  project1.pdf for more info.
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+
+
+
+
+/* rutherford_repulse.mac 
+    revised to use take(mL,n) jan. 22
+    repulsive rutherford potential
+    uses dimensionless units xbar : x/a0, bbar:b/a0,
+    rbar: r/a0, etc.
+    vbar : v/v0, vo : sqrt(2*E/mu),
+    Ebar : E/V(a0) represented by e,
+    bars surpressed in code, so x means xbar, etc.
+    
+    orbit trajectory uses rk integration following x,vx,y,vy             
+    see work notes jan 1-3, 2014
+    
+    misc:
+    
+    deg
+    Veff_plot
+    Veff_plot_eps
+    
+    scattering angle, etc:
+    
+    angles(e,b)
+    angle_a(e,b)
+    angle_n(e,b)        
+    
+    orbit trajectory plots:
+    
+    init(e,b)        
+    orbit_plot1(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax)
+    orbit_plot1_eps(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax,fname)    
+        
+    differential scatt. cross section vs. scatt angle:
+        
+    f1d(nv,hh,gL)
+    achi(e,b)
+    sigma_points(e,b0,bmax,db)        
+ */
+     
+deg(z) := block([numer],numer:true, z*180/%pi)$
+
+
+/*   angles(e,b)  repulsive rutherford case.
+    some (e,b) dependent angles and rmin.
+    theta0 defines the angle of closest approach 
+       (counter-clockwise from positive x axis)
+    phi_inf defines the rotation angle of r-vec as the
+       incident particle comes from theta=%pi, r = inf to
+       the point of closest approach, so
+         theta0 = %pi - phi_inf.
+    chi is the scattering angle
+        chi = %pi - 2*phi_inf = 2*asin(w/sqrt(w^2+4))
+    rmin is the distance of closest approach
+     to the scattering center = ( x = 0, y = 0 )
+
+  */
+     
+angles(e,b) :=
+block([w,phi_inf,theta0,chi,oldfp,rmin,numer],numer:true,
+    oldfp : fpprintprec,
+    fpprintprec : 8,
+    w : 1/(e*b),
+    phi_inf : acos(w/sqrt(4+w^2)),
+    print(" phi_inf = ",phi_inf," rad, or ",phi_inf*180/%pi," deg"),
+    theta0 : %pi - phi_inf,
+    print(" theta0 = ",theta0," rad, or ",theta0*180/%pi," deg"),
+    chi : 2*asin(w/sqrt(w^2+4)),
+    print(" chi = ",chi," rad, or ",chi*180/%pi," deg"),
+    rmin : b*(w + sqrt(4+w^2))/2,
+    print(" rmin = ",rmin),
+    fpprintprec : oldfp,
+    done)$
+    
+/*
+(%i2) angles(1,1);
+ phi_inf =  1.1071487  rad, or  63.434949  deg 
+ theta0 =  2.0344439  rad, or  116.56505  deg 
+ chi =  0.927295  rad, or  53.130102  deg 
+ rmin =  1.618034 
+(%o2) done
+*/
+
+/* analytic scattering angle in degrees for given
+   values of Ebar and bbar */
+   
+angle_a(e,b) :=
+block([numer],numer:true,
+     2*asin(1/sqrt(1 + 4*e^2*b^2))*180/%pi)$
+  
+/* numerical scattering angle in degrees for given
+   values of Ebar and bbar */
+
+angle_n(e,b) :=
+block([z,w,zmin,phi_inf,rexpr,iexpr,numer],numer:true,
+    w : 1/(b*e),
+    rexpr : z^2 - w*z -1, /* root -> zmin for repulsive rutherford case */
+    iexpr : 1/(z*sqrt(rexpr)),	/* integrate to get phi_inf */
+  	zmin : find_root(rexpr,z,1e-4,1e6),  	  	
+  	phi_inf : quad_qagi(iexpr,z,zmin,inf)[1],
+	  (%pi - 2*phi_inf)*180/%pi)$
+	  
+	  
+/*********** plot of Veff **********************/
+
+/* Veff_plot for repulsive Rutherford case */
+
+Veff_plot(e,b,r0,r1,xmin,xmax,ymin,ymax) :=
+block([w,r,rmin,energy_line,numer],numer:true,
+    w : 1/e/b,
+    rmin : b*(w + sqrt(4+w^2))/2,
+    energy_line : [discrete,[[rmin,e],[r1,e]]],
+    plot2d([1/r + e*b^2/r^2, energy_line],[r,r0,r1], [x,xmin,xmax],
+           [y,ymin,ymax],[style,[lines,3,1],[lines,3,2]],
+           [legend,false],[xlabel,"r"],[ylabel,"Veff"]))$
+	  
+/* (%i3) Veff_plot(1,1,0.9,3,0.8,3,0,2)$  */	  
+	  
+	  
+Veff_plot_eps(e,b,r0,r1,xmin,xmax,ymin,ymax,fname) :=
+block([r,rmin,energy_line,numer],numer:true,
+    w : 1/e/b,    
+    rmin : b*(w + sqrt(4+w^2))/2,
+    energy_line : [discrete,[[rmin,e],[r1,e]]],
+    plot2d([1/r + e*b^2/r^2, energy_line],[r,r0,r1], [x,xmin,xmax],
+           [y,ymin,ymax],[style,[lines,7,1],[lines,7,2]],
+           [legend,false],[xlabel,"r"],[ylabel,"Veff"],
+           [psfile, fname]))$
+           
+/* (%i7) Veff_plot_eps(1,1,0.9,3,0.8,3,0,2,"c:/k1/rr9.eps"); */
+
+	  
+	  
+	  
+	  
+/*********    TRAJECTORY PLOT FUNCTIONS   *********/
+
+/*  init(e,b)  specific to repulsive rutherford case,
+    uses analytic expressions to produce global definitions
+    of chi,xc,yc, vcx,vcy,and xa. Besides printing out 
+    these values, init(e,b) also prints 
+    out the values of rmin, phi_inf, and theta0. */
+    
+
+init(e,b) :=
+block([w,rmin,phi_inf,theta0,numer],numer:true,
+    w : 1/e/b,    
+    rmin : b*(w + sqrt(4+w^2))/2,
+    print(" rmin = ",rmin),
+    phi_inf : acos(w/sqrt(4+w^2)),
+    print(" phi_inf = ", phi_inf," rad or ", phi_inf*180/%pi," deg"),
+    theta0 : %pi - phi_inf,
+    print(" theta0 = ",theta0," rad or ", theta0*180/%pi," deg"),
+    chi : (%pi - 2*phi_inf), /* global parameter chi in radians */
+    print(" chi = ", chi, " rad, or ", chi*180/%pi," deg"),
+    /* point of closest approach  */
+    xc : rmin*cos(theta0),  /* global */
+    yc : rmin*sin(theta0),  /* global */
+    vcx : b*sin(theta0)/rmin,  /* global */
+    vcy : -b*cos(theta0)/rmin,  /* global */
+    print(" xc = ", xc," yc = ", yc),
+    print(" vcx = ", vcx," vcy = ", vcy),
+    /* x-intersection of rmin line with y=b line */
+    xa : xc*b/yc,  /* global */
+    print(" xa = ",xa))$
+    
+/*
+
+example of use:    
+(%i3) fpprintprec:8$
+(%i49) init(1,1)$
+ rmin =  1.618034 
+ phi_inf =  1.1071487  rad or  63.434949  deg 
+ theta0 =  2.0344439  rad or  116.56505  deg 
+ chi =  0.927295  rad, or  53.130102  deg 
+ xc =  -0.723607  yc =  1.4472136 
+ vcx =  0.552786  vcy =  0.276393 
+ xa =  -0.5 
+*/
+
+
+
+/*   feb. 5 version:
+   orbit_plot1 for repulsive rutherford potential.
+   calls init(e,b) to define local values of
+     xc,yc,xa,vcx,vcy,chi. 
+      Calls utility function take()
+     to extract xL and yL from rkpts. */
+
+orbit_plot1(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax) :=
+block([xc,yc,vcx,vcy,xa,chi,rkpts,rmag,dvxdt,dvydt,
+       xL, yL,pm,pp,vxf,vyf,bline,rmin_line,
+       xf,yf,chi_line,numer],numer:true,
+       
+     /* define local xc, yc, vcx, vcy, xa, chi */
+     
+    init(e,b),
+    
+    /* symbolic expressions for acceleration components */
+    
+    rmag : sqrt(x^2 + y^2),  /* rmag in terms of x and y */ 
+    dvxdt : x/2/e/rmag^3,  /* dvx/dt repulsive rutherford case */
+    dvydt : y/2/e/rmag^3,  /* dvy/dt */
+    
+    
+    /* integrate backwards from xc, yc */
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,-tm,-dt]),    
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pm : [discrete, xL, yL],
+    print(" backwards from xc, yc "),    
+    print(" xfirst = ",last(xL)),        
+
+    /* integrate forwards from xc,yc */
+    
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,tp,dt]),
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pp : [discrete, xL, yL],
+    print(" forwards from xc, yc "),    
+    print(" xlast = ",last(xL)," ylast = ",last(yL)),
+    vxf : last(rkpts)[3],
+    vyf : last(rkpts)[5],
+    print(" vx_last = ", vxf," vy_last = ", vyf),    
+    
+    /* make plot of orbit */
+    
+    bline : [discrete,[ [xmin,b],[xmax,b] ]],
+    rmin_line : [discrete,[ [0,0],[xc,yc] ]],
+    yf : b + rchi*sin(chi),
+    xf : xa + rchi*cos(chi),
+    print(" xf = ", xf," yf = ", yf),
+    chi_line : [discrete, [ [xa,b],[xf,yf]]],    
+    plot2d( [ bline, rmin_line, chi_line, pm, pp ],
+              [x, xmin, xmax],[y, ymin, ymax],      
+              [style,[lines,2,5],[lines,2,2],[lines,2,5],
+               [lines,3,1],[lines,3,1]],[legend,false]))$
+               
+/*
+(%i5) orbit_plot1(1,0.6,5.4,5,0.01,5,-4.54,1.87,0,4)$
+ rmin =  1.281025 
+ phi_inf =  0.876058  rad or  50.194429  deg 
+ theta0 =  2.2655346  rad or  129.80557  deg 
+ chi =  1.3894766  rad, or  79.611142  deg 
+ xc =  -0.820092  yc =  0.984111 
+ vcx =  0.359816  vcy =  0.299846 
+ xa =  -0.5 
+ backwards from xc, yc  
+ xfirst =  -4.7366598 
+ forwards from xc, yc  
+ xlast =  0.162247  ylast =  4.4261007 
+ vx_last =  0.167226  vy_last =  0.86386 
+ xf =  0.401639  yf =  5.5180328 
+ */
+                
+               
+               
+
+
+/* feb. 5  orbit_plot1_eps  */
+
+orbit_plot1_eps(e,b,tm,tp,dt,rchi,xmin,xmax,ymin,ymax,fname) :=
+block([xc,yc,vcx,vcy,xa,chi,rkpts,rmag,dvxdt,dvydt,
+       xL, yL,pm,pp,vxf,vyf,bline,rmin_line,
+       xf,yf,chi_line,numer],numer:true,
+       
+     /* define local xc, yc, vcx, vcy, xa, chi */
+     
+    init(e,b),
+    
+    /* symbolic expressions for acceleration components */
+    
+    rmag : sqrt(x^2 + y^2),  /* rmag in terms of x and y */ 
+    dvxdt : x/2/e/rmag^3,  /* dvx/dt repulsive rutherford case */
+    dvydt : y/2/e/rmag^3,  /* dvy/dt */
+    
+    
+    /* integrate backwards from xc, yc */
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,-tm,-dt]),    
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pm : [discrete, xL, yL],
+    print(" backwards from xc, yc "),    
+    print(" xfirst = ",last(xL)),        
+
+    /* integrate forwards from xc,yc */
+    
+    rkpts : rk([vx, dvxdt, vy, dvydt ],
+             [x,vx,y,vy],[xc,vcx,yc,vcy],[t,0,tp,dt]),
+    xL : take(rkpts,2),
+    yL : take(rkpts,4),
+    pp : [discrete, xL, yL],
+    print(" forwards from xc, yc "),    
+    print(" xlast = ",last(xL)," ylast = ",last(yL)),
+    vxf : last(rkpts)[3],
+    vyf : last(rkpts)[5],
+    print(" vx_last = ", vxf," vy_last = ", vyf),    
+    
+    /* make plot of orbit */
+    
+    bline : [discrete,[ [xmin,b],[xmax,b] ]],
+    rmin_line : [discrete,[ [0,0],[xc,yc] ]],
+    yf : b + rchi*sin(chi),
+    xf : xa + rchi*cos(chi),
+    print(" xf = ", xf," yf = ", yf),
+    chi_line : [discrete, [ [xa,b],[xf,yf]]],    
+    plot2d( [ bline, rmin_line, chi_line, pm, pp ],
+              [x, xmin, xmax],[y, ymin, ymax],      
+              [style,[lines,3,5],[lines,5,2],[lines,3,5],
+               [lines,5,1],[lines,5,1]],[legend,false],
+               [psfile,fname]))$
+               
+ /* orbit_plot1_eps(1,0.3,5.4,5.5,0.01,5,-4.54,1.87,0,4,"c:/k1/rr3.eps"); */
+ 
+
+
+/******  DIFFERENTIAL CROSS SECTION PLOT FUNCTIONS ********/              
+
+
+/* f1d(nv,hh,gL) returns list of first derivatives
+    at the nv grid points for a function whose
+     nv values at the grid points separated by hh
+      are in the list gL. Would be more accurate if
+      we used quadratic interpolation to define the
+      end of grid derivatives. */
+
+f1d(nv,hh,gL) :=
+block([j,fpL:[],fp0,fpl,numer],numer:true,
+   for j:2 thru nv-1 do 
+       fpL : cons( (gL[j+1] - gL[j-1])/2/hh,fpL),       
+   fpL : reverse(fpL),      
+   /* use linear interpolation to define first and
+       last elements of fpL */
+   fp0 : 2*fpL[1] - fpL[2],
+   fpl : 2*fpL[nv-2] - fpL[nv-3],
+   fpL : cons(fp0,fpL),
+   fpL : append(fpL,[fpl]),   
+   fpL)$
+   
+/*
+preparation for getting numerical derivatives
+of sin(x) at grid points.
+
+divide interval (0,%pi/2) into 100 subintervals
+h  = step = (%pi/2 - 0)/100
+number of data values = 101
+
+(%i10) h : %pi/200,numer$
+(%i11) xL : makelist(x,x,0,%pi/2,h),numer$
+(%i12) fll(xL);
+(%o12) [0,1.570796326794894,101]
+(%i13) fL : sin(xL)$
+(%i14) fll(fL);
+(%o14) [0,1.0,101]
+
+use:
+
+(%i15) fplist : f1d(101,h,fL)$
+(%i16) head(fplist);
+(%o16) [1.00021,0.9998,0.9995,0.9988,0.998,0.9969]
+
+(%i17) tail(fplist);
+(%o17) [0.07846,0.06279,0.0471,0.03141,0.01571,3.875386E-6]
+
+-------------------------------
+  
+*/
+
+/* achi(e,b), specific to repulsive rutherford case,
+     returns the signed scattering angle in radians 
+     using numerical methods.
+*/
+
+achi(e,b) :=
+block([z,w,zmin,phi_inf,rexpr,iexpr,numer],numer:true,
+    w : 1/(b*e),
+    rexpr : z^2 - w*z -1, /* root -> zmin for repulsive rutherford case */
+    iexpr : 1/(z*sqrt(rexpr)),	/* integrate to get phi_inf */
+  	zmin : find_root(rexpr,z,1e-4,1e6),  	  	
+	  phi_inf : quad_qagi(iexpr,z,zmin,inf)[1],
+	  (%pi - 2*phi_inf))$
+	  
+/*
+(%i2) achi(1,1);
+(%o2) 0.927295
+(%i3) deg(%);
+(%o3) 53.130102
+*/
+
+    
+/* sigma_points(e,b0,bmax,db) produces a list of two lists:
+    [chi-list, log(d_sig/d_omega)-list] using numerical methods.
+    Typical list arithmetic Maxima methods replace
+    conventional loop methods here.
+    calls achi() and f1d() */
+
+sigma_points(ee,b0,bmax,db):=
+block([nb,bL,chiL,dchi_dbL,sigL,numer],numer:true,    
+    bL : makelist(b,b,b0,bmax,db),  
+    nb : length(bL),  
+    chiL : map(lambda([x], achi(ee,x)), bL),  
+    dchi_dbL : f1d(nb,db,chiL),       
+    sigL : abs(bL/sin(chiL)/dchi_dbL),
+    [chiL,log(sigL)])$    
+    
+/*
+(%i2) [chival,sigval] : sigma_points(1,0.1,50,0.5)$
+(%i4) fll(chival);
+(%o4) [2.7468015,0.0201606,100]
+(%i5) fll(sigval);
+(%o5) [-2.4468141,15.6167,100]
+*/
+
+    
+
+
+/* homemade list utilities  */
+
+fll(x) := [first(x),last(x),length(x)]$
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+    
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+fpprintprec:8$
+

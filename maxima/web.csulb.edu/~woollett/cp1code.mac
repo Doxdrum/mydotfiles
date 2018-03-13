@@ -1,0 +1,219 @@
+/*               COPYRIGHT NOTICE
+
+Copyright (C) 2014, 2015,  Edwin L. (Ted) Woollett
+http://www.csulb.edu/~woollett
+
+This program is free software; you can redistribute
+it and/or modify it under the terms of the
+GNU General Public License as published by
+the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version. 
+
+This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details at
+http://www.gnu.org/copyleft/gpl.html
+*/
+
+
+
+
+/* cp1code.mac, 2014, 2015, Edwin (Ted) Woollett 
+     
+     Code used in:
+     Computational Physics with Maxima or R,
+     Chapter 1, Numerical Differentiation, 
+        Quadrature, and Roots
+     
+     Use load("c:/k1/cp1code.mac") (for example)
+      to load code definitions into Maxima  */
+     
+
+/***** sec. 1.3  Maxima language   */
+
+ftable(func,x0,xf,dx):= 
+block([nL,fL,nfL,jj,ii],
+   nL : makelist(zz,zz,x0,xf,dx),
+   fL : map('func,nL),
+   nfL : makelist(["  ",nL[jj],"  ",fL[jj]],jj,length(nL)),
+   for ii thru length(nfL) do apply('print,nfL[ii]))$
+   
+/******** sec. 1.4.3  Simple Numerical Derivative Methods  */
+
+tryh() :=
+block([x:1, exact,h,fprime,fp_diff],numer:true,
+     exact : cos(x),     
+     print(" enter h <= 0 to stop "),
+     do (
+       h : read(" input h: "),
+       if h <= 0 then return(done),
+       fprime : 0.5*(sin(x+h) - sin(x-h))/h,
+       fp_diff : exact - fprime,
+       print(" h = ",h," error = ",fp_diff )))$
+       
+
+D1c(func,xval,[oa]) :=
+block([h : 1e-8],numer:true,
+    if length(oa) > 0 then h : oa[1],   
+    (func(xval + h) - func(xval - h))/(2*h))$
+    
+D1c_b(func,xval,[oa]) :=
+block([h : 1e-8],numer:true,
+   if length(oa) > 0 then h : oa[1],
+   if listp(h) then
+          (map(func,xval + h) - map(func,xval - h))/(2*h)
+   else (func(xval + h) - func(xval - h))/(2*h))$
+   
+D1f(func,xval,[oa]) :=
+block([h : 1e-8],numer:true,
+    if length(oa) > 0 then h : oa[1],   
+    (func(xval + h) - func(xval))/h)$
+    
+D1b(func,xval,[oa]) :=
+block([h : 1e-8],numer:true,
+    if length(oa) > 0 then h : oa[1],   
+    (func(xval) - func(xval - h))/h)$
+    
+
+/**** sec. 1.5.6  Trapezoidal Rule: Uniform grid  */
+
+trap(xv,yv) :=
+block([n :length(xv)],
+  float( (xv[2] - xv[1])*((yv[1] + yv[n])/2 + 
+                    apply("+",rest(rest(yv,-1))))))$
+                    
+
+   
+trap2(func,a,b,n) :=
+block([h : (b - a)/n,xL,yL],
+    xL : makelist(a + i*h,i,0,n),    
+    yL : map('func, xL),    
+    float(h*((yL[1] + yL[n+1])/2 + 
+               apply("+",rest(rest(yL,-1))))))$
+               
+/* sec. 1.5.8  Trapezoidal Rule: Non-uniform grid   */
+
+trapz(xv,yv) := 
+block([n:length(xv)],
+   dxx : makelist( xv[i] - xv[i-1], i, 2, n),
+   yy : makelist( yv[i-1] + yv[i], i, 2, n),
+   float(dxx . yy/2))$
+   
+jitter(xv,[o]) :=
+block([ampl,fac:1],
+   if not listp(xv) then return("xv must be a list"),
+   if length(o) > 0 then fac : o[1],
+   if length(o) > 1 then ampl : o[2]
+     else ampl : fac*(apply(max,xv) - apply(min,xv))/50,
+   xv + ampl*makelist(random(2.0) -1, i, 1, length(xv)))$
+   
+/*********  sec. 1.5.10 Simpson's 1/3 Rule  */
+
+simp(xv, yv) :=
+block([n, s],
+   n : length(xv) - 1,  /* number of panels */
+   if mod(n,2) # 0 then return(" length(xv) should be an odd integer "),
+   h : xv[2] - xv[1],
+   if n = 2 then s : yv[1] + 4*yv[2] + yv[3]
+   else  s : yv[1] + yv[n+1] + 
+           4*apply("+",makelist(yv[i],i,2,n,2)) +
+           2*apply("+", makelist(yv[i],i,3,n-1,2)),
+   float(s*h/3))$
+   
+simp2(func,a,b,n) :=
+block([h,xL, yL, s],
+    if mod(n,2) # 0 then return(" n should be even number of panels"),
+    h : (b - a)/n,
+    xL : makelist(a + i*h,i,0,n),    
+    yL : map('func, xL),
+    if n = 2 then s : yL[1] + 4*yL[2] + yL[3]
+    else  s : yL[1] + yL[n+1] + 
+           4*apply("+",makelist(yL[i],i,2,n,2)) +
+           2*apply("+", makelist(yL[i],i,3,n-1,2)),
+    float(s*h/3))$
+    
+/*********  code for sec. 1.6.7 and 1.6.8 is in the
+        code file cpnewton.mac and contains newton
+        and bfnewton  */
+        
+/*******  sec. 1.6.9 Secant Method search for root  */
+
+secant(func, vv0, vv1,[oa]) := 
+ block([eps0:1e-5,x0,x1 ,x2,ss,jj:0 ,jjmax :3000],
+     if length(oa) > 0 then eps0 : oa[1],         
+     x0 : float(vv0),
+     x1 : float(vv1),     
+     do (jj : jj + 1,        
+        if jj > jjmax then (
+              print(" exceeded jjmax limit "),
+              return(x1)),
+        if  abs(func(x1)) < eps0 then return(x1),
+        ss : func(x1) - func(x0),        
+        if equal(ss,0) then (            
+            print(" denominator near",(x0+x1)/2,"is zero "),
+            return(x1) ),
+        x2 : x1 - func(x1)*(x1 - x0)/ss,        
+        x0 : x1,
+        x1 : x2))$
+        
+/***  sec. 1.6.10 divide and conquer root search  ***/
+
+rtsearch(func,xx,dxx,xacc) :=
+block([fold,x:xx,dx:dxx],
+    fold : func(x),
+    do (
+      if abs(dx) <= xacc then return(),
+      x : x + dx,
+      if fold*func(x) < 0 then (
+          x : x - dx,
+          dx : dx/2)),
+    x)$
+	
+	
+    
+/*  list utilities  */
+
+head(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, -(numL - nleft)))$
+    
+tail(mylist) :=
+block([numL,nleft:6],
+    numL : length(mylist),
+    rest (mylist, numL - nleft))$
+
+/* a better name for take would be get_vec */
+
+take(%aL,%nn) := (map(lambda([x],part(x,%nn)), %aL))$
+
+range(aaL) := print(" min = ",lmin(aaL),"  max = ", lmax(aaL))$
+
+fll(x) := [first(x),last(x),length(x)]$
+  
+
+
+ 
+first_nonzero(aL) :=
+block([np:0, numer],numer:true,
+     for j thru length(aL) do (
+	     if is(notequal(0.0,aL[j])) then (
+		    np : j,
+			return())),
+	 np)$
+	 
+
+
+merge(list1,list2) := (flatten ( cons(list1, list2) ) )$
+
+/*
+(%i21) aa : [a1,a2,a3]$
+(%i22) bb : [b1,b2,b3]$
+(%i25) merge(aa,bb);
+(%o25) [a1,a2,a3,b1,b2,b3]
+*/
+
+ ratprint:false$
+ 
