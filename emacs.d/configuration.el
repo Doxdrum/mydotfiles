@@ -51,9 +51,13 @@
 
 (hrs/reset-font-size)
 
-(load-theme 'deeper-blue)
+;; (load-theme 'deeper-blue)
 
-(powerline-center-theme)
+(load-theme 'zerodark t)
+;; Optionally setup the modeline
+(zerodark-setup-modeline-format)
+
+;; (powerline-center-theme) ;; -> Only this line was used
 ;; (setq powerline-arrow-shape 'curve)
 ;; (setq powerline-default-separator-dir '(right . left))
 
@@ -165,6 +169,10 @@
 (global-set-key (kbd "C-¡") 'ocf/displaymode)
 
 (setq send-mail-function 'smtpmail-send-it)
+
+(require 'transpose-frame)
+
+(autoload 'typing-of-emacs "The Typing Of Emacs, a game." t)
 
 (setq python-indent 2)
 
@@ -911,9 +919,16 @@ contains an ID, that ID will be replaced with a new one."
 (setq paperless-capture-directory "/home/oscar/Documents/SCANS/")
 (setq paperless-root-directory "/home/oscar/Documents/Dropbox/")
 
-(global-set-key (kbd "s-<down>") #'spotify-playpause)
-(global-set-key (kbd "s-<right>") #'spotify-next)
+;; (global-set-key (kbd "s-<down>") #'spotify-playpause)
+;; (global-set-key (kbd "s-<right>") #'spotify-next)
 
 (spotify-enable-song-notifications)
 
 (require 'helm-spotify-plus)
+
+(global-set-key (kbd "M-s s") 'helm-spotify-plus)  ;; s for SEARCH
+(global-set-key (kbd "M-s f") 'helm-spotify-plus-next)
+(global-set-key (kbd "M-s b") 'helm-spotify-plus-previous)
+(global-set-key (kbd "M-s p") 'helm-spotify-plus-play) 
+(global-set-key (kbd "M-s g") 'helm-spotify-plus-pause) 
+;; g cause you know.. C-g stop things :)

@@ -131,13 +131,17 @@ when pairing or presenting code.
 ** Custom theme
 
 #+BEGIN_SRC emacs-lisp
-(load-theme 'deeper-blue)
+;; (load-theme 'deeper-blue)
+
+(load-theme 'zerodark t)
+;; Optionally setup the modeline
+(zerodark-setup-modeline-format)
 #+END_SRC
 
 ** Powerline and =smart-mode-line=
 
 #+BEGIN_SRC emacs-lisp
-(powerline-center-theme)
+;; (powerline-center-theme) ;; -> Only this line was used
 ;; (setq powerline-arrow-shape 'curve)
 ;; (setq powerline-default-separator-dir '(right . left))
 
@@ -385,6 +389,20 @@ withing =org= and =LaTeX= modes.
 
 #+BEGIN_SRC emacs-lisp
 (setq send-mail-function 'smtpmail-send-it)
+#+END_SRC
+
+** =transpose-frame=
+
+#+BEGIN_SRC emacs-lisp
+(require 'transpose-frame)
+#+END_SRC
+
+** Games
+
+*** =typing=
+
+#+BEGIN_SRC emacs-lisp
+(autoload 'typing-of-emacs "The Typing Of Emacs, a game." t)
 #+END_SRC
 
 * Programming Languages 
@@ -1619,8 +1637,8 @@ From [[https://github.com/stakemori/helm-sage][the git page]].
 * Spotify
 
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "s-<down>") #'spotify-playpause)
-(global-set-key (kbd "s-<right>") #'spotify-next)
+;; (global-set-key (kbd "s-<down>") #'spotify-playpause)
+;; (global-set-key (kbd "s-<right>") #'spotify-next)
 
 (spotify-enable-song-notifications)
 #+END_SRC
@@ -1628,3 +1646,14 @@ with the package =helm-spotify-plus=
 #+BEGIN_SRC emacs-lisp
 (require 'helm-spotify-plus)
 #+END_SRC
+
+The recommended key binding
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-s s") 'helm-spotify-plus)  ;; s for SEARCH
+(global-set-key (kbd "M-s f") 'helm-spotify-plus-next)
+(global-set-key (kbd "M-s b") 'helm-spotify-plus-previous)
+(global-set-key (kbd "M-s p") 'helm-spotify-plus-play) 
+(global-set-key (kbd "M-s g") 'helm-spotify-plus-pause) 
+;; g cause you know.. C-g stop things :)
+#+END_SRC
+
