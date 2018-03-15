@@ -243,6 +243,31 @@ when programming.
 (define-key global-map "\C-x\t" 'pcomplete)
 #+end_src
 
+** Settings of =company=
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'after-init-hook 'global-company-mode)
+#+END_SRC
+
+*** =company-quickhelp=
+#+BEGIN_SRC emacs-lisp
+(setq company-quickhelp-idle-delay 1)
+#+END_SRC
+
+*** =company-web= 
+#+BEGIN_SRC emacs-lisp
+  ;; (add-to-list 'company-backends 'company-web-html)
+  ;; (add-to-list 'company-backends 'company-web-jade)
+  ;; (add-to-list 'company-backends 'company-web-slim)
+#+END_SRC
+
+*** =company-anaconda=
+#+BEGIN_SRC emacs-lisp
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
+#+END_SRC
+
 ** Open files vertically
 
 From [[http://stackoverflow.com/a/6697992/1777293]]
@@ -399,7 +424,7 @@ withing =org= and =LaTeX= modes.
 
 ** Games
 
-*** =typing=
+*** =typing=                                                  :NOTWORKING:
 
 #+BEGIN_SRC emacs-lisp
 (autoload 'typing-of-emacs "The Typing Of Emacs, a game." t)

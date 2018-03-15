@@ -105,6 +105,17 @@
 
 (define-key global-map "\C-x\t" 'pcomplete)
 
+(add-hook 'after-init-hook 'global-company-mode)
+
+(setq company-quickhelp-idle-delay 1)
+
+;; (add-to-list 'company-backends 'company-web-html)
+;; (add-to-list 'company-backends 'company-web-jade)
+;; (add-to-list 'company-backends 'company-web-slim)
+
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
 (defun 2-windows-vertical-to-horizontal ()
   (let ((buffers (mapcar 'window-buffer (window-list))))
     (when (= 2 (length buffers))
