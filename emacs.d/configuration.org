@@ -445,18 +445,18 @@ withing =org= and =LaTeX= modes.
 This configuration comes from a [[https://realpython.com/blog/python/emacs-the-best-python-editor/][realpython article]]
 
 #+BEGIN_SRC emacs-lisp
-(elpy-enable)
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-prompt")
+  (elpy-enable)
+  (setq python-shell-interpreter "jupyter"
+	python-shell-interpreter-args "console --simple-prompt")
 
-;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+  ;; use flycheck not flymake with elpy
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+  ;; enable autopep8 formatting on save
+  (require 'py-autopep8)
+  (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 #+END_SRC
 
 ** =sh=
@@ -497,7 +497,7 @@ Magithub can be installed from =MELPA= repository, and needs to be
 called after =magit=
 
 #+BEGIN_SRC emacs-lisp
-(require 'magithub)
+;; (require 'magithub)
 #+END_SRC
 
 It's integrated into =magit= workflow, and it is called with ~H~
@@ -1303,6 +1303,30 @@ In order to see the rendered LaTeX equations scaled
 ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
 ;; 		 )
 ;; )
+
+(add-to-list 'org-latex-classes '("revtex4-1"
+				  "\\documentclass{revtex4-1}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+				  ("\\section{%s}" . "\\section*{%s}")
+				  ("\\subsection{%s}" . "\\subsection*{%s}")
+				  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+				  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+				  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+)
+
+(add-to-list 'org-latex-classes '("elsarticle"
+				  "\\documentclass{elsarticle}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+				  ("\\section{%s}" . "\\section*{%s}")
+				  ("\\subsection{%s}" . "\\subsection*{%s}")
+				  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+				  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+				  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+)
 #+END_SRC
 
 *** =org-tree-slide=
@@ -1348,7 +1372,6 @@ In order to see the rendered LaTeX equations scaled
          )
       )
 #+END_SRC
-
 
 ** Meetings and =org-secretary=
 
@@ -1443,7 +1466,6 @@ If you want, you can also configure the org-mode default open PDF file function.
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
 #+END_SRC
-
 
 * Activating =PDF-tools=
 

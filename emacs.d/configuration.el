@@ -217,7 +217,7 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(require 'magithub)
+;; (require 'magithub)
 
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
@@ -704,6 +704,30 @@
 ;; 		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))
 ;; 		 )
 ;; )
+
+(add-to-list 'org-latex-classes '("revtex4-1"
+				  "\\documentclass{revtex4-1}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+				  ("\\section{%s}" . "\\section*{%s}")
+				  ("\\subsection{%s}" . "\\subsection*{%s}")
+				  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+				  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+				  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+)
+
+(add-to-list 'org-latex-classes '("elsarticle"
+				  "\\documentclass{elsarticle}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]"
+				  ("\\section{%s}" . "\\section*{%s}")
+				  ("\\subsection{%s}" . "\\subsection*{%s}")
+				  ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+				  ("\\paragraph{%s}" . "\\paragraph*{%s}")
+				  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+)
 
 (require 'org-tree-slide)
 
