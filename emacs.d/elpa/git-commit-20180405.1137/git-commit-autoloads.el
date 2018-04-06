@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "git-commit" "git-commit.el" (23235 11986 60865
-;;;;;;  887000))
+;;;### (autoloads nil "git-commit" "git-commit.el" (23239 9353 265872
+;;;;;;  378000))
 ;;; Generated autoloads from git-commit.el
 
 (defvar global-git-commit-mode t "\
@@ -28,15 +28,15 @@ provide such a commit message.
 
 (defconst git-commit-filename-regexp "/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'")
 
-(autoload 'git-commit-setup "git-commit" "\
+(autoload 'git-commit-setup-check-buffer "git-commit" "\
 
 
 \(fn)" nil nil)
 
-;;;***
-
-;;;### (autoloads nil nil ("git-commit-pkg.el") (23235 11962 28810
-;;;;;;  347000))
+(autoload 'git-commit-setup "git-commit" "\
+
+
+\(fn)" nil nil)
 
 ;;;***
 
