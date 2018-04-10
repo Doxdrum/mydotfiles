@@ -1,0 +1,4 @@
+
+
+define_webjump("ecosia", "https://www.ecosia.org/search?q=%s");
+define_webjump("darklyrics", "http://www.darklyrics.com/search?q=%s");
