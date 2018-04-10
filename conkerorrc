@@ -1,4 +1,5 @@
-
-
+define_webjump("inspirehep", "http://inspirehep.net/search?ln=en&p=%s&" +
+			     "of=hb&action_search=Search&sf=earliestdate&so=d");
+define_webjump("imdb", "http://www.imdb.com/find?q=%s");
 define_webjump("ecosia", "https://www.ecosia.org/search?q=%s");
 define_webjump("darklyrics", "http://www.darklyrics.com/search?q=%s");
