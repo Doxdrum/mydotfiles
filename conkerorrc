@@ -1,5 +1,20 @@
 define_webjump("inspirehep", "http://inspirehep.net/search?ln=en&p=%s&" +
 			     "of=hb&action_search=Search&sf=earliestdate&so=d");
+
 define_webjump("imdb", "http://www.imdb.com/find?q=%s");
+
 define_webjump("ecosia", "https://www.ecosia.org/search?q=%s");
+webjumps.e = webjumps.ecosia
+
 define_webjump("darklyrics", "http://www.darklyrics.com/search?q=%s");
+
+define_webjump("youtube", "https://www.youtube.com/results?search_query=%s");
+webjumps.y = webjumps.youtube;
+
+define_webjump("youtube-user", "http://youtube.com/profile_videos?user=%s");
+
+define_webjump("linux-questions","http://www.linuxquestions.org/questions/");
+
+define_webjump("unix-linux-stackexchange","http://unix.stackexchange.com/search?q=%s", $alternative="http://unix.stackexchange.com");
+
+define_webjump("askubuntu","http://askubuntu.com/search?q=%s", $alternative="http://askubuntu.com");
