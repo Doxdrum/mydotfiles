@@ -16,5 +16,10 @@ define_webjump("youtube-user", "http://youtube.com/profile_videos?user=%s");
 define_webjump("linux-questions","http://www.linuxquestions.org/questions/");
 
 define_webjump("unix-linux-stackexchange","http://unix.stackexchange.com/search?q=%s", $alternative="http://unix.stackexchange.com");
+define_webjump("tex-stackexchange","http://tex.stackexchange.com/search?q=%s", $alternative="http://tex.stackexchange.com");
+define_webjump("emacs-stackexchange","http://emacs.stackexchange.com/search?q=%s", $alternative="http://emacs.stackexchange.com");
+define_webjump("math-stackexchange","http://math.stackexchange.com/search?q=%s", $alternative="http://math.stackexchange.com");
+define_webjump("mathoverflow","http://mathoverflow.net/search?q=%s", $alternative="http://mathoverflow.net");
+define_webjump("physics-stackexchange","http://physics.stackexchange.com/search?q=%s", $alternative="http://physics.stackexchange.com");
 
 define_webjump("askubuntu","http://askubuntu.com/search?q=%s", $alternative="http://askubuntu.com");
