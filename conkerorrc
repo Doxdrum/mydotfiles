@@ -1,3 +1,6 @@
+// Conkeror Configuration
+// by Oscar Castillo-Felisola
+
 define_webjump("inspirehep", "http://inspirehep.net/search?ln=en&p=%s&" +
 			     "of=hb&action_search=Search&sf=earliestdate&so=d");
 
