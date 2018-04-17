@@ -1126,13 +1126,18 @@ More details at [[http://jameswilliams.be/blog/2016/01/11/Taming-Your-GCal.html]
 The last version was not working, but I found this [[http://cestlaz.github.io/posts/using-emacs-26-gcal/#.WKcbJbONHsI][post on the web]]
 that might help
 
+Requirements:
+#+BEGIN_SRC emacs-lisp
+(require 'alert)
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
 (setq package-check-signature nil)
 
 (require 'org-gcal) 
 
-(setq org-gcal-client-id "985116132042-bhd0v4athudjc6mjoi0u0knlqpnjep6s.apps.googleusercontent.com"
-	org-gcal-client-secret "_tYU0MGrYsFjqjm5GrjmeOfN"
+(setq org-gcal-client-id "358090972212-2s1v68nuce286597smbotq4ta4nd54ru.apps.googleusercontent.com"
+	org-gcal-client-secret "y0IrGDvmspnDPvIMMI5puN4b"
 	org-gcal-file-alist '(("o.castillo.felisola@gmail.com" .  "~/Documents/Dropbox/Org/gmail-agenda.org")))
 #+END_SRC
 

@@ -568,12 +568,14 @@
 
 (setq org-reveal-root "file:///home/oscar/Software/git.src/reveal.js")
 
+(require 'alert)
+
 (setq package-check-signature nil)
 
 (require 'org-gcal) 
 
-(setq org-gcal-client-id "985116132042-bhd0v4athudjc6mjoi0u0knlqpnjep6s.apps.googleusercontent.com"
-	org-gcal-client-secret "_tYU0MGrYsFjqjm5GrjmeOfN"
+(setq org-gcal-client-id "358090972212-2s1v68nuce286597smbotq4ta4nd54ru.apps.googleusercontent.com"
+	org-gcal-client-secret "y0IrGDvmspnDPvIMMI5puN4b"
 	org-gcal-file-alist '(("o.castillo.felisola@gmail.com" .  "~/Documents/Dropbox/Org/gmail-agenda.org")))
 
 (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
