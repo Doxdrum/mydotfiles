@@ -961,6 +961,10 @@ contains an ID, that ID will be replaced with a new one."
 
 ;; ;; End .emacs
 
+(push "/usr/local/share/emacs/site-lisp" load-path)
+(autoload 'imaxima "imaxima" "Maxima frontend" t)
+(autoload 'imath "imath" "Interactive Math mode" t)
+
 (setq paradox-github-token "8311678a7da07f0b250436cfcce5db58015a657a")
 (setq paradox-automatically-star t)
 
