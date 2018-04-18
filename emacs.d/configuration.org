@@ -525,7 +525,8 @@ It's integrated into =magit= workflow, and it is called with ~H~
 *** The /alist/ for =org= and =txt= files
 
  #+BEGIN_SRC emacs-lisp
- (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+ (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
+ ;; (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
  (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
  #+END_SRC
 

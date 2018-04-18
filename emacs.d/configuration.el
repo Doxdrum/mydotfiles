@@ -233,7 +233,8 @@
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/lisp/")
 ;; (add-to-list 'load-path "/home/oscar/mydotfiles/emacs.d/org-mode/contrib/lisp/" )
 
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
+;; (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.tex$" . latex-mode))
 
 (global-set-key "\C-cl" 'org-store-link) 
@@ -964,6 +965,7 @@ contains an ID, that ID will be replaced with a new one."
 (push "/usr/local/share/emacs/site-lisp" load-path)
 (autoload 'imaxima "imaxima" "Maxima frontend" t)
 (autoload 'imath "imath" "Interactive Math mode" t)
+(autoload 'imath-mode "imath" "Interactive Math mode" t)
 
 (setq paradox-github-token "8311678a7da07f0b250436cfcce5db58015a657a")
 (setq paradox-automatically-star t)
