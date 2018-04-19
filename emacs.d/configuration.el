@@ -873,7 +873,8 @@ contains an ID, that ID will be replaced with a new one."
     (if mark-active
         (buffer-substring (region-beginning) (region-end))
       (read-string "Google: ")))))
-; (global-set-key (kbd "C-x C-g") 'prelude-google)
+
+;; (global-set-key (kbd "C-x C-g") 'prelude-google)
 (global-set-key (kbd "M-g M-g") 'prelude-google)
 ;; (global-set-key (kbd "M-g g")   'prelude-google)
 
@@ -896,6 +897,18 @@ contains an ID, that ID will be replaced with a new one."
 
 ;; (auth-source-save-behavior nil)
 ;; (send-mail-function (quote smtpmail-send-it))
+
+(defun prelude-ecosia ()
+  "Googles a region, if any, or prompts for a Google search string."
+  (interactive)
+  (browse-url
+   (concat
+    "https://www.ecosia.org/search?q="
+    (if mark-active
+        (buffer-substring (region-beginning) (region-end))
+      (read-string "Ecosia: ")))))
+
+(global-set-key (kbd "M-g M-e") 'prelude-ecosia)
 
 (setq sage-shell:sage-executable "/usr/bin/sage")
 

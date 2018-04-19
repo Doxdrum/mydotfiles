@@ -11,7 +11,8 @@ webjumps.e = webjumps.ecosia
 
 define_webjump("darklyrics", "http://www.darklyrics.com/search?q=%s");
 
-define_webjump("youtube", "https://www.youtube.com/results?search_query=%s");
+// Youtube was already defined
+// define_webjump("youtube", "https://www.youtube.com/results?search_query=%s");
 webjumps.y = webjumps.youtube;
 
 define_webjump("youtube-user", "http://youtube.com/profile_videos?user=%s");
