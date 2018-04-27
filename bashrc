@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# ~/.Bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -54,8 +54,12 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\033[00m\]\$ '
+    ## Original line
+    ## PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\$ '
 else
+    ## Original line
+    ## PS1='${debian_chroot:+($debian_chroot)}\u@\h:\$ '
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\$ '
 fi
 unset color_prompt force_color_prompt
@@ -105,6 +109,12 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+## Path to anaconda3
+export PATH=/home/oscar/Software/anaconda3/bin:$PATH
+
+## Open Sage in Firefox
+export SAGE_BROWSER="firefox-esr"
 
 ### This variables are written in the .profile file
 # PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
