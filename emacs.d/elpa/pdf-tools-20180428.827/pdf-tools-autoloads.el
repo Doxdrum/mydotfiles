@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "pdf-annot" "pdf-annot.el" (23261 36515 458859
-;;;;;;  50000))
+;;;### (autoloads nil "pdf-annot" "pdf-annot.el" (23269 7672 763535
+;;;;;;  224000))
 ;;; Generated autoloads from pdf-annot.el
 
 (autoload 'pdf-annot-minor-mode "pdf-annot" "\
@@ -16,8 +16,8 @@ Support for PDF Annotations.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-history" "pdf-history.el" (23261 36515
-;;;;;;  102853 996000))
+;;;### (autoloads nil "pdf-history" "pdf-history.el" (23269 7672
+;;;;;;  231536 556000))
 ;;; Generated autoloads from pdf-history.el
 
 (autoload 'pdf-history-minor-mode "pdf-history" "\
@@ -33,8 +33,8 @@ may be navigated with the following keys.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-isearch" "pdf-isearch.el" (23261 36522
-;;;;;;  870927 432000))
+;;;### (autoloads nil "pdf-isearch" "pdf-isearch.el" (23269 7677
+;;;;;;  55524 682000))
 ;;; Generated autoloads from pdf-isearch.el
 
 (autoload 'pdf-isearch-minor-mode "pdf-isearch" "\
@@ -72,8 +72,8 @@ that not every isearch command work as expected.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-links" "pdf-links.el" (23261 36516 698875
-;;;;;;  663000))
+;;;### (autoloads nil "pdf-links" "pdf-links.el" (23269 7672 967534
+;;;;;;  715000))
 ;;; Generated autoloads from pdf-links.el
 
 (autoload 'pdf-links-minor-mode "pdf-links" "\
@@ -105,8 +105,8 @@ scroll the current page.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-misc" "pdf-misc.el" (23261 36515 222855
-;;;;;;  699000))
+;;;### (autoloads nil "pdf-misc" "pdf-misc.el" (23269 7672 531535
+;;;;;;  805000))
 ;;; Generated autoloads from pdf-misc.el
 
 (autoload 'pdf-misc-minor-mode "pdf-misc" "\
@@ -133,8 +133,8 @@ Provide a right-click context menu in PDF buffers.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-occur" "pdf-occur.el" (23261 36515 914865
-;;;;;;  524000))
+;;;### (autoloads nil "pdf-occur" "pdf-occur.el" (23269 7672 863534
+;;;;;;  975000))
 ;;; Generated autoloads from pdf-occur.el
 
 (autoload 'pdf-occur "pdf-occur" "\
@@ -197,8 +197,8 @@ and otherwise fallback to `dired-do-search'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-outline" "pdf-outline.el" (23261 36522
-;;;;;;  682926 499000))
+;;;### (autoloads nil "pdf-outline" "pdf-outline.el" (23269 7676
+;;;;;;  979524 866000))
 ;;; Generated autoloads from pdf-outline.el
 
 (autoload 'pdf-outline-minor-mode "pdf-outline" "\
@@ -227,8 +227,8 @@ Enable imenu in the current PDF buffer.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-sync" "pdf-sync.el" (23261 36516 838877
-;;;;;;  448000))
+;;;### (autoloads nil "pdf-sync" "pdf-sync.el" (23269 7672 999534
+;;;;;;  634000))
 ;;; Generated autoloads from pdf-sync.el
 
 (autoload 'pdf-sync-minor-mode "pdf-sync" "\
@@ -261,8 +261,8 @@ with AUCTeX.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-tools" "pdf-tools.el" (23261 36517 90880
-;;;;;;  543000))
+;;;### (autoloads nil "pdf-tools" "pdf-tools.el" (23269 7673 67534
+;;;;;;  466000))
 ;;; Generated autoloads from pdf-tools.el
 
 (defvar pdf-tools-handle-upgrades t "\
@@ -315,8 +315,8 @@ MODES defaults to `pdf-tools-enabled-modes'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-view" "pdf-view.el" (23261 36516 986879
-;;;;;;  335000))
+;;;### (autoloads nil "pdf-view" "pdf-view.el" (23269 7673 35534
+;;;;;;  545000))
 ;;; Generated autoloads from pdf-view.el
 
 (autoload 'pdf-view-bookmark-jump-handler "pdf-view" "\
@@ -328,8 +328,8 @@ See also `pdf-view-bookmark-make-record'.
 
 ;;;***
 
-;;;### (autoloads nil "pdf-virtual" "pdf-virtual.el" (23261 36516
-;;;;;;  526873 467000))
+;;;### (autoloads nil "pdf-virtual" "pdf-virtual.el" (23269 7672
+;;;;;;  931534 805000))
 ;;; Generated autoloads from pdf-virtual.el
 
 (autoload 'pdf-virtual-edit-mode "pdf-virtual" "\
@@ -365,7 +365,7 @@ Enable recognition and handling of VPDF files.
 ;;;***
 
 ;;;### (autoloads nil nil ("pdf-cache.el" "pdf-dev.el" "pdf-info.el"
-;;;;;;  "pdf-tools-pkg.el" "pdf-util.el") (23261 36522 206924 137000))
+;;;;;;  "pdf-tools-pkg.el" "pdf-util.el") (23269 7676 587525 818000))
 
 ;;;***
 
