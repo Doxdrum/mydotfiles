@@ -1,0 +1,138 @@
+\documentclass[letterpaper,12pt,answers]{exam}
+\usepackage{srcltx}
+
+\newcommand\lecturer{O.~Castillo-Felisola}
+\newcommand\course{Electrodynamics}
+\newcommand\type{Homework}
+\newcommand\cardinal{FirstThird}
+\title{\course}
+\author{\lecturer}
+
+\usepackage{mathtools,amsmath,amssymb,amsfonts,dsfont,mathrsfs,amsthm,bm,latexsym}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{xcolor}
+\usepackage{braket}
+\renewcommand\bra[1]{\Bra{#1}}
+\renewcommand\ket[1]{\Ket{#1}}
+\newcommand{\bkt}[3]{\Braket{ {#1} | {#2} | {#3} } }
+\newcommand{\bk}[2]{\Braket{ {#1} | {#2} } }
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\vev}[1]{\ensuremath{\left<#1\right>}}
+\renewcommand{\set}[1]{\ensuremath{\Set{ #1 }}}
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{tikz}
+\usepackage{xparse}
+\usetikzlibrary{shapes,
+  snakes,
+  decorations.pathmorphing,
+  decorations.markings,
+  calc,
+  shadows.blur,
+  shadings}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{centernot}
+\usepackage[dayofweek]{datetime}
+\newdateformat{vardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={\cardinal~\type,~\course},
+  pdfauthor={\lecturer.},
+  pdfkeywords={Electrostatic,}{PDE,}{Boundary conditions.},
+  pdflang={English}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%                  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%      BODY        %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%                  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% opening
+
+\pointsinrightmargin
+%% \renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
+
+\firstpageheader{ \bf\large \course\\ \lecturer}{}{\bf\large \cardinal~\type\\ \today}
+\runningheader{\bf\large \course}{}{\bf\large \cardinal~\type (Continued)}
+
+\qformat{\large \bf \thequestion. {\color{blue}\thequestiontitle} \hfill}
+
+
+
+\begin{document}
+
+\begin{questions}
+\titledquestion{Different boundary problems}
+
+\begin{parts}
+  \part Find the potential of the field of a point electric charge,
+  situated above an ideally conducting earthed plane $z = 0$, and
+  calculate the density of the induced surface charges. Write down
+  the solution of the first boundary-value problem for Laplace's
+  equation in the semispace \(z \ge 0\).
+
+  \part Find the potential of a point charge inside a layer, bounded
+  by two ideally conducting planes $z = 0$ and \(z = l\), which are
+  maintained at a potential equal to zero. Investigate the convergence
+  of the series formed by the method of images, and demonstrate the
+  possibility of a two-fold termwise differentiation of this series.
+
+  \part Inside the bihedral angle of value \(\alpha = \pi / n\) (n an
+  integer), bounded by ideally conducting walls, a point electric
+  charge is situated. 
+  \begin{subparts}
+    \subpart Find the electric field produced by this charge.
+    \subpart Find the potential if the boundary conditions are
+    \(\phi(\varphi = \alpha) = 0\) and \(\phi(\varphi = 0) = \phi_0\).
+  \end{subparts}
+
+  \part Find the potential of an electrostatic field, produced by
+  a point charge e inside an earthed sphere. Find the density of the
+  surface charges induced on the sphere and write down the solution of
+  the interior Dirichlet boundary-value problem for Laplace's equation
+  inside a sphere.
+
+  \part Repeat the previous for the exterior solution.
+\end{parts}
+
+\titledquestion{Green's functions}
+
+Find the Green's functions for the Laplace equation in dimensions,
+\(D = 1\), \(2\) and \(\ge 3\).
+
+\titledquestion{Hollow sphere}
+
+A hollow sphere of inner radius $a$ has the potential specified on its
+surface to be \mbox{\(\phi(a) = V(\theta,\varphi)\)}. Prove the equivalence of the
+two forms of solution for the potential inside the sphere:
+\begin{parts}
+  \part 
+  \begin{equation*}
+    \phi(x) = \frac{a ( a^2 - r^2)}{4 \pi} \int \mathrm{d}\Omega'
+    \frac{V(\theta',\varphi')}{(r^2 + a^2 - 2 a r \cos \gamma )^{3/2}}
+  \end{equation*}
+  where \(\cos \gamma = \cos \theta \cos \theta' + \sin \theta \sin \theta' \cos( \varphi -
+  \varphi')\). 
+  \part  
+  \begin{equation*}
+    \phi(x) = \sum_{l = 0}^\infty \sum_{m = -l}^l A_{lm} \left( \frac{r}{a}
+    \right)^l Y_{lm}(\theta,\phi)
+  \end{equation*}
+  where \(A_{lm} = \int \mathrm{d}\Omega' \, Y^*_{lm}(\theta',\varphi') V(\theta',\varphi')\).
+\end{parts}
+
+\end{questions}
+
+{\color{red} \textbf{\sc To be handed on \longdate\formatdate{02}{04}{2018}.}}
+
+\end{document}

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-02-01 Thu 16:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Oscar Castillo-Felisola" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgf8f6f26">1. Configuring <code>ditaa</code> to work with <code>org-mode</code></a></li>
+<li><a href="#org07b9ef4">2. Emacs as a python IDE</a>
+<ul>
+<li><a href="#orge1e84c4">2.1. SUMMARY</a></li>
+</ul>
+</li>
+<li><a href="#org87e0e6c">3. A useful link for <code>MathJax</code> quick help</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf8f6f26" class="outline-2">
+<h2 id="orgf8f6f26"><span class="section-number-2">1</span> Configuring <code>ditaa</code> to work with <code>org-mode</code></h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><p>
+Install <code>ditaa</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ sudo apt-get install ditaa
+</pre>
+</div></li>
+<li><p>
+find the location where <code>emacs</code> expect the <code>ditaa.jar</code> file to be
+located
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(expand-file-name
+             <span style="color: #deb887;">"ditaa.jar"</span>
+      (file-name-as-directory
+            (expand-file-name
+                <span style="color: #deb887;">"scripts"</span>
+               (file-name-as-directory
+                  (expand-file-name
+                      <span style="color: #deb887;">"../contrib"</span>
+                     (file-name-directory (<span style="color: #00bfff;">org-find-library-dir</span> <span style="color: #deb887;">"org"</span>)))))))
+</pre>
+</div></li>
+<li><p>
+Look where it was installed
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ whereis ditaa
+ditaa: /usr/bin/ditaa /usr/share/ditaa /usr/share/man/man1/ditaa.1.gz
+$ ls /usr/bin/ditaa
+/usr/bin/ditaa
+$ ls /usr/share/ditaa
+ditaa.jar
+</pre>
+</div></li>
+<li><p>
+Create the link in the expected location
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">$ cd ~/.emacs.d/elpa/
+$ mkdir -p contrib/scripts/
+$ cd !$
+$ ln -s /usr/share/ditaa/ditaa.jar ditaa.jar
+</pre>
+</div></li>
+<li><p>
+Remember to add <code>ditaa</code> the babel languages 
+</p>
+<div class="org-src-container">
+<pre class="src src-org">(org-babel-do-load-languages 'org-babel-load-languages 
+                             '((C . t)
+                               (ditaa . t) ;; &lt;------- HERE
+                               (emacs-lisp . t) 
+                               (fortran . t)
+                               (gnuplot . t)
+                               (ipython . t)
+                               (latex . t)
+                               (ledger . t)
+                               (mathematica . t)
+                               (maxima . t)
+                               (octave . t)
+                               (org . t)
+                               (python . t)
+                               (R . t) 
+                               (shell . t)
+                               ))
+</pre>
+</div></li>
+<li>Restart your <code>emacs</code> session</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org07b9ef4" class="outline-2">
+<h2 id="org07b9ef4"><span class="section-number-2">2</span> Emacs as a python IDE</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Today I read a question in <a href="https://emacs.stackexchange.com/questions/38495/configurtion-steps-for-emacs-python-ide">emacs.SE</a>, and looking for an answer I found
+the following <a href="https://realpython.com/blog/python/emacs-the-best-python-editor/">realpython article</a>. 
+</p>
+</div>
+
+<div id="outline-container-orge1e84c4" class="outline-3">
+<h3 id="orge1e84c4"><span class="section-number-3">2.1</span> SUMMARY</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Install the packages from <code>MELPA</code> repository: <code>better-defaults</code>, <code>elpy</code>, <code>ein</code>,
+<code>flycheck</code> and <code>py-autopep8</code></li>
+<li><p>
+Add the configuration to your <code>.emacs</code> file
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(elpy-enable)
+(<span style="color: #00bfff;">setq</span> python-shell-interpreter <span style="color: #deb887;">"jupyter"</span>
+      python-shell-interpreter-args <span style="color: #deb887;">"console --simple-prompt"</span>)
+
+<span style="color: #7f7f7f;">;; </span><span style="color: #7f7f7f;">use flycheck not flymake with elpy</span>
+(<span style="color: #00bfff;">when</span> (<span style="color: #00bfff;">require</span> '<span style="color: #a2cd5a;">flycheck</span> nil t)
+  (<span style="color: #00bfff;">setq</span> elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+<span style="color: #7f7f7f;">;; </span><span style="color: #7f7f7f;">enable autopep8 formatting on save</span>
+(<span style="color: #00bfff;">require</span> '<span style="color: #a2cd5a;">py-autopep8</span>)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+</pre>
+</div></li>
+</ul>
+
+<p>
+<b>BEWARE:</b> make sure that you have all the packages installed, for
+example I configured the <code>jupiter</code> console, so I needed to install it
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt-get install jupyter-console
+</pre>
+</div>
+<p>
+or
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo pip install jupyter-console
+</pre>
+</div>
+
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2018-01-31 Wed 11:47]</span></span>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87e0e6c" class="outline-2">
+<h2 id="org87e0e6c"><span class="section-number-2">3</span> A useful link for <code>MathJax</code> quick help</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Lately, I've been using a <code>js</code> script, called <code>reveal</code>, to prepare a
+presentation. Among the nice things is that one can enable the
+equivalent to the <i>AMS</i> \LaTeX\ package using the string
+</p>
+<div class="org-src-container">
+<pre class="src src-html">&lt;<span style="color: #daa520;">script</span> <span style="color: #4eee94;">type</span>=<span style="color: #deb887;">"text/javascript"</span> <span style="color: #4eee94;">src</span>=<span style="color: #deb887;">"https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"</span>&gt;&lt;/<span style="color: #daa520;">script</span>&gt;
+</pre>
+</div>
+<p>
+in the head of the <code>html</code> file, of within <code>org-mode</code> use
+</p>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #7f7f7f;">#+REVEAL_MATHJAX_URL: <a href="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</a></span>
+</pre>
+</div>
+
+<p>
+Now, to start using the <i>AMS</i> features, see this <a href="https://math.meta.stackexchange.com/q/5020/50338">post</a>.
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2018-01-30 Tue 06:21]</span></span>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Oscar Castillo-Felisola</p>
+<p class="date">Created: 2018-02-01 Thu 16:28</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

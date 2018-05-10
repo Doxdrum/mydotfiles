@@ -1,0 +1,1786 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "reset()\n",
+    "%display latex"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<h1>Cosmological ansätze </h1>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left(\\mathcal{M},(t, r, {\\theta}, {\\phi})\\right)</script></html>"
+      ],
+      "text/plain": [
+       "Chart (M, (t, r, th, ph))"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "M=Manifold(4,'M', latex_name=r'\\mathcal{M}')\n",
+    "\n",
+    "X.<t,r,th,ph> = M.chart(r't r:(0,+oo) th:(0,pi):\\theta ph:(0,2*pi):\\phi') ; X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}k</script></html>"
+      ],
+      "text/plain": [
+       "k"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "var('k', domain='real')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "Lx = M.vector_field('Lx')\n",
+    "Lx[:] = [0, sqrt(1-k*r^2)*cos(ph)*sin(th), sqrt(1-k*r^2)*cos(ph)*cos(th)/r, sqrt(1-k*r^2)*(-sin(ph))/(r*sin(th))]\n",
+    "\n",
+    "Ly = M.vector_field('Ly')\n",
+    "Ly[:] = [0, sqrt(1-k*r^2)*sin(ph)*sin(th), sqrt(1-k*r^2)*sin(ph)*cos(th)/r, sqrt(1-k*r^2)*cos(ph)/(r*sin(th))]\n",
+    "\n",
+    "Lz = M.vector_field('Lz')\n",
+    "Lz[:] = [0,sqrt(1-k*r^2)*cos(th),sqrt(1-k*r^2)*(-sin(th))/r,0]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<div class=\"page\" title=\"Page 12\">\n",
+    "<div class=\"layoutArea\">\n",
+    "<div class=\"column\">\n",
+    "<h2><span>Isotropic and homogeneous (covariant)-two tensor </span></h2>\n",
+    "</div>\n",
+    "</div>\n",
+    "</div>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}T</script></html>"
+      ],
+      "text/plain": [
+       "Tensor field T of type (0,2) on the 4-dimensional differentiable manifold M"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "T = M.tensor_field(0,2, name='T')\n",
+    "T"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "for i in xrange(4):\n",
+    "    for j in xrange(4):\n",
+    "        T[i,j] = function(\"T%s%s\"  % (i,j))(t,r)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "T[0,2] = 0\n",
+    "T[0,3] = 0\n",
+    "T[1,2] = 0\n",
+    "T[1,3] = 0\n",
+    "T[2,0] = 0\n",
+    "T[2,1] = 0\n",
+    "T[3,0] = 0\n",
+    "T[3,1] = 0\n",
+    "T[3,3] = T[2,2]*(sin(th))^2\n",
+    "T[3,2] = -T[2,3]*sin(th)\n",
+    "T[2,3] = -T[3,2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[          T00(t, r)           T01(t, r)                   0                   0]\n",
+       "[          T10(t, r)           T11(t, r)                   0                   0]\n",
+       "[                  0                   0           T22(t, r)   T23(t, r)*sin(th)]\n",
+       "[                  0                   0  -T23(t, r)*sin(th) T22(t, r)*sin(th)^2]"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "T[:]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": []
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "LzT = T.lie_der(Lz)\n",
+    "LzT.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "T[0,0] = function(\"T%s%s\"  % (0,0))(t)\n",
+    "T[0,1] = 0\n",
+    "T[1,0] = 0\n",
+    "T[2,3] = 0\n",
+    "T[3,2] = 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": []
+     },
+     "execution_count": 88,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "LzT = T.lie_der(Lz)\n",
+    "LzT.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "T[2,2] = function(\"T%s%s\"  % (2,2))(t)\n",
+    "T[1,1] = function(\"T%s%s\"  % (1,1))(t)\n",
+    "T[1,1] = T[1,1]/(1-k*r^2)\n",
+    "T[2,2] = T[2,2]*r^2\n",
+    "T[2,2] = T[1,1]*r^2*(1-k*r^2)\n",
+    "T[3,3] = T[2,2]*(sin(th))^2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": []
+     },
+     "execution_count": 99,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "LzT = T.lie_der(Lz)\n",
+    "LzT.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[              T00(t)                    0                    0                    0]\n",
+       "[                   0  -T11(t)/(k*r^2 - 1)                    0                    0]\n",
+       "[                   0                    0           r^2*T11(t)                    0]\n",
+       "[                   0                    0                    0 r^2*T11(t)*sin(th)^2]"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "T[:]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "g = -dt*dt - a(t)^2/(k*r^2 - 1) dr*dr + r^2*a(t)^2 dth*dth + r^2*a(t)^2*sin(th)^2 dph*dph"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "g = M.lorentzian_metric('g')\n",
+    "a = M.scalar_field(function('a')(t), name='a')\n",
+    "g[0,0] = -1\n",
+    "g[1,1] = a*a/(1 - k*r^2)\n",
+    "g[2,2] = a*a*r^2\n",
+    "g[3,3] = a*a*(r*sin(th))^2\n",
+    "g.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Gam^t_r,r = -a(t)*d(a)/dt/(k*r^2 - 1) \n",
+       "Gam^t_th,th = r^2*a(t)*d(a)/dt \n",
+       "Gam^t_ph,ph = r^2*a(t)*sin(th)^2*d(a)/dt \n",
+       "Gam^r_t,r = d(a)/dt/a(t) \n",
+       "Gam^r_r,r = -k*r/(k*r^2 - 1) \n",
+       "Gam^r_th,th = k*r^3 - r \n",
+       "Gam^r_ph,ph = (k*r^3 - r)*sin(th)^2 \n",
+       "Gam^th_t,th = d(a)/dt/a(t) \n",
+       "Gam^th_r,th = 1/r \n",
+       "Gam^th_ph,ph = -cos(th)*sin(th) \n",
+       "Gam^ph_t,ph = d(a)/dt/a(t) \n",
+       "Gam^ph_r,ph = 1/r \n",
+       "Gam^ph_th,ph = cos(th)/sin(th) "
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nab = g.connection()\n",
+    "g.christoffel_symbols_display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Ric(g) = -3*d^2(a)/dt^2/a(t) dt*dt - (2*(d(a)/dt)^2 + a(t)*d^2(a)/dt^2 + 2*k)/(k*r^2 - 1) dr*dr + (2*r^2*(d(a)/dt)^2 + r^2*a(t)*d^2(a)/dt^2 + 2*k*r^2) dth*dth + (2*r^2*(d(a)/dt)^2 + r^2*a(t)*d^2(a)/dt^2 + 2*k*r^2)*sin(th)^2 dph*dph"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ric = nab.ricci()\n",
+    "Ric.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "nabla_g(Ric(g))_t,t,t = 3*(d(a)/dt*d^2(a)/dt^2 - a(t)*d^3(a)/dt^3)/a(t)^2 \n",
+       "nabla_g(Ric(g))_t,r,r = 2*((d(a)/dt)^3 - a(t)*d(a)/dt*d^2(a)/dt^2 + k*d(a)/dt)/((k*r^2 - 1)*a(t)) \n",
+       "nabla_g(Ric(g))_t,th,th = -2*(r^2*(d(a)/dt)^3 - r^2*a(t)*d(a)/dt*d^2(a)/dt^2 + k*r^2*d(a)/dt)/a(t) \n",
+       "nabla_g(Ric(g))_t,ph,ph = -2*(r^2*(d(a)/dt)^3 - r^2*a(t)*d(a)/dt*d^2(a)/dt^2 + k*r^2*d(a)/dt)*sin(th)^2/a(t) \n",
+       "nabla_g(Ric(g))_r,t,r = 2*((d(a)/dt)^3 - a(t)*d(a)/dt*d^2(a)/dt^2 + k*d(a)/dt)/((k*r^2 - 1)*a(t)) \n",
+       "nabla_g(Ric(g))_r,r,t = (4*(d(a)/dt)^3 - 3*a(t)*d(a)/dt*d^2(a)/dt^2 - a(t)^2*d^3(a)/dt^3 + 4*k*d(a)/dt)/((k*r^2 - 1)*a(t)) \n",
+       "nabla_g(Ric(g))_th,t,th = -2*(r^2*(d(a)/dt)^3 - r^2*a(t)*d(a)/dt*d^2(a)/dt^2 + k*r^2*d(a)/dt)/a(t) \n",
+       "nabla_g(Ric(g))_th,th,t = -(4*r^2*(d(a)/dt)^3 - 3*r^2*a(t)*d(a)/dt*d^2(a)/dt^2 - r^2*a(t)^2*d^3(a)/dt^3 + 4*k*r^2*d(a)/dt)/a(t) \n",
+       "nabla_g(Ric(g))_ph,t,ph = -2*(r^2*(d(a)/dt)^3 - r^2*a(t)*d(a)/dt*d^2(a)/dt^2 + k*r^2*d(a)/dt)*sin(th)^2/a(t) \n",
+       "nabla_g(Ric(g))_ph,ph,t = -(4*r^2*(d(a)/dt)^3 - 3*r^2*a(t)*d(a)/dt*d^2(a)/dt^2 - r^2*a(t)^2*d^3(a)/dt^3 + 4*k*r^2*d(a)/dt)*sin(th)^2/a(t) "
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "DRic = nab(Ric)\n",
+    "DRic.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "\\frac{3 \\, {\\left(\\frac{\\partial\\,a}{\\partial t} \\frac{\\partial^2\\,a}{\\partial t ^ 2} - a\\left(t\\right) \\frac{\\partial^3\\,a}{\\partial t ^ 3}\\right)}}{a\\left(t\\right)^{2}}"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "latex(DRic[0,0,0])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Notice that $DRic[a,b,c] = \\nabla_c R_{a b}$, and also that the covariant derivative yield trivial elements when acting on vanishing components!\n",
+    "\n",
+    "First, notice that there are only three inequivalent equations, say $\\nabla_t R_{tt}$, $\\nabla_r R_{tr}$ and $\\nabla_t R_{\\theta\\theta}$. \n",
+    "\n",
+    "Moreover, \n",
+    "\\begin{equation}\n",
+    "\\frac{3 \\, {\\left(\\frac{\\partial\\,a}{\\partial t} \\frac{\\partial^2\\,a}{\\partial t ^ 2} - a\\left(t\\right) \\frac{\\partial^3\\,a}{\\partial t ^ 3}\\right)}}{a\\left(t\\right)^{2}} = -3 \\frac{\\partial}{\\partial t} \\left( \\frac{\\ddot{a}}{a} \\right),\n",
+    "\\end{equation}\n",
+    "or\n",
+    "\\begin{equation}\n",
+    "\\ddot{a} - \\omega^2 a = 0.\n",
+    "\\end{equation}\n",
+    "\n",
+    "<h2>Case $\\omega \\neq 0$</h2>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-om^2*f(t) + diff(f(t), t, t)"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "y = function('f')(t)\n",
+    "var('om', latex_name=r\"\\omega\", domain='positive')\n",
+    "de1 = diff(y,t,t) - om^2 * y\n",
+    "de1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "_K1*e^(om*t) + _K2*e^(-om*t)"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s1 = desolve(de1==0, y, ivar=t)\n",
+    "s1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Now, check the second equation"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "de2 = diff(s1,t)^3 - s1 * diff(s1,t) * diff(s1,t,t) + k * diff(s1,t)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-4*_K1^2*_K2*om^3*e^(om*t) + 4*_K1*_K2^2*om^3*e^(-om*t) + _K1*k*om*e^(om*t) - _K2*k*om*e^(-om*t)"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "expand(de2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "Now, we have two possible kinds of solutions, either $\\kappa=0$ or $\\kappa \\neq 0$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-4*_K1^2*_K2*om^3*e^(om*t) + 4*_K1*_K2^2*om^3*e^(-om*t)"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s2a = de2.expand().substitute(k=0)\n",
+    "s2a"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<h3>$\\omega \\neq 0$ and $\\kappa = 0$</h3>\n",
+    "\n",
+    "The above equation can be solved in two ways $K_1 = 0$ or $K_2 = 0$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [],
+   "source": [
+    "var('A', domain='positive')\n",
+    "f1 = A * exp(-om*t)\n",
+    "f2 = A * exp(om*t)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "And we checked that both of them solve the remaining field equation,"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ff1 = 4 * diff(f1,t)^3 - 3 * f1 * diff(f1,t) * diff(f1,t,t) - f1^2 * diff(f1,t,t,t)\n",
+    "ff1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ff2 = 4 * diff(f2,t)^3 - 3 * f2 * diff(f2,t) * diff(f2,t,t) - f2^2 * diff(f2,t,t,t)\n",
+    "ff2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<h3>$\\omega \\neq 0$ and $\\kappa \\neq 0$</h3>\n",
+    "\n",
+    "Similarly, for $\\kappa \\neq 0$ solving (de2) requires that $4 K_1 K_2 \\omega^2 = 1$. Thus"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "A*e^(om*t) + 1/4*k*e^(-om*t)/(A*om^2)"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "var('A', domain='positive')\n",
+    "f = A * exp(om*t) + k * exp(-om*t) / (4 * A * om^2) \n",
+    "f"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1/16*(4*A*om*e^(om*t) - k*e^(-om*t)/(A*om))^3 - 3/64*(4*A*om^2*e^(om*t) + k*e^(-om*t)/A)*(4*A*om*e^(om*t) - k*e^(-om*t)/(A*om))*(4*A*e^(om*t) + k*e^(-om*t)/(A*om^2)) - 1/64*(4*A*om^3*e^(om*t) - k*om*e^(-om*t)/A)*(4*A*e^(om*t) + k*e^(-om*t)/(A*om^2))^2 + (4*A*om*e^(om*t) - k*e^(-om*t)/(A*om))*k"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ff = 4 * diff(f,t)^3 - 3 * f * diff(f,t) * diff(f,t,t) - f^2 * diff(f,t,t,t) + 4 * k * diff(f,t)\n",
+    "ff"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "expand(ff)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "<h2>Case $\\omega = 0$</h2>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "A^3 + A*k"
+      ]
+     },
+     "execution_count": 24,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "var('A', domain='positive')\n",
+    "var('B', domain='positive')\n",
+    "s1 = A * t + B\n",
+    "de2 = diff(s1,t)^3 - s1 * diff(s1,t) * diff(s1,t,t) + k * diff(s1,t)\n",
+    "de2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 26,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f0 = B\n",
+    "ff0 = 4 * diff(f0,t)^3 - 3 * f0 * diff(f0,t) * diff(f0,t,t) - f0^2 * diff(f0,t,t,t) + 4 * k * diff(f0,t)\n",
+    "ff0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f0a = t + B\n",
+    "ff0a = 4 * diff(f0a,t)^3 - 3 * f0a * diff(f0a,t) * diff(f0a,t,t) - f0a^2 * diff(f0a,t,t,t) - 4 * diff(f0a,t)\n",
+    "ff0a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "f0b = - t + B\n",
+    "ff0b = 4 * diff(f0b,t)^3 - 3 * f0b * diff(f0b,t) * diff(f0b,t,t) - f0b^2 * diff(f0b,t,t,t) - 4 * diff(f0b,t)\n",
+    "ff0b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "There are two solutions, $A = 0$ and $A^2 = -\\kappa$. For $A = 0$, the value of $\\kappa$ is irrelevant, and we obtain the standard Minkowski, de Sitter and Anti de Sitter solutions. Otherwise, $A = \\pm 1$ and $\\kappa$ is required to be minus one, by the reality of the solution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "deletable": true,
+    "editable": true
+   },
+   "source": [
+    "# Checking the solution to GR with the FRW ansatz\n",
+    "\n",
+    "## Case $\\omega = 0$\n",
+    "\n",
+    "From above, the solutions with $\\omega = 0$ are specified by the following scale factors:\n",
+    "\n",
+    "- $ a(t) = B $ with $B$ a constant,\n",
+    "- $ a(t) = t + B $, and\n",
+    "- $ a(t) = -t + B$.\n",
+    "\n",
+    "Below we will calculate the Einstein's equations for those solutions, with the purpose of comparing with General Relativity.\n",
+    "\n",
+    "### Case $ a(t) = B $"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left(G, \\Lambda, k\\right)</script></html>"
+      ],
+      "text/plain": [
+       "(G, Lambda, k)"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "var('A', domain='positive')\n",
+    "var('B', domain='positive')\n",
+    "var('G, Lambda, k', domain='real')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": false,
+    "deletable": true,
+    "editable": true
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}g = -\\mathrm{d} t\\otimes \\mathrm{d} t + \\left( -\\frac{B^{2}}{k r^{2} - 1} \\right) \\mathrm{d} r\\otimes \\mathrm{d} r + B^{2} r^{2} \\mathrm{d} {\\theta}\\otimes \\mathrm{d} {\\theta} + B^{2} r^{2} \\sin\\left({\\theta}\\right)^{2} \\mathrm{d} {\\phi}\\otimes \\mathrm{d} {\\phi}</script></html>"
+      ],
+      "text/plain": [
+       "g = -dt*dt - B^2/(k*r^2 - 1) dr*dr + B^2*r^2 dth*dth + B^2*r^2*sin(th)^2 dph*dph"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "g = M.lorentzian_metric('g')\n",
+    "a = M.scalar_field(function('a')(t), name='a')\n",
+    "a = B\n",
+    "g[0,0] = -1\n",
+    "g[1,1] = a*a/(1 - k*r^2)\n",
+    "g[2,2] = a*a*r^2\n",
+    "g[3,3] = a*a*(r*sin(th))^2\n",
+    "g.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\Gamma_{ \\phantom{\\, r} \\, r \\, r }^{ \\, r \\phantom{\\, r} \\phantom{\\, r} } & = & -\\frac{k r}{k r^{2} - 1} \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\theta} \\, {\\theta} }^{ \\, r \\phantom{\\, {\\theta}} \\phantom{\\, {\\theta}} } & = & k r^{3} - r \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\phi} \\, {\\phi} }^{ \\, r \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & {\\left(k r^{3} - r\\right)} \\sin\\left({\\theta}\\right)^{2} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, r \\, {\\theta} }^{ \\, {\\theta} \\phantom{\\, r} \\phantom{\\, {\\theta}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, {\\phi} \\, {\\phi} }^{ \\, {\\theta} \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & -\\cos\\left({\\theta}\\right) \\sin\\left({\\theta}\\right) \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, r \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, r} \\phantom{\\, {\\phi}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, {\\theta} \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, {\\theta}} \\phantom{\\, {\\phi}} } & = & \\frac{\\cos\\left({\\theta}\\right)}{\\sin\\left({\\theta}\\right)} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Gam^r_r,r = -k*r/(k*r^2 - 1) \n",
+       "Gam^r_th,th = k*r^3 - r \n",
+       "Gam^r_ph,ph = (k*r^3 - r)*sin(th)^2 \n",
+       "Gam^th_r,th = 1/r \n",
+       "Gam^th_ph,ph = -cos(th)*sin(th) \n",
+       "Gam^ph_r,ph = 1/r \n",
+       "Gam^ph_th,ph = cos(th)/sin(th) "
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nabla = g.connection()\n",
+    "g.christoffel_symbols_display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{2 \\, k}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & 2 \\, k r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & 2 \\, k r^{2} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)_r,r = -2*k/(k*r^2 - 1) \n",
+       "Ric(g)_th,th = 2*k*r^2 \n",
+       "Ric(g)_ph,ph = 2*k*r^2*sin(th)^2 "
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci = nabla.ricci()\n",
+    "Ricci.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{llcl} \\mathrm{r}\\left(g\\right):& \\mathcal{M} & \\longrightarrow & \\mathbb{R} \\\\ & \\left(t, r, {\\theta}, {\\phi}\\right) & \\longmapsto & \\frac{6 \\, k}{B^{2}} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "r(g): M --> R\n",
+       "   (t, r, th, ph) |--> 6*k/B^2"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci_scalar = g.ricci_scalar()\n",
+    "Ricci_scalar.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, t \\, t }^{ \\phantom{\\, t}\\phantom{\\, t} } & = & -\\frac{B^{2} \\Lambda - 3 \\, k}{B^{2}} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{B^{2} \\Lambda - k}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & {\\left(B^{2} \\Lambda - k\\right)} r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & {\\left(B^{2} \\Lambda - k\\right)} r^{2} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)-unnamed metric+unnamed metric_t,t = -(B^2*Lambda - 3*k)/B^2 \n",
+       "Ric(g)-unnamed metric+unnamed metric_r,r = -(B^2*Lambda - k)/(k*r^2 - 1) \n",
+       "Ric(g)-unnamed metric+unnamed metric_th,th = (B^2*Lambda - k)*r^2 \n",
+       "Ric(g)-unnamed metric+unnamed metric_ph,ph = (B^2*Lambda - k)*r^2*sin(th)^2 "
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "EI = Ricci - Ricci_scalar/2*g + Lambda*g \n",
+    "EI.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "From the above, we notice that the metric with $ a(t) = B $ is a solution of Einstein's equation iff the spacetime has a cosmological constant related with $\\kappa$, $$ \\Lambda = \\frac{\\kappa}{B^2}. $$\n",
+    "\n",
+    "### Case $ a(t) = t + B$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}g = -\\mathrm{d} t\\otimes \\mathrm{d} t + \\left( -\\frac{{\\left(B + t\\right)}^{2}}{k r^{2} - 1} \\right) \\mathrm{d} r\\otimes \\mathrm{d} r + {\\left(B + t\\right)}^{2} r^{2} \\mathrm{d} {\\theta}\\otimes \\mathrm{d} {\\theta} + {\\left(B + t\\right)}^{2} r^{2} \\sin\\left({\\theta}\\right)^{2} \\mathrm{d} {\\phi}\\otimes \\mathrm{d} {\\phi}</script></html>"
+      ],
+      "text/plain": [
+       "g = -dt*dt - (B + t)^2/(k*r^2 - 1) dr*dr + (B + t)^2*r^2 dth*dth + (B + t)^2*r^2*sin(th)^2 dph*dph"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "g = M.lorentzian_metric('g')\n",
+    "a = M.scalar_field(function('a')(t), name='a')\n",
+    "a = t + B\n",
+    "g[0,0] = -1\n",
+    "g[1,1] = a*a/(1 - k*r^2)\n",
+    "g[2,2] = a*a*r^2\n",
+    "g[3,3] = a*a*(r*sin(th))^2\n",
+    "g.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\Gamma_{ \\phantom{\\, t} \\, r \\, r }^{ \\, t \\phantom{\\, r} \\phantom{\\, r} } & = & -\\frac{B + t}{k r^{2} - 1} \\\\ \\Gamma_{ \\phantom{\\, t} \\, {\\theta} \\, {\\theta} }^{ \\, t \\phantom{\\, {\\theta}} \\phantom{\\, {\\theta}} } & = & B r^{2} + r^{2} t \\\\ \\Gamma_{ \\phantom{\\, t} \\, {\\phi} \\, {\\phi} }^{ \\, t \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & {\\left(B r^{2} + r^{2} t\\right)} \\sin\\left({\\theta}\\right)^{2} \\\\ \\Gamma_{ \\phantom{\\, r} \\, t \\, r }^{ \\, r \\phantom{\\, t} \\phantom{\\, r} } & = & \\frac{1}{B + t} \\\\ \\Gamma_{ \\phantom{\\, r} \\, r \\, r }^{ \\, r \\phantom{\\, r} \\phantom{\\, r} } & = & -\\frac{k r}{k r^{2} - 1} \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\theta} \\, {\\theta} }^{ \\, r \\phantom{\\, {\\theta}} \\phantom{\\, {\\theta}} } & = & k r^{3} - r \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\phi} \\, {\\phi} }^{ \\, r \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & {\\left(k r^{3} - r\\right)} \\sin\\left({\\theta}\\right)^{2} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, t \\, {\\theta} }^{ \\, {\\theta} \\phantom{\\, t} \\phantom{\\, {\\theta}} } & = & \\frac{1}{B + t} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, r \\, {\\theta} }^{ \\, {\\theta} \\phantom{\\, r} \\phantom{\\, {\\theta}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, {\\phi} \\, {\\phi} }^{ \\, {\\theta} \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & -\\cos\\left({\\theta}\\right) \\sin\\left({\\theta}\\right) \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, t \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, t} \\phantom{\\, {\\phi}} } & = & \\frac{1}{B + t} \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, r \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, r} \\phantom{\\, {\\phi}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, {\\theta} \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, {\\theta}} \\phantom{\\, {\\phi}} } & = & \\frac{\\cos\\left({\\theta}\\right)}{\\sin\\left({\\theta}\\right)} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Gam^t_r,r = -(B + t)/(k*r^2 - 1) \n",
+       "Gam^t_th,th = B*r^2 + r^2*t \n",
+       "Gam^t_ph,ph = (B*r^2 + r^2*t)*sin(th)^2 \n",
+       "Gam^r_t,r = 1/(B + t) \n",
+       "Gam^r_r,r = -k*r/(k*r^2 - 1) \n",
+       "Gam^r_th,th = k*r^3 - r \n",
+       "Gam^r_ph,ph = (k*r^3 - r)*sin(th)^2 \n",
+       "Gam^th_t,th = 1/(B + t) \n",
+       "Gam^th_r,th = 1/r \n",
+       "Gam^th_ph,ph = -cos(th)*sin(th) \n",
+       "Gam^ph_t,ph = 1/(B + t) \n",
+       "Gam^ph_r,ph = 1/r \n",
+       "Gam^ph_th,ph = cos(th)/sin(th) "
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nabla = g.connection()\n",
+    "g.christoffel_symbols_display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{2 \\, {\\left(k + 1\\right)}}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & 2 \\, {\\left(k + 1\\right)} r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & 2 \\, {\\left(k + 1\\right)} r^{2} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)_r,r = -2*(k + 1)/(k*r^2 - 1) \n",
+       "Ric(g)_th,th = 2*(k + 1)*r^2 \n",
+       "Ric(g)_ph,ph = 2*(k + 1)*r^2*sin(th)^2 "
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci = nabla.ricci()\n",
+    "Ricci.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{llcl} \\mathrm{r}\\left(g\\right):& \\mathcal{M} & \\longrightarrow & \\mathbb{R} \\\\ & \\left(t, r, {\\theta}, {\\phi}\\right) & \\longmapsto & \\frac{6 \\, {\\left(k + 1\\right)}}{B^{2} + 2 \\, B t + t^{2}} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "r(g): M --> R\n",
+       "   (t, r, th, ph) |--> 6*(k + 1)/(B^2 + 2*B*t + t^2)"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci_scalar = g.ricci_scalar()\n",
+    "Ricci_scalar.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, t \\, t }^{ \\phantom{\\, t}\\phantom{\\, t} } & = & -\\frac{B^{2} \\Lambda + 2 \\, B \\Lambda t + \\Lambda t^{2} - 3 \\, k - 3}{B^{2} + 2 \\, B t + t^{2}} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{B^{2} \\Lambda + 2 \\, B \\Lambda t + \\Lambda t^{2} - k - 1}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & 2 \\, B \\Lambda r^{2} t + \\Lambda r^{2} t^{2} + {\\left(B^{2} \\Lambda - k - 1\\right)} r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & {\\left(2 \\, B \\Lambda r^{2} t + \\Lambda r^{2} t^{2} + {\\left(B^{2} \\Lambda - k - 1\\right)} r^{2}\\right)} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)-unnamed metric+unnamed metric_t,t = -(B^2*Lambda + 2*B*Lambda*t + Lambda*t^2 - 3*k - 3)/(B^2 + 2*B*t + t^2) \n",
+       "Ric(g)-unnamed metric+unnamed metric_r,r = -(B^2*Lambda + 2*B*Lambda*t + Lambda*t^2 - k - 1)/(k*r^2 - 1) \n",
+       "Ric(g)-unnamed metric+unnamed metric_th,th = 2*B*Lambda*r^2*t + Lambda*r^2*t^2 + (B^2*Lambda - k - 1)*r^2 \n",
+       "Ric(g)-unnamed metric+unnamed metric_ph,ph = (2*B*Lambda*r^2*t + Lambda*r^2*t^2 + (B^2*Lambda - k - 1)*r^2)*sin(th)^2 "
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "EI = Ricci - Ricci_scalar/2*g + Lambda*g \n",
+    "EI.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}-B^{2} \\Lambda - 2 \\, B \\Lambda t - \\Lambda t^{2} + 3 \\, k + 3</script></html>"
+      ],
+      "text/plain": [
+       "-B^2*Lambda - 2*B*Lambda*t - Lambda*t^2 + 3*k + 3"
+      ]
+     },
+     "execution_count": 25,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "eq1 = simplify(EI[0,0] * (a*a)) \n",
+    "eq1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left[\\Lambda = \\frac{3 \\, {\\left(k + 1\\right)}}{B^{2} + 2 \\, B t + t^{2}}\\right]</script></html>"
+      ],
+      "text/plain": [
+       "[Lambda == 3*(k + 1)/(B^2 + 2*B*t + t^2)]"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "solve(3*k + 3 - B^2*Lambda - Lambda*t^2 - 2*B*Lambda*t==0, Lambda)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}B^{2} \\Lambda + 2 \\, B \\Lambda t + \\Lambda t^{2} - k - 1</script></html>"
+      ],
+      "text/plain": [
+       "B^2*Lambda + 2*B*Lambda*t + Lambda*t^2 - k - 1"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "eq2 = simplify(EI[2,2] / r^2) \n",
+    "eq2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left[\\Lambda = \\frac{k + 1}{B^{2} + 2 \\, B t + t^{2}}\\right]</script></html>"
+      ],
+      "text/plain": [
+       "[Lambda == (k + 1)/(B^2 + 2*B*t + t^2)]"
+      ]
+     },
+     "execution_count": 32,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "solve(Lambda*(t+B)^2 == k + 1, Lambda)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In this case, although one can solve the equation for the cosmological constant, $\\Lambda$ is not a constant unless $\\kappa = -1$, in which case $\\Lambda = 0$.\n",
+    "\n",
+    "### Case $ a(t) = - t + B$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}g = -\\mathrm{d} t\\otimes \\mathrm{d} t + \\left( -\\frac{{\\left(B - t\\right)}^{2}}{k r^{2} - 1} \\right) \\mathrm{d} r\\otimes \\mathrm{d} r + {\\left(B - t\\right)}^{2} r^{2} \\mathrm{d} {\\theta}\\otimes \\mathrm{d} {\\theta} + {\\left(B - t\\right)}^{2} r^{2} \\sin\\left({\\theta}\\right)^{2} \\mathrm{d} {\\phi}\\otimes \\mathrm{d} {\\phi}</script></html>"
+      ],
+      "text/plain": [
+       "g = -dt*dt - (B - t)^2/(k*r^2 - 1) dr*dr + (B - t)^2*r^2 dth*dth + (B - t)^2*r^2*sin(th)^2 dph*dph"
+      ]
+     },
+     "execution_count": 39,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "g = M.lorentzian_metric('g')\n",
+    "a = M.scalar_field(function('a')(t), name='a')\n",
+    "a = -t + B\n",
+    "g[0,0] = -1\n",
+    "g[1,1] = a*a/(1 - k*r^2)\n",
+    "g[2,2] = a*a*r^2\n",
+    "g[3,3] = a*a*(r*sin(th))^2\n",
+    "g.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\Gamma_{ \\phantom{\\, t} \\, r \\, r }^{ \\, t \\phantom{\\, r} \\phantom{\\, r} } & = & \\frac{B - t}{k r^{2} - 1} \\\\ \\Gamma_{ \\phantom{\\, t} \\, {\\theta} \\, {\\theta} }^{ \\, t \\phantom{\\, {\\theta}} \\phantom{\\, {\\theta}} } & = & -B r^{2} + r^{2} t \\\\ \\Gamma_{ \\phantom{\\, t} \\, {\\phi} \\, {\\phi} }^{ \\, t \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & -{\\left(B r^{2} - r^{2} t\\right)} \\sin\\left({\\theta}\\right)^{2} \\\\ \\Gamma_{ \\phantom{\\, r} \\, t \\, r }^{ \\, r \\phantom{\\, t} \\phantom{\\, r} } & = & -\\frac{1}{B - t} \\\\ \\Gamma_{ \\phantom{\\, r} \\, r \\, r }^{ \\, r \\phantom{\\, r} \\phantom{\\, r} } & = & -\\frac{k r}{k r^{2} - 1} \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\theta} \\, {\\theta} }^{ \\, r \\phantom{\\, {\\theta}} \\phantom{\\, {\\theta}} } & = & k r^{3} - r \\\\ \\Gamma_{ \\phantom{\\, r} \\, {\\phi} \\, {\\phi} }^{ \\, r \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & {\\left(k r^{3} - r\\right)} \\sin\\left({\\theta}\\right)^{2} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, t \\, {\\theta} }^{ \\, {\\theta} \\phantom{\\, t} \\phantom{\\, {\\theta}} } & = & -\\frac{1}{B - t} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, r \\, {\\theta} }^{ \\, {\\theta} \\phantom{\\, r} \\phantom{\\, {\\theta}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\theta}} \\, {\\phi} \\, {\\phi} }^{ \\, {\\theta} \\phantom{\\, {\\phi}} \\phantom{\\, {\\phi}} } & = & -\\cos\\left({\\theta}\\right) \\sin\\left({\\theta}\\right) \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, t \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, t} \\phantom{\\, {\\phi}} } & = & -\\frac{1}{B - t} \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, r \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, r} \\phantom{\\, {\\phi}} } & = & \\frac{1}{r} \\\\ \\Gamma_{ \\phantom{\\, {\\phi}} \\, {\\theta} \\, {\\phi} }^{ \\, {\\phi} \\phantom{\\, {\\theta}} \\phantom{\\, {\\phi}} } & = & \\frac{\\cos\\left({\\theta}\\right)}{\\sin\\left({\\theta}\\right)} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Gam^t_r,r = (B - t)/(k*r^2 - 1) \n",
+       "Gam^t_th,th = -B*r^2 + r^2*t \n",
+       "Gam^t_ph,ph = -(B*r^2 - r^2*t)*sin(th)^2 \n",
+       "Gam^r_t,r = -1/(B - t) \n",
+       "Gam^r_r,r = -k*r/(k*r^2 - 1) \n",
+       "Gam^r_th,th = k*r^3 - r \n",
+       "Gam^r_ph,ph = (k*r^3 - r)*sin(th)^2 \n",
+       "Gam^th_t,th = -1/(B - t) \n",
+       "Gam^th_r,th = 1/r \n",
+       "Gam^th_ph,ph = -cos(th)*sin(th) \n",
+       "Gam^ph_t,ph = -1/(B - t) \n",
+       "Gam^ph_r,ph = 1/r \n",
+       "Gam^ph_th,ph = cos(th)/sin(th) "
+      ]
+     },
+     "execution_count": 40,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "nabla = g.connection()\n",
+    "g.christoffel_symbols_display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{2 \\, {\\left(k + 1\\right)}}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & 2 \\, {\\left(k + 1\\right)} r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & 2 \\, {\\left(k + 1\\right)} r^{2} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)_r,r = -2*(k + 1)/(k*r^2 - 1) \n",
+       "Ric(g)_th,th = 2*(k + 1)*r^2 \n",
+       "Ric(g)_ph,ph = 2*(k + 1)*r^2*sin(th)^2 "
+      ]
+     },
+     "execution_count": 41,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci = nabla.ricci()\n",
+    "Ricci.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{llcl} \\mathrm{r}\\left(g\\right):& \\mathcal{M} & \\longrightarrow & \\mathbb{R} \\\\ & \\left(t, r, {\\theta}, {\\phi}\\right) & \\longmapsto & \\frac{6 \\, {\\left(k + 1\\right)}}{B^{2} - 2 \\, B t + t^{2}} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "r(g): M --> R\n",
+       "   (t, r, th, ph) |--> 6*(k + 1)/(B^2 - 2*B*t + t^2)"
+      ]
+     },
+     "execution_count": 42,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Ricci_scalar = g.ricci_scalar()\n",
+    "Ricci_scalar.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 43,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\begin{array}{lcl} \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, t \\, t }^{ \\phantom{\\, t}\\phantom{\\, t} } & = & -\\frac{B^{2} \\Lambda - 2 \\, B \\Lambda t + \\Lambda t^{2} - 3 \\, k - 3}{B^{2} - 2 \\, B t + t^{2}} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, r \\, r }^{ \\phantom{\\, r}\\phantom{\\, r} } & = & -\\frac{B^{2} \\Lambda - 2 \\, B \\Lambda t + \\Lambda t^{2} - k - 1}{k r^{2} - 1} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\theta} \\, {\\theta} }^{ \\phantom{\\, {\\theta}}\\phantom{\\, {\\theta}} } & = & -2 \\, B \\Lambda r^{2} t + \\Lambda r^{2} t^{2} + {\\left(B^{2} \\Lambda - k - 1\\right)} r^{2} \\\\ \\mathrm{Ric}\\left(g\\right)-\\mbox{unnamed metric}+\\mbox{unnamed metric}_{ \\, {\\phi} \\, {\\phi} }^{ \\phantom{\\, {\\phi}}\\phantom{\\, {\\phi}} } & = & -{\\left(2 \\, B \\Lambda r^{2} t - \\Lambda r^{2} t^{2} - {\\left(B^{2} \\Lambda - k - 1\\right)} r^{2}\\right)} \\sin\\left({\\theta}\\right)^{2} \\end{array}</script></html>"
+      ],
+      "text/plain": [
+       "Ric(g)-unnamed metric+unnamed metric_t,t = -(B^2*Lambda - 2*B*Lambda*t + Lambda*t^2 - 3*k - 3)/(B^2 - 2*B*t + t^2) \n",
+       "Ric(g)-unnamed metric+unnamed metric_r,r = -(B^2*Lambda - 2*B*Lambda*t + Lambda*t^2 - k - 1)/(k*r^2 - 1) \n",
+       "Ric(g)-unnamed metric+unnamed metric_th,th = -2*B*Lambda*r^2*t + Lambda*r^2*t^2 + (B^2*Lambda - k - 1)*r^2 \n",
+       "Ric(g)-unnamed metric+unnamed metric_ph,ph = -(2*B*Lambda*r^2*t - Lambda*r^2*t^2 - (B^2*Lambda - k - 1)*r^2)*sin(th)^2 "
+      ]
+     },
+     "execution_count": 43,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "EI = Ricci - Ricci_scalar/2*g + Lambda*g \n",
+    "EI.display_comp()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 44,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}-B^{2} \\Lambda + 2 \\, B \\Lambda t - \\Lambda t^{2} + 3 \\, k + 3</script></html>"
+      ],
+      "text/plain": [
+       "-B^2*Lambda + 2*B*Lambda*t - Lambda*t^2 + 3*k + 3"
+      ]
+     },
+     "execution_count": 44,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "eq1 = simplify(EI[0,0] * (a*a)) \n",
+    "eq1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}B^{2} \\Lambda - 2 \\, B \\Lambda t + \\Lambda t^{2} - k - 1</script></html>"
+      ],
+      "text/plain": [
+       "B^2*Lambda - 2*B*Lambda*t + Lambda*t^2 - k - 1"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "eq2 = simplify(EI[2,2] / r^2) \n",
+    "eq2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Againg the solution requires that $\\kappa = -1$ and $\\Lambda = 0$. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left(\\mathcal{M},(T, R, {\\theta}, {\\phi})\\right)</script></html>"
+      ],
+      "text/plain": [
+       "Chart (M, (T, R, th, ph))"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "Y.<T,R,th,ph> = M.chart(r'T R th:(0,pi):\\theta ph:(0,2*pi):\\phi')\n",
+    "Y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 51,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "ch_X_Y = X.transition_map(Y, [t*r, t * sqrt(1+r^2), th, ph])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<html><script type=\"math/tex; mode=display\">\\newcommand{\\Bold}[1]{\\mathbf{#1}}\\left\\{\\begin{array}{lcl} T & = & r t \\\\ R & = & \\sqrt{r^{2} + 1} t \\\\ {\\theta} & = & {\\theta} \\\\ {\\phi} & = & {\\phi} \\end{array}\\right.</script></html>"
+      ],
+      "text/plain": [
+       "T = r*t\n",
+       "R = sqrt(r^2 + 1)*t\n",
+       "th = th\n",
+       "ph = ph"
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ch_X_Y.display()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 53,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "unable to make sense of Maxima expression '[if((-pi/2<parg(-_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2)))and(parg(-_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))<==pi/2),[_SAGE_VAR_ph==_SAGE_VAR_xxxx3,_SAGE_VAR_r==(_SAGE_VAR_xxxx0*sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))/(_SAGE_VAR_xxxx0^2-_SAGE_VAR_xxxx1^2),_SAGE_VAR_t==-sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2),_SAGE_VAR_th==_SAGE_VAR_xxxx2],union()),if((-pi/2<parg(_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2)))and(parg(_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))<==pi/2),[_SAGE_VAR_ph==_SAGE_VAR_xxxx3,_SAGE_VAR_r==-(_SAGE_VAR_xxxx0*sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))/(_SAGE_VAR_xxxx0^2-_SAGE_VAR_xxxx1^2),_SAGE_VAR_t==sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2),_SAGE_VAR_th==_SAGE_VAR_xxxx2],union())]' in Sage",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/all_cmdline.pyc\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mch_Y_X\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mch_X_Y\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0minverse\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mch_Y_X\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/manifolds/chart.pyc\u001b[0m in \u001b[0;36minverse\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m   2816\u001b[0m         \u001b[0mequations\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mxp2\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0mxx2\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mi\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mn2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2817\u001b[0m         \u001b[0;32mtry\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2818\u001b[0;31m             \u001b[0msolutions\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msolve\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mequations\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m*\u001b[0m\u001b[0mx1\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0msolution_dict\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2819\u001b[0m         \u001b[0;32mexcept\u001b[0m \u001b[0mRuntimeError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2820\u001b[0m             raise RuntimeError(\"the system could not be solved; use \" +\n",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/symbolic/relation.pyc\u001b[0m in \u001b[0;36msolve\u001b[0;34m(f, *args, **kwds)\u001b[0m\n\u001b[1;32m   1048\u001b[0m             \u001b[0ms\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1049\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1050\u001b[0;31m     \u001b[0msol_list\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mstring_to_list_of_solutions\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mrepr\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0ms\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1051\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1052\u001b[0m     \u001b[0;31m# Relaxed form suggested by Mike Hansen (#8553):\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/symbolic/relation.pyc\u001b[0m in \u001b[0;36mstring_to_list_of_solutions\u001b[0;34m(s)\u001b[0m\n\u001b[1;32m    578\u001b[0m     \u001b[0;32mfrom\u001b[0m \u001b[0msage\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstructure\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msequence\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mSequence\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    579\u001b[0m     \u001b[0;32mfrom\u001b[0m \u001b[0msage\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcalculus\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcalculus\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0msymbolic_expression_from_maxima_string\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 580\u001b[0;31m     \u001b[0mv\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msymbolic_expression_from_maxima_string\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0ms\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mequals_sub\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    581\u001b[0m     \u001b[0;32mreturn\u001b[0m \u001b[0mSequence\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mv\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0muniverse\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mObjects\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mcr_str\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0mTrue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    582\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/calculus/calculus.pyc\u001b[0m in \u001b[0;36msymbolic_expression_from_maxima_string\u001b[0;34m(x, equals_sub, maxima)\u001b[0m\n\u001b[1;32m   2157\u001b[0m             \u001b[0m_augmented_syms\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m{\u001b[0m\u001b[0;34m}\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2158\u001b[0m     \u001b[0;32mexcept\u001b[0m \u001b[0mSyntaxError\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2159\u001b[0;31m         \u001b[0;32mraise\u001b[0m \u001b[0mTypeError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"unable to make sense of Maxima expression '%s' in Sage\"\u001b[0m\u001b[0;34m%\u001b[0m\u001b[0ms\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2160\u001b[0m     \u001b[0;32mfinally\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2161\u001b[0m         \u001b[0mis_simplified\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mFalse\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mTypeError\u001b[0m: unable to make sense of Maxima expression '[if((-pi/2<parg(-_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2)))and(parg(-_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))<==pi/2),[_SAGE_VAR_ph==_SAGE_VAR_xxxx3,_SAGE_VAR_r==(_SAGE_VAR_xxxx0*sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))/(_SAGE_VAR_xxxx0^2-_SAGE_VAR_xxxx1^2),_SAGE_VAR_t==-sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2),_SAGE_VAR_th==_SAGE_VAR_xxxx2],union()),if((-pi/2<parg(_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2)))and(parg(_SAGE_VAR_xxxx1/sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))<==pi/2),[_SAGE_VAR_ph==_SAGE_VAR_xxxx3,_SAGE_VAR_r==-(_SAGE_VAR_xxxx0*sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2))/(_SAGE_VAR_xxxx0^2-_SAGE_VAR_xxxx1^2),_SAGE_VAR_t==sqrt(_SAGE_VAR_xxxx1^2-_SAGE_VAR_xxxx0^2),_SAGE_VAR_th==_SAGE_VAR_xxxx2],union())]' in Sage"
+     ]
+    }
+   ],
+   "source": [
+    "ch_Y_X = ch_X_Y.inverse()\n",
+    "ch_Y_X"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'RealDiffChart' object has no attribute 'dual_basis'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/all_cmdline.pyc\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mg\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdisplay\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mY\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m/home/oscar/Software/SageMath/local/lib/python2.7/site-packages/sage/tensor/modules/free_module_tensor.pyc\u001b[0m in \u001b[0;36mdisplay\u001b[0;34m(self, basis, format_spec)\u001b[0m\n\u001b[1;32m    658\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mbasis\u001b[0m \u001b[0;32mis\u001b[0m \u001b[0mNone\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    659\u001b[0m             \u001b[0mbasis\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_fmodule\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_def_basis\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 660\u001b[0;31m         \u001b[0mcobasis\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mbasis\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mdual_basis\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    661\u001b[0m         \u001b[0mcomp\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcomp\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mbasis\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    662\u001b[0m         \u001b[0mterms_txt\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+      "\u001b[0;31mAttributeError\u001b[0m: 'RealDiffChart' object has no attribute 'dual_basis'"
+     ]
+    }
+   ],
+   "source": [
+    "g.display(Y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "SageMath 8.1",
+   "language": "",
+   "name": "sagemath"
+  },
+  "language": "python",
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.14"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

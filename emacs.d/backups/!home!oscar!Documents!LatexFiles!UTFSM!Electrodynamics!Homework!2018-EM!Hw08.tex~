@@ -1,0 +1,49 @@
+\titledquestion{Diverse Green's functions for the D'Alembertian operator}
+
+In the lectures, we show that the Green's function for the
+D'Alembertian operator can be obtained through a Fourier
+transformation of the wave equation. The aim of this assignment is to
+work out three other possible Green's functions other than the
+\emph{retarded} one.
+
+\begin{parts}
+  \part A point charge in $n$ Euclidean dimensions corresponds to
+  Green's function \(G^{(n)}(x^1, \dots ,x^n)\), which satisfies the
+  differential equation 
+  \begin{equation*}
+    - \partial_A\partial^A G^{(n)}(x^1, \dots ,x^n) = \delta(x^1) \cdots \delta(x^n).
+  \end{equation*}
+  The solution to this equation can be written as the Fourier
+  transform
+  \begin{equation*}
+    G^{(n)}(x^1, \dots ,x^n) = \int \frac{d^nk}{(2\pi)^n} \exp(\imath k \cdot x) \frac{1}{k^2}.
+  \end{equation*}
+
+  Evaluate this, by making use of the exponential representation
+  \begin{equation*}
+    \frac{1}{k^2} = \int d\lambda \exp( - \lambda k^2 ).
+  \end{equation*}
+  Express the answer as a function of $R^2 = x \cdot x$. Verify, as
+  special cases,
+  \begin{equation*}
+    G^{(3)} = \frac{1}{4 \pi R} \quad \text{and} \quad G^{(4)} = \frac{1}{4 \pi^2 R^2}.
+  \end{equation*}
+
+  \part If we integrate the above Green's function over one
+  coordinate, we obtain Green's function in one lower dimension,
+  \begin{equation*}
+    \int dx^n G^{(n)}(x^1, \dots ,x^n) = G^{(n-1)}(x^1, \dots ,x^{n-1}).
+  \end{equation*}
+  Check this explicitly for $n = 4$, and then in general, from the
+  explicit answer in the previous problem.
+
+  \part The 4-dimensional Euclidean Green's function in the first
+  part, satisfies
+  \begin{equation*}
+    - \partial_A\partial^A G^{(4)}(x^1, \dots ,x^4) = \delta(x^1) \cdots \delta(x^4),
+  \end{equation*}
+  and is explicitly
+  \begin{equation*}
+    G^{(4)}(x^1, \dots ,x^4) = \frac{1}{4 \pi^2 (x \cdot x)}.
+  \end{equation*}
+\end{parts}

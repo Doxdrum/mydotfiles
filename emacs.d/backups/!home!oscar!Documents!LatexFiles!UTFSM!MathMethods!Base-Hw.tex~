@@ -1,0 +1,100 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Include the option `answers` to print solutions
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,answers,12pt]{exam}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Change the Course
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\lecturer{O. Castillo-Felisola}
+\newcommand\course{Math. Methods}
+\newcommand\type{Homework}
+\newcommand\cardinal{Second}
+\title{\course}
+\author{\lecturer}
+
+
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,dsfont,mathrsfs,bm,amssymb}
+\usepackage{xcolor}
+\usepackage{braket}
+\usepackage{array}
+\usepackage{siunitx}
+\usepackage{mdframed}
+\usepackage{centernot}
+\usepackage[dayofweek]{datetime}
+\newdateformat{vardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={\cardinal~\type,~\course},
+  %% pdftitle={Third Exam, Math. Methods},
+  pdfauthor={\lecturer.},
+  pdfkeywords={Group Theory,}{Representation Theory,},
+  pdflang={English}
+}
+
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\ga}[1]{\gamma^{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\mathscr{J}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\vb}[1]{\vec{e}_{#1}}
+\newcommand{\fb}[1]{\widetilde{e}{}^{ #1}}
+\newcommand*{\de}[1]{\mathop{\mathrm{d}#1}\nolimits}
+\newcommand\nab[1]{\nabla_{{#1}}}
+\newcommand{\Lap}{\nabla^2}
+\newcommand\pa[1]{\partial_{{#1}}}
+\newcommand{\pder}[2]{\frac{\pa{}#1}{\pa{}{#2}}}
+\newcommand{\Ri}{\mathcal{R}}
+\newcommand{\conn}[3]{\left(\Gamma_{#1}\right)^{#2}{}_{#3}}
+\newcommand{\tors}[3]{\mathcal{T}{}_{#1}{}^{#2}{}_{#3}}
+\newcommand*{\diag}{\operatorname{diag}}
+\newcommand{\we}{{\scriptstyle\wedge}}
+\newcommand{\dn}[2]{{\mathrm{d}}^{#1}\!{#2}\;}
+\newcommand{\abs}[1]{\left|{#1}\right|}
+\newcommand{\fy}{\centernot}
+\newcommand{\Hint}{\underline{\sc Hint:} }
+\newcommand{\connn}[3]{\Gamma_{#1}{}^{#2}{}_{#3}}
+\newcommand{\df}[1][]{\mathbf{d}{#1}}
+\newcommand\vif[1]{\boldsymbol{e}^{{#1}}}
+\newcommand\spif[2]{{\boldsymbol{\omega}}^{{#1}}{}_{{#2}}}
+\newcommand{\Rif}[2]{\bm{\mathcal{R}}^{{#1}}{}_{{#2}}}
+\newcommand{\w}{{\scriptstyle\wedge}}
+\newcommand{\Tf}[1]{\bm{\mathcal{T}}^{#1}}
+
+\pointsinrightmargin
+%% \renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Change the Course and Date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\firstpageheader{ \bf\large \course\\ \lecturer}{}{\bf\large \cardinal~\type\\ \today}
+\runningheader{\bf\large \course}{}{\bf\large \cardinal~\type (Continued)}
+
+\qformat{\large \bf \thequestion. {\color{blue}\thequestiontitle} \hfill}
+
+
+
+\begin{document}
+
+
+\begin{questions} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Include the File %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \input{Homeworks/2018-Hw02.tex}  
+
+\end{questions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%% Change date 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\color{red} {\sc To be handled on \longdate\formatdate{20}{04}{2018}.}}
+
+\end{document}

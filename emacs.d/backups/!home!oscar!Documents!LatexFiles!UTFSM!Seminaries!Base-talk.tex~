@@ -1,0 +1,86 @@
+\documentclass{beamer}
+
+%--------- Packages
+\input{Def-article.tex}
+\usefonttheme{serif}
+%\usefonttheme{professionalfonts}
+\usepackage{times}
+\usepackage{colortbl}
+\usepackage{breqn}
+
+\usepackage[british]{babel}
+
+
+%------------------
+%--------- Titlepage
+%------------------ 
+
+\title{Einstein's gravity from a polynomial affine model}
+\subtitle{{\small based on:
+    \href{http://rmf.smf.mx/pdf/rmf/61/6/61_6_421.pdf}{\textcolor{red}{Rev.Mex.Fis. 61
+        (2015) 6, 421}} and
+    \href{http://arxiv.org/abs/arXiv:1505.04634}{\textcolor{red}{arXiv:1505.04634 accepted in CQG}}}}
+\author[O. Castillo-Felisola]{Oscar Castillo-Felisola \& Aureliano Skirzewski}
+\institute[USM \& CCTVal]{USM \& CCTVal \& UdelaR}
+
+%------------------
+%--------- Theme and Colours
+%------------------ 
+
+\usetheme{Boadilla}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+
+%------------------
+%--------- Logo
+%------------------ 
+
+%\logo{\includegraphics[scale=.1]{Pict/UTFSM-logo-35.jpg}
+
+%------------------
+%--------- Background Picture
+%------------------ 
+
+\usebackgroundtemplate{ \includegraphics[width=\paperwidth, height=\paperheight]{Pict/UTFSM-15.pdf} }
+
+%--------- Transparency
+%\beamertemplatetransparentcovereddynamicmedium
+
+%--------- Navigation icons empty
+\beamertemplatenavigationsymbolsempty
+
+%------------------
+%--------- Body
+%------------------ 
+
+\begin{document}
+
+%---------- Title
+{\usebackgroundtemplate{
+    \includegraphics[width=\paperwidth,
+      height=\paperheight]{Pict/UTFSM-30.jpg}
+  }
+  \begin{frame}
+    \titlepage
+    \transboxout
+  \end{frame}
+}
+
+%---------- Outline
+%% \AtBeginSection{
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents%%[currentsection]
+\end{frame}
+%% }
+%% \AtBeginSection{
+%%   \begin{frame}
+%%     \frametitle{Outline}
+%%     \tableofcontents[currentsection]
+%%   \end{frame}
+%% }
+
+\input{Docs/2018.01.USM.tex}
+%% \input{Docs/2016.02.Brasil.tex}
+
+\end{document}

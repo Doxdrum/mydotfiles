@@ -1,0 +1,438 @@
+\section{Why to bother about affine gravity?}
+
+\begin{frame}
+  \frametitle{FAQ}
+  \begin{itemize}
+  \item \alert{What is an affine gravity?}
+
+    It is a model built up solely with a connection.
+
+  \item \alert{How do you measure?}
+
+    With a metric, but it is not the field mediating gravitational interactions.
+
+  \item \alert{Is it possible to write a Lagrangian?}
+
+    Yes, we found a \textit{polynomial} Lagrangian in the fields.
+  \item \alert{Do you reproduce all solutions of GR?}
+
+    So far only vacuum solutions, and minimally coupled to a scalar field.
+  \item \alert{What about classical GR test?}
+
+    Ok, by the above argument.
+  \item \alert{What is the particle content?}
+
+    With a na\"ive calculation we got: a spin 2, a spin 1, and a spin
+    0 particles (complex, massless).
+  \item \alert{What about the equivalence principle?}
+
+    Good question! (I can elaborate, not in this slide)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivations and Considerations}
+  \begin{itemize}
+  \item GR is ($\stackrel{\text{by}}{\text{\sout{so}}}$ far) the most successful theory of gravity.
+  \item GR interprets geometry as interaction.
+  \item In GR the main character is \alert{curvature}.%, $S = \int * R$.
+  \item Curvature is built by a \alert{connection}, $\Riem = \Riem(\Ga)$.
+  \item The connection \alert{might not} be the one of Lev\`i-Civita.
+  \end{itemize}
+  \begin{columns}
+    \column{.47\textwidth}
+    \begin{block}
+      {But, Where is the metric?}
+      In the contraction to obtain the Ricci scalar! (and measure)
+      \begin{equation*}
+        S = \int * R
+      \end{equation*}
+    \end{block}
+    \column{.47\textwidth}
+    \begin{alertblock}
+      {Is it possible to build a non-metric model of gravity?}
+      Eddington (1923): $S = \int \sqrt{\Ric(\Ga)}$.
+    \end{alertblock}
+  \end{columns}
+  \vspace*{2mm}
+
+  Building a gravitational affine theory is similar to building a
+  Chern--Simons gauge theory.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Do we need to change the gravitational theory?}
+  Excellent classical behaviour, but not at quantum level:
+  \begin{itemize}
+  \item The metric is an \alert{unbounded operator}, with multiple signature states
+  \item The Wheeler--DeWitt equation is (generally) ill-defined
+    \\ \alert{$\rightarrow$} Non-polynomial dependence on ADM variables
+  \item Solutions (WDW eqs.) and interpretations, evolution, Dirac observable, etc.
+  \item It is non-renormalizable (avoidable problem!)
+  \item Could address some problems:
+    \begin{itemize}
+    \item Vacuum energy (Micro scale)
+    \item Rotational curves (Galactic scale)
+    \item Dark sector (Cosmological scale)
+    \end{itemize}
+  \end{itemize}
+  \begin{alertblock}
+    {Possible solution???}
+    A \alert{NEW} \textit{quantizable} model of gravity
+  \end{alertblock}
+\end{frame}
+
+%% \begin{frame}
+%%   \frametitle{A glance to the gravity Zoo}
+%%   \begin{itemize}
+%%   \item \textsc{Palatini}: {{\color{red} Non Renormalizable}}
+%%   \item \textsc{Super Gravity}: {{{\color{red} SUSY}}},  {\color{red} Non Renormalizable} 
+%%   \item \textsc{String Theory}: {{{\color{red} 10 dim}}},   {{{\color{red} SUSY}}},  {{{\color{red} Landscape problem}}}
+%%   \item \textsc{Loop Quantum Gravity}: {{{\color{red} Semiclassic limit}}}, {\color{red} Continuous}.
+%%   \item \textsc{Spin foams}:  {{{\color{red} Lorentz group anomalies}}}
+%%   \item \textsc{Conformal gravity}:  {{{\color{red} Newtonian Limit}}}
+%%   \item  \textsc{Ho\v{r}ava--Lifshitz Gravity}:  {{{\color{red} Difeomorphisms}}}
+%%   \item \textsc{Massive gravity}: {{{\color{red} Ghosts }}}, {{{\color{red} 2 metrics}}},
+%%     \\{\tiny 1410.2289 S. Desser et al.: non unique evolution, superluminal signals, inconsistencies with matter couplings, micro-acausality (propagation through closed timelike curves)}
+
+%%     {\scriptsize \item \textsc{Brans-Dicke, Teleparallel gravity, Modified Newtonian dynamics (MOND), Causal sets, Regge Calculus, Dynamical Triangulations, Penrose Twistor theory, Penrose spin networks, Connes Non--commutative geometry, Causal Fermion Systems} }
+%%   \end{itemize}
+%% \end{frame}
+
+\section{Proposal: A polynomial affine model}
+\begin{frame}
+  \frametitle{Our bet: A new affine theory of gravity}
+
+  \begin{itemize}
+  \item An affine connection as solely dynamical field
+  \item The action is polynomial in the fields
+  \item Diffeomorphism invariance
+  \item The invariant tensors are $\delta$ and $\epsilon$ (density)
+  %% \item $\epsilon$ is a tensor density 
+  %% \item Possible renormalizability? 
+  \end{itemize}
+
+%%   \begin{alertblock}
+%%     {Key concept distinction}
+%%     Geodesic and minimal distance are different concepts in general.
+
+%%     \begin{align*}
+%%       \nab{V}V &= 0 & \delta \int \de{s} &= 0 \\
+%%       \text{Only connection}& & \text{Needs a metric}&
+%%     \end{align*}
+%%   \end{alertblock}
+%% \end{frame}
+
+%% \begin{frame}
+  \begin{alertblock}{Affine connection}
+    \begin{itemize}
+    \item Defines a covariant linear derivative
+    %% \item Transformation given by
+    %%   $$ \hat\Gamma^{\lambda'}{}_{\nu'\mu'} = \partial_\lambda x^{\lambda'}\partial_{\mu'}x^\mu
+    %%   \partial_{\nu'}x^\nu \hat\Gamma^{\lambda}{}_{\nu\mu}
+    %%   + \partial_\lambda x^{\lambda'}\partial_{\mu'}
+    %%   \partial_{\nu'}x^\lambda $$
+    \item Defines a parallel transport
+    \item It can be decomposed into irreps
+      \begin{align*}
+        \hat\Gamma^\mu{}_{\rho\sigma} %% &= {\Gamma}^\mu{}_{(\rho\sigma)} + T^\mu{}_{[\rho\sigma]} \\
+        &= {\Gamma}^\mu{}_{\rho\sigma} + \epsilon_{\rho\sigma\lambda_1\dots\lambda_{d-2}}
+        T^{\mu,\lambda_1\dots\lambda_{d-2}}+A{}_{[\rho}\delta{}_{\nu]}^\mu
+      \end{align*}
+      with $\epsilon_{\rho\mu\lambda_1\dots\lambda_{d-2}} T^{\mu,\lambda_1\dots\lambda_{d-2}}=0$.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+%% \section{Our model}
+\begin{frame}
+  \frametitle{Cooking with the finest ingredients}
+  \begin{columns}
+    \column{.47\textwidth}
+    \begin{itemize}
+    \item Fields: $\Ga$, $T$ and $A$.
+    \item $\Ga$ do not enter directly, but $\nabla$ or $\Riem(\Ga) \sim \nabla^2$.
+    \item Seasonings: $\delta$ and $\epsilon$
+    \item Lagrangian: scalar density
+    \item $W(T) = W(\epsilon^\bullet) = 1$
+    \item $N(\Phi)$ number of indices
+    \end{itemize}
+    \column{.47\textwidth}
+    {\tiny
+    \begin{table}
+      %% \caption{Possible terms contributing to the Lagrangian density.}
+      %% \label{tab:ld}
+      \begin{tabular}{|C{.15\linewidth}C{.15\linewidth}C{.15\linewidth}C{.15\linewidth}|}
+        \hline
+        $a$ & $b$ & $c$ & $\ell$ \\
+        \hline
+        1 & 3 & 0 & 0\\
+        1 & 2 & 1 & 0\\
+        1 & 1 & 2 & 0\\
+        1 & 0 & 3 & 0\\
+        2 & 2 & 0 & -1\\
+        2 & 1 & 1 & -1\\
+        2 & 0 & 2 & -1\\
+        3 & 1 & 0 & -2\\
+        3 & 0 & 1 & -2\\
+        4 & 0 & 0 & -3\\
+        0 & 4 & 0 & 1\\
+        0 & 3 & 1 & 1\\
+        0 & 2 & 2 & 1\\
+        0 & 1 & 3 & 1\\
+        0 & 0 & 4 & 1\\
+        \hline
+      \end{tabular}
+    \end{table}
+    }
+  \end{columns}
+  \begin{alertblock}
+    {The restrictions}
+    \begin{align*}
+      N( T^a A^b \nabla^c {\epsilon_{\dots}}^d {\epsilon^{\dots}}^e ) &= n & n &= 3 a -b - c + 4 \ell\\
+      W( T^a A^b \nabla^c {\epsilon_{\dots}}^d {\epsilon^{\dots}}^e ) &= w & w &= a + \ell.
+    \end{align*}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The MOST general action}
+             {\small \begin{dmath*}[compact, spread=2pt] 
+                 S[{\Gamma},T,A] =
+                 \int\dn{4}{x}\Bigg[
+                   B_1\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\alpha\beta}T^{\rho,\gamma\delta}\epsilon_{\alpha\beta\gamma\delta}
+                   +B_2\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\beta,\mu\nu}T^{\rho,\gamma\delta}\epsilon_{\sigma\beta\gamma\delta}
+                   +B_3\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\rho\sigma}A_\sigma
+                   +B_4\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\rho,\mu\nu}A_\sigma
+                   +B_5\, R_{\mu\nu}{}^{\rho}{}_\rho T^{\sigma,\mu\nu}A_\sigma
+                   + \alert<2->{C_1\, R_{\mu\rho}{}^{\mu}{}_\nu \nabla_\sigma T^{\nu,\rho\sigma}
+                   +C_2\, R_{\mu\nu}{}^{\rho}{}_\rho \nabla_\sigma T^{\sigma,\mu\nu} }
+                   +D_1\, T^{\alpha,\mu\nu}T^{\beta,\rho\sigma}\nabla_\gamma T^{(\lambda, \kappa) \gamma}\epsilon_{\beta\mu\nu\lambda}\epsilon_{\alpha\rho\sigma\kappa}
+                   +D_2\,T^{\alpha,\mu\nu}T^{\lambda,\beta\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+                   +D_3\,T^{\mu,\alpha\beta}T^{\lambda,\nu\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+                   +D_4\,T^{\lambda,\mu\nu}T^{\kappa,\rho\sigma}\nabla_{(\lambda} A_{\kappa)} \epsilon_{\mu\nu\rho\sigma}
+                   +D_5\,T^{\lambda,\mu\nu}\nabla_{[\lambda}T^{\kappa,\rho\sigma} A_{\kappa]} \epsilon_{\mu\nu\rho\sigma}
+                   +D_6\,T^{\lambda,\mu\nu}A_\nu\nabla_{(\lambda} A_{\mu)}
+                   +D_7\,T^{\lambda,\mu\nu}A_\lambda\nabla_{[\mu} A_{\nu]} 
+                   +E_1\,\nabla_{(\rho} T^{\rho,\mu\nu}\nabla_{\sigma)} T^{\sigma,\lambda\kappa}\epsilon_{\mu\nu\lambda\kappa}
+                   +E_2\,\nabla_{(\lambda} T^{\lambda,\mu\nu}\nabla_{\mu)} A_\nu
+                   +T^{\alpha,\beta\gamma}T^{\delta,\eta\kappa}T^{\lambda,\mu\nu}T^{\rho,\sigma\tau}
+                   \Big(F_1\,\epsilon_{\beta\gamma\eta\kappa}\epsilon_{\alpha\rho\mu\nu}\epsilon_{\delta\lambda\sigma\tau}
+                   +F_2\,\epsilon_{\beta\lambda\eta\kappa}\epsilon_{\gamma\rho\mu\nu}\epsilon_{\alpha\delta\sigma\tau}\Big) 
+                   +F_3\, T^{\rho,\alpha\beta}T^{\gamma,\mu\nu}T^{\lambda,\sigma\tau}A_\tau \epsilon_{\alpha\beta\gamma\lambda}\epsilon_{\mu\nu\rho\sigma}
+                   +F_4\,T^{\eta,\alpha\beta}T^{\kappa,\gamma\delta}A_\eta A_\kappa\epsilon_{\alpha\beta\gamma\delta}\Bigg].
+             \end{dmath*}}
+\end{frame}
+
+%% \subsection{Newtonian limit...}
+%% \begin{frame}
+%%   \frametitle{Do not panic!}
+%%   \begin{block}
+%%     {Feature of the action}
+%%     \begin{itemize}
+%%     \item Polynomial in the fields!
+%%     \item Nineteen parameters (as the most general Palatini theory)
+%%     \end{itemize}
+%%   \end{block}
+
+%%   \begin{alertblock}
+%%     {First variation of the action}
+%%     \begin{align*}
+%%       \gamma^m{}_{00} &\to \partial^m v_L & \ddot{x}^i + \gamma^i{}_{00}(\dot{x}^0)^2 &= 0 \\
+%%     \end{align*}
+%%   \end{alertblock}
+
+%%   It is a Keplerian potential effect!
+%%   \begin{align*}
+%%     v_L &= \frac{1}{2}\frac{\partial\mathcal{L}_{\text{Matter}}}{\partial\bar{g}^{00}}\frac{1}{p^2} & v_L &= \frac{1}{8\pi} \frac{ \partial\mathcal{L}_{\text{Matter}} }{ \partial \bar{g}^{00} } \frac{1}{|\vec{x}|}
+%%   \end{align*}
+%% \end{frame}
+
+%% \begin{frame}
+%%   \frametitle{A nice Newtonian limit, Now what?}
+%%   \begin{itemize}[<+->]
+%%   \item Is it possible to find a GR limit?
+%%   \item Is the limit of vanishing torsion well-defined?
+%%   \item Where is the metric?
+%%   \item What about the previous $\bar{g}^{00}$?
+%%   \item Is it possible to solve the equations of motion?
+%%   \end{itemize}
+
+%%   \begin{alertblock}
+%%     {Considerations}
+%%     \begin{itemize}%[<+-|alert@+>]
+%%     \item<1-> Although not necessary, to compare we set torsion to zero.
+%%     \item<2-> The limit is well defined, need to be taken in the e.o.m.
+%%     \item<3-> No needed so far...
+%%     \item<4-> $\bar{g}^{00}$ is the ``Eddington inverse metric density''
+%%     \item<5-> Yes, to some extent...
+%%     \end{itemize}
+%%   \end{alertblock}
+%% \end{frame}
+
+\subsection{Einsteinian limit}
+
+%% \begin{frame}
+%%   \frametitle{A Yang--Mills aside}  
+%%   \begin{columns}
+%%     \column{.47\textwidth}
+%%     \begin{itemize}
+%%     \item Field: $A_\mu$ a connection
+%%     \item Strength: $F_{\mu\nu} = 2 D_{[\mu} A_{\nu]}$
+%%     \item Action:
+%%       \begin{equation*}
+%%         S \propto \int \Tr ( F_{\mu\nu} F^{\mu\nu} )
+%%       \end{equation*}
+%%     \item EOM and Bianchi:
+%%       \begin{align*}
+%%         D_{\mu} F^{\mu\nu} &= 0 \\
+%%         D_{[\lambda} F_{\mu\nu]} &= 0
+%%       \end{align*}
+%%     \end{itemize}
+%%     \column{.47\textwidth}
+%%     \begin{block}
+%%       {... Or in differential forms}
+%%       \begin{itemize}
+%%       \item $\Af*[1] = A_\mu \de{x}^\mu$
+%%       \item $\Ff*[2] = \cdf \Af*[1]$
+%%       \item Action:
+%%         \begin{equation*}
+%%           S \propto \int \Tr ( \Ff*[2] \st \Ff*[2] )
+%%         \end{equation*}
+%%       \item EOM and Bianchi:
+%%         \begin{align*}
+%%           \cdf \st \Ff*[2] &= 0 \\
+%%           \cdf \Ff*[2] &= 0
+%%         \end{align*}
+%%       \end{itemize}
+%%     \end{block}
+%%   \end{columns}
+%% \end{frame}
+
+%% \subsection{... and beyond}
+
+\begin{frame}
+  \frametitle{And now, the torsion-free limit!}
+  \begin{columns}
+    \column{.47\textwidth}
+    We shall focus on a sector of a torsion-free connection, $T^{\lambda,\mu\nu} \to 0$ and $A_\mu \to 0$.
+    \begin{itemize}
+    \item It cannot be taken at the action level. 
+    \item It should be taken in the field equations.
+    \item It can be consistently \textit{truncated}.
+    \end{itemize}
+    \column{.47\textwidth}
+    \begin{block}
+      {Moral}
+      Only the terms of the action linear in these fields will be relevant, one can consider the effective action linear in the torsion's fields
+    \end{block}
+  \end{columns}
+  \begin{alertblock}
+    {Effective action}
+    \begin{equation*}
+      S_{\text{eff}} = \int\dn{4}{x} \Big( C_1\, R_{\lambda\mu}{}^{\lambda}{}_\nu \nabla_\rho %T^{\nu,\rho\sigma}
+      + C_2 \, R_{\mu\rho}{}^{\lambda}{}_\lambda \nabla_\nu \Big) T^{\nu,\mu\rho} ,
+    \end{equation*}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The equations of motion...} %%\hfill \alert{Some known solutions}}
+  \begin{columns}
+    \column{.47\textwidth}
+    \begin{itemize}
+    \item General:
+      \begin{equation*}
+        \nab{[\rho} R_{\mu]\nu} + \kappa \nab{\nu} R_{\mu\rho}{}^\lambda{}_\lambda = 0.
+      \end{equation*}
+    \item Volume compatible connection
+      \begin{equation*}
+        \nab{[\rho} R_{\mu]\nu} = 0.
+      \end{equation*}
+    \item Equivalent to:
+      \begin{equation*}
+        \nabla_\lambda R_{\mu\nu}{}^\lambda{}_\rho = 0.
+      \end{equation*}
+    \end{itemize}
+    \column{.47\textwidth}
+
+    \begin{block}{Yang--Mills eqs.}
+      \begin{align*}
+        D_{\mu} F^{\mu\nu} &= 0 \\
+        D_{[\lambda} F_{\mu\nu]} &= 0
+      \end{align*}
+    \end{block}
+    
+    \begin{alertblock}
+      {Solutions:}
+      \begin{itemize}
+      \item Einstein Manifolds
+      \item Riemannian products
+      \item Conformally flat manifolds
+      \item (Special) Warped products
+      \end{itemize}
+    \end{alertblock}
+  \end{columns}
+  \begin{block}
+    {Stephenson--Kilmister--Yang action}
+    \begin{equation*}
+      S_{\textsc{ym}} = \int \Tr \left( \Rif{}{} \st \Rif{}{} \right) = \int \left( \Rif{a}{b} \st \Rif{b}{a} \right).
+    \end{equation*}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{... and coupling with a scalar field!}
+  \begin{itemize}
+  \item We need a kinetic term... with no metric!!!
+  \item The most general, symmetric $\binom{2}{0}$-tensor density
+    \begin{equation*}
+      \mathfrak{g}^{\mu\nu} = \alpha \, \nabla_\lambda T^{\mu,\nu\lambda} + \beta \, A_\lambda T^{\mu,\nu\lambda} + \gamma \, \epsilon_{\lambda\kappa\rho\sigma} T^{\mu, \lambda\kappa} T^{\nu, \rho\sigma}.
+    \end{equation*}
+  \item The action:
+    \begin{equation*}
+      S_\phi = -  \int \dn{4}{x} \Big( \alpha \, \nabla_\lambda T^{\mu,\nu\lambda}  + \beta \, A_\lambda T^{\mu,\nu\lambda} + \gamma \, \epsilon_{\lambda\kappa\rho\sigma} T^{\mu, \lambda\kappa} T^{\nu, \rho\sigma} \Big) \partial_\mu\phi\partial_\nu\phi
+    \end{equation*}
+  \item The field eqs.:
+    \begin{align*}
+      \nabla_{[\sigma} R_{\rho]\nu} - \alpha \nabla_{[\sigma} \Big( \partial_{\rho]}\phi \partial_\nu\phi \Big) = 0,\\
+      \nabla^\mu \partial_{\mu} \phi = 0.
+    \end{align*}
+  \end{itemize}
+\end{frame}
+
+\subsection{Baby-steps toward quantization}
+\begin{frame}
+  \frametitle{Remarks about quantization}
+  \begin{itemize}
+  \item The polynomial affine gravity proposed has no explicit terms leading to three-point graviton vertices
+  \item All graviton self-interaction is mediated by the torsion.
+    %% This characteristic might allow to 
+  \item Bypass the general postulates supporting the no-go
+    theorems\footnote{Phys.Rev.D90,084048 \& JHEP02(2016)020.}
+    \begin{itemize}
+    \item it is proved that generic three-point graviton interactions are highly constrained by causality and analyticity of the $S$-matrix, and the only \textit{acceptable} structure of the three-point graviton vertices is the one coming from General Relativity.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Conclusion and further remarks}
+\begin{frame}
+  \frametitle{Conclusions}
+  \begin{itemize}
+  \item We built a polynomial model of an affine theory of gravity.
+  \item Its first order perturbations yield a Newtonian limit.
+  \item In a torsion-free sector, the effective e.o.m. accept Einstein manifolds as a solution.
+  \item No-go on renormalizability might be bypassed.
+  \end{itemize}
+  \pause
+  \begin{alertblock}
+    {Future projections}
+    \begin{itemize}
+    \item Coupling matter (scalar so far)
+    \item Counting the degrees of freedom (Linearized)
+    \item Formal study of ``Eddington inverse metric density''
+    \item Birkhoff-like theorem.
+    \end{itemize}
+  \end{alertblock}
+\end{frame}

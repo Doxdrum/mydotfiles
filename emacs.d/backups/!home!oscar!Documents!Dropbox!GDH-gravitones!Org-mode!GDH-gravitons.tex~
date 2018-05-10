@@ -1,0 +1,62 @@
+% Created 2018-03-15 Thu 11:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\author{Oscar Castillo-Felisola, Ivan Schmidt, Alfonso R. Zerwekh\thanks{o.castillo.felisola@gmail.com, ivan.schmidt@usm.cl, alfonso.zerwekh@usm.cl}}
+\date{}
+\title{GDH rules for gravitons}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola, Ivan Schmidt, Alfonso R. Zerwekh},
+ pdftitle={GDH rules for gravitons},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.1 (Org mode 9.1.7)}, 
+ pdflang={English}}
+\begin{document}
+
+%% \maketitle
+
+\section{Compton scattering}
+\label{sec:org048cb21}
+
+The aim of this section is to reproduce the results of the Compton
+scattering using the helicity formalism. We follow the procedure in
+Ref. \cite{holstein06_gravit_physic}.
+
+
+\begin{align*}
+  k_{i}   & = (k,0,0,k), \\
+  p_{i}   & = (m,0,0,0), \\
+  k_{f}   & = (k_{f},k_{f} \sin(\theta),0,k_{f} \cos(\theta)), \\
+  p_{f}   & = (q,-k_{f} \sin(\theta),0,k-k_{f} \cos(\theta)), \\
+  \epsilon_{ip}  & = (0,-1/\sqrt{2},- \imath /\sqrt{2},0), \\ 
+  \epsilon_{im}  & = (0,1/\sqrt{2},- \imath /\sqrt{2},0), \\ 
+  \epsilon_{ipc} & = (0,-1/\sqrt{2}, \imath /\sqrt{2},0), \\ 
+  \epsilon_{imc} & = (0,1/\sqrt{2}, \imath /\sqrt{2},0), \\ 
+  \epsilon_{fp}  & = (0,-\cos(\theta)/\sqrt{2}, - \imath /\sqrt{2}, \sin(\theta)/\sqrt{2}), \\ 
+  \epsilon_{fpc} & = (0,-\cos(\theta)/\sqrt{2},  \imath /\sqrt{2}, \sin(\theta)/\sqrt{2}), \\ 
+  \epsilon_{fmc} & = (0,\cos(\theta)/\sqrt{2},  \imath /\sqrt{2}, -\sin(\theta)/\sqrt{2}), \\ 
+  \epsilon_{fm}  & = (0,\cos(\theta)/\sqrt{2}, - \imath /\sqrt{2}, -\sin(\theta)/\sqrt{2})
+\end{align*}
+
+\section{Conclusions}
+\label{sec:org85c4ac6}
+
+
+\bibliographystyle{unsrt}
+\bibliography{References}
+\end{document}

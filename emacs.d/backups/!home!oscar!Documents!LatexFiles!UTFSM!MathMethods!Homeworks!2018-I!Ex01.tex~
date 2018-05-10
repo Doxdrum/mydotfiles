@@ -1,0 +1,25 @@
+\titledquestion{Energy of a steady current distribution}
+
+In this problem, we shall derive the energy of a (steady) current
+distribution, in an analogue way as done for a charge density.
+
+Consider a current density distribution, \(\vec{j}\), leading a vector
+potential, \(\vec{A}\). If one multiplies the current by a factor
+\(\alpha\), the potential changes by the same factor.
+
+\begin{parts}
+  \part Show that is the current density increases from \(\alpha\) to \(\alpha +
+  d\alpha\) in a time \(dt\), an electric field is created everywhere,
+  \begin{equation*}
+    \vec{E} = - \frac{d\alpha}{dt} \vec{A}.
+  \end{equation*}
+
+  \part What is the work done on those charges (in the current), by
+  the generated electric field, per unit time? i.e. \(\frac{dW}{dt}\).
+
+  \part Find the total internal energy, expressed in terms of the
+  magnetic induction and also in terms of the current density.
+
+  \part Consider that the current densities are given by a system of
+  linear conductors. How is the energy of the system expressed?
+\end{parts}

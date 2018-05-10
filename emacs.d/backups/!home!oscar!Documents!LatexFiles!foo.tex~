@@ -1,0 +1,41 @@
+\documentclass[twocolumn,superscriptaddress]{revtex4-1}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+\title{This is a Rev\TeX{} paper}
+\author{Oscar Castillo-Felisola}
+\email{o.castillo.felisola@gmail.com}
+\affiliation{Universidad Santa Maria}
+\author{Oscar \surname{Castillo}}
+\email{o.castillo.felisola@gmail.cl}
+\affiliation{Universidad Santaaaaa Maria}
+\thanks{to my students for their hard work!}
+
+\begin{abstract}
+  In this paper we study the possible options of the Rev\TeX{} package, and its uses for writing a paper
+\end{abstract}
+
+\maketitle
+
+\section{Intro}
+\lipsum[1-20]~\cite{Acharya:2004qe,Bergshoeff:1981um}
+\section{hard physical Problem}
+
+%% \begin{figure}[t]
+%%   \includegraphics[width=\linewidth]{TikZ.pdf}
+%%   \caption{Esta es la figura del documento}
+%%   \label{fig:doc}
+%% \end{figure}
+
+\lipsum[21-40]
+This is a work by R. Bryant (see Ref.~\cite{Bryant:1989}) and Fig.~\ref{fig:doc}
+
+\nocite{*}
+
+
+\bibliographystyle{aipauth4-1}
+\bibliography{References}
+
+\end{document}

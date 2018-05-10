@@ -1,0 +1,90 @@
+#+options: toc:nil
+#+latex_header: \usepackage[cm]{fullpage}
+
+* Editor
+Dear Editor,
+
+we have received the comments from the referees. Please find next the
+list of changes encouraged by their suggestions and questions.
+
+- Highlighted all changes (including those of the first revision) in blue.
+- We include the comments about the boundary term, including the
+  references suggested by the referee.
+- We explain the reason why the fields \(\Gamma\), \(T\) and \(A\) are
+  independent. 
+- We added an appendix with the derivation of the equation of motion,
+  and justification of the vanishing torsion truncation. It includes a
+  short comment about the local free falling frame.
+- We comment on the appearance of the term \(\frac{ \partial
+  L_{matter} }{ \partial g^{00} }\) in Eq. (8)---the Newtonian limit.
+- We explain that the object in Eq. (16) is not used to lower and
+  raise indices, it is NOT a metric (it only looks like one).
+
+Regards,
+the authors.
+
+* Referee 1
+
+Dear referee, first of all we want to apologise for the lack of some
+changes. We lost them in a bad dropbox synchronisation, and we are
+sorry for not noticing it previously. However, we took this
+opportunity to include more explanations in the points you mentioned.
+
+- All the (nontrivial) changes were highlighted. Including those of
+  the first review.
+- We added the proper comment about the necessity of extra terms
+  according with the boundary conditions:
+  #+BEGIN_EXPORT latex
+  In order to assure that the
+    variational problem is well-posed, one has to make sure there are
+    no second-class constraints.  Otherwise, higher derivatives may
+    appear and a Gibbons--Hawking--York like term would be needed to
+    ensure the well posedness of the variational problem.  There are
+    studies of the affine analogue to the Gibbons--Hawking--York
+    boundary term.  We refer to the reader to
+    Refs.~\cite{parattu16_bound_term_gravit_action_with_null_bound,
+      krishnan17_robin_gravit, krishnan17_neuman_bound_term_gravit,
+      lehner16_gravit_action_with_null_bound,
+      hopfmueller17_gravit_degrees_freed_null_surfac,
+      jubb17_bound_corner_terms_action_gener_relat}. In the present
+    model, the existence of second-class constraints has not been
+    proven yet.
+  #+END_EXPORT
+- We explain the reason why the fields \(\Gamma\), \(T\) and \(A\) are
+  independent, and thus their field equations are second order:
+  #+BEGIN_EXPORT latex
+  The action in Eq.~\eqref{4dfull} depends on the fields and their
+  first derivatives. This characteristic ensures that the field
+  equations are (at most) second order differential equations. Notice
+  that these are second order equations for the irreducible components
+  of connection.
+  #+END_EXPORT
+- We added an appendix (new appendix B) with the derivation of the equation of motion,
+  and justification of the vanishing torsion truncation. It includes a
+  short comment about the local free falling frame.
+- We comment on the appearance of the term \(\frac{ \partial
+  L_{matter} }{ \partial g^{00} }\) in Eq. (8)---the Newtonian limit:
+  #+BEGIN_EXPORT latex
+  In Eq.~\eqref{NewtonPot} one can notice the explicit dependence
+  of the \emph{geometry} with the matter distribution, through the
+  term $\frac{ \partial\mathcal{L}_{\text{Matter}} }{ \partial
+    \mathfrak{g}^{00} }$. This relates the \emph{mass of the body}
+  with the generated gravitational potential.
+  #+END_EXPORT
+- We explain that the object in Eq. (16) is not used to lower and
+  raise indices, it is NOT a metric (it only looks like one):
+  #+BEGIN_EXPORT latex
+  We would like emphasise that the geometrical object in
+  Eq.~\eqref{geng}, despite the suggestive notation, is \emph{not} a
+  metric. Therefore, we do not raise indices with such a
+  construct. Additionally, although the object is not defined in the
+  limit of vanishing torsion---as does the action in
+  Eq.~\eqref{4dfull}---, it induces a nontrivial effect in the field
+  equations of a scalar field, as will be shown in the following.
+  #+END_EXPORT
+
+We expect to have fulfilled all your requests and answered your
+questions.
+
+Regards,
+The authors.

@@ -1,0 +1,68 @@
+\titledquestion{Relativistic Mechanics}
+
+\begin{parts}
+  \part We defined the proper time as \(d\tau^2 = - ds^2\). Find the
+  rate \(\frac{dt}{d\tau}\).
+
+  \part The Newtonian force is given by \(F^i = \frac{d}{dt} (m
+  v^i)\). A relativistic equivalent should have the form \(K^\mu =
+  \frac{d}{d\tau} (m u^\mu)\). Using the definition of \(u^\mu\), find the
+  relation between the spacial components of the 4-force and the
+  Newtonian force.
+
+  \part Using that \(u^\mu a_\mu = 0\), find the zeroth component of the
+  4-force, in terms of the Newtonian force. Additionally, show that it
+  is given by the expression
+  \begin{equation*}
+    K^0 = \frac{1}{\sqrt{1-v^2}} \frac{d}{dt} \frac{m}{\sqrt{1-v^2}}.
+  \end{equation*}
+
+  \part The expression \(\frac{m}{\sqrt{1-v^2}}\) is usually called
+  \emph{relativistic kinetic energy}, \(E\). Expand in terms of \(v\) to show
+  that the first nontrivial dependence on the velocity coincides with
+  the non-relativistic kinetic energy.
+
+  \part From all of the above, it is possible to define the
+  4-momentum, \(p^\mu = m u^\mu\). Defining the \emph{relativistic
+    momentum} as \(\vec{p} =  \frac{1}{\sqrt{1-v^2}} \vec{p}_n \) where \(\vec{p}_n\) is the Newtonian
+  momentum, find the relation between \(E\) and \(p\), i.e. the
+  relativistic dispersion relation.
+\end{parts}
+
+
+\titledquestion{Lorentz group and relativistic composition of velocities}
+
+\begin{parts}
+  \part State the mathematical definition of a \emph{group}.
+
+  \part Does the set of rotations satisfy the axioms defining a group?
+  Under what operation?
+
+  \part Consider the set of boost along a single spacial
+  coordinate, in the matrix form seen in class. Show that they close
+  under the matrix multiplication. What is the relativistic
+  composition of velocities?
+
+\end{parts}
+
+\titledquestion{Compton scattering}
+
+\begin{parts}
+  \part Consider a photon with energy \(E\) moving along the \(x\)
+  axis. Write the 4-momentum, \(k\), for this particle.
+
+  \part Consider an electron at rest. Write the 4-momentum, \(p\) for
+  this particle.
+
+  \part After the collision (scattering), the photon carries energy
+  \(E'\) and moves in the \(x-y\)-plane. The angle of deflection (with
+  respect to the original direction) is \(\theta\). Write the 4-momenta, for
+  both the photon and the electron, in terms of the initial 4-momenta
+  and the energy of the outgoing photon.
+
+  \part Use the conservation of 4-momenta and that \(E = \frac{h
+  }{\lambda}\), to obtain the relation
+  \begin{equation*}
+    \lambda' - \lambda = \frac{h}{m_e} ( 1 - \cos( \theta) ).
+  \end{equation*}
+\end{parts}

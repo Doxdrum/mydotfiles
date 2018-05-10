@@ -1,0 +1,70 @@
+% Created 2018-04-19 Thu 13:29
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[cm]{fullpage}
+\usepackage{cite}
+\usepackage{breqn}
+\allowdisplaybreaks
+\input{/home/oscar/Documents/LatexFiles/Def-org.tex}
+\hypersetup{colorlinks=true,allcolors=blue,linktocpage=true}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{Introduction}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={Introduction},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+Nowadays, the best model for gravitational interactions is General
+Relativity \cite{einstein15_zur_allgem_relat}, and it has proven to be
+consistent---by itself---with most of the observations (see
+Ref. \cite{will14_confr_between_geren_relat} for a review), including the recent observation
+of gravitational waves by the LIGO and Virgo collaborations
+\cite{abbott16_obser_gravit_waves_from_binar}. On the one hand, within the framework of General
+Relativity, the standard model of cosmology has been developed. On the
+other hand, the standard model of particle physics explains very
+accurately the phenomena of the remaining three fundamental
+interactions. However, when we wanted to conciliate both \emph{standard
+models}, we discovered that nearly the 95\% of the Universe does not
+fit into the picture. Therefore, a (huge) piece of the puzzle is
+missing---the dark sector of the Universe, composed of dark matter and
+dark energy.
+
+In order to solve this problem one needs to add \emph{new physics}. An
+interesting question is: Where should this new physics be added?  The
+answer comes in two main streams, either one changes the content of
+the model of particle physics, or one changes the model of
+gravitational interactions. However, the latter is not necessarily
+independent of the former, because depending of the generalisation of
+the gravitational model one obtains new particles in the spectrum.
+
+In this paper, we focus in the second stream by considering a recently
+proposed polynomial affine gravity \cite{castillo-felisola15_polyn_model_purel_affin_gravit}, whose
+restriction to torsion-free connections yields a simple set of field
+equations, which generalize those obtained in the standard General
+Relativity \cite{castillo-felisola15_einst_gravit_from_affin}.
+
+\bibliographystyle{unsrt}
+\bibliography{../../../Documents/LatexFiles/References}
+\end{document}

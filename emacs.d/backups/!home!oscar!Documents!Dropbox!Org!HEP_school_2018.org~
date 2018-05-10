@@ -1,0 +1,305 @@
+#+OPTIONS: tags:nil todo:nil num:nil toc:nil
+#+latex_header: \newcommand{\action}[1]{\marginpar{\fbox{#1}}}
+
+* Notes from <2017-04-07 Fri 11:00>
+** Present at meeting
+
+- [X] Oscar (chair)
+- [X] Marcela
+- [X] Carolina
+- [X] Juan Carlos
+- [X] Ivan
+- [X] Victoria
+
+** Agenda
+
+- Web-page of the school
+- Definition of the lectures
+- Applications to external funds
+
+** Notes
+
+1) We have considered that the dates of the school are to close to the
+   /new year/, so it is a good idea to move the dates for the week
+   after the /LHC Meeting/.
+2) We have agree to have five sets of lectures, three lectures each
+   (60 minutes by lecture)
+3) The schedule would start at 9:00 am, with a coffee break in the
+   morning and another in the afternoon
+4) The topics of the lectures would be related to:
+   - Standard Model
+   - Cosmology (astroparticle)
+   - Experimental (collider) physics 
+   - Neutrino or flavour
+   - QCD
+5) The web-page has to be finished by <2017-04-18 Tue>
+   - Needed for applying to grants
+   - It is a priority
+6) Applications for funds
+   - CLAF :: Its deadline is April 20th
+   - ICTP :: We still have some time
+   - US_embassy :: We won't apply, only for the meeting.
+7) We need to manage a budget
+   - We expect 50 participants, 10 organisers and 5 lecturers.
+   - Consider lunch for 70 people, plus two daily coffee breaks.
+
+* Notes from <2017-04-11 Tue 15:00>
+** Present at meeting
+
+- [X] Oscar (chair)
+- [X] Marcela
+- [X] Carolina
+- [X] Juan Carlos
+- [X] Victoria
+
+** Agenda
+
+- Changes of dates
+- First proposal of lecturers
+- Miscellaneous 
+
+** Notes
+*** It was agreed to change the dates of the school from 3-6 of
+
+   January to 15-18 of January.
+
+*** The first list of School Lecturers was proposed. The names are
+
+   ordered according to our preferences:
+   - Standard Model ::
+     | Name             | email                    |
+     |------------------+--------------------------|
+     | Luciano Maiani   | luciano.maiani@cern.ch   |
+     | Yosef Nir        | yosef.nir@weizmann.ac.il |
+     | Marcela Carena   | carena@fnal.gov          |
+     | Goran Senjanovic | goran@gssi.infn.it       |
+   - Neutrino physics :: 
+     | Name             | email                     |
+     |------------------+---------------------------|
+     | Goran Senjanovic | goran@gssi.infn.it        |
+     | Carlo Giunti     | giunti@to.infn.it         |
+     | Andre de Gouvea  | degouvea@northwestern.edu |
+     | Frank Deppisch   | f.deppisch@ucl.ac.uk      |
+   - QCD :: 
+     | Name              | email              |
+     |-------------------+--------------------|
+     | Antonio Pich      | antonio.pich@uv.es |
+     | Daniel de Florian | deflo@unsam.edu.ar |
+     | Frank Wilczek     | wilczek@mit.edu    |
+     | John Ellis        | john.ellis@cern.ch |
+   - Colliders :: 
+     | Name             | email                 |
+     |------------------+-----------------------|
+     | Tao Han          | than@pitt.edu         |
+     | John Ellis       | john.ellis@cern.ch    |
+     | Lian-Tao Wang    | liantaow@uchicago.edu |
+     | Maxim Perelstein | mp325@cornell.edu     |
+   - Astroparticles :: 
+     | Name              | email                    |
+     |-------------------+--------------------------|
+     | Valerii Rubakov   | rubakov@ms2.inr.ac.ru    |
+     | Gabriela Gonzalez | gonzalez@lsu.edu         |
+     | Sergio Pastor     | sergio.pastor@ific.uv.es |
+     | Rogerio Rosenfeld | rosenfel@ift.unesp.br    |
+
+*** It was agreed to send the invitation to the proposed Lecturers,
+
+   with a deadline of response of two weeks, after which the next
+   lecturer will be contacted.
+
+*** TODO Action #5 Finishing the web-page :#5:OCF:JC:
+
+   - Oscar offers himself to this task
+   - Juan Carlos will check the information on the web-page, including the accommodation
+   - Victoria offers herself to check for new information about the accommodation
+
+*** TODO Action #6 Application to CLAF's funds :#6:Vic:Mar:Car:
+
+   - Marcela and Carolina offer themselves to help with the application
+   - Victoria has the necessary information for completing the task
+
+*** TODO Action #7 Contact the national committee :#7:OCF:
+** Next meeting planed for <2017-04-18 Tue 10:30>
+
+     
+
+* Notes from <2017-04-18 Tue 10:00>
+** Present at the meeting
+
+- Victoria
+- Nicolas Neill
+- Carolina
+- Juan Carlos
+- Marcela
+- Oscar (Chair)
+
+** Agenda
+
+- Status of Webpage
+
+** Notes
+*** We check and release the first version of the webpage
+
+During the meeting we when over the webpage, and made it public
+
+*** TODO Action #8 Details of the web-site [0/4] :#8:
+
+- [ ] We take out the National Committee: add only the persons who
+  respond the email
+- [ ] Search the links (if possible) of the previous schools
+- [ ] Update the section about visa information
+- [ ] Make clickable the links in the accommodation page
+
+*** TODO Action #9 Contact again the National Committee [0/3] :#9:
+
+- [ ] Send a new email
+- [ ] Give a deadline to answer
+- [ ] If there is no answer, send the invitation to new contacts
+
+*** TODO Action #10 Details in the Poster [0/6] :#10:
+
+- [ ] Taking out the National Committee
+- [ ] Check the spelling and grammar (if any)
+- [ ] Delete the work "Organizan"
+- [ ] Add hyperlinks to the webpage and contact info
+- [ ] Poster should be in PDF
+- [ ] Ask Ivan: Possibility of printing a few (around 20) posters, to
+  be sent to the Universities
+
+*** TODO Action #11 Contact the secretaries [0/2] :#11:
+
+- [ ] National secretaries
+  - [ ] Send email with the call
+  - [ ] Send the poster by email
+  - [ ] Send a printed poster
+- [ ] International secretaries
+  - [ ] Send email with the call
+  - [ ] Send the poster by email
+
+*** TODO Action #12 Advertise the school :#12:
+
+- Inspirehep
+- LinkedIn
+- ResearchGate
+
+*** TODO Action #13 Prepare a prototype of invitation letter :#13:
+*** TODO Action #14 Application of funds: CLAF :#14:
+
+We finally agree that both applications (CLAF and ICTP) will be made
+on behalf of the school
+
+** Next meeting planed for <2017-04-25 Tue 10:30>
+* ACTIONS
+** DONE Action #1 Reserve the halls for the new dates :#1:
+CLOSED: [2017-04-17 Mon 05:51]
+- CLOSING NOTE [2017-04-17 Mon 05:51] \\
+  Victoria changed the reservation. 
+  
+  There is a problem with the rooms on the A building: We don't know if
+  they will be available on January, due to remodels.
+  
+  However, on January it's easy to find new rooms.
+
+** DONE Action #2 Write a list of possible lectures :#2:
+CLOSED: [2017-04-12 Wed 07:04] SCHEDULED: <2017-04-11 Tue 11:00>
+- CLOSING NOTE [2017-04-12 Wed 07:04]
+We have to consult Will Brooks about possible lectures for the
+experimental session.
+
+** DONE Action #3 Finishing the web-page :#3:OCF:Vic:Mar:
+CLOSED: [2017-04-20 Thu 05:52] SCHEDULED: <2017-04-18 Tue>
+- CLOSING NOTE [2017-04-20 Thu 05:52]
+It is needed to apply to the funds.
+- [ ] List of lectures (possible)
+- [X] List of topics
+- [X] Organisers (national)
+- [X] New list of hotels and hostels
+
+** NEXT Action #4 Start a budget                                        :#4:
+
+- Prices of hotels for lecturers
+- Lunch 70 people
+- Two daily coffee breaks
+
+** DONE Action #5 Finishing the web-page :#5:OCF:JC:
+CLOSED: [2017-04-20 Thu 05:53]
+- CLOSING NOTE [2017-04-20 Thu 05:53] \\
+  There are still some details to be corrected on the way
+Related to <<<Action #3>>>
+   - [X] Oscar offers himself to this task
+   - [X] Juan Carlos will check the information on the web-page,
+     including the accommodation
+   - [X] Victoria offers herself to check for new information about
+     the accommodation
+
+** DONE Action #6 Application to CLAF's funds :#6:Vic:Mar:Car:
+CLOSED: [2017-04-20 jue 16:21]
+- CLOSING NOTE [2017-04-20 jue 16:21] \\
+  Done
+   - Marcela and Carolina offer themselves to help with the application
+   - Victoria has the necessary information for completing the task
+
+** DONE Action #7 Contact the national committee :#7:OCF:
+CLOSED: [2017-04-17 Mon 05:55]
+- CLOSING NOTE [2017-04-17 Mon 05:55] \\
+  I wrote them on <2017-04-14 Fri>.
+  
+  Waiting for reply.
+
+** DONE Action #8 Details of the web-site [0/4] :#8:
+CLOSED: [2017-05-23 Tue 23:12]
+
+- [ ] We take out the National Committee: add only the persons who
+  respond the email
+- [ ] Search the links (if possible) of the previous schools
+- [ ] Update the section about visa information
+- [ ] Make clickable the links in the accommodation page
+
+** DONE Action #9 Contact again the National Committee [3/3]            :#9:
+CLOSED: [2017-06-06 Tue 13:03]
+
+- CLOSING NOTE [2017-06-06 Tue 13:03] \\
+  They replay, and are currently include in the poster.
+- [X] Send a new email
+- [X] Give a deadline to answer
+- [X] If there is no answer, send the invitation to new contacts
+
+** TODO Action #10 Details in the Poster [5/6]                         :#10:
+
+- [X] Taking out the National Committee
+- [X] Check the spelling and grammar (if any)
+- [X] Delete the work "Organizan"
+- [X] Add hyperlinks to the webpage and contact info (not possible)
+- [X] Poster should be in PDF
+- [ ] Ask Ivan: Possibility of printing a few (around 20) posters, to
+  be sent to the Universities
+
+** TODO Action #11 Contact the secretaries [0/2] :#11:
+
+- [ ] National secretaries
+  - [ ] Send email with the call
+  - [ ] Send the poster by email
+  - [ ] Send a printed poster
+- [ ] International secretaries
+  - [ ] Send email with the call
+  - [ ] Send the poster by email
+
+** STARTED Action #12 Advertise the school                             :#12:
+
+- State "STARTED"    from "TODO"       [2017-06-06 Tue 13:07]
+- Inspirehep
+- LinkedIn
+- ResearchGate
+
+** DONE Action #13 Prepare a prototype of invitation letter            :#13:
+CLOSED: [2017-06-06 Tue 13:06]
+- CLOSING NOTE [2017-06-06 Tue 13:06] \\
+  The first round of letters were sent.
+** DONE Action #14 Application of funds: CLAF and ICTP                 :#14:
+CLOSED: [2017-04-20 jue 16:20]
+- CLOSING NOTE [2017-04-20 jue 16:20] \\
+  Done
+We finally agree that both applications (CLAF and ICTP) will be made
+on behalf of the school.
+
+Related to <<<Action #6>>>.

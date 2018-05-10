@@ -1,0 +1,18 @@
+\titledquestion{}
+
+Starting with the differential expression
+\begin{equation*}
+  
+\end{equation*}
+for the magnetic induction at the point P with coordinate x produced by an incre-
+increment of current / dX at x', show explicitly that for a closed loop carrying a current
+/ the magnetic induction at P is
+B W1
+4тг
+where П is the solid angle subtended by the loop at the point P. This corresponds
+to a magnetic scalar potential, Фм = -1ло1п/4тг. The sign convention for the solid
+angle is that П is positive if the point P views the "inner" side of the surface span-
+spanning the loop, that is, if a unit normal n to the surface is defined by the direction
+of current flow via the right-hand rule, Cl is positive if n points away from the point
+P, and negative otherwise. This is the same convention as in Section 1.6 for the
+electric dipole layer.

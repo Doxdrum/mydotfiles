@@ -1,0 +1,1 @@
+define_webjump("ecosia", "https://www.ecosia.org/search?q=%s");

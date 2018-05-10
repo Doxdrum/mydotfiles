@@ -1,0 +1,136 @@
+\titledquestion{Generalities of Electrodynamics}
+
+\begin{parts}
+  \part
+
+  The figure below shows three situations involving a charged particle
+  and a uniformly charged spherical shell. The charges are given, and
+  the radii of the shells are indicated. Rank the situations according
+  to the magnitude of the force on the particle due to the presence of
+  the shell, greatest first.
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/A.jpg}
+  \end{center}
+
+  \part
+
+  The figure shows two square arrays of charged particles. The squares,
+  which are centered on point $P$, are misaligned.The particles are
+  separated by either $d$ or $d/2$ along the perimeters of the
+  squares. What are the magnitude and direction of the net electric
+  field at $P$?
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/B.jpg}
+  \end{center}
+
+  \part
+
+  A small charged ball lies within the hollow of a metallic spherical
+  shell of radius $R$. For three situations, the net charges on the ball
+  and shell, respectively, are (1) $4q,0$; (2) $6q, 0q$; (3) $16q,
+  12q$. Rank the situations according to the charge on (a) the inner
+  surface of the shell and (b) the outer surface, most positive first.
+
+  \part
+
+  In the Figure, a particle is to be released at rest at point $A$ and
+  then is to be accelerated directly through point $B$ by an electric
+  field. The potential difference between points $A$ and $B$ is
+  \SI{100}{\volt}. Which point should be at higher electric potential if
+  the particle is (a) an electron, (b) a proton, and (c) an alpha
+  particle (a nucleus of two protons and two neutrons)? (d) Rank the
+  kinetic energies of the particles at point $B$, greatest first.
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/D.jpg}
+  \end{center}
+
+  \part
+
+  The figure shows the path of a particle through six regions of uniform
+  magnetic field, where the path is either a half-circle or a
+  quarter-circle. Upon leaving the last region, the particle travels
+  between two charged, parallel plates and is deflected toward the plate
+  of higher potential. What is the direction of the magnetic field in
+  each of the six regions?
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/E.jpg}
+  \end{center}
+
+  \part
+
+  The figure gives, as a function of radial distance $r$, the magnitude $B$ of the magnetic field inside and outside four wires ($a$, $b$, $c$, and
+  d), each of which carries a current that is uniformly distributed across
+  the wire’s cross section. Overlapping portions of the plots (drawn
+  slightly separated) are indicated by double labels. Rank the wires according to (a) radius, (b) the magnitude of the magnetic field on the
+  surface, and (c) the value of the current, greatest first. (d) Is the magnitude of the current density in wire $a$ greater than, less than, or equal
+  to that in wire $c$?
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/F.jpg}
+  \end{center}
+
+  \part
+
+  If the circular conductor in the figure undergoes thermal expansion
+  while it is in a uniform magnetic field, a current is induced
+  clockwise around it. Is the magnetic field directed into or out of the
+  page?
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{Images/G.jpg}
+  \end{center}
+
+\end{parts}
+
+
+
+
+\titledquestion{Energy of a steady current distribution}
+
+In this problem, we shall derive the energy of a (steady) current
+distribution, in an analogue way as done for a charge density.
+
+Consider a current density distribution, \(\vec{j}\), leading a vector
+potential, \(\vec{A}\). If one multiplies the current by a factor
+\(\alpha\), the potential changes by the same factor.
+
+\begin{parts}
+  \part Show that is the current density increases from \(\alpha\) to \(\alpha +
+  d\alpha\) in a time \(dt\), an electric field is created everywhere,
+  \begin{equation*}
+    \vec{E} = - \frac{d\alpha}{dt} \vec{A}.
+  \end{equation*}
+
+  \part What is the work done on those charges (in the current), by
+  the generated electric field, per unit time? i.e. \(\frac{dW}{dt}\).
+
+  \part Find the total internal energy, expressed in terms of the
+  magnetic induction and also in terms of the current density.
+
+  \part Consider that the current densities are given by a system of
+  linear conductors. How is the energy of the system expressed? Use
+  the Stokes' theorem to write it in terms of a magnetic flux.
+
+  \part In the same way that the charge in a conductor was
+  proportional the electric potentials, the magnetic flux is
+  proportional to the currents,
+  \begin{equation*}
+    \Phi_i = L_{ij} I_j.
+  \end{equation*}
+  The \(L_{ij}\) are called coefficients of inductance, and the
+  \(L_{ii}\) are the self-inductance.
+
+   By considering a single current in the \(j\)'s loop, and
+   evaluate the flux in the \(i\)'s one, show that
+   \begin{equation*}
+     L_{ij} = \oint_{c_1} \oint_{c_2} \frac{d\vec{s}_i \cdot
+       d\vec{s}_j}{|\vec{r}_i - \vec{r}_j|}.
+   \end{equation*}
+
+   \part Since \(U_B = \frac{1}{2}L_{ij} I_i I_j,\) show that \(\delta U_\Phi
+   = - \delta U_I\).
+\end{parts}

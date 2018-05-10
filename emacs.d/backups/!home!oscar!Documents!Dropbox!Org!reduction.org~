@@ -1,0 +1,1460 @@
+#+title: Reduction of gravitational theories
+
+#+BEGIN: clocktable :maxlevel 3 :scope file 
+#+CAPTION: Clock summary at [2016-09-13 Tue 21:00]
+| Headline                                  |      Time |      |      |
+|-------------------------------------------+-----------+------+------|
+| *Total time*                              | *1d 2:35* |      |      |
+|-------------------------------------------+-----------+------+------|
+| Kaluza--Klein reduction                   |      5:18 |      |      |
+| \_  TODO The equations of the problems... |           | 3:02 |      |
+| \_  WAITING Check the equations using...  |           | 0:38 |      |
+| \_  NEXT Plot the functions for the paper |           | 1:38 |      |
+| Kaluza--Klein cosmology                   |     12:40 |      |      |
+| \_  Plots                                 |           | 6:33 |      |
+| \_    Case \(u_- = 0\)                    |           |      | 0:42 |
+| \_    Case \(u_\pm > 0\)                  |           |      | 3:23 |
+| \_    Case \(u_\pm < 0\)                  |           |      | 2:28 |
+| Tasks                                     |      8:37 |      |      |
+| \_  Review of the draft                   |           | 7:52 |      |
+#+END:
+
+* Kaluza--Klein reduction
+
+** TODO The equations of the problems studied with Simon.
+:LOGBOOK:
+CLOCK: [2016-08-24 Wed 10:41]--[2016-08-24 Wed 12:06] =>  1:25
+CLOCK: [2016-08-24 Wed 09:13]--[2016-08-24 Wed 10:09] =>  0:56
+CLOCK: [2016-08-24 Wed 08:17]--[2016-08-24 Wed 08:58] =>  0:41
+:END:
+- State "STARTED"    from "VERIFY"     [2016-08-24 Wed 08:17]
+** CANCELLED Check the equations using =SageManifolds=           :CANCELLED:
+CLOSED: [2016-10-13 Thu 08:27]
+- State "CANCELLED"  from "WAITING"    [2016-10-13 Thu 08:27] \\
+  We have alreasy sent the paper to PRD
+- State "WAITING"    from "STARTED"    [2016-08-24 Wed 11:31] \\
+  Working on it
+:LOGBOOK:
+CLOCK: [2016-08-12 Fri 14:19]--[2016-08-12 Fri 14:57] =>  0:38
+:END:
+- State "STARTED"    from "NEXT"       [2016-08-12 Fri 14:19]
+
+*** DONE Ask in the forum about the use of =connection_form()=
+CLOSED: [2016-08-12 Fri 14:25]
+- CLOSING NOTE [2016-08-12 Fri 14:25] \\
+  I got an answer by /eric_g/ at [[http://ask.sagemath.org/question/34321/using-differential-forms-within-sagemanifolds/][ask.sage]]
+
+*** DONE Metricity condition
+CLOSED: [2016-08-12 Fri 14:28]
+- CLOSING NOTE [2016-08-12 Fri 14:28] \\
+  Imposing metricity restricts the components of the connection
+
+*** DONE Changing notation to the one by Simon
+CLOSED: [2016-10-13 Thu 08:28]
+- CLOSING NOTE [2016-10-13 Thu 08:28] \\
+  Finished
+- State "STARTED"    from              [2016-08-12 Fri 14:29]
+
+*** Ask in the forum
+
+**** TODO how to raise and lower the tangent bundle indices
+
+** DONE Plot the functions for the paper
+CLOSED: [2016-10-13 Thu 08:30]
+- CLOSING NOTE [2016-10-13 Thu 08:30] \\
+  The plots were done with =matplotlib= on =org-mode=
+:LOGBOOK:
+CLOCK: [2016-08-30 Tue 15:16]--[2016-08-30 Tue 16:54] =>  1:38
+:END:
+- State "STARTED"    from "TODO"       [2016-08-30 Tue 15:14]
+* Recalculate the Lie derivative using the \(\sqrt{1 - \kappa r^2}\)
+
+** DONE For the rank two tensor
+CLOSED: [2016-08-04 Thu 16:19]
+- CLOSING NOTE [2016-08-04 Thu 16:19] \\
+  I change the code in =SageManifolds= and confirm the form of the rank to tensor.
+  
+  In addition, I started writing a short notes in 
+  [[file:geometry.org::*Killing%20vectors%20of%20maximally%20symmetric%20spaces%20(four%20dimensions)][Killing vectors of maximally symmetric spaces (four dimensions)]]
+  
+  Although it is in a very early stage, I found the potential of writing in
+  =Org=.
+** DONE For the connection
+CLOSED: [2016-08-12 Fri 14:47]
+- CLOSING NOTE [2016-08-12 Fri 14:47] \\
+  Yes sir!!!
+** DONE For the affine connection
+CLOSED: [2016-08-08 Mon 16:20]
+- CLOSING NOTE [2016-08-08 Mon 16:20] \\
+  I got the general connection. Now I can restrict to 
+  symmetric and so on!
+
+* Kaluza--Klein cosmology
+:LOGBOOK:
+CLOCK: [2016-09-07 Wed 09:07]--[2016-09-07 Wed 10:05] =>  0:58
+CLOCK: [2016-09-06 Tue 15:24]--[2016-09-06 Tue 15:56] =>  0:32
+CLOCK: [2016-09-06 Tue 11:19]--[2016-09-06 Tue 12:01] =>  0:42
+CLOCK: [2016-09-06 Tue 09:52]--[2016-09-06 Tue 10:56] =>  1:04
+CLOCK: [2016-09-05 Mon 13:50]--[2016-09-05 Mon 14:47] =>  0:57
+CLOCK: [2016-08-19 Fri 10:29]--[2016-08-19 Fri 11:02] =>  0:33
+CLOCK: [2016-08-17 Wed 13:30]--[2016-08-17 Wed 13:52] =>  0:22
+CLOCK: [2016-08-17 Wed 11:54]--[2016-08-17 Wed 12:03] =>  0:09
+CLOCK: [2016-08-17 Wed 10:55]--[2016-08-17 Wed 11:45] =>  0:50
+:END:
+
+** Theory
+:PROPERTIES:
+:EXPORT_LATEX_CLASS: article
+:EXPORT_LATEX_CLASS_OPTIONS:
+:EXPORT_LATEX_HEADER:
+:EXPORT_LATEX_HEADER_EXTRA:
+:EXPORT_DESCRIPTION:
+:EXPORT_KEYWORDS:
+:EXPORT_SUBTITLE:
+:EXPORT_DATE: \today
+:END:
+
+For the Kaluza--Klein cosmology, we need an ansatz for the metric and
+other for the connection.
+
+Using the Lie derivative, we calculated the most general rank two
+tensor compatible with the isotropic and homogeneity conditions, and
+it coincides with the Friedman--Robertson--Walker metric
+\begin{equation}
+g = -\mathrm{d} t\otimes \mathrm{d} t + \frac{a\left(t\right)^{2}}{1 -
+{\kappa} r^{2}} \mathrm{d} r\otimes \mathrm{d} r + r^{2}
+a\left(t\right)^{2} \mathrm{d} {\theta}\otimes \mathrm{d} {\theta} +
+r^{2} a\left(t\right)^{2} \sin\left({\theta}\right)^{2} \mathrm{d}
+{\phi}\otimes \mathrm{d} {\phi} , 
+\end{equation} 
+where the parameter \(\kappa\) controls the some geometric properties
+of the manifold.
+
+For the sake of simplicity, we shall introduce the /coframe/
+\begin{align}
+e^0 &= \mathrm{d} t \\ e^1 &= \left( \frac{a\left(t\right)}{\sqrt{1 -
+{\kappa} r^{2}}} \right) \mathrm{d} r \\ e^2 &= r a\left(t\right)
+\mathrm{d} {\theta} \\ e^3 &= r a\left(t\right)
+\sin\left({\theta}\right) \mathrm{d} {\phi} 
+\end{align}
+
+Notice that the generators of the symmetry are (in spherical
+coordinates)
+\begin{equation*}
+\xi_1 =
+\begin{pmatrix}
+0 & 0 & -\cos\left({\phi}\right) &
+\cot\left({\theta}\right)\sin\left({\phi}\right) \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\xi_2 =
+\begin{pmatrix}
+0 & 0 & \sin\left({\phi}\right) &
+\cos\left({\phi}\right)\cot\left({\theta}\right) \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\xi_3 =
+\begin{pmatrix}
+0 & 0 & 0 & 1 \end{pmatrix} \end{equation*}
+\begin{equation*}
+\eta_1 = \sqrt{1-{\kappa} r^{2}}
+\begin{pmatrix}
+0 & \cos\left({\phi}\right) \sin\left({\theta}\right) &
+\frac{\cos\left({\phi}\right) \cos\left({\theta}\right)}{r} &
+- \frac{\sin\left({\phi}\right)}{r
+\sin\left({\theta}\right)} \end{pmatrix} \end{equation*}
+\begin{equation*}
+\eta_2 = \sqrt{1-{\kappa} r^{2}}
+\begin{pmatrix}
+0 & \sin\left({\phi}\right) \sin\left({\theta}\right) & \frac{
+\cos\left({\theta}\right) \sin\left({\phi}\right)}{r} & \frac{
+\cos\left({\phi}\right)}{r \sin\left({\theta}\right)} \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+\eta_3 = \sqrt{1-{\kappa} r^{2}}
+\begin{pmatrix}
+0 & \cos\left({\theta}\right) & -\frac{ \sin\left({\theta}\right)}{r}
+& 0 
+\end{pmatrix} 
+\end{equation*} 
+where the \(\xi\)'s generate /rotations/ and the \(\eta\)'s generate
+/translations/.
+
+The most general /affine/ connection compatible with the above
+symmetries is
+\begin{equation}
+\begin{array}{lcl} \Gamma_{ \phantom{\, t } \, t \, t }^{ \, t
+\phantom{\, t } \phantom{\, t } } & = & G_{000}\left(t\right)
+\\ \Gamma_{ \phantom{\, t } \, r \, r }^{ \, t \phantom{\, r }
+\phantom{\, r } } & = & -\frac{G_{011}\left(t\right)}{{\kappa} r^{2} -
+1} \\ \Gamma_{ \phantom{\, t } \, {\theta} \, {\theta} }^{ \, t
+\phantom{\, {\theta} } \phantom{\, {\theta} } } & = & r^{2}
+G_{011}\left(t\right) \\ \Gamma_{ \phantom{\, t } \, {\phi} \, {\phi}
+}^{ \, t \phantom{\, {\phi} } \phantom{\, {\phi} } } & = & r^{2}
+G_{011}\left(t\right) \sin\left({\theta}\right)^{2} \\ \Gamma_{
+\phantom{\, r } \, t \, r }^{ \, r \phantom{\, t } \phantom{\, r } } &
+= & G_{101}\left(t\right) \\ \Gamma_{ \phantom{\, r } \, r \, t }^{ \,
+r \phantom{\, r } \phantom{\, t } } & = & G_{110}\left(t\right)
+\\ \Gamma_{ \phantom{\, r } \, r \, r }^{ \, r \phantom{\, r }
+\phantom{\, r } } & = & -\frac{{\kappa} r}{{\kappa} r^{2} - 1}
+\\ \Gamma_{ \phantom{\, r } \, {\theta} \, {\theta} }^{ \, r
+\phantom{\, {\theta} } \phantom{\, {\theta} } } & = & {\kappa} r^{3} -
+r \\ \Gamma_{ \phantom{\, r } \, {\theta} \, {\phi} }^{ \, r
+\phantom{\, {\theta} } \phantom{\, {\phi} } } & = & \sqrt{-{\kappa}
+r^{2} + 1} r^{2} G_{123}\left(t\right) \sin\left({\theta}\right)
+\\ \Gamma_{ \phantom{\, r } \, {\phi} \, {\theta} }^{ \, r \phantom{\,
+{\phi} } \phantom{\, {\theta} } } & = & -\sqrt{-{\kappa} r^{2} + 1}
+r^{2} G_{123}\left(t\right) \sin\left({\theta}\right) \\ \Gamma_{
+\phantom{\, r } \, {\phi} \, {\phi} }^{ \, r \phantom{\, {\phi} }
+\phantom{\, {\phi} } } & = & {\left({\kappa} r^{3} - r\right)}
+\sin\left({\theta}\right)^{2} \\ \Gamma_{ \phantom{\, {\theta} } \, t
+\, {\theta} }^{ \, {\theta} \phantom{\, t } \phantom{\, {\theta} } } &
+= & G_{101}\left(t\right) \\ \Gamma_{ \phantom{\, {\theta} } \, r \,
+{\theta} }^{ \, {\theta} \phantom{\, r } \phantom{\, {\theta} } } & =
+& \frac{1}{r} \\ \Gamma_{ \phantom{\, {\theta} } \, r \, {\phi} }^{ \,
+{\theta} \phantom{\, r } \phantom{\, {\phi} } } & = &
+-\frac{G_{123}\left(t\right)
+\sin\left({\theta}\right)}{\sqrt{-{\kappa} r^{2} + 1}} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\theta} \, t }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, t } } & = & G_{110}\left(t\right) \\ \Gamma_{
+\phantom{\, {\theta} } \, {\theta} \, r }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, r } } & = & \frac{1}{r} \\ \Gamma_{ \phantom{\,
+{\theta} } \, {\phi} \, r }^{ \, {\theta} \phantom{\, {\phi} }
+\phantom{\, r } } & = & \frac{G_{123}\left(t\right)
+\sin\left({\theta}\right)}{\sqrt{-{\kappa} r^{2} + 1}} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\phi} \, {\phi} }^{ \, {\theta} \phantom{\,
+{\phi} } \phantom{\, {\phi} } } & = & -\cos\left({\theta}\right)
+\sin\left({\theta}\right) \\ \Gamma_{ \phantom{\, {\phi} } \, t \,
+{\phi} }^{ \, {\phi} \phantom{\, t } \phantom{\, {\phi} } } & = &
+G_{101}\left(t\right) \\ \Gamma_{ \phantom{\, {\phi} } \, r \,
+{\theta} }^{ \, {\phi} \phantom{\, r } \phantom{\, {\theta} } } & = &
+\frac{G_{123}\left(t\right)}{\sqrt{-{\kappa} r^{2} + 1}
+\sin\left({\theta}\right)} \\ \Gamma_{ \phantom{\, {\phi} } \, r \,
+{\phi} }^{ \, {\phi} \phantom{\, r } \phantom{\, {\phi} } } & = &
+\frac{1}{r} \\ \Gamma_{ \phantom{\, {\phi} } \, {\theta} \, r }^{ \,
+{\phi} \phantom{\, {\theta} } \phantom{\, r } } & = &
+-\frac{G_{123}\left(t\right)}{\sqrt{-{\kappa} r^{2} + 1}
+\sin\left({\theta}\right)} \\ \Gamma_{ \phantom{\, {\phi} } \,
+{\theta} \, {\phi} }^{ \, {\phi} \phantom{\, {\theta} } \phantom{\,
+{\phi} } } & = &
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}
+\\ \Gamma_{ \phantom{\, {\phi} } \, {\phi} \, t }^{ \, {\phi}
+\phantom{\, {\phi} } \phantom{\, t } } & = & G_{110}\left(t\right)
+\\ \Gamma_{ \phantom{\, {\phi} } \, {\phi} \, r }^{ \, {\phi}
+\phantom{\, {\phi} } \phantom{\, r } } & = & \frac{1}{r} \\ \Gamma_{
+\phantom{\, {\phi} } \, {\phi} \, {\theta} }^{ \, {\phi} \phantom{\,
+{\phi} } \phantom{\, {\theta} } } & = &
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}
+\end{array} \end{equation}
+or equivalently the connection one-form
+\begin{equation}
+\begin{split}
+\omega^0_{\ \, 1} &= \left( \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \right) e^1 \\
+\omega^0_{\ \, 2} &= \left( \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \right) e^2 \\
+\omega^0_{\ \, 3} &= \left( \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \right) e^3 \\
+\omega^1_{\ \, 2} &= \left( \frac{{\kappa} r^{2} - 1}{\sqrt{-{\kappa}
+r^{2} + 1} r a\left(t\right)} \right) e^2 -f\left(t\right) e^3 \\
+\omega^1_{\ \, 3} &= f\left(t\right) e^2 + \left( \frac{{\kappa} r^{2} -
+1}{\sqrt{-{\kappa} r^{2} + 1} r a\left(t\right)} \right) e^3 \\
+\omega^2_{\ \, 3} &= -f\left(t\right) e^1
+-\frac{\cos\left({\theta}\right)}{r a\left(t\right)
+\sin\left({\theta}\right)} e^3
+\end{split}
+\end{equation}
+
+So far, there are five functions which determine the connection. From
+them only two contribute to the torsion,[fn:1] as can be seen from the
+torsion two-form
+\begin{equation}
+\begin{split}
+\theta^0 &= 0 \\
+\theta^1 &= \left( -G_{101}\left(t\right) + G_{110}\left(t\right) \right)
+e^0\wedge e^1 -\frac{2 \, G_{123}\left(t\right)}{a\left(t\right)}
+e^2\wedge e^3 \\
+\theta^2 &= \left( -G_{101}\left(t\right) + G_{110}\left(t\right) \right)
+e^0\wedge e^2 + \frac{2 \, G_{123}\left(t\right)}{a\left(t\right)}
+e^1\wedge e^3 \\
+\theta^3 &= \left( -G_{101}\left(t\right) + G_{110}\left(t\right) \right)
+e^0\wedge e^3 -\frac{2 \, G_{123}\left(t\right)}{a\left(t\right)}
+e^1\wedge e^2
+\end{split}
+\end{equation}
+
+Its curvature two-form can be calculated, and yield
+\begin{equation}
+\begin{split}
+\Omega^0_{\ \, 1} &= \left( \frac{G_{000}\left(t\right)
+G_{011}\left(t\right) - G_{011}\left(t\right) G_{110}\left(t\right) +
+\frac{\partial\,G_{011}}{\partial t}}{a\left(t\right)^{2}} \right)
+e^0\wedge e^1 -\frac{2 \, G_{011}\left(t\right)
+G_{123}\left(t\right)}{a\left(t\right)^{3}} e^2\wedge e^3 \\
+\Omega^0_{\ \, 2} &= \left( \frac{G_{000}\left(t\right)
+G_{011}\left(t\right) - G_{011}\left(t\right) G_{110}\left(t\right) +
+\frac{\partial\,G_{011}}{\partial t}}{a\left(t\right)^{2}} \right)
+e^0\wedge e^2 + \frac{2 \, G_{011}\left(t\right)
+G_{123}\left(t\right)}{a\left(t\right)^{3}} e^1\wedge e^3 \\
+\Omega^0_{\ \, 3} &= \left( \frac{G_{000}\left(t\right)
+G_{011}\left(t\right) - G_{011}\left(t\right) G_{110}\left(t\right) +
+\frac{\partial\,G_{011}}{\partial t}}{a\left(t\right)^{2}} \right)
+e^0\wedge e^3 -\frac{2 \, G_{011}\left(t\right)
+G_{123}\left(t\right)}{a\left(t\right)^{3}} e^1\wedge e^2 \\
+\Omega^1_{\ \, 2} &= \frac{\frac{\partial\,G_{123}}{\partial
+t}}{a\left(t\right)} e^0\wedge e^3 + \left( \frac{G_{011}\left(t\right)
+G_{101}\left(t\right) - G_{123}\left(t\right)^{2} +
+{\kappa}}{a\left(t\right)^{2}} \right) e^1\wedge e^2 \\
+\Omega^1_{\ \, 3} &= -\frac{\frac{\partial\,G_{123}}{\partial
+t}}{a\left(t\right)} e^0\wedge e^2 + \left( \frac{G_{011}\left(t\right)
+G_{101}\left(t\right) - G_{123}\left(t\right)^{2} +
+{\kappa}}{a\left(t\right)^{2}} \right) e^1\wedge e^3 \\
+\Omega^2_{\ \, 3} &= \frac{\frac{\partial\,G_{123}}{\partial
+t}}{a\left(t\right)} e^0\wedge e^1 + \left( \frac{G_{011}\left(t\right)
+G_{101}\left(t\right) - G_{123}\left(t\right)^{2} +
+{\kappa}}{a\left(t\right)^{2}} \right) e^2\wedge e^3
+\end{split}
+\end{equation}
+
+Nonetheless, the affine connection we have found is not compatible with the 
+metric, i.e., \( \nabla g \neq 0 \), to know,
+\begin{equation}
+\begin{array}{lcl} \nabla g_{ \, t \, t \, t }^{ \phantom{\, t }
+\phantom{\, t } \phantom{\, t } } & = & 2 \,
+G_{000}\left(t\right) \\ \nabla g_{ \, t \, r \, r }^{ \phantom{\, t }
+\phantom{\, r } \phantom{\, r } } & = &
+\frac{G_{101}\left(t\right) a\left(t\right)^{2} -
+G_{011}\left(t\right)}{{\kappa} r^{2} - 1} \\ \nabla g_{ \, t \,
+{\theta} \, {\theta} }^{ \phantom{\, t } \phantom{\, {\theta} }
+\phantom{\, {\theta} } } & = & -r^{2} G_{101}\left(t\right)
+a\left(t\right)^{2} + r^{2} G_{011}\left(t\right) \\ \nabla g_{ \, t \,
+{\phi} \, {\phi} }^{ \phantom{\, t } \phantom{\, {\phi} } \phantom{\,
+{\phi} } } & = & -{\left(r^{2} G_{101}\left(t\right)
+a\left(t\right)^{2} - r^{2} G_{011}\left(t\right)\right)}
+\sin\left({\theta}\right)^{2} \\ \nabla g_{ \, r \, t \, r }^{
+\phantom{\, r } \phantom{\, t } \phantom{\, r } } & = &
+\frac{G_{101}\left(t\right) a\left(t\right)^{2} -
+G_{011}\left(t\right)}{{\kappa} r^{2} - 1} \\ \nabla g_{ \, r \, r \, t
+}^{ \phantom{\, r } \phantom{\, r } \phantom{\, t } } & = &
+\frac{2 \, {\left(G_{110}\left(t\right) a\left(t\right)^{2} -
+a\left(t\right) \frac{\partial\,a}{\partial t}\right)}}{{\kappa} r^{2} -
+1} \\ \nabla g_{ \, {\theta} \, t \, {\theta} }^{ \phantom{\, {\theta} }
+\phantom{\, t } \phantom{\, {\theta} } } & = & -r^{2}
+G_{101}\left(t\right) a\left(t\right)^{2} + r^{2} G_{011}\left(t\right)
+\\ \nabla g_{ \, {\theta} \, {\theta} \, t }^{ \phantom{\, {\theta} }
+\phantom{\, {\theta} } \phantom{\, t } } & = & -2 \, r^{2}
+G_{110}\left(t\right) a\left(t\right)^{2} + 2 \, r^{2} a\left(t\right)
+\frac{\partial\,a}{\partial t} \\ \nabla g_{ \, {\phi} \, t \, {\phi}
+}^{ \phantom{\, {\phi} } \phantom{\, t } \phantom{\, {\phi} } } & =
+& -{\left(r^{2} G_{101}\left(t\right) a\left(t\right)^{2} - r^{2}
+G_{011}\left(t\right)\right)} \sin\left({\theta}\right)^{2} \\ \nabla
+g_{ \, {\phi} \, {\phi} \, t }^{ \phantom{\, {\phi} } \phantom{\, {\phi}
+} \phantom{\, t } } & = & -2 \, {\left(r^{2}
+G_{110}\left(t\right) a\left(t\right)^{2} - r^{2} a\left(t\right)
+\frac{\partial\,a}{\partial t}\right)} \sin\left({\theta}\right)^{2}
+\end{array}
+\end{equation}
+
+Let us define a new connection which is compatible with the metric. In
+addition, we want to change the notation to be compatible with the one
+used in Ref. [[http://arxiv.org/abs/arXiv:1301.0821][Toloza]]. We will introduce a couple of functions \(f\) and
+\(h\), which encode the information about the torsion.
+
+The component of the connection in this notation are
+\begin{equation}
+\begin{split}
+\Gamma_{ \phantom{\, t } \, r \, r }^{ \, t
+\phantom{\, r } \phantom{\, r } } &=
+-\frac{a\left(t\right)^{2} h\left(t\right) + a\left(t\right)
+\frac{\partial\,a}{\partial t}}{{\kappa} r^{2} - 1} \\ \Gamma_{
+\phantom{\, t } \, {\theta} \, {\theta} }^{ \, t \phantom{\, {\theta} }
+\phantom{\, {\theta} } } &= r^{2} a\left(t\right)^{2}
+h\left(t\right) + r^{2} a\left(t\right) \frac{\partial\,a}{\partial t}
+\\ \Gamma_{ \phantom{\, t } \, {\phi} \, {\phi} }^{ \, t \phantom{\,
+{\phi} } \phantom{\, {\phi} } } &= {\left(r^{2}
+a\left(t\right)^{2} h\left(t\right) + r^{2} a\left(t\right)
+\frac{\partial\,a}{\partial t}\right)} \sin\left({\theta}\right)^{2} \\
+\Gamma_{ \phantom{\, r } \, t \, r }^{ \, r \phantom{\, t } \phantom{\,
+r } } &= \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \\ \Gamma_{ \phantom{\,
+r } \, r \, t }^{ \, r \phantom{\, r } \phantom{\, t } } &=
+\frac{\frac{\partial\,a}{\partial t}}{a\left(t\right)} \\ \Gamma_{
+\phantom{\, r } \, r \, r }^{ \, r \phantom{\, r } \phantom{\, r } }
+&= -\frac{{\kappa} r}{{\kappa} r^{2} - 1} \\ \Gamma_{
+\phantom{\, r } \, {\theta} \, {\theta} }^{ \, r \phantom{\, {\theta} }
+\phantom{\, {\theta} } } &= {\kappa} r^{3} - r \\ \Gamma_{
+\phantom{\, r } \, {\theta} \, {\phi} }^{ \, r \phantom{\, {\theta} }
+\phantom{\, {\phi} } } &= -\sqrt{-{\kappa} r^{2} + 1} r^{2}
+a\left(t\right) f\left(t\right) \sin\left({\theta}\right) \\ \Gamma_{
+\phantom{\, r } \, {\phi} \, {\theta} }^{ \, r \phantom{\, {\phi} }
+\phantom{\, {\theta} } } &= \sqrt{-{\kappa} r^{2} + 1} r^{2}
+a\left(t\right) f\left(t\right) \sin\left({\theta}\right) \\ \Gamma_{
+\phantom{\, r } \, {\phi} \, {\phi} }^{ \, r \phantom{\, {\phi} }
+\phantom{\, {\phi} } } &= {\left({\kappa} r^{3} - r\right)}
+\sin\left({\theta}\right)^{2} \\ \Gamma_{ \phantom{\, {\theta} } \, t \,
+{\theta} }^{ \, {\theta} \phantom{\, t } \phantom{\, {\theta} } } &= \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \\ \Gamma_{ \phantom{\,
+{\theta} } \, r \, {\theta} }^{ \, {\theta} \phantom{\, r } \phantom{\,
+{\theta} } } &= \frac{1}{r} \\ \Gamma_{ \phantom{\, {\theta}
+} \, r \, {\phi} }^{ \, {\theta} \phantom{\, r } \phantom{\, {\phi} } }
+&= \frac{a\left(t\right) f\left(t\right)
+\sin\left({\theta}\right)}{\sqrt{-{\kappa} r^{2} + 1}} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\theta} \, t }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, t } } &=
+\frac{\frac{\partial\,a}{\partial t}}{a\left(t\right)} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\theta} \, r }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, r } } &= \frac{1}{r} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\phi} \, r }^{ \, {\theta} \phantom{\, {\phi}
+} \phantom{\, r } } &= -\frac{a\left(t\right) f\left(t\right)
+\sin\left({\theta}\right)}{\sqrt{-{\kappa} r^{2} + 1}} \\ \Gamma_{
+\phantom{\, {\theta} } \, {\phi} \, {\phi} }^{ \, {\theta} \phantom{\,
+{\phi} } \phantom{\, {\phi} } } &= -\cos\left({\theta}\right)
+\sin\left({\theta}\right) \\ \Gamma_{ \phantom{\, {\phi} } \, t \,
+{\phi} }^{ \, {\phi} \phantom{\, t } \phantom{\, {\phi} } } &= \frac{a\left(t\right) h\left(t\right) +
+\frac{\partial\,a}{\partial t}}{a\left(t\right)} \\ \Gamma_{ \phantom{\,
+{\phi} } \, r \, {\theta} }^{ \, {\phi} \phantom{\, r } \phantom{\,
+{\theta} } } &= -\frac{a\left(t\right)
+f\left(t\right)}{\sqrt{-{\kappa} r^{2} + 1} \sin\left({\theta}\right)}
+\\ \Gamma_{ \phantom{\, {\phi} } \, r \, {\phi} }^{ \, {\phi}
+\phantom{\, r } \phantom{\, {\phi} } } &= \frac{1}{r} \\
+\Gamma_{ \phantom{\, {\phi} } \, {\theta} \, r }^{ \, {\phi} \phantom{\,
+{\theta} } \phantom{\, r } } &= \frac{a\left(t\right)
+f\left(t\right)}{\sqrt{-{\kappa} r^{2} + 1} \sin\left({\theta}\right)}
+\\ \Gamma_{ \phantom{\, {\phi} } \, {\theta} \, {\phi} }^{ \, {\phi}
+\phantom{\, {\theta} } \phantom{\, {\phi} } } &=
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)} \\ \Gamma_{
+\phantom{\, {\phi} } \, {\phi} \, t }^{ \, {\phi} \phantom{\, {\phi} }
+\phantom{\, t } } & =  \frac{\frac{\partial\,a}{\partial
+t}}{a\left(t\right)} \\ \Gamma_{ \phantom{\, {\phi} } \, {\phi} \, r }^{
+\, {\phi} \phantom{\, {\phi} } \phantom{\, r } } &=
+\frac{1}{r} \\ \Gamma_{ \phantom{\, {\phi} } \, {\phi} \, {\theta} }^{
+\, {\phi} \phantom{\, {\phi} } \phantom{\, {\theta} } } &=
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}
+\end{split}
+\end{equation}
+For this connection, \(\nabla^\prime g = 0\).
+
+The torsion two-form for this connection is
+\begin{equation}
+\begin{split}
+\theta^0 &= 0 \\
+\theta^1 &= -h\left(t\right) e^0\wedge e^1 + 2 \, f\left(t\right)
+e^2\wedge e^3 \\
+\theta^2 &= -h\left(t\right) e^0\wedge e^2 -2 \, f\left(t\right)
+e^1\wedge e^3 \\
+\theta^3 &= -h\left(t\right) e^0\wedge e^3 + 2 \, f\left(t\right)
+e^1\wedge e^2
+\end{split}
+\end{equation}
+while the curvature two-form is given by
+\begin{equation}
+\begin{split}
+\Omega^0_{\ \, 1} &= \left( \frac{h\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,h}{\partial t} + \frac{\partial^2\,a}{\partial
+t^2}}{a\left(t\right)} \right) e^0\wedge e^1 + \frac{2 \,
+{\left(a\left(t\right) f\left(t\right) h\left(t\right) + f\left(t\right)
+\frac{\partial\,a}{\partial t}\right)}}{a\left(t\right)} e^2\wedge e^3 \\
+\Omega^0_{\ \, 2} &= \left( \frac{h\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,h}{\partial t} + \frac{\partial^2\,a}{\partial
+t^2}}{a\left(t\right)} \right) e^0\wedge e^2 -\frac{2 \,
+{\left(a\left(t\right) f\left(t\right) h\left(t\right) + f\left(t\right)
+\frac{\partial\,a}{\partial t}\right)}}{a\left(t\right)} e^1\wedge e^3 \\
+\Omega^0_{\ \, 3} &= \left( \frac{h\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,h}{\partial t} + \frac{\partial^2\,a}{\partial
+t^2}}{a\left(t\right)} \right) e^0\wedge e^3 + \frac{2 \,
+{\left(a\left(t\right) f\left(t\right) h\left(t\right) + f\left(t\right)
+\frac{\partial\,a}{\partial t}\right)}}{a\left(t\right)} e^1\wedge e^2 \\
+\Omega^1_{\ \, 2} &= \left( -\frac{f\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,f}{\partial t}}{a\left(t\right)} \right) e^0\wedge e^3 +
+\left( -\frac{a\left(t\right)^{2} f\left(t\right)^{2} -
+a\left(t\right)^{2} h\left(t\right)^{2} - 2 \, a\left(t\right)
+h\left(t\right) \frac{\partial\,a}{\partial t} -
+\frac{\partial\,a}{\partial t}^{2} - {\kappa}}{a\left(t\right)^{2}}
+\right) e^1\wedge e^2 \\
+\Omega^1_{\ \, 3} &= \left( \frac{f\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,f}{\partial t}}{a\left(t\right)} \right) e^0\wedge e^2 +
+\left( -\frac{a\left(t\right)^{2} f\left(t\right)^{2} -
+a\left(t\right)^{2} h\left(t\right)^{2} - 2 \, a\left(t\right)
+h\left(t\right) \frac{\partial\,a}{\partial t} -
+\frac{\partial\,a}{\partial t}^{2} - {\kappa}}{a\left(t\right)^{2}}
+\right) e^1\wedge e^3 \\
+\Omega^2_{\ \, 3} &= \left( -\frac{f\left(t\right)
+\frac{\partial\,a}{\partial t} + a\left(t\right)
+\frac{\partial\,f}{\partial t}}{a\left(t\right)} \right) e^0\wedge e^1 +
+\left( -\frac{a\left(t\right)^{2} f\left(t\right)^{2} -
+a\left(t\right)^{2} h\left(t\right)^{2} - 2 \, a\left(t\right)
+h\left(t\right) \frac{\partial\,a}{\partial t} -
+\frac{\partial\,a}{\partial t}^{2} - {\kappa}}{a\left(t\right)^{2}}
+\right) e^2\wedge e^3
+\end{split}
+\end{equation}
+
+*Definition of the fields*
+
+There is a problem with my definitions, because the \(\beta\) and
+\(\gamma\) forms are vector valued differential forms.
+
+
+The fields compatible with the symmetries are
+\begin{equation}
+\begin{split}
+\gamma_f & = - \gamma(t) e^0 \\
+\beta_f  & = b\left(t\right) e^0 + \beta\left(t\right) e^1 + \beta\left(t\right) e^2
++ \beta\left(t\right) e^3
+\end{split}
+\end{equation}
+
+** Plots
+:LOGBOOK:
+CLOCK: [2016-09-17 Sat 06:26]--[2016-09-17 Sat 06:43] =>  0:17
+CLOCK: 
+:END:
+
+In the following analysis we have assumed that \(\alpha_1\) is always
+positive, since we have a sense of positive Newton's gravitational
+constant.}
+
+Our expression for $u$ under the simplification \(\alpha_1 = 1\) is
+\[ u_\pm = \frac{ 2 \pm \sqrt{ 6 \Delta } }{ 4\alpha_2 }, \] with
+\(\Delta = 1 - 4 \alpha_0 \alpha_2\) and \(Y_- = -2\). 
+
+Therefore, $u$ vanishes only for the negative choice, i.e., \( u_- = 0\).
+
+*** Case \(u_- = 0\)
+:LOGBOOK:
+CLOCK: [2016-09-05 Mon 15:00]--[2016-09-05 Mon 15:37] =>  0:37
+:END:
+
+**** Conditions:
+
+The condition for \(u_- = 0\) implies that 
+\[\alpha _2 = \frac{1}{12 \alpha _0} .\]
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## The ivar is t
+a0 = np.arange(0.0, 3.0, 0.01)
+
+## The dependent function
+a2 = np.reciprocal(12.0 * a0)
+
+## The plot
+fig = pp.subplots()
+pp.xlabel('$\\alpha_0$', fontsize=15)
+pp.ylabel('$\\alpha_2$', fontsize=15)
+pp.plot(a0, a2, lw=2)
+pp.ylim((0,3))
+pp.savefig('./images/cond_u-_0.pdf')
+'./images/cond_u-_0.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u-_0.pdf]]
+
+**** \(\gamma(t)\):  
+
+In this case gamma vanishes.
+
+**** \(\phi(t)\)
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## The ivar is t
+t = np.arange(0.0, 3.0, 0.01)
+
+## The dependent function
+phi0 = 1.0
+# We are assuming alpha1 > 0
+# alpha1 = 1.0
+alp0 = 1.0
+p = [phi0 * mt.exp( 6.0 * alp0 * mt.pow(tt,2) ) for tt in t]
+alp0 = -1.0
+q = [phi0 * mt.exp( 6.0 * alp0 * mt.pow(tt,2) ) for tt in t]
+
+## The plot
+fig1 = pp.subplots()
+pp.yscale('log')
+pp.xlabel("$t$", fontsize=15)
+pp.ylabel("$\\phi(t)$", fontsize=15)
+pp.plot(t, p, label='$\\alpha_{2} > 0$', lw=2)
+pp.plot(t, q, label='$\\alpha_{2} < 0$', lw=2, ls='dashed')
+pp.legend(loc='upper left')
+pp.savefig('./images/phi_u-_0.pdf')
+'./images/phi_u-_0.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u-_0.pdf]]
+
+**** \(a(t)\) 
+
+The scale factor
+
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## The ivar is t
+t = np.arange(0.0, 3.0, 0.01)
+
+## The dependent function
+a0 = 1.0
+# We are assuming alpha1 > 0
+# alpha1 = 1.0
+alp0 = 1.0
+p = a0 * t * np.exp( - alp0 * np.square(t) )
+alp0 = -1.0
+q = a0 * t * np.exp( - alp0 * np.square(t) )
+
+## The plot
+fig2 = pp.subplots()
+pp.yscale('log')
+pp.xlabel("$t$", fontsize=15)
+pp.ylabel("$a(t)$", fontsize=15)
+pp.plot(t, p, label='$\\alpha_{2} > 0$', lw=2)
+pp.plot(t, q, label='$\\alpha_{2} < 0$', lw=2, ls='dashed')
+pp.legend(loc='upper left')
+pp.ylim((1E-4,1E5))
+# pp.show()
+pp.savefig('./images/a_u-_0.pdf')
+'./images/a_u-_0.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u-_0.pdf]]
+
+**** COMMENT \(f^2(t)\)
+:LOGBOOK:
+CLOCK: [2016-09-06 Tue 16:17]--[2016-09-06 Tue 16:22] =>  0:05
+:END:
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## The ivar is t
+t = np.arange(0.0, 2.0, 0.01)
+
+## The dependent function
+a0 = 1.0
+# We are assuming alpha1 > 0
+# alpha1 = 1.0
+alp0 = 1.0
+k = 1.0
+p1 = k * np.square( np.reciprocal(t) ) * np.exp(2.0 * alp0 * t) + np.square( np.reciprocal(t) ) + 2
+k = 0.0
+p2 = k * np.square( np.reciprocal(t) ) * np.exp(2.0 * alp0 * t) + np.square( np.reciprocal(t) ) + 2
+k = -1.0
+p3 = k * np.square( np.reciprocal(t) ) * np.expm1(2.0 * alp0 * t) + 2
+# p1 = [ k * mt.pow(tt,-2) * mt.exp( 2.0 * alp0 * mt.pow(tt,2) ) +  mt.pow(tt,-2) + 2 for tt in t]
+# k = 0.0
+# p2 = [a0 / mt.pow(tt,2) * mt.exp( 2 * alp0 * mt.pow(tt,2) ) + 1 / mt.pow(tt,2) + 2 for tt in t]
+# k = -1.0
+# p3 = [a0 / mt.pow(tt,2) * mt.exp( 2 * alp0 * mt.pow(tt,2) ) + 1 / mt.pow(tt,2) + 2 for tt in t]
+# alp0 = -1.0
+# k = 1.0
+# q1 = [a0 / mt.pow(tt,2) * mt.exp( 2 * alp0 * mt.pow(tt,2) ) + 1 / mt.pow(tt,2) + 2 for tt in t]
+# k = 0.0
+# q2 = [a0 / mt.pow(tt,2) * mt.exp( 2 * alp0 * mt.pow(tt,2) ) + 1 / mt.pow(tt,2) + 2 for tt in t]
+# k = -1.0
+# q3 = [a0 / mt.pow(tt,2) * mt.exp( 2 * alp0 * mt.pow(tt,2) ) + 1 / mt.pow(tt,2) + 2 for tt in t]
+
+## The plot
+fig3 = pp.subplots()
+## pp.yscale('log')
+pp.xlabel("$t$", fontsize=15)
+pp.ylabel("$f^2(t)$", fontsize=15)
+pp.plot(t, p1, t, p2, t, p3)
+pp.ylim((-10,60))
+## pp.plot(t, q1, t, q2, t, q3, label='$\\alpha_{0} < 0$')
+## pp.legend(loc='upper left')
+pp.savefig('./images/u-0_F.pdf')
+'./images/u-0_F.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/u-0_F.pdf]]
+
+There is something wrong with the graph, because according to the
+expansion the red plot must start at zero
+
+*** Case \(u_\pm > 0\)
+
+**** Conditions
+:LOGBOOK:
+CLOCK: [2016-09-13 Tue 21:19]--[2016-09-13 Tue 21:26] =>  0:07
+CLOCK: [2016-09-09 Fri 09:34]--[2016-09-09 Fri 11:02] =>  1:28
+CLOCK: [2016-09-07 Wed 14:37]--[2016-09-07 Wed 15:57] =>  1:20
+CLOCK: [2016-09-07 Wed 11:46]--[2016-09-07 Wed 12:21] =>  0:35
+:END:
+
+For \(u_+ > 0 \), we need that 
+\[ \bigg(\alpha_0 \le 0 \land  \alpha_2 > 0 \bigg) 
+\lor 
+\bigg( \alpha_0 > 0 \land 0 < \alpha_2 \le \frac{1}{ 4 \alpha_0} \bigg)\]
+
+The plot of those constraints in the \(\alpha_0-\alpha_2\) plane is
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+
+## The ivar is alp0 > 0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable alp2
+alp2 =  np.reciprocal( 4.0 * alp0 )
+
+## The plot
+fig4 = pp.subplots()
+pp.xlabel("$\\alpha_0$", fontsize=15)
+pp.ylabel("$\\alpha_2$", fontsize=15)
+## pp.plot(alp0, alp2, label='$\\alpha_2 = \\frac{1}{4 \\alpha_0}$')
+pp.fill_between(alp0, 0, alp2, alpha=0.2)
+pp.fill([-2,0,0,-2],[0,0,2,2], hatch='///', fill=False) ## alpha=0.2)
+pp.ylim((-0.2,2))
+pp.legend()
+pp.savefig('./images/cond_u+_pos.pdf')
+'./images/cond_u+_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u+_pos.pdf]]
+
+On the other hand, \(u_- > 0\) is much more involved
+\begin{equation}
+\bigg( \alpha_0 < 0 \land \frac{1}{12\alpha_0} < \alpha_2 < 0 \bigg)
+\lor
+\bigg( \alpha_0 \ge 0 \land \alpha_2 < 0 \bigg)
+\lor
+\bigg( \alpha_0 > 0 \land \frac{1}{12\alpha_0} < \alpha_2 \le \frac{1}{4\alpha_0} \bigg)
+\end{equation}
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+from matplotlib.patches import Rectangle
+import numpy as np
+
+## The ivar is alp0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable is alp2: a2 and b2
+a2 = np.reciprocal( 4.0 * alp0)
+b2 = np.reciprocal(12.0 * alp0)
+
+## The plot
+fig = pp.subplots()
+pp.xlabel("$\\alpha_0$", fontsize=15)
+pp.ylabel("$\\alpha_2$", fontsize=15)
+pp.plot(alp0, a2)
+pp.fill_between(alp0, a2, b2, color='b', alpha=0.4)
+pp.plot(-alp0, -a2)
+pp.fill_between(-alp0, 0, -a2, color='g', alpha=0.4)
+pp.fill([0,2,2,0],[-2,-2,0,0],color='y', alpha=0.4)
+p1 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4)
+p2 = Rectangle((0, 0), 1, 1, fc="green", alpha=0.4)
+p3 = Rectangle((0, 0), 1, 1, fc="yellow", alpha=0.4)
+l1 = '$\\frac{1}{12\\alpha_0} < \\alpha_2 \\leq \\frac{1}{4\\alpha_0}$'
+l2 = '$\\frac{1}{12\\alpha_0} < \\alpha_2 \\leq 0$'
+l3 = '$\\alpha_2 < 0$'
+pp.ylim((-2,2))
+pp.legend([p1,p2,p3],[l1,l2,l3],loc='upper left')
+pp.savefig('./images/cond_u-_pos.pdf')
+'./images/cond_u-_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u-_pos.pdf]]
+
+I want to plot these two conditions plots in one figure
+
+#+BEGIN_SRC python :session test :results file :exports results 
+import matplotlib.pyplot as pp
+from matplotlib.patches import Rectangle
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+
+## The ivar is alp0 > 0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable alp2
+a2 =  np.reciprocal(  4.0 * alp0 )
+b2 =  np.reciprocal( 12.0 * alp0 )
+
+## The plot
+fig = pp.figure()
+ax1 = fig.add_subplot(121)
+ax1.set_xlabel("$\\alpha_0$", fontsize=15)
+ax1.set_ylabel("$\\alpha_2$", fontsize=15)
+# ax1.plot(alp0, a2, label='$\\alpha_2 = \\frac{1}{4 \\alpha_0}$')
+ax1.fill_between(alp0, 0, a2, alpha=0.4, hatch='xx')
+ax1.fill([-2,0,0,-2],[0,0,2,2], 'r', alpha=0.4, hatch='//')
+p1 = Rectangle((0, 0), 1, 1, fc="blue", hatch='xx', alpha=0.4)
+p2 = Rectangle((0, 0), 1, 1, fc="red", hatch='//', alpha=0.4)
+l1 = r'$\alpha_2 > 0$'
+l2 = r'$0 < \alpha_2 < \frac{1}{ 4 \alpha_0}$'
+ax1.legend([p1,p2],[l2,l1], loc='lower right')
+ax2 = fig.add_subplot(122, sharey=ax1)
+ax2.set_xlabel("$\\alpha_0$", fontsize=15)
+## ax2.set_ylabel("$\\alpha_2$", fontsize=15)
+# ax2.plot(alp0, a2, color='g')
+ax2.fill_between(alp0, a2, b2, color='g', alpha=0.4, hatch='++')
+# ax2.plot(-alp0, -a2, color='b')
+ax2.fill_between(-alp0, 0, -a2, color='b', alpha=0.4, hatch='xx')
+ax2.fill([0,2,2,0],[-2,-2,0,0],color='r', alpha=0.4, hatch='//')
+p3 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4, hatch='xx')
+p4 = Rectangle((0, 0), 1, 1, fc="red", alpha=0.4, hatch='//')
+p5 = Rectangle((0, 0), 1, 1, fc="green", alpha=0.4, hatch='++')
+l3 = r'$\frac{1}{12\alpha_0} < \alpha_2 < 0$'
+l4 = r'$\alpha_0 \ge 0 \land \alpha_2 < 0$'
+l5 = r'$\frac{1}{12\alpha_0} < \alpha_2 < \frac{1}{4\alpha_0}$'
+ax2.legend([p3,p4,p5],[l3,l4,l5], loc=4)
+pp.ylim((-2,2))
+pp.savefig('./images/cond_u_pos.pdf')
+'./images/cond_u_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u_pos.pdf]]
+
+**** \(\phi(t)\)
+
+The expression is
+\begin{equation}
+\phi(t) =\phi_0\sin^2\tau\exp\left[\frac{\mp\sqrt{6\Delta}}{4\alpha_2}\cos^2\tau\right]
+\end{equation}
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+
+## The ivar is t
+t = np.arange(0.0, 3.15, 0.01)
+
+## The dependent function
+pa = np.square( np.sin(t) ) * np.exp( - mt.sqrt(30.0) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pb = np.square( np.sin(t) ) * np.exp( - mt.sqrt( 3.0) / ( 2.0 + mt.sqrt( 3.0) ) * np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} t$', fontsize=15)
+pp.ylabel(r'$\phi(t)$', fontsize=15)
+pp.plot(t, pa, label=r'$\alpha_0 < 0$')
+pp.plot(t, pb, label=r'$\alpha_0 > 0$')
+pp.legend()
+pp.savefig('./images/phi_u+_pos.pdf')
+'./images/phi_u+_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u+_pos.pdf]]
+
+#+BEGIN_SRC python :session test :results file :exports results 
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+pa = np.square( np.sin(t) ) * np.exp( mt.sqrt( 5.0) / (2.0 - mt.sqrt( 5.0) ) * np.square( np.cos(t) ) )
+pb = np.square( np.sin(t) ) * np.exp( mt.sqrt(30.0) / (2.0 - mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pc = np.square( np.sin(t) ) * np.exp( mt.sqrt( 3.0) / (2.0 - mt.sqrt( 3.0) ) * np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} \cdot t$', fontsize=15)
+pp.ylabel(r'$\phi(t)/ \phi_{\rm max}$', fontsize=15)
+pp.plot(t, pa, label=r'$\alpha_0 < 0 \, \wedge \,  \frac{1}{12\alpha_0} < \alpha_2 < 0$')
+pp.plot(t, pb, label=r'$\alpha_0 \geq 0 \, \wedge \, \alpha_2 < 0$')
+pp.plot(t, pc / max(pc), label=r'$\alpha_0 > 0 \, \wedge \, \frac{1}{12\alpha_0} < \alpha_2 \leq \frac{1}{4\alpha_0}$')
+pp.ylim((0,1))
+pp.legend()
+pp.savefig('./images/phi_u-_pos.pdf')
+'./images/phi_u-_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u-_pos.pdf]]
+
+We can take some representative graphs from the above, and resume the
+results into a simple plot
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+pa = np.square( np.sin(t) ) * np.exp( - mt.sqrt(30.0) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pb = np.square( np.sin(t) ) * np.exp( mt.sqrt(30.0) / (2.0 - mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pc = np.square( np.sin(t) ) * np.exp( mt.sqrt( 3.0) / (2.0 - mt.sqrt( 3.0) ) * np.square( np.cos(t) ) ) / 36.5
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} \cdot t$', fontsize=15)
+pp.ylabel(r'$\phi(t)/ \phi_{\rm max}$', fontsize=15)
+pp.plot(t, pa, label=r'$u_+ > 0$', lw=2)
+pp.plot(t, pb, label=r'$u_- > 0 \land \alpha_2 < 0$', lw=2, ls='dashed')
+pp.plot(t, pc, label=r'$u_- > 0 \land \alpha_2 > 0$', lw=3, ls='-.', color='k')
+pp.ylim((0,1))
+pp.legend()
+pp.savefig('./images/phi_u_pos.pdf')
+'./images/phi_u_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u_pos.pdf]]
+
+**** \(a(t)\)
+
+For \(u_+ > 0\)
+
+#+BEGIN_SRC python :session test :results file :exports results 
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+pa = np.absolute( np.cos(t) ) * np.exp( mt.sqrt(5.0/6.0) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pb = np.absolute( np.cos(t) ) * np.exp( 1 / ( 4.0 * mt.sqrt(3.0) + 6.0 )* np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel('$\\tau \\equiv \\sqrt{u_+} t$', fontsize=15)
+pp.ylabel('$\\sqrt{u_\\pm} a(t)$', fontsize=15)
+pp.plot(t, pa, label='$\\alpha_0 < 0$')
+pp.plot(t, pb, label='$\\alpha_0 > 0$')
+pp.legend()
+pp.savefig('./images/a_u+_pos.pdf')
+'./images/a_u+_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u+_pos.pdf]]
+
+EXTRA PLOT:
+
+#+BEGIN_SRC python :session test :results file :exports results 
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+#pa = np.absolute( np.cos(t) ) * np.exp( mt.sqrt(5.0/6.0) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pa = np.absolute( np.cos(t) ) * np.exp( 1.0 / 12.0 * np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel('$\\tau \\equiv \\sqrt{u_+} t$', fontsize=15)
+pp.ylabel('$\\sqrt{u_\\pm} a(t)$', fontsize=15)
+pp.plot(t, pa, label='$\\alpha_0 < 0$')
+#pp.plot(t, pb, label='$\\alpha_0 > 0$')
+pp.legend()
+pp.savefig('./images/a_u+_pos_extra.pdf')
+'./images/a_u+_pos_extra.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u+_pos_extra.pdf]]
+
+For \(u_- > 0\)
+
+#+BEGIN_SRC python :session test :results file :exports results 
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+pa = np.absolute( np.cos(t) ) * np.exp( - mt.sqrt(5.0) / ( 12.0 - 6.0*mt.sqrt(5.0) )* np.square( np.cos(t) ) )
+pb = np.absolute( np.cos(t) ) * np.exp( - mt.sqrt(5.0/6.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pc = np.absolute( np.cos(t) ) * np.exp( - 1.0 / ( 4.0*mt.sqrt(3.0) - 6.0 ) * np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_-} t$', fontsize=15)
+pp.ylabel(r'$\sqrt{u_-} a(t)$', fontsize=15)
+pp.plot(t, pa / max(pa), label=r'$\alpha_0 < 0 \, \wedge \,  \frac{1}{12\alpha_0} < \alpha_2 < 0$')
+pp.plot(t, pb / max(pb), label=r'$\alpha_0 \geq 0 \, \wedge \, \alpha_2 < 0$')
+pp.plot(t, pc / max(pc), label=r'$\alpha_0 > 0 \, \wedge \, \frac{1}{12\alpha_0} < \alpha_2 \leq \frac{1}{4\alpha_0}$')
+pp.legend(loc='lower right')
+pp.savefig('./images/a_u-_pos.pdf')
+'./images/a_u-_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u-_pos.pdf]]
+
+And again, the resumed plot
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import math as mt
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+
+## ivar = t
+t = np.arange(0.0, 5.0, 0.01)
+
+## the functions
+pa = np.absolute( np.cos(t) ) * np.exp( mt.sqrt(5.0/6.0) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pb = np.absolute( np.cos(t) ) * np.exp( - mt.sqrt(5.0/6.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cos(t) ) )
+pc = np.absolute( np.cos(t) ) * np.exp( - 1.0 / ( 4.0*mt.sqrt(3.0) - 6.0 ) * np.square( np.cos(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} t$', fontsize=15)
+pp.ylabel(r'$ a(t) / a_{\rm max}$', fontsize=15)
+pp.plot(t, pa / max(pa), label=r'$u_+ > 0$', lw=2)
+pp.plot(t, pb / max(pb), label=r'$u_- > 0 \land \alpha_2 < 0$', lw=2, ls='--')
+pp.plot(t, pc / max(pc), label=r'$u_- > 0 \land \alpha_2 > 0$', lw=3, ls='-.', color='k')
+pp.legend(loc=4)
+pp.savefig('./images/a_u_pos.pdf')
+'./images/a_u_pos.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u_pos.pdf]]
+
+*** Case \(u_\pm < 0\)
+
+**** Conditions
+:LOGBOOK:
+CLOCK: [2016-09-14 Wed 06:57]--[2016-09-14 Wed 07:00] =>  0:03
+CLOCK: [2016-09-08 Thu 09:34]--[2016-09-08 Thu 10:40] =>  1:06
+:END:
+
+For \( u_+ < 0 \) the conditions are
+\[ \bigg( \alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < 0 \bigg) 
+\lor 
+\bigg( \alpha_0 \geq 0 \land \alpha_2 < 0 \bigg), \]
+while for \(u_- < 0 \) the proper are
+\[ \bigg( \alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < \frac{1}{12 \alpha _0} \bigg) 
+\lor
+\bigg( \alpha _0 \leq 0 \land \alpha_2 > 0 \bigg) 
+\lor 
+\bigg( \alpha_0 > 0 \land 0 < \alpha_2 < \frac{1}{12 \alpha _0} \bigg). \]
+
+These conditions can be plotted as follows.
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+
+## The ivar is alp0 > 0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable alp2
+alp2 =  np.reciprocal( 4.0 * alp0 )
+
+## The plot
+fig4 = pp.subplots()
+pp.xlabel(r"$\alpha_0$", fontsize=15)
+pp.ylabel(r"$\alpha_2$", fontsize=15)
+pp.plot(-alp0, -alp2)
+pp.fill_between(-alp0, 0, -alp2, alpha=0.4)
+pp.fill([0,2,2,0],[-2,-2,0,0], 'r', alpha=0.4)
+pp.ylim((-2,0.2))
+p1 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4)
+p2 = Rectangle((0, 0), 1, 1, fc="red", alpha=0.4)
+l1 = r'$\alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < 0$'
+l2 = r'$\alpha_0 \geq 0 \land \alpha_2 < 0$'
+pp.legend([p1,p2],[l1,l2], loc='lower right')
+pp.savefig('./images/cond_u+_neg.pdf')
+'./images/cond_u+_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u+_neg.pdf]]
+
+While for \( u_- < 0 \) we have
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+
+## The ivar is alp0 > 0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable alp2
+a2 =  np.reciprocal(  4.0 * alp0 )
+b2 =  np.reciprocal( 12.0 * alp0 )
+
+## The plot
+fig4 = pp.subplots()
+pp.xlabel(r"$\alpha_0$", fontsize=15)
+pp.ylabel(r"$\alpha_2$", fontsize=15)
+pp.plot(-alp0, -a2)
+pp.fill_between(-alp0, -a2, -b2, color='blue', alpha=0.4)
+pp.fill([-2,0,0,-2],[0,0,2,2], 'r', alpha=0.4)
+pp.fill_between(alp0, 0, b2, color='green', alpha=0.4)
+pp.ylim((-2,2))
+p1 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4)
+p2 = Rectangle((0, 0), 1, 1, fc="red", alpha=0.4)
+p3 = Rectangle((0, 0), 1, 1, fc="green", alpha=0.4)
+l1 = r'$\alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < \frac{1}{12 \alpha _0}$'
+l2 = r'$\alpha _0 \leq 0 \land \alpha_2 > 0$'
+l3 = r'$\alpha_0 > 0 \land 0 < \alpha_2 < \frac{1}{12 \alpha _0}$'
+pp.legend([p1,p2,p3],[l1,l2,l3], loc='lower right')
+pp.savefig('./images/cond_u-_neg.pdf')
+'./images/cond_u-_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u-_neg.pdf]]
+
+The resume plot for the conditions on \( u_\pm < 0 \) is
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+
+## The ivar is alp0 > 0
+alp0 = np.arange(0.01, 2.0, 0.01)
+
+## The dependent variable alp2
+a2 =  np.reciprocal(  4.0 * alp0 )
+b2 =  np.reciprocal( 12.0 * alp0 )
+
+## The plot
+fig  = pp.figure()
+ax1 = fig.add_subplot(121)
+ax1.set_xlabel(r"$\alpha_0$", fontsize=15)
+ax1.set_ylabel(r"$\alpha_2$", fontsize=15)
+# ax1.plot(-alp0, -a2)
+ax1.fill_between(-alp0, 0, -a2, alpha=0.4, hatch='xx')
+ax1.fill([0,2,2,0],[-2,-2,0,0], 'r', alpha=0.4, hatch='//')
+p1 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4, hatch='xx')
+p2 = Rectangle((0, 0), 1, 1, fc="red", alpha=0.4, hatch='//')
+l1 = r'$\frac{1}{4 \alpha _0} < \alpha_2 < 0$'
+l2 = r'$\alpha_0 \geq 0 \land \alpha_2 < 0$'
+ax1.legend([p1,p2],[l1,l2])
+ax2 = fig.add_subplot(122, sharey=ax1)
+ax2.set_xlabel(r"$\alpha_0$", fontsize=15)
+# ax2.plot(-alp0, -a2)
+ax2.fill_between(-alp0, -a2, -b2, color='blue', alpha=0.4, hatch='xx')
+ax2.fill([-2,0,0,-2],[0,0,2,2], 'r', alpha=0.4, hatch='//')
+ax2.fill_between(alp0, 0, b2, color='green', alpha=0.4, hatch='++')
+p3 = Rectangle((0, 0), 1, 1, fc="blue", alpha=0.4, hatch='xx')
+p4 = Rectangle((0, 0), 1, 1, fc="red", alpha=0.4, hatch='//')
+p5 = Rectangle((0, 0), 1, 1, fc="green", alpha=0.4, hatch='++')
+l3 = r'$\frac{1}{4 \alpha _0} < \alpha_2 < \frac{1}{12 \alpha _0}$'
+l4 = r'$\alpha _0 \leq 0 \land \alpha_2 > 0$'
+l5 = r'$0 < \alpha_2 < \frac{1}{12 \alpha _0}$'
+ax2.legend([p3,p4,p5],[l3,l4,l5], loc='lower right')
+pp.ylim((-2,2))
+pp.savefig('./images/cond_u_neg.pdf')
+'./images/cond_u_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/cond_u_neg.pdf]]
+
+**** \( \phi(t) \)
+:LOGBOOK:
+CLOCK: [2016-09-14 Wed 07:01]--[2016-09-14 Wed 08:07] =>  1:06
+CLOCK: [2016-09-08 Thu 14:36]--[2016-09-08 Thu 15:00] =>  0:24
+CLOCK: [2016-09-08 Thu 11:22]--[2016-09-08 Thu 11:40] =>  0:18
+:END:
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.0, 3.15, 0.01)
+
+## The dependent function
+pa = np.square( np.sinh(t) ) * np.exp( - mt.sqrt(  3.0) / ( 2.0 + mt.sqrt(  3.0) ) * np.square( np.cosh(t) ) )
+pb = np.square( np.sinh(t) ) * np.exp( - mt.sqrt( 30.0) / ( 2.0 + mt.sqrt( 30.0) ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} t$', fontsize=15)
+pp.ylabel(r'$\phi(\tau)$', fontsize=15)
+pp.plot(t, pa, label=r'$\alpha_0 < 0$')
+pp.plot(t, pb, label=r'$\alpha_0 > 0$')
+pp.legend()
+pp.savefig('./images/phi_u+_neg.pdf')
+'./images/phi_u+_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u+_neg.pdf]]
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.01, 2.0, 0.01)
+
+## The dependent function
+pa = np.square( np.sinh(t) ) * np.exp( mt.sqrt( 3.0 ) / ( 2.0 - mt.sqrt( 3.0) ) * np.square( np.cosh(t) ) )
+pb = np.square( np.sinh(t) ) * np.exp( mt.sqrt( 30.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cosh(t) ) )
+pc = np.square( np.sinh(t) ) * np.exp( 3.0 / ( mt.sqrt(8.0) - 3.0 ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} t$', fontsize=15)
+pp.ylabel(r'$\phi(\tau)$', fontsize=15)
+pp.yscale('log')
+pp.plot(t, pa, label=r'$\alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < \frac{1}{12 \alpha _0}$')
+pp.plot(t, pb, label=r'$\alpha _0 \leq 0 \land \alpha_2 > 0$')
+pp.plot(t, pc, label=r'$\alpha_0 > 0 \land 0 < \alpha_2 < \frac{1}{12 \alpha _0}$')
+pp.ylim((1E-12,1E30))
+pp.legend(loc='upper left')
+pp.savefig('./images/phi_u-_neg.pdf')
+'./images/phi_u-_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u-_neg.pdf]]
+
+The summary plot:
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.01, 2.0, 0.01)
+
+## The dependent function
+pa = np.square( np.sinh(t) ) * np.exp( - mt.sqrt(  3.0) / ( 2.0 + mt.sqrt(  3.0) ) * np.square( np.cosh(t) ) )
+pb = np.square( np.sinh(t) ) * np.exp( mt.sqrt( 3.0 ) / ( 2.0 - mt.sqrt( 3.0) ) * np.square( np.cosh(t) ) )
+# pc = np.square( np.sinh(t) ) * np.exp( mt.sqrt( 30.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cosh(t) ) )
+pc = np.square( np.sinh(t) ) * np.exp( 3.0 / ( mt.sqrt(8.0) - 3.0 ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_\pm} t$', fontsize=15)
+pp.ylabel(r'$\phi(\tau)$', fontsize=15)
+pp.yscale('log')
+pp.plot(t, pa, label=r'$u_+ < 0$', lw=2)
+pp.plot(t, pb, label=r'$u_- < 0 \land \alpha_2 < 0$', lw=2, ls='--')
+pp.plot(t, pc, label=r'$u_- < 0 \land \alpha_2 > 0$', lw=3, ls='-.', color='k')
+pp.ylim((1E-20,1E15))
+pp.legend(loc='upper left')
+pp.savefig('./images/phi_u_neg.pdf')
+'./images/phi_u_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/phi_u_neg.pdf]]
+
+**** \( a(t) \)
+:LOGBOOK:
+CLOCK: [2016-09-10 Sat 10:42]--[2016-09-10 Sat 11:02] =>  0:20
+CLOCK: [2016-09-08 Thu 15:00]--[2016-09-08 Thu 15:20] =>  0:20
+:END:
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.0, 3.0, 0.01)
+
+## The dependent function
+pa = np.cosh(t) * np.exp( 1.0 / ( 4.0 * mt.sqrt(3.0) + 6.0 ) * np.square( np.cosh(t) ) )
+pb = np.cosh(t) * np.exp( mt.sqrt( 5.0/6.0 ) / ( 2.0 + mt.sqrt(30.0) ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_+} t$', fontsize=15)
+pp.ylabel(r'$a(\tau)$', fontsize=15)
+pp.plot(t, pa, label=r'$\alpha_0 < 0$')
+pp.plot(t, pb, label=r'$\alpha_0 > 0$')
+pp.yscale('log')
+pp.ylim((1,1E8))
+pp.legend(loc='upper left')
+pp.savefig('./images/a_u+_neg.pdf')
+'./images/a_u+_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u+_neg.pdf]]
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.01, 2.0, 0.01)
+
+## The dependent function
+pa = np.cosh(t) * np.exp( - 1.0 / ( 4.0 * mt.sqrt( 3.0) - 6.0 ) * np.square( np.cosh(t) ) )
+pb = np.cosh(t) * np.exp( - mt.sqrt(5.0/6.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cosh(t) ) )
+pc = np.cosh(t) * np.exp( - 1.0 / ( 4.0 * mt.sqrt( 2.0) - 6.0 ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{u_-} t$', fontsize=15)
+pp.ylabel(r'$\sqrt{u_-} \, a(\tau)$', fontsize=15)
+pp.yscale('log')
+pp.plot(t, pa, label=r'$\alpha _0 < 0 \land \frac{1}{4 \alpha _0} \leq \alpha_2 < \frac{1}{12 \alpha _0}$')
+pp.plot(t, pb, label=r'$\alpha _0 \leq 0 \land \alpha_2 > 0$')
+pp.plot(t, pc, label=r'$\alpha_0 > 0 \land 0 < \alpha_2 < \frac{1}{12 \alpha _0}$')
+pp.ylim((1E-7,1E18))
+pp.legend(loc='upper left')
+pp.savefig('./images/a_u-_neg.pdf')
+'./images/a_u-_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u-_neg.pdf]]
+
+The resume plot is the following
+
+#+BEGIN_SRC python :session test :results file :exports results
+import matplotlib.pyplot as pp
+import numpy as np
+import matplotlib as mpl
+mpl.rcParams['text.usetex'] = True
+from matplotlib.patches import Rectangle
+import math as mt
+
+## The ivar is alp0 > 0
+t = np.arange(0.0, 2.0, 0.01)
+
+## The dependent function
+pa = np.cosh(t) * np.exp( 1.0 / ( 4.0 * mt.sqrt(3.0) + 6.0 ) * np.square( np.cosh(t) ) )
+pb = np.cosh(t) * np.exp( - 1.0 / ( 4.0 * mt.sqrt( 3.0) - 6.0 ) * np.square( np.cosh(t) ) )
+# pb = np.cosh(t) * np.exp( - mt.sqrt(5.0/6.0) / ( 2.0 - mt.sqrt(30.0) ) * np.square( np.cosh(t) ) )
+pc = np.cosh(t) * np.exp( - 1.0 / ( 4.0 * mt.sqrt( 2.0) - 6.0 ) * np.square( np.cosh(t) ) )
+
+## The plot
+fig = pp.subplots()
+pp.xlabel(r'$\tau \equiv \sqrt{|u_\pm|} t$', fontsize=15)
+pp.ylabel(r'$a(\tau) / a_{\rm max}$', fontsize=15)
+pp.yscale('log')
+pp.plot(t, pa / max(pa), label=r'$u_+ < 0$', lw=2)
+pp.plot(t, pb / max(pb), label=r'$u_- < 0 \land \alpha_2 < 0$', lw=2, ls='--')
+pp.plot(t, pc / max(pc), label=r'$u_- < 0 \land \alpha_2 > 0$', lw=3, ls='-.', color='k')
+pp.ylim((1E-17,1))
+pp.legend(loc=4)
+pp.savefig('./images/a_u_neg.pdf')
+'./images/a_u_neg.pdf'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/a_u_neg.pdf]]
+
+* Tasks
+:LOGBOOK:
+CLOCK: [2016-08-16 Tue 10:07]--[2016-08-16 Tue 10:52] =>  0:45
+:END:
+
+** LIST OF ACTIONS [0/3]
+
+- [-] Check the manual for hints about definition of forms from tensors
+  - [X] Found the section about =DiffFormModule= in page 375 of Reference manual
+  - [X] At the end of Pag. 377 there is a function =has_coerce_map_from=
+  - [ ] How to map a two-tensor to a set of one-forms?
+- [ ] Try to define our forms and calculate the EOM
+- [ ] Check that the solutions by Criz and Simon satisfy the EOM
+
+** Review of the draft
+:LOGBOOK:
+CLOCK: [2016-09-17 Sat 06:43]--[2016-09-17 Sat 07:55] =>  1:12
+CLOCK: [2016-09-16 Fri 17:47]--[2016-09-16 Fri 18:54] =>  1:07
+CLOCK: [2016-09-15 Thu 12:45]--[2016-09-15 Thu 13:08] =>  0:23
+CLOCK: [2016-09-15 Thu 10:05]--[2016-09-15 Thu 12:32] =>  2:27
+CLOCK: [2016-09-15 Thu 09:01]--[2016-09-15 Thu 09:33] =>  0:32
+CLOCK: [2016-09-15 Thu 08:09]--[2016-09-15 Thu 08:57] =>  0:48
+CLOCK: [2016-09-14 Wed 17:15]--[2016-09-14 Wed 18:13] =>  0:58
+CLOCK: [2016-09-14 Wed 14:53]--[2016-09-14 Wed 16:16] =>  1:23
+CLOCK: [2016-09-14 Wed 09:34]--[2016-09-14 Wed 10:25] =>  0:51
+CLOCK: [2016-09-14 Wed 08:07]--[2016-09-14 Wed 08:40] =>  0:33
+CLOCK: [2016-09-13 Tue 21:46]--[2016-09-13 Tue 22:14] =>  0:28
+CLOCK: [2016-09-13 Tue 15:49]--[2016-09-13 Tue 17:40] =>  1:51
+CLOCK: [2016-09-12 Mon 14:50]--[2016-09-12 Mon 16:50] =>  2:00
+CLOCK: [2016-09-12 Mon 11:04]--[2016-09-12 Mon 13:34] =>  2:30
+CLOCK: [2016-09-12 Mon 10:02]--[2016-09-12 Mon 10:57] =>  0:55
+CLOCK: [2016-09-12 Mon 08:03]--[2016-09-12 Mon 08:32] =>  0:29
+CLOCK: [2016-08-22 Mon 16:17]--[2016-08-22 Mon 16:24] =>  0:07
+:END:
+
+*** Abstract
+
+- [X] We study the Kaluza--Klein dimensional reduction of the Lovelock--Cartan theory on a $N$-dimensional Riemann--Cartan manifold: Einstein--Gauss--Bonnet in $N$ dimensions.
+- [X] First, we focus on the dimensional reduction in presence of torsion, to proceed with the Lovelock--Cartan theory in five dimensions.: Detailed reduction.
+
+*** Need to include PACS and KEYWORDS
+
+*** Introduction
+
+- [ ] GR is not a fundamental gravitational theory: References???
+- [ ] as for example: supersymmetry and supergravity: References??
+- [ ] In the paragraph "In four dimensions...": theory or theories.
+
+* Footnotes
+
+[fn:1] Although there are three function involved, \(G_{101}\) and \(G_{110}\)
+enter as a combination.

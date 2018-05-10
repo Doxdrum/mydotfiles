@@ -1,0 +1,21 @@
+Theorem
+
+{maxima binomial(n-1,i-1)+binomial(n-1,i)=binomial(n,i) maxima}
+
+Proof:
+
+We prove this formuula by subtracting the right hand side
+
+from the left hand side.
+
+Using makefactorial() command in Maxima, factorial representation
+of the formula is obtained:
+
+{maxima binomial(n-1,i-1)+binomial(n-1,i)-binomial(n,i)
+maxima}&{latex
+-{{n}\choose{i}}+{{n-1}\choose{i}}+{{n-1}\choose{i-1}}
+latex}={maxima makefact(binomial(n-1,i-1)+binomial(n-1,i)-binomial(n,i)) maxima}&{latex  -\ifrac{n!}{i!\,\left(n-i\right)!}+\ifrac{\left(n-1\right)!}{\left(i-1\right)!\,\left(n-i\right)!}+\ifrac{\left(n-1\right)!}{i!\,\left(n-i-1\right)!} latex}
+
+Using minfactorial() command in Maxima
+
+={maxima minfactorial(binomial(n-1,i-1)+binomial(n-1,i)-binomial(n,i)) maxima}&{latex  -{{n}\choose{i}}+{{n-1}\choose{i}}+{{n-1}\choose{i-1}} latex}

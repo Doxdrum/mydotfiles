@@ -1,0 +1,26 @@
+\titledquestion{Multiplication tables}
+
+\begin{parts}
+  \part Find the multiplication table for a group with three elements
+  and prove that it is unique.
+ \part Write down the possible multiplication table of a group with 4
+ elements. Is it unique? If not, How many different tables are there?
+ Are these tables of Abelian groups?
+\end{parts}
+
+\titledquestion{Dihedral groups}
+
+A \emph{presentation} of a finite group is a list of its generators, their
+order, and whatever further relations are needed to specify the
+group. The same group may have several presentations. For example, $D_3#
+has the simple presentation
+\begin{equation*}
+  \bk{a, b }{ a^3 = b^2 = e ; bab^{−1} = a^{−1} }.
+\end{equation*}
+With two generators, $D_3$ is said to have rank two. $D_3$ is also
+the symmetry group of the equilateral triangle. In general the
+dihedral group \(D_n\) is the symmetry group of a regural polygon of \(n\)
+sides, and its \emph{presentation} is given by
+\begin{equation*}
+  D_n = \bk{a, b }{ a^n = b^2 = e ; bab^{−1} = a^{−1} }.
+\end{equation*}

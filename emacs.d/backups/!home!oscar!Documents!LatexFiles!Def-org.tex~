@@ -1,0 +1,591 @@
+\usepackage{mathtools,amsmath,amssymb,amsfonts,dsfont,mathrsfs,amsthm,latexsym}
+\newcommand\bmmax{5}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{xcolor}
+\usepackage{comment}
+%% \usepackage{hyperref}
+%% \hypersetup{linktocpage,colorlinks=true,urlcolor=blue!80!red,linkcolor=blue,citecolor=red}
+\usepackage{feynmf}
+\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%% \usepackage{ulem}
+\usepackage{tikz}
+\usepackage{braket}
+\usepackage{xparse}
+\usepackage{breqn}
+\usetikzlibrary{shapes,
+  snakes,
+  decorations.pathmorphing,
+  decorations.markings,
+  calc,
+  shadows.blur,
+  shadings}
+\usepackage[framemethod=tikz]{mdframed}
+
+\makeatletter
+% gluon decoration (based on the original coil decoration)
+\pgfdeclaredecoration{gluon}{coil}
+{
+  \state{coil}[switch if less than=%
+    0.5\pgfdecorationsegmentlength+%>
+    \pgfdecorationsegmentaspect\pgfdecorationsegmentamplitude+%
+    \pgfdecorationsegmentaspect\pgfdecorationsegmentamplitude to last,
+               width=+\pgfdecorationsegmentlength]
+  {
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{0    }{ 0.555}{1}}
+    {\pgfpoint@oncoil{0.445}{ 1    }{2}}
+    {\pgfpoint@oncoil{1    }{ 1    }{3}}
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{1.555}{ 1    }{4}}
+    {\pgfpoint@oncoil{2    }{ 0.555}{5}}
+    {\pgfpoint@oncoil{2    }{ 0    }{6}}
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{2    }{-0.555}{7}}
+    {\pgfpoint@oncoil{1.555}{-1    }{8}}
+    {\pgfpoint@oncoil{1    }{-1    }{9}}
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{0.445}{-1    }{10}}
+    {\pgfpoint@oncoil{0    }{-0.555}{11}}
+    {\pgfpoint@oncoil{0    }{ 0    }{12}}
+  }
+  \state{last}[next state=final]
+  {
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{0    }{ 0.555}{1}}
+    {\pgfpoint@oncoil{0.445}{ 1    }{2}}
+    {\pgfpoint@oncoil{1    }{ 1    }{3}}
+    \pgfpathcurveto
+    {\pgfpoint@oncoil{1.555}{ 1    }{4}}
+    {\pgfpoint@oncoil{2    }{ 0.555}{5}}
+    {\pgfpoint@oncoil{2    }{ 0    }{6}}
+  }
+  \state{final}{}
+}
+
+\def\pgfpoint@oncoil#1#2#3{%
+  \pgf@x=#1\pgfdecorationsegmentamplitude%
+  \pgf@x=\pgfdecorationsegmentaspect\pgf@x%
+  \pgf@y=#2\pgfdecorationsegmentamplitude%
+  \pgf@xa=0.083333333333\pgfdecorationsegmentlength%
+  \advance\pgf@x by#3\pgf@xa%
+}
+\makeatother
+
+\tikzset{
+  boson/.style={decorate,decoration={gluon,segment length=9pt,aspect=0}},
+  % style to apply some styles to each segment of a path
+  on each segment/.style={
+    decorate,
+    decoration={
+      show path construction,
+      moveto code={},
+      lineto code={
+        \path [#1]
+        (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+      },
+      curveto code={
+        \path [#1] (\tikzinputsegmentfirst)
+        .. controls
+        (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb)
+        ..
+        (\tikzinputsegmentlast);
+      },
+      closepath code={
+        \path [#1]
+        (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+      },
+    },
+  },
+  % style to add an arrow in the middle of a path
+  mid arrow/.style={postaction={decorate,decoration={
+        markings,
+        mark=at position .5 with {\arrow[#1]{stealth}}
+      }}},
+}
+\tikzset{
+	% >=stealth', %%  Uncomment for more conventional arrows
+    vector/.style={decorate, decoration={snake}, draw},
+	provector/.style={decorate, decoration={snake,amplitude=2.5pt}, draw},
+	antivector/.style={decorate, decoration={snake,amplitude=-2.5pt}, draw},
+    fermion/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    fermionbar/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    fermionnoarrow/.style={draw=black},
+    gluon/.style={decorate, draw=black,
+        decoration={coil,amplitude=4pt, segment length=5pt}},
+    scalar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+    scalarbar/.style={dashed,draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{<}}}},
+    scalarnoarrow/.style={dashed,draw=black},
+    electron/.style={draw=black, postaction={decorate},
+        decoration={markings,mark=at position .55 with {\arrow[draw=black]{>}}}},
+	bigvector/.style={decorate, decoration={snake,amplitude=4pt}, draw},
+}
+%\tikzstyle fermion=[draw,postaction={on each segment={mid arrow}}]
+
+
+%-------------------------------Theorems
+\newtheorem{Def}{Definition}[section]
+\newtheorem{Thm}[Def]{Theorem}
+\newtheorem{Lem}[Def]{Lemma}
+\newtheorem{Pos}[Def]{Postulate}
+\newtheorem{Exa}[Def]{Example}
+\newtheorem{Cor}[Def]{Corollary}
+\newtheorem{Pro}[Def]{Proposition}
+
+%---------------------------------New commands
+\newcommand{\A}{\mathcal{A}} %% This is equivalent to \Ag (no args)
+\newcommand{\abs}[1]{\left|{#1}\right|}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareDocumentCommand{\Ag}{ s o }{ \IfBooleanTF{#1}
+    { \IfValueTF{#2}{ \bm{\mathcal{A}}_{(#2)} }{ \bm{\mathcal{A}} } }
+    { \IfValueTF{#2}{    {\mathcal{A}}_{(#2)} }{    {\mathcal{A}} } } }
+%% \newcommand{\Ag}{\mathcal{A}_{(1)}}
+%% \newcommand{\Agf}{\boldsymbol{\mathcal{A}}}
+\DeclareDocumentCommand{\Af}{ s o }{ \IfBooleanTF{#1}
+    { \IfValueTF{#2}{ \boldsymbol{A}_{(#2)} }{ \boldsymbol{A} } }
+    { \IfValueTF{#2}{            {A}_{(#2)} }{            {A} } } }
+%% \newcommand{\Af}{ {\mathbf{A}} }
+%% \newcommand{\AF}[1]{ {\mathbf{A}}_{({#1})} }
+\newcommand{\hAf}{ \hat{\mathbf{A}}_{(1)} }
+\newcommand{\hAF}[1]{ \hat{\mathbf{A}}_{(#1)} }
+\newcommand{\bboxed}[1]{{\color{red}{\boxed{\boxed{\textcolor{black}{#1}}}}}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Cl}{\mathcal{C}\!\ell}
+\newcommand{\cdf}[1][]{{\boldsymbol{\mathcal{D}}}{#1}}
+\newcommand{\covd}{\mathcal{D}}
+\newcommand{\D}{\mathscr{D}}
+\newcommand{\df}[1][]{\mathbf{d}{#1}}
+\newcommand{\dfd}{{\mathbf{d}}^\dag\!}
+\newcommand\ded{\mathrm{d}^\dag}
+\DeclareMathOperator{\End}{End}
+\newcommand{\ele}[2][]{\frac{d}{dt}\left(\frac{\partial\mathscr{L}}{\partial \dot{#2}^{#1}}\right) - \frac{\partial\mathscr{L}}{\partial {#2}^{#1}}}
+\newcommand{\fele}[2][]{\partial_\mu \left(\frac{\delta\mathscr{L}}{\delta\left(\partial_\mu{#2}^{#1}\right)}\right) - \frac{\delta\mathscr{L}}{\delta {#2}^{#1}}}
+\newcommand{\vb}[1]{\vec{e}_{#1}}
+%% \newcommand{\fb}[1]{\widetilde{e}{}^{ #1}}
+\newcommand{\fb}[1]{\widetilde{e}{}^{ #1}}
+\newcommand\fder[3][]{\frac{\delta^{#1}{#2}}{\delta {#3}^{#1}}}
+\newcommand\fdern[4][]{\frac{\delta^{#1}{#2}}{\delta {#3} \cdots \delta {#4}}}
+%% \newcommand{\Fc}{\mathcal{F}}
+%% \newcommand{\F}{\boldsymbol{\mathcal{F}}}
+%% \newcommand{\Fg}{\boldsymbol{\mathcal{F}}_{(2)}}
+\DeclareDocumentCommand{\Fg}{ s o }{ \IfBooleanTF{#1}
+    { \IfValueTF{#2}{ \bm{\mathcal{F}}_{(#2)} }{ \bm{\mathcal{F}} } }
+    { \IfValueTF{#2}{    {\mathcal{F}}_{(#2)} }{    {\mathcal{F}} } } }
+%% \newcommand{\Ff}{{\mathbf{F}}}
+\DeclareDocumentCommand{\Ff}{ s o }{ \IfBooleanTF{#1}
+    { \IfValueTF{#2}{ \boldsymbol{F}_{(#2)} }{ \boldsymbol{F} } }
+    { \IfValueTF{#2}{            {F}_{(#2)} }{            {F} } } }
+%% \DeclareDocumentCommand{\Ff}{ o }{ \IfValueTF{#1}{ F_{(#1)} }{ F } }
+\newcommand{\FF}[1]{{\mathbf{F}}_{(#1)}}
+\newcommand{\hFF}[1]{{\mathbf{\hat{F}}}_{(#1)}}
+\newcommand{\fy}{\centernot}
+\newcommand{\G}{\mathscr{G}}
+\newcommand{\ga}{\gamma}
+\newcommand{\gf}{\boldsymbol{\gamma}}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\Ha}{\mathscr{H}}
+\newcommand{\He}{\mathbb{H}}
+\newcommand{\Hi}{\mathcal{H}}
+\newcommand{\Hint}{\underline{\sc Hint:} }
+\DeclareMathOperator{\hs}{\star\!\!}
+\DeclareMathOperator{\st}{\star}
+\newcommand{\J}{\mathscr{J}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\KK}{Kaluza--Klein\ }
+\newcommand{\Lag}{\mathscr{L}}
+\newcommand{\Li}{\mathcal{L}}
+\newcommand{\La}[1][]{\triangle_{#1}}
+\newcommand{\Lap}{\nabla^2}
+\newcommand{\lr}[1]{\stackrel{\leftrightarrow}{#1}}
+\newcommand{\M}{\ensuremath{\mathscr{M}}}
+\DeclareMathOperator{\Mat}{Mat}
+\newcommand{\Mi}{\mathcal{M}}
+\newcommand{\MN}{Maldacena-N\'u\~nez\ }
+\newcommand{\N}{\ensuremath{\mathscr{N}}}
+\newcommand{\Na}{\mathbb{N}}
+\newcommand{\No}{\mathcal{N}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\Op}{\mathcal{O}}
+\newcommand{\Or}{\mathscr{O}}
+\DeclareDocumentCommand{\PB}{ O{m} O{q} O{p} m m }{ \frac{ \partial #4 }{\partial {#2}^{#1} } \frac{ \partial #5 }{\partial {#3}_{#1} } - \frac{ \partial #4 }{\partial {#3}_{#1} } \frac{ \partial #5 }{\partial {#2}^{#1} } }
+\newcommand\pder[3][]{\frac{\partial^{#1}{#2}}{\partial {#3}^{#1}}}
+\newcommand\pdern[4][]{\frac{\partial^{#1}#2}{\partial #3\cdots\partial #4}}
+\DeclareMathOperator{\Pfaff}{Pfaff}
+\newcommand{\Qh}[1][]{\ensuremath{\hat{Q}_{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Ri}{\mathcal{R}}
+%% \newcommand{\S}{\mathscr{S}}
+\newcommand{\SM}{Standard Model {}}%\mathscr{S}}
+\DeclareDocumentCommand\Te{o o m }{\mathcal{T}{}^{#1}_{#2}(#3)}
+\newcommand{\T}{\mathscr{T}}
+\newcommand\vdj[1]{\left< \Delta J \right>_{#1}}
+\newcommand{\w}{{\scriptstyle\wedge}\!}
+\newcommand{\we}{{\scriptstyle\wedge}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\dbar}[1]{\ensuremath{\mathchar'26\mkern-12mu \mathrm{d}^{#1}}\!}
+
+
+\DeclareDocumentCommand{\BM}{ s }{ \IfBooleanTF{#1} {\hat{\bm{M}}}{\bm{M}} }
+\DeclareDocumentCommand{\BN}{ s }{ \IfBooleanTF{#1} {\hat{\bm{N}}}{\bm{N}} }
+\DeclareDocumentCommand{\BP}{ s }{ \IfBooleanTF{#1} {\hat{\bm{P}}}{\bm{P}} }
+\DeclareDocumentCommand{\BQ}{ s }{ \IfBooleanTF{#1} {\hat{\bm{Q}}}{\bm{Q}} }
+\DeclareDocumentCommand{\BR}{ s }{ \IfBooleanTF{#1} {\hat{\bm{R}}}{\bm{R}} }
+\DeclareDocumentCommand{\BS}{ s }{ \IfBooleanTF{#1} {\hat{\bm{S}}}{\bm{S}} }
+\DeclareDocumentCommand{\BU}{ s }{ \IfBooleanTF{#1} {\hat{\bm{U}}}{\bm{U}} }
+\DeclareDocumentCommand{\BV}{ s }{ \IfBooleanTF{#1} {\hat{\bm{V}}}{\bm{V}} }
+
+%--------------------------- New Greek
+\newcommand{\tht}{\ensuremath{\theta}}
+\newcommand{\bet}{\ensuremath{\bar{\eta}}}
+\newcommand{\bps}{\ensuremath{\bar{\psi}}}
+\newcommand{\bc}{\ensuremath{\bar{\chi}}}
+\newcommand{\Bps}{\ensuremath{\bar{\Psi}}}
+\newcommand{\Bx}{\ensuremath{\bar{\Xi}}}
+\newcommand{\bph}{\ensuremath{\bar{\phi}}}
+\newcommand{\vph}{\ensuremath{\varphi}}
+\newcommand{\bvph}{\ensuremath{\bar{\varphi}}}
+\newcommand{\bth}{\ensuremath{\bar{\theta}}}
+\newcommand{\hph}{\ensuremath{\hat{\phi}}}
+\newcommand\bml{\bm{\lambda}}
+\newcommand\bmk{\bm{\kappa}}
+
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\curl}{curl}
+
+%%---------------------------------------------
+%%--------- Vielbein definitions
+%%---------------------------------------------
+\NewDocumentCommand\MyAc{ m }{#1}
+%%------------------------------ Vielbein form
+\DeclareDocumentCommand{\vif}{ t. t, t- s s m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\boldsymbol{e}}}^{\hat{#6}} }{ \hat{\MyAc{\boldsymbol{e}}}^{{#6}} } }
+  { \MyAc{\boldsymbol{e}}^{{#6}} } }
+%%------------------------------ Vielbein components
+\DeclareDocumentCommand{\vi}{ t. t, t- s s m m}{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{e}}^{\hat{#6}}_{\hat{#7}} }{ \hat{\MyAc{e}}^{#6}_{{#7}} } }
+  { \MyAc{e}^{{#6}}_{{#7}} } }
+%%------------------------------ Compatibility
+\newcommand\VI[2]{\hat{e}^{\hat{#1}}_{\hat{#2}}}
+\newcommand\VIF[1]{\hat{\boldsymbol{e}}^{\hat{#1}}}
+\newcommand\VIN[2]{\hat{E}^{\hat{#1}}_{\hat{#2}}}
+\newcommand\VINF[1]{\hat{\boldsymbol{E}}_{\hat{#1}}}
+\newcommand\hvi[2]{\hat{e}^{{#1}}_{{#2}}}
+\newcommand\hvin[2]{\hat{E}^{{#1}}_{{#2}}}
+\newcommand\hvif[1]{\hat{\boldsymbol{e}}^{{#1}}}
+\newcommand\hvinf[1]{\hat{\boldsymbol{E}}_{{#1}}}
+%% \newcommand\vi[2]{e^{{#1}}_{{#2}}}
+\newcommand\vin[2]{E^{{#1}}_{{#2}}}
+%% \newcommand\vif[1]{\boldsymbol{e}^{{#1}}}
+\newcommand\vinf[1]{\boldsymbol{E}_{{#1}}}
+%% \newcommand\Vi[2]{e^{\hat{#1}}_{\hat{#2}}}
+%% \newcommand\Vin[2]{E^{\hat{#1}}_{\hat{#2}}}
+
+%%------------------------------ B Tensor
+\DeclareDocumentCommand{\bt}{ t. t, t- s s m m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{B}}_{{#6}}{}^{\hat{#7}}{}_{\hat{#8}} }{ \hat{\MyAc{\Gamma}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+  { \MyAc{B}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+
+%%---------------------------------------------
+%%--------- Connections
+%%---------------------------------------------
+%%------------------------------ Christoffel symbols
+\DeclareDocumentCommand{\ct}{ t. t, t- s s m m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\Gamma}}_{{#6}}{}^{\hat{#7}}{}_{\hat{#8}} }{ \hat{\MyAc{\Gamma}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+  { \MyAc{\Gamma}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+%%------------------------------ Spin form
+\DeclareDocumentCommand{\spif}{ t. t, t- s s m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\boldsymbol{\omega}}}^{\hat{#6}}{}_{\hat{#7}} }{ \hat{\MyAc{\boldsymbol{\omega}}}^{{#6}}{}_{{#7}} } }
+  { \MyAc{\boldsymbol{\omega}}^{{#6}}{}_{{#7}} } }
+%%------------------------------ Spin components
+\DeclareDocumentCommand{\spi}{ t. t, t- s s m m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{{\omega}}}_{\hat{#6}}{}^{\hat{#7}}{}_{\hat{#8}} }{ \hat{\MyAc{{\omega}}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+  { \MyAc{{\omega}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+%%------------------------------ Connections Compatibility
+\newcommand{\conn}[3]{\left(\Gamma_{#1}\right)^{#2}{}_{#3}}
+\newcommand{\connn}[3]{\Gamma_{#1}{}^{#2}{}_{#3}}
+\newcommand{\Connn}[3]{\hat{\Gamma}_{#1}{}^{#2}{}_{#3}}
+\newcommand{\CONNN}[3]{\hat{\Gamma}_{\hat{#1}}{}^{\hat{#2}}{}_{\hat{#3}}}
+\newcommand{\hcon}[3]{\hat{\Gamma}_{#1}{}^{#2}{}_{#3}}
+\newcommand\SPI[1]{\hat{\omega}_{\hat{#1}}}
+\newcommand\SPIF[2]{\hat{\boldsymbol{\omega}}^{\hat{#1}}{}_{\hat{#2}}}
+%% \newcommand\Spi[1]{\omega_{\hat{#1}}}
+\newcommand\spc[1]{\omega_{{#1}}}
+\newcommand\tspi[1]{\tilde{\omega}_{{#1}}}
+%%\newcommand\spif[2]{{\boldsymbol{\omega}}^{{#1}}{}_{{#2}}}
+\newcommand{\spife}[2]{\mathring{{\boldsymbol{\omega}}}^{#1}{}_{#2}}
+\newcommand\tspif[2]{{\tilde{\boldsymbol{\omega}}}^{{#1}}{}_{{#2}}}
+\newcommand\hspi[1]{\hat{\omega}_{{#1}}}
+\newcommand\hspif[2]{\hat{\boldsymbol{\omega}}^{{#1}}{}_{{#2}}}
+\newcommand\hspife[2]{\hat{\mathring{\boldsymbol{\omega}}}^{{#1}}{}_{{#2}}}
+
+%%---------------------------------------------
+%%--------- Curvature definitions
+%%---------------------------------------------
+%%------------------------------ Curvature form
+\DeclareDocumentCommand{\rif}{ t. t, t- s s m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\bm{\mathcal{R}}}}{}^{\hat{#6}}{}_{\hat{#7}} }{ \hat{\MyAc{\bm{\mathcal{R}}}}{}^{{#6}}{}_{{#7}} } }
+  { \MyAc{\bm{\mathcal{R}}}{}^{{#6}}{}_{{#7}} } }
+%%------------------------------ Curvature components
+\DeclareDocumentCommand{\ri}{ t. t, t- s s m m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\mathcal{R}}}_{{#6}}{}^{\hat{#7}}{}_{\hat{#8}} }{ \hat{\MyAc{\mathcal{R}}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+  { \MyAc{\mathcal{R}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+%%------------------------------ Curvature Compatibility
+%%%%%%%%% Beware of the inconsistency between
+%%%%%%%%% \Rif and \RIF
+\newcommand{\RIF}[2]{\hat{\bm{\mathcal{R}}}^{\hat{#1}}{}_{\hat{#2}}}
+\newcommand{\hRif}[2]{\hat{\bm{\mathcal{R}}}^{{#1}}{}_{{#2}}}
+\newcommand{\Rif}[2]{\bm{\mathcal{R}}^{{#1}}{}_{{#2}}}
+\newcommand{\tRif}[2]{\tilde{\bm{\mathcal{R}}}^{{#1}}{}_{{#2}}}
+
+%%---------------------------------------------
+%%--------- Contorsion definitions
+%%---------------------------------------------
+%%------------------------------ Contorsion form
+\DeclareDocumentCommand{\kf}{ t. t, t- s s m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\bm{\mathcal{K}}}}^{\hat{#6}}{}_{\hat{#7}} }{ \hat{\MyAc{\bm{\mathcal{K}}}}^{{#6}}{}_{{#7}} } }
+  { \MyAc{\bm{\mathcal{K}}}^{{#6}}{}_{{#7}} } }
+%%------------------------------ Contorsion components
+\DeclareDocumentCommand{\ko}{ t. t, t- s s m m m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\mathcal{K}}}_{\hat{#6}}{}^{\hat{#7}}{}_{\hat{#8}} }{ \hat{\MyAc{\mathcal{K}}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+  { \MyAc{\mathcal{K}}_{{#6}}{}^{{#7}}{}_{{#8}} } }
+%%------------------------------ Contorsion Compatibility
+\newcommand{\Kf}[2]{{\bm{\mathcal{K}}}^{#1}{}_{#2}}
+\newcommand{\cont}[3]{\mathcal{K}_{#1}{}^{#2}{}_{#3}}
+\newcommand{\contf}[2]{\bm{\mathcal{K}}^{#1}{}_{#2}}
+\newcommand{\hcont}[3]{\hat{\mathcal{K}}_{#1}{}^{#2}{}_{#3}}
+\newcommand{\hcontf}[2]{\hat{\bm{\mathcal{K}}}^{#1}{}_{#2}}
+\newcommand{\CONT}[3]{\hat{\mathcal{K}}_{\hat{#1}}{}^{\hat{#2}}{}_{\hat{#3}}}
+\newcommand{\CONTU}[3]{\hat{\mathcal{K}}_{\hat{#1}}{}^{\hat{#2}\hat{#3}}}
+\newcommand{\Contu}[3]{\hat{\mathcal{K}}_{{#1}}{}^{{#2}{#3}}}
+\newcommand{\contu}[3]{{\mathcal{K}}_{{#1}}{}^{{#2}{#3}}}
+\newcommand{\CONTF}[2]{\hat{\bm{\mathcal{K}}}^{\hat{#1}}{}_{\hat{#2}}}
+
+%%---------------------------------------------
+%%--------- Torsion definitions
+%%---------------------------------------------
+%%------------------------------ Torsion form
+\DeclareDocumentCommand{\tf}{ t. t, t- s s m }{
+  \RenewDocumentCommand\MyAc{ m }{##1}
+  \IfBooleanT{#1}{\RenewDocumentCommand\MyAc{ m }{ \mathring{##1} } }
+  \IfBooleanT{#2}{\RenewDocumentCommand\MyAc{ m }{ \tilde{##1} } }
+  \IfBooleanT{#3}{\RenewDocumentCommand\MyAc{ m }{ \bar{##1} } }
+  \IfBooleanTF{#4}
+  { \IfBooleanTF{#5} { \hat{\MyAc{\bm{\mathcal{T}}}}^{\hat{#6}} }{ \hat{\MyAc{\bm{\mathcal{T}}}}^{{#6}} } }
+  { \MyAc{\bm{\mathcal{T}}}^{{#6}} } }
+%%------------------------------ Torsion Compatibility
+\newcommand{\tor}{\mathcal{T}}
+\newcommand{\tors}[3]{\mathcal{T}{}_{#1}{}^{#2}{}_{#3}}
+\newcommand{\Tors}[3]{\hat{\mathcal{T}}{}_{#1}{}^{#2}{}_{#3}}
+\newcommand{\TORS}[3]{\hat{\mathcal{T}}{}_{\hat{#1}}{}^{\hat{#2}}{}_{\hat{#3}}}
+\newcommand{\torss}[3]{T_{#1}{}^{#2}{}_{#3}}
+\newcommand{\Tf}[1]{\bm{\mathcal{T}}^{#1}}
+\newcommand{\hTf}[1]{\hat{\bm{\mathcal{T}}}^{#1}}
+\newcommand{\TF}[1]{\hat{\bm{\mathcal{T}}}^{\hat{#1}}}
+\newcommand{\Tor}[2]{\mathcal{T}^{#1}{}_{#2}}
+
+\newcommand\GAM[1]{{\gamma}^{\hat{#1}}}
+%% \newcommand\Gam[1]{\gamma^{\hat{#1}}} 
+\newcommand\gam[1]{\gamma^{{#1}}}
+\newcommand\hgam[1]{\hat{\gamma}^{{#1}}}
+
+%% Momenta from our generalization of Kijowski
+\newcommand{\PG}[4][\Pi_{\Gamma}]{ #1{}^{#2}{}_{#3}{}^{#4} }
+%% \DeclareDocumentCommand{\PG}{ s O{\Pi} m m m }{
+%%   \RenewDocumentCommand\MyLe{ m }{##1}
+%%   \IfBooleanTF{#1}{\RenewCDocumentCommand\Myle{ m }{ B }{\Gamma}
+%%     { {#2}_{\MyLe}{}^{#2}{}_{#3}{}^{#4} }
+
+%% %%%%%%%%%%%%%%%%%%
+%% Problematic commands
+%% with arXiv protocols
+%% %%%%%%%%%%%%%%%%%%
+\newcommand\NAB[1]{\hat{\nabla}_{\hat{#1}}}
+\newcommand\Nab[1]{\nabla_{\hat{#1}}}
+\newcommand\nab[1]{\nabla_{{#1}}}
+\newcommand\PA[1]{\partial_{\hat{#1}}}
+\newcommand\pa[1]{\partial_{{#1}}}
+\newcommand\PAU[1]{\partial^{\hat{#1}}}
+\newcommand\pau[1]{\partial^{{#1}}}
+%% until here--- Change them before
+%% trying to upload to arXiv
+\newcommand\lf[1]{{\omega}^{{#1}}}
+\newcommand\lft[1]{\hat{\omega}^{{#1}}}
+
+\newcommand{\free}[1]{\mathring{#1}}
+%% \newcommand{\ket}[1]{\left.\left|#1\right.\right>}
+%% \newcommand{\bra}[1]{\left.\left<#1\right.\right|}
+\renewcommand\bra[1]{\Bra{#1}}
+\renewcommand\ket[1]{\Ket{#1}}
+\newcommand{\bkt}[3]{\Braket{ {#1} | {#2} | {#3} } }
+\newcommand{\bk}[2]{\Braket{ {#1} | {#2} } }
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\vev}[1]{\ensuremath{\left<#1\right>}}
+\renewcommand{\set}[1]{\ensuremath{\Set{ #1 }}}
+
+\newcommand{\relphantom}[1]{\mathrel{\phantom{#1}}}
+
+\newcommand{\Riem}{\operatorname{Riem}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand*{\diag}{\operatorname{diag}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Ln}{\operatorname{Ln}}
+\newcommand{\Ei}{\operatorname{Ei}}
+\newcommand{\csch}{\operatorname{csch}}
+\newcommand{\arcsinh}{\operatorname{arcsinh}}
+\DeclareMathOperator\Br{Br}
+
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\ber}{\begin{eqnarray}}
+\newcommand{\eer}{\end{eqnarray}}
+
+%% \renewcommand{\(}{\left(}
+%% \renewcommand{\)}{\right)}
+%% \renewcommand{\[}{\left[}
+%% \renewcommand{\]}{\right]}
+
+\NewDocumentCommand{\tak}{ s m m}{
+  \IfBooleanTF{#1}{ \big( {#2} \big) \big[ {#3} \big] }
+              { \big( {#2} \big] \big[ {#3} \big) }
+}
+
+\newcommand{\uf}[2][]{\ensuremath{u_{#1}\left(\vec{#2}\right)}}
+\newcommand{\ufb}[2][]{\ensuremath{\bar{u}_{#1}\left(\vec{#2}\right)}}
+\newcommand{\vf}[2][]{\ensuremath{v_{#1}\left(\vec{#2}\right)}}
+\newcommand{\vfb}[2][]{\ensuremath{\bar{v}_{#1}\left(\vec{#2}\right)}}
+\newcommand\pol[2][]{\ensuremath{\varepsilon_{#1}(\vec{#2})}}
+\newcommand\polc[2][]{\ensuremath{\varepsilon^*_{#1}(\vec{#2})}}
+\newcommand{\ann}[3]{\ensuremath{#1\left(\vec{#2},#3\right)}}
+\newcommand{\cre}[3]{\ensuremath{#1^\dag\left(\vec{#2},#3\right)}}
+%% \newcommand{\uf}[2]{\ensuremath{u\left(\vec{#1},#2\right)}}
+%% \newcommand{\ufb}[2]{\ensuremath{\bar{u}\left(\vec{#1},#2\right)}}
+%% \newcommand{\vf}[2]{\ensuremath{v\left(\vec{#1},#2\right)}}
+%% \newcommand{\vfb}[2]{\ensuremath{\bar{v}\left(\vec{#1},#2\right)}}
+%% \newcommand{\ann}[3]{\ensuremath{#1\left(\vec{#2},#3\right)}}
+%% \newcommand{\cre}[3]{\ensuremath{#1^\dag\left(\vec{#2},#3\right)}}
+
+\newcommand{\dif}{{\mathrm{d}}}
+\newcommand{\difn}[1]{{\mathrm{d}}^{#1}}
+\newcommand{\dn}[2]{{\mathrm{d}}^{#1}\!{#2}\;}
+\newcommand{\dbarn}[2]{\dbar{#1}{#2}\;}
+\newcommand*{\de}[1]{\mathop{\mathrm{d}#1}\nolimits}% differential, facultative argoment between square parentheses
+\newcommand*{\desec}[1][]{\mathop{\mathrm{d^2}#1}\nolimits}% second differential, facultative argoment between square parentheses
+\newcommand{\der}[2]{\frac{\de{#1}}{\de{#2}}}% first derivative 
+%\newcommand{\pder}[2]{\frac{\pa{}#1}{\pa{}{#2}}}% first derivative 
+\newcommand{\inlineder}[2]{\mathrm{d}{#1}/\mathrm{d}{#2}}% in-line first derivative
+\newcommand{\dersec}[2]{\frac{{\desec[#1]}}{\de[{#2}^2]}}% second derivative
+%% \newcommand{\dx}{\de[x]}% frequently used differentials
+%% \newcommand{\dy}{\de[y]}
+%\newcommand{\df}{\de[f]}
+
+%%%%%%%%%%%%%%%%%% CONFIGURATION MDFRAMED-TikZ
+\mdfdefinestyle{ibox}{
+  align = center,
+  linecolor=green!60!black, 
+  outerlinewidth = 1pt,
+  frametitle={Infobox},
+  frametitlerule=true,
+  frametitlebackgroundcolor=green!15,
+  backgroundcolor=green!10,
+  roundcorner=8pt,
+  frametitlealignment=\centering,
+  %% userdefinedwidth=.7\textwidth,
+}
+\newmdenv[style=ibox]{infobox}
+
+\mdfdefinestyle{theoremstyle}{%
+  linecolor=red!40,
+  linewidth=2pt,%
+  frametitlerule=true,%
+  frametitlebackgroundcolor=gray!20,
+  innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{cdbexample}{Cadabra Example}
+
+%------------------
+%--------- Format
+%------------------
+\newcommand{\out}[1]{{\color{red} {#1}}}
+\newcommand{\pro}[1]{{\color{blue!70!black} {#1}}}
+\newcommand{\hl}[1]{{\color{red} \bfseries{#1}}}
+
+\newcommand\UTFSM{Departamento de F\'isica, Universidad T\'{e}cnica Federico Santa Mar\'\i a, \\ Casilla 110-V, Valpara\'iso, Chile}
+\newcommand\UTFSMmat{Departamento de Matem\'aticas, Universidad T\'{e}cnica Federico Santa Mar\'\i a, \\ Casilla 110-V, Valpara\'iso, Chile}
+\newcommand\CCTVal{Centro Cient\'ifico Tecnol\'ogico de Valpara\'iso, \\ Casilla 110-V, Valpara\'\i so, Chile}
+\newcommand\CFF{Centro de F\'isica Fundamental,  Universidad de los Andes,\\ 5101 M\'erida, Venezuela}
+\newcommand\PUCV{Instituto de F\'isica, Pontificia Universidad Cat\'olica de Valpara\'iso,\\ Casilla 4059, Valpara\'iso, Chile}
+\newcommand\CECS{Centro de Estudios Cient\'ificos (CECs), Casilla
+  1469, Valdivia, Chile}
+\newcommand\DLNP{Dzhelepov Laboratory of Nuclear Problems, Joint Institute for Nuclear Research,\\ 141980 Dubna, Moscow Region, Russian Federation}
+

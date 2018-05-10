@@ -1,0 +1,14 @@
+\titiledquestion{Transformation properties under a Lorentz boost}
+
+We found the transformation properties for the electric field and the
+magnetic induction, under a Lorentz boost along the \(x\) axis. The
+idea of this exercise is to find the transformed fields for a general
+Lorentz boost.
+
+\begin{parts}
+  \part In the figure
+
+  \begin{center}
+    \includegraphics[width=.6\textwidth]{./Images/Euler_angles.jpg}
+  \end{center}
+\end{parts}

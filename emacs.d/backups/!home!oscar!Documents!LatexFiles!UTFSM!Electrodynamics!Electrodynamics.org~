@@ -1,0 +1,1101 @@
+#+title: Classical Electrodynamics
+#+author: Oscar Castillo-Felisola
+#+latex_header: \usepackage[cm]{fullpage}
+#+latex_header: \input{Def-org.tex}
+
+#+OPTIONS: reveal_center:nil reveal_control:t reveal_height:-1
+#+OPTIONS: reveal_history:nil reveal_keyboard:t reveal_overview:t
+#+OPTIONS: reveal_progress:t reveal_rolling_links:nil
+#+OPTIONS: reveal_single_file:nil reveal_slide_number:"c"
+#+OPTIONS: reveal_title_slide:auto reveal_width:-1
+#+REVEAL_MARGIN: .1
+#+REVEAL_MIN_SCALE: .2
+#+REVEAL_MAX_SCALE: 1.5
+#+REVEAL_ROOT: file:///home/oscar/Software/git.src/reveal.js
+#+REVEAL_TRANS: default
+#+REVEAL_SPEED: default
+#+REVEAL_THEME: my-moon
+#+REVEAL_EXTRA_CSS:
+#+REVEAL_EXTRA_JS:
+#+REVEAL_HLEVEL: 1
+#+REVEAL_TITLE_SLIDE_BACKGROUND:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_TITLE_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_SIZE:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_POSITION:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_REPEAT:
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND_TRANSITION:
+#+REVEAL_MATHJAX_URL: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#+REVEAL_PREAMBLE:
+#+REVEAL_HEAD_PREAMBLE:
+#+REVEAL_POSTAMBLE:
+#+REVEAL_MULTIPLEX_ID:
+#+REVEAL_MULTIPLEX_SECRET:
+#+REVEAL_MULTIPLEX_URL:
+#+REVEAL_MULTIPLEX_SOCKETIO_URL:
+#+REVEAL_SLIDE_HEADER:
+#+REVEAL_SLIDE_FOOTER: 
+#+REVEAL_PLUGINS:
+#+REVEAL_DEFAULT_FRAG_STYLE:
+#+REVEAL_INIT_SCRIPT:
+#+REVEAL_HIGHLIGHT_CSS: %r/lib/css/zenburn.css
+
+
+#+options: num:nil toc:nil
+#+MACRO: color @@html:<font color="$1">$2</font>@@@@latex:\textcolor{$1}{$2}@@@@odt:<text:span text:style-name="$1">$2</text:span>@@
+
+#+BEGIN_EXPORT latex
+\maketitle
+#+END_EXPORT
+
+* Mathematical Review
+
+** Vectors (Cartesian, 3D)
+
+Let \(\vec{r}_1 = (x_1, y_1, z_1)\) and \(\vec{r}_2 = (x_2, y_2,
+z_2)\), then
+- \(\vec{r}_1 + \vec{r}_2 = (x_1+x_2, y_1+y_2 , z_1+z_2)\).
+- \(a \vec{r}_1 = (a x_1 , ay_1 , az_1)\).
+- \(\vec{r}_1 \cdot \vec{r}_2 = x_1x_2 + y_1y_2 + z_1z_2\).
+- \(\vec{r}_1 \times \vec{r}_2 = ( y_1z_2 - z_1y_2 , z_1x_2 - x_1z_2 ,
+  x_1y_2 - y_1x_2)\).
+
+  
+#+reveal: split
+
+- Change of coordinates:
+  \begin{align*}
+    \hat{i}' &= a_{11} \hat{i} + a_{12} \hat{j} + a_{13} \hat{k} \\
+    \hat{j}' &= a_{21} \hat{i} + a_{22} \hat{j} + a_{23} \hat{k} \\
+    \hat{k}' &= a_{31} \hat{i} + a_{32} \hat{j} + a_{33} \hat{k} \\
+  \end{align*}
+- Orthogonality condition:
+  \begin{align*}
+    \hat{i}' \cdot \hat{i}' &= 1 & \hat{i}' \cdot \hat{i}' &= 0 & \hat{i}' \cdot \hat{k}' &= 0 \\
+    \hat{i}' \cdot \hat{j}' &= 0 & \hat{i}' \cdot \hat{j}' &= 1 & \hat{j}' \cdot \hat{k}' &= 0 \\
+    \hat{i}' \cdot \hat{k}' &= 0 & \hat{i}' \cdot \hat{k}' &= 0 & \hat{k}' \cdot \hat{k}' &= 1 \\
+  \end{align*}
+- Orientation: \( (\hat{i}' \times \hat{j}') \cdot \hat{k}' = 1\)
+
+** Geometrical objects  
+
+- Linear algebra (matrices)
+- Closure (group structure)
+- Unimodular transformations, \(SO(3)\)
+
+The /geometrical objects/ can be defined according to their
+transformation properties.
+- (pseudo)scalars
+- (pseudo)vectors aka polar and axial vectors
+- Tensors, densities, spinors, etc.
+
+** Differentiation
+
+- Derivative of a vector wrt time.
+- Derivative of a function wrt space (grad).
+  \begin{equation}
+    \nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}
+  \end{equation}
+- Derivative of a vector wrt space (curl, div, Lap).
+  \begin{equation}
+    \nabla \cdot \vec{A} = \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z} 
+  \end{equation}
+
+
+#+attr_reveal: :frag (highlight-red)
+- The derivative transforms like a vector!!!
+
+** Divergence and Gauß' theorem
+- *Flux:* Amount of /material/ passing through a tube.
+
+  \begin{equation}
+  \text{Net Flux} = \int_S d\vec{A} \cdot \vec{v}.
+  \end{equation}
+
+- *Gauß's theorem:* Relate the flux through the surface with the
+  properties of the vector field inside the volume
+  limited by the surface.
+  \begin{equation}
+  \oint_S d\vec{A} \cdot \vec{v} = \int_V \nabla \cdot \vec{v} dV.
+  \end{equation}
+
+** EXERCISE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:reveal_background_trans: slide
+:END:
+Using the analogy with the river, prove the Gauß' theorem in:
+- Cartesian coordinates,
+- Cylindrical coordinates, and
+- Spherical coordinates.
+
+** Work, Curl and Stokes' theorem
+- *Work:* \(W = \int_a^b \vec{F} \cdot d\vec{s}.\)
+  
+  If along a closed loop \(W = 0\), the force is said to be
+  /conservative/.
+
+- *Stokes' theorem:*
+  \begin{equation}
+  \oint_C \vec{v} \cdot d\vec{s} = \int_S d\vec{A} \cdot ( \nabla \times \vec{v} ).
+  \end{equation}
+
+** EXERCISE 
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+Prove the Stokes' theorem for an infinitesimal (square) loop.
+
+** Second rank tensors
+
+Consider a /stack/ of two vectors,
+\begin{equation}
+T = v \, w.
+\end{equation}
+Then, after a transformation, \(v' = R_v v\) and \(w' = R_w w\), thus
+\begin{equation}
+T' = v' \, w' = R_v \, R_w \, v \, w = R_v \, R_w \, T.
+\end{equation}
+#+attr_reveal: :frag (highlight-green)
+- \(T\) is a second rank tensor.
+- Notice the similarity with matrix transf.
+
+** EXERCISE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+- Show that a second rank tensor can be decomposed into its symmetric
+  and antisymmetric parts.
+- Show that under a similarity transformation, the (anti)symmetric
+  part remains (anti)symmetric.
+
+** Diagonalization of a second rank tensor
+
+\begin{equation}
+S' =
+\begin{pmatrix}
+\lambda_1 & 0 & 0 \\
+0 & \lambda_2 & 0 \\
+0 & 0 & \lambda_3
+\end{pmatrix}
+\Leftrightarrow
+S' \hat{i}' = \lambda_1 \hat{i}', \cdots
+\end{equation}
+Therefore
+\begin{equation}
+S \hat{n} = \lambda \hat{n}, \Rightarrow 
+\begin{Vmatrix}
+S_{11} - \lambda & S_{12} & S_{13} \\
+S_{21} & S_{22} - \lambda & S_{23} \\
+S_{31} & S_{32} & S_{33} - \lambda 
+\end{Vmatrix}
+= 0.
+\end{equation}
+
+** PROBLEMS
+:PROPERTIES:
+:reveal_background: #AA0000
+:END:
+
+- Show the identities (\(u,v\) are functions, \(A,B,C\) are vectors):
+   - \(A \times (B \times C) = B (A \cdot C) - C (A \cdot B)\).
+   - \(A \cdot (B \times C) = B \cdot (C \times A) = C \cdot (A \times
+     B)\).
+   - \(\nabla \cdot u A = \nabla u \cdot A + u \nabla \cdot A\).
+   - \(\nabla \times u A = \nabla u \times A + u \nabla \times A\).
+   - \(\nabla \cdot (A \times B) = B \cdot \nabla \times A - A \cdot
+     \nabla \times B\)
+   - \(\nabla \times (\nabla \times A) = \nabla(\nabla \cdot A) -
+     \nabla^2 A\).
+   - \( \nabla (A \cdot B) = A \times (\nabla \times B) + (A \cdot
+     \nabla) B + (B \leftrightarrow A) \).
+   - \(\nabla \times (A \times B) = (B \cdot \nabla) A + A (\nabla
+     \cdot B) - (B \leftrightarrow  A)\).
+
+** 
+:PROPERTIES:
+:reveal_background: #AA0000
+:END:
+
+- Show that \(\nabla \cdot (\nabla \times A) = 0\) and \(\nabla
+   \times \nabla u = 0\).
+- Evaluate the expressions:
+  - \(\nabla \frac{1}{|\vec{r} - \vec{r}'|}\).
+  - \(\nabla \frac{1}{|\vec{r} - \vec{r}'|^2}\).
+  - \(\nabla^2 \frac{1}{|\vec{r} - \vec{r}'|}\) for \(\vec{r} \neq
+    \vec{r}'\).
+  - \(\nabla \times \frac{\vec{r} - \vec{r}'}{|\vec{r} -
+    \vec{r}'|^3}\) for \(\vec{r} \neq \vec{r}'\).
+- Show that the trace and the sum of the squares of all the elements
+  of a second rank tensor is invariant under rotations.
+
+* Electrostatic
+
+** Coulomb's law (point particles)
+
+Phenomenologically,
+\[
+\vec{F}_{ij} = e_i e_j \frac{\vec{r}_i - \vec{r}_j}{r_{ij}^3}  = -
+e_i e_j \vec{\nabla}  \frac{ 1 }{ {r}_{ij} }, 
+\]
+with $r_{ij} = |\vec{r}_i - \vec{r}_j|$.
+
+- Superposition
+  \[
+  \vec{F}_{i,j+k} = \vec{F}_{ij} + \vec{F}_{jk}.
+  \]
+- Conservation of charge.
+
+** System of (point) particles
+
+\[
+\vec{F}_{ij} = e_i \sum_j e_j \frac{\vec{r}_i - \vec{r}_j}{r_{ij}^3} = -
+e_i \vec{\nabla} \sum_j e_j  \frac{ 1 }{ {r}_{ij} } = e_i \vec{E}(r_i).
+\]
+
+- \(\vec{E}(r_i) = - \vec{\nabla}  \sum_j e_j  \frac{ 1 }{ {r}_{ij} }\) is the /electric field/.
+- \(\vec{E}(r_i) = - \nabla \phi(r_i)\), with \(\phi\) the
+  /electrostatic potential/.
+
+** Properties
+
+- The field is conservative (conservation of energy)
+  - \(\vec{E} = - \nabla \phi.\)
+  - \(\nabla \times \vec{E} = 0.\)
+  - \(\int_p^q \vec{E} \cdot d\vec{s} = \phi(p) - \phi(q).\)
+  - \(\oint_c \vec{E} \cdot d\vec{s} = 0.\)
+- Electric field flux (Gauß' law)
+  - \(\oint_S \vec{E} \cdot d\vec{a} = 4\pi Q\): with \(Q\) the enclosed charge.
+  - \(\nabla \cdot \vec{E} = 0 \Rightarrow \nabla^2\phi = 0\): outside
+    the charges.
+
+** Volume densities
+
+- Number of charges \(\to \infty\).
+- Magnitude of individual charge \(\to 0\).
+- \(\sum_i e_i \to e = \int \rho dV\): where \(\rho = \lim_{V\to 0}
+  e/V\).
+- *Gauß' thm:* \[\nabla \cdot \vec{E} = 4\pi \rho \text{ or } \nabla^2 \phi
+  = - 4 \pi \rho \]
+- \(\vec{E}\) and \(\phi\) are regular inside the source region.
+
+** Surface densities
+- Surface charge density \(\sigma\).
+- \(\phi\) remains finite, and thus continuous at the surface.
+- *Gauß' thm:* \[E_{n_1} + E_{n_2} = 4 \pi \sigma\] or along a defined
+  direction \[E_{n_1} - E_{n_2} = 4 \pi \sigma.\]
+- Normal component of \(\vec{E}\) is discontinuous, but the tangential
+  remains continuous.
+
+** Boundaries at conductors
+
+1. No field inside the conductor, \(\vec{E} = 0\).
+2. No tangential component, \(\vec{E}_\parallel = 0\).
+3. The gradient of the potential is perpendicular to the surface.
+4. \(\phi\) is constant along the surface, i.e., /equipotential surface/.
+
+** Important theorems
+
+- Mean value :: 
+     #+BEGIN_QUOTE
+     In a charge-free region the average value of potential
+     on the surface of any hypothetical sphere is equal to
+     the value of the potential at the center of the
+     sphere.
+     #+END_QUOTE
+** 
+- Earnshaw's theorem :: 
+     #+BEGIN_QUOTE
+     \(\phi\) cannot have a local maximum or minimum in a charge-free
+     region.
+     #+END_QUOTE
+
+** Energy of a (static) configuration \(I\)
+
+The (potential) energy stored by a system is equal to the work
+required to form the configuration.
+
+The energy of a system of (point-like) charges is given by
+\begin{equation}
+U = \sum_{i \neq j} \frac{e_i e_j}{r_{ij}} 
+  = \frac{1}{2} {\sum_{i,j}}' \frac{e_i e_j}{r_{ij}},
+\end{equation}
+or
+\begin{equation}
+U = \frac{1}{2} \sum_i e_i \phi'_i.
+\end{equation}
+
+** Energy of a (static) configuration \(II\)
+
+\begin{align}
+U &= \frac{1}{2}  \iint dV_p \, dV_q \,\frac{\rho_p \rho_q}{r_{pq}} 
+     + \iint dV_p \, dA_q \, \frac{\rho_p \sigma_q}{r_{pq}} \\ 
+  & \quad   + \frac{1}{2} \iint dA_p \, dA_q \, \frac{\sigma_p \sigma_q}{r_{pq}} 
+\end{align}
+or 
+\begin{equation}
+U = \frac{1}{8 \pi} \int dV \, \vec{E} \cdot \vec{E}
+\end{equation}
+
+** EXERCISE 
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+Show that for a system of point particles the potential energy is
+given by
+\[
+U = \frac{1}{8 \pi} \int \left( \vec{E} \cdot \vec{E} - \sum_i
+\vec{E}_i^2 \right) dV.
+\]
+
+** Dielectrics
+
+Consider a charged (plane parallel) condenser in vacuum. The electric
+field between the plates is \(E_x = 4 \pi \sigma\), and the potential
+difference \(\phi_1 - \phi_2 = 4 \pi \sigma d\). When one introduce an
+insulator between the plates:
+- If it is connected to a battery: \(\Delta \phi = \text{cte}\), and
+  \(\Delta Q\) increases.
+- If it is insulated: \(Q\) remain constant, the potential difference
+  decreases by a factor \(\epsilon\),
+  \[
+  \phi_1 - \phi_2 = \frac{4 \pi \sigma}{\epsilon} d.
+  \]
+
+** 
+- \(\epsilon\) is the /dielectric constant/.
+- Split \(\rho = \rho_t + \rho_p\) and \(\sigma = \sigma_t + \sigma_p\)
+- Let \(E^{(e)},E^{(i)}\) be the electric field in vacuum and
+  dielectric respectively:
+  - \(E^{(e)} = 4 \pi \sigma\) and \(E^{(i)} = 4 \pi \sigma_p\).
+  - \(E^{(i)} = \frac{E^{(e)}}{\epsilon}\) and \(4 \pi \sigma_p = (1 -
+    \epsilon) E^{(i)}\).
+- In general (\(\epsilon_{\text{vacuum}} = 1\)), one defines \(\vec{D}
+  = \epsilon \vec{E}\)
+  \begin{align}
+  D_{n_1} + D_{n_2} & = 4 \pi \sigma_t \\
+  E_{n_1} + E_{n_2} & = 4 \pi \sigma
+  \end{align}
+
+** 
+In the most general case a volume density of polarization charge,
+\(\rho_p\), is produced.
+\begin{align}
+\nabla \cdot \vec{D} &= \rho_t \\
+\nabla \cdot \vec{E} &= \rho \\
+\nabla \cdot (1 - \epsilon) \vec{E} &= \rho_p
+\end{align} 
+
+Finally
+\begin{equation}
+\int  \rho_p \, dV + \int \sigma_p \, da = 0.
+\end{equation}
+
+** 
+If \(\sigma_t = 0\) on a boundary layer between two dielectrics, then:
+- \(\phi\) is coninuous.
+- \(\vec{E} = -\nabla \phi\).
+- \(E_\parallel\) is continuous.
+- \(D_n\) is continuous, while \(D_\parallel\) in general is not.
+
+** EXERCISE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+Take \(\rho_t\) and \(\phi\) to be the final distributions of free
+charge and potential, respectively, after our system has been
+completely set up. If we had somehow decided to place a factor of
+\(\alpha\) as much charge everywhere, then our potential would be
+changed by the same factor \(\alpha\).
+
+By bringing the charge from infinity, a little bit at a time,
+i.e. \(\alpha\) go from 0 to 1, show that
+\begin{equation}
+U = \frac{1}{8 \pi} \int \vec{D} \cdot \vec{E} \, dV.
+\end{equation}
+
+** Electric dipolar moment
+Consider a system constituted by two opposite (point) charges
+separated a distance \(\vec{\ell}\). The electric potential is given by
+\begin{equation}
+\phi(\vec{r}) = q \left( \frac{1}{r'} - \frac{1}{r} \right).
+\end{equation}
+[[file:~/Documents/LatexFiles/UTFSM/Electrodynamics/TikZ/electric-dipole.png]]
+
+** 
+For \(r \gg \ell\), the principal contribution to the potential is
+\begin{equation}
+\phi(\vec{r}) = \frac{q \vec{\ell} \cdot \vec{r}}{r^3} = - \vec{p} \cdot \vec{\nabla} \frac{1}{r}.
+\end{equation}
+#+BEGIN_QUOTE
+The vector \(\vec{p} = q \vec{\ell}\) is called /dipole moment/ of the system.
+#+END_QUOTE 
+
+** 
+More generally,
+\begin{align}
+\phi(\vec{r}) &= \int \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} \, dV'\\
+              &= \frac{1}{r} \int \rho(\vec{r}') \, dV' + \frac{\vec{r}}{r^3} \cdot \int \rho(\vec{r}') \vec{r}' \, dV'
+\end{align}
+#+BEGIN_QUOTE
+The expansion of the function \(\frac{1}{|\vec{r} - \vec{r}'|}\) yield
+the /multipolar moments/ of the system.
+#+END_QUOTE
+
+** General theory of capacitance
+CLOSED: [2018-03-07 Wed 06:22]
+
+- We begin with one or two conductors but then extending ourselves to
+  an indefinite number of conductors.
+- *Superposition principle:* \(\rho_1 \to \phi_1\) and \(\rho_2 \to
+  \phi_2\), then \(\rho = \rho_1 +\rho_2 \to \phi = \phi_1 + \phi_2\).
+- \(\nabla^2 \phi = - 4 \pi \rho\).
+
+#+BEGIN_QUOTE
+If we place an amount of charge \(Q\), on a conductor, its potential
+will rise to some value \(\phi_0\). An amount of charge \(\alpha Q\) would lead to a
+potential \(\alpha \phi_0\).
+#+END_QUOTE
+
+** 
+Thus,
+\begin{equation}
+Q = C \phi.
+\end{equation}
+The proportionality constant \(C\) is defined to be the capacitance of
+a single conductor.
+
+In general, for \(N\) conductors
+\begin{equation}
+Q_i = \sum_j C_{ij} \phi_j.
+\end{equation}
+- \(C_{ii}\): are called capacities or capacitances.
+- \(C_{ij} \text{ for } i \neq j\): are called coefficients of
+  induction.
+
+** 
+The expression can be inverted
+\begin{equation}
+\phi_i = \sum_j p_{ij} Q_j,
+\end{equation}
+where the \(p_{ij}\) (/potential coefficients/) depend on the geometry of the conductors.
+
+Notice that
+\begin{equation}
+U = \frac{1}{2} \sum_{i,j} C_{ij} \phi_i \phi_j.
+\end{equation}
+
+** EXERCISE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+Let \(\delta U_Q\) be the change in electrostatic energy of the system
+if the conductors are slightly displaced while the charges are held
+constant. Let \(\delta U_\phi\) be the change in electrostatic energy
+of the system of conductors if their displacement is the same as
+before, while the potentials are held constant. Then we will prove
+that \(\delta U_Q = - \delta U_\phi\).
+
+** Electrostatic stress tensor
+
+Let \(\rho\) be the charge density and \(\vec{E}\) the electric
+field. The total force on a given volume is
+\begin{equation}
+\vec{F} = \int_V \rho \vec{E} \, dV = \frac{1}{4 \pi} \int_V \vec{E} (\nabla \cdot E) \, dV.
+\end{equation}
+Using integration by parts, vector identities and the properties of
+the electric field, one gets
+\begin{equation}
+\vec{F} = \frac{1}{4 \pi} \int_S \left[ \vec{E} ( \vec{E} \cdot \hat{n} ) - \frac{E^2}{2} \hat{n} \right] \, dA = \int_S \overleftrightarrow{T} \cdot \hat{n}.
+\end{equation}
+
+* PDE and the potential problem
+
+Methods to solve:
+- The Laplace (\(\nabla^2 \phi = 0\)) and
+- Poisson (\(\nabla^2 \phi = - 4 \pi \rho\)) equations
+with certain boundary conditions.
+
+Notice that in general dielectrics the Poisson equation is, \(\nabla
+\cdot \epsilon \nabla \phi = - 4 \pi \rho.\)
+
+** Potential problem
+
+\(\phi\) must satisfy the following conditions:
+1. At the boundary of a conductor:
+   - Isolated: \(\phi = \text{const}\) and
+     \begin{equation}
+     - \oint \epsilon \left( \frac{\partial \phi}{\partial n} \right)
+       \, da = 4 \pi Q.
+     \end{equation}
+   - Held at constant potential: \(\phi = \phi_0\) but the charge is
+     undetermined.
+2. At the boundary of an insulator:
+   If \(\sigma_t = 0\), both \(\phi\) and \(\epsilon \frac{\partial
+   \phi}{\partial n}\) are continuous.
+
+** Separation of variables
+- Consider a coordinate system \((s,t,u)\).
+- Write the Laplacian operator in that coord. syst.
+- Propose that the solution is separable:
+  \begin{equation}
+  \phi(s,t,u) = S(s)T(t)U(u).
+  \end{equation}
+- Find the differential equations for the functions \(S\), \(T\) and
+  \(U\).
+
+** EXAMPLE
+:Properties:
+:reveal_background: ./images/Q2.png
+:END:
+- The covariant derivative of a vector is
+  \begin{equation}
+  \nabla_i V^j = \partial_i V^j + \Gamma_{ik}^j V^k,
+  \end{equation}
+  where \(\Gamma\) are the Christoffel symbols. Use this definition to
+  find a expression for the Laplacian in curved reference systems.
+
+** EXERCISE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+- Find the explicit expression for the Laplacian in the following
+  coordinate systems:
+  - Cartesian,
+  - Cylindrical, and
+  - Spherical.
+
+** Solution of Laplace equation (Cartesian)
+
+\begin{equation}
+\nabla^2 \phi = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2} = 0.
+\end{equation}
+Propose \(\phi(x,y,z) = X(x)Y(y)Z(z)\) and then divide by \(\phi\).
+
+** Green's functions
+
+A Green's function, \(G(x,y)\), for an operator (\(D\)) is defined
+such that
+\begin{equation}
+D G(x,y) = \delta(x-y).
+\end{equation}
+
+The solution of an inhomogeneous differential equation \(D \phi(x) =
+f(x)\) is
+\begin{equation*}
+\phi(x) = \int dy \, G(x,y) f(y).
+\end{equation*}
+
+#+BEGIN_QUOTE
+Notice that no boundary conditions were mention yet!
+#+END_QUOTE
+
+** Green's function in Electrodynamics
+
+We already know that
+\begin{equation*}
+\nabla^2 \frac{1}{|\vec{r} - \vec{r}'|} = - 4 \pi \delta(\vec{r} - \vec{r}').
+\end{equation*}
+
+Thus, the solution of the Poisson equation is
+\begin{equation*}
+\phi(\vec{r}) = \int dV' \, \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|},
+\end{equation*}
+which satisfy homogeneous boundary conditions.
+
+** Boundary conditions
+- Superposition.
+- Gau\ss{}' theorem for \(\vec{V} = f \nabla g\) and \(\vec{V} = f
+  \nabla g - g \nabla f\).
+- Use \(f = \phi\) and \(g = G\).
+
+\begin{equation}
+\phi = \int_\Omega dV' \, \rho G + \frac{1}{4 \pi} \oint_{\partial \Omega} da' \, \left[ G \partial_n \phi - \phi \partial_n G \right].
+\end{equation}
+
+- Dirichlet :: \(G|_{\partial \Omega} = 0\).
+- Neumann :: \(\partial_n G|_{\partial \Omega} = - \frac{4 \pi}{A_t}\)
+
+* 
+
+* Magnetostatic
+
+** Generalities
+- Magnetic fields interact through the magnetic dipoles.
+- Magnetic monopoles do not exist.
+- In analogy with electrostatic:
+  | Quantity                       | Corresponds to | or                     |
+  |--------------------------------+----------------+------------------------|
+  | Magnetic field \(\vec{H}\)     | \(\vec{E}\)    | \(\vec{D}\)            |
+  | Magnetic induction \(\vec{B}\) | \(vec{D}\)     | \(\vec{E}\)            |
+  | Magnetisation \(\vec{M}\)      | \(\vec{P}\)    | - \(\vec{P}\)          |
+  | Permeability \(\mu\)           | \(\epsilon\)   | \(\frac{1}{\epsilon}\) |
+  
+  Notice that the first analogy preserves the field equations, while
+  the second reverse the divergence and curl operators.
+
+** Field equations
+
+\begin{align}
+\nabla \times  \vec{H} & = 0 & \nabla \cdot \vec{B} & = 0 \\
+\vec{B} & = \vec{H} + 4 \pi \vec{M} & \rho_m & = - \nabla \cdot \vec{M} = \frac{1}{4 \pi} \nabla \cdot \vec{H} \\
+\vec{B} & = \mu \vec{H} & \sigma_m  & = - ( \vec{M}_{n_1} + \vec{M}_{n_2} ) = \frac{1}{4 \pi} ( \vec{H}_{n_1} + \vec{H}_{n_2} ) 
+\end{align}
+
+The \(\mu\) parameter is the permeability of the material.
+- Paramagnetic: \(\mu > 1\) and temperature dependent.
+- Diamagnetic: \(\mu < 1\) and temperature independent.
+- Ferromagnetic: No unique relation between \(\vec{B}\) and
+  \(\vec{H}\).
+
+** Niceties!!! or not?
+
+\begin{equation}
+\nabla \times \vec{H} = 0 \Longrightarrow \vec{H} = - \nabla \psi.
+\end{equation}
+The field \(\psi\) is a scalar potential. 
+
+However, the magnetic induction, \(\vec{B}\), can be obtained from a
+vector potential 
+\begin{equation}
+\nabla \cdot \vec{B} = 0 \Longrightarrow \vec{B} = \nabla \times \vec{A}.
+\end{equation}
+Notice that in this equation, the magnetic induction is defined by the
+vector potential, up to a gradient of a function. Such indetermination
+is the base of the /gauge/ invariance.
+
+** EXAMPLE
+:PROPERTIES:
+:reveal_background: ./images/Thinker-30.png
+:END:
+
+Since \(H \propto B\), then \(\nabla^2 A = 0\), if one choose the
+/gauge/ \(\nabla \cdot A = 0\).
+
+The inhomogeneous problem is solved by the same Green's function as in
+the electrostatic case. For the magnetic dipole one has,
+\begin{equation}
+\vec{A} = \frac{ \vec{m} \times \vec{r} }{ r^3 }.
+\end{equation}
+
+And for a general distribution,
+\begin{equation}
+\vec{A} = \int dV \, \frac{ \vec{M} \times \vec{r} }{ r^3 } = - \int dV \, \vec{M} \times \nabla \frac{1}{r} .
+\end{equation}
+
+* Steady currents
+
+** Generalities
+
+An electric  /current/, \(I\), is the electric charge that passes
+through the total cross-sectional area of a conductor per unit time,
+\begin{equation}
+I = \frac{ d q }{ d t }.
+\end{equation}
+
+The current density, \(\vec{j}\), is defined as a vector in the direction of the
+flow, with magnitude equal to the amount of charge flowing through a
+unit area,
+\begin{equation}
+I = \int d\vec{a} \cdot \vec{j}.
+\end{equation}
+
+** Continuity equation
+
+Conservation of electric charge,
+\begin{equation}
+\oint_{\partial M} \vec{a} \cdot \vec{j} = - \frac{ d q }{ d t } = - \frac{d}{dt} \int_M dV \, \rho.
+\end{equation}
+or
+\begin{equation}
+\frac{d \rho}{dt} + \nabla \cdot \vec{j} = 0.
+\end{equation}
+
+For steady currents, from the continuity it follows, that 
+\begin{equation}
+\nabla \cdot \vec{j} = 0.
+\end{equation}
+
+** Ohm's law
+
+Phenomenological relation
+\begin{equation}
+\vec{j} = \sigma \vec{E}.
+\end{equation}
+\(\sigma\) is the conductivity of the material.
+
+*** Interpretation:
+
+The resistance is a force proportional to the velocity.
+\begin{align}
+\rho &= (N_+ - N_- ) e,  \\
+\vec{j} &= N_+ e \vec{v}_+ - N_- e \vec{v}_- .
+\end{align}
+Then
+\begin{align}
+\vec{F}_r = - \omega_\pm \vec{v}_\pm
+\end{align}
+and in general
+\begin{align}
+m \dot{\vec{v}} = - \omega_\pm \vec{v}_\pm \pm e \vec{E}.
+\end{align}
+
+In the steady case,
+\begin{equation}
+\pm \vec{v}_\pm = \frac{e}{\omega_\pm} \vec{E},
+\end{equation}
+thus, from Ohm's law
+\begin{equation}
+\sigma = e^2 \left( \frac{N_+}{\omega_+} + \frac{N_-}{\omega_-} \right).
+\end{equation}
+
+As before, \(\vec{E} = - \nabla \phi\), and \(\nabla \times \vec{E} = 0\).
+
+*** Homogeneous conductor
+
+\begin{align}
+\phi_1 - \phi_2 & = L E,  \\
+I & = A j, 
+\end{align}
+Then,
+\begin{equation}
+\phi_1 - \phi_2 = I R,
+\end{equation}
+with \(R = L/\sigma A\).
+
+** Joule's law
+
+
+
+Work per time
+\begin{equation}
+\vec{F} \cdot \vec{v} = e \vec{v} \cdot \vec{E}.
+\end{equation}
+Heat produced per unit volume per unit time,
+\begin{equation}
+Q = \vec{j} \cdot \vec{E}.
+\end{equation}
+
+*** Example 
+
+Homogeneous conductor, area \(A\) length \(L\)
+\begin{equation}
+\bar{Q} = \vec{j} \cdot \vec{E} . L. A = I (\phi_1 - \phi_2) = I^2 R.
+\end{equation}
+
+** Current flow in conductors
+
+\begin{align}
+\vec{E} &= -\nabla \phi & \vec{j} &= \sigma \vec{E} & \rho &= 0 \\
+\nabla \cdot \vec{j} &= 0 & \nabla \cdot \vec{E} &= 0 & \nabla^2 \phi &= 0
+\end{align}
+In general there are presence of surface charges. Furthermore,
+\begin{equation}
+\vec{j}_n = - \sigma \frac{ \partial \phi }{\partial n} = 0.
+\end{equation}
+
+Conductors made of inhomogeneous materials
+\begin{equation}
+\nabla \cdot ( \sigma \nabla \phi ) = 0.
+\end{equation}
+
+** Magnetic field of steady currents
+
+Oersted found:
+\begin{equation}
+\oint_c \vec{H} \cdot d\vec{s} = \frac{ 4 \pi }{c} I_{\text{enc}}. 
+\end{equation}
+
+EXAMPLE:
+
+Cylindrical conductor, \(H_r = 0\) and \(H_\phi = \frac{2I}{cr}\).
+
+** Fundamental laws of steady currents
+
+\begin{align}
+\oint_s d\vec{a} \cdot \vec{E} &= 4 \pi e & \nabla \times \vec{E} &= 0 \\
+\oint_c d\vec{s} \cdot \vec{H} &= \frac{4 \pi}{c} I & \nabla \cdot \vec{H} &= 0 \\
+\end{align}
+
+*** Solenoid
+
+\begin{equation}
+H_z = \frac{4 \pi N}{L} \frac{I}{c}.
+\end{equation}
+
+** ... or by Stokes'
+
+\begin{equation}
+\nabla \times \vec{H} = \frac{4\pi}{c} \vec{j},
+\end{equation}
+Notice the necessity of \(\nabla \cdot \vec{j} = 0\).
+
+** Vector potential
+
+from \(\nabla \cdot \vec{H} = 0\), it follows that \(\vec{H} = \nabla \times
+\vec{A}\).
+
+But now, \(\nabla \times \vec{H} = \frac{4\pi}{c}
+\vec{j}\). Therefore,
+\begin{equation}
+\nabla \cdot \vec{A} = 0 \quad \nabla^2 \vec{A} = - \frac{4 \pi}{c} \vec{j}.
+\end{equation}
+
+The solution is 
+\begin{equation}
+\vec{A} = \frac{1}{c} \int dV \, \frac{\vec{j}}{r} .
+\end{equation}
+
+** Back to the Magnetic field
+
+\begin{equation}
+\vec{H} = \frac{1}{c} \int dV \, \vec{j} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} 
+\end{equation}
+
+*** Particular case (a wire)
+
+\begin{align}
+\vec{A} & = \frac{I}{c} \int \frac{d\vec{s}}{r} , \\
+\vec{H} & = \frac{I}{c} \int d\vec{s} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} .
+\end{align}
+
+The last expression is the famous *Biot-Savart law*.
+
+*** Clever comment
+
+#+BEGIN_QUOTE
+The ``\(d\vec{H}\)'' so defined does not satisfy the equations from
+which we started, since the current element does not satisfy the
+continuity equation.
+#+END_QUOTE
+
+** Current loops and magnetic dipoles
+
+For a loop, one uses Stokes' theorem,
+\begin{equation}
+\vec{A} = \frac{I}{c} \int da \, \vec{n} \times \nabla \frac{1}{r}.
+\end{equation}
+Comparing with the potential of a magnetic dipole,
+\begin{equation}
+\vec{m} = \frac{I}{c} \vec{n}.
+\end{equation}
+
+** Volume distribution of dipoles
+
+Define the /magnetitic moment/ per unit volume, \(\vec{M}\), as the
+magnetization. Then,
+\begin{equation}
+\vec{A} = \int dV \, \frac{\nabla \times \vec{M}}{r} - \oint \frac{d\vec{a} \times \vec{M}}{r}.
+\end{equation}
+
+A volume distribution of magnetization is equivalent to a current
+volume density, \(\vec{j}_m = c \nabla \times \vec{M}\), and a surface
+current density, \(\vec{i}_m = - c \vec{n} \times \vec{M}\).
+
+** Three types of currents!!!
+
+- Conduction currents :: Standard currents, \(\vec{j}_c\).
+- Molecular currents :: Volume distribution of dipoles, \(\vec{j}_m\).
+- Convection currents :: Macroscopic charge in motion, \(\vec{j}_k\).
+
+\begin{align}
+\curl \vec{H} & = \frac{4 \pi}{c} ( \vec{j}_c + \vec{j}_k ) & & \\
+\curl \vec{B} & = \frac{4 \pi}{c} ( \vec{j}_c + \vec{j}_k + \vec{j}_m) & \div \vec{B} & = 0. 
+\end{align}
+
+Consequently, \(\vec{B}\) has discontinuous tangential component if
+surface currents are present,
+\begin{equation}
+\vec{B}_\parallel^{(i)} - \vec{B}_\parallel^{(e)} = \frac{4 \pi}{c} \vec{n} \times \vec{i}_m = 4 \pi \vec{M}_\parallel.
+\end{equation}
+
+** Ponderomotive forces
+
+Magnetic Coulomb's law (unit pole):
+\begin{equation}
+\vec{F} = \frac{1}{c} \int dV \,  \frac{\vec{j} \times (\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|} = \frac{1}{c} \int dV \,  \vec{j} \times \vec{H}.
+\end{equation}
+
+The force per unit volume,
+\begin{equation}
+d\vec{F} = \frac{1}{c} \vec{j} \times \vec{H} .
+\end{equation}
+
+For linear conductors,
+\begin{equation}
+d\vec{F} = \frac{I}{c} \,  d\vec{s} \times \vec{H} .
+\end{equation}
+
+For convection currents, \(\vec{j}_k = \rho \vec{v}\),
+\begin{equation}
+\vec{F} = \frac{e}{c} \, \vec{v} \times \vec{H}.
+\end{equation}
+
+#+BEGIN_QUOTE
+\(\vec{H}\) can be defined and measured with the aid of moving
+charges, just as \(\vec{E}\) can be defined and measured with
+stationary charges.
+#+END_QUOTE
+
+** Force among closed linear current loops
+
+\begin{equation}
+\vec{H}_1 = \frac{I_2}{c} \, \oint_2 \frac{d\vec{s}_2 \times (\vec{r}_1 - \vec{r}_2)}{r_{12}^3},
+\end{equation}
+thus
+\begin{equation}
+\vec{F}_1 = \frac{I_1 I_2}{c^2} \, \oint_1 \oint_2 \frac{d\vec{s}_1 \times (d\vec{s}_2 \times (\vec{r}_1 - \vec{r}_2))}{r_{12}^3}.
+\end{equation}
+
+** Action, reaction and Maxwell stress tensor. 
+
+Action and reaction: \(\sum_i F_i = 0\).
+
+A reinterpretation of the action and reaction can be cast in terms of
+an objects (/vector/) whose flux at the infinity surface vanishes. In
+order to find the "flow", one utilises Gauß' law, with the subtlety
+that the flux is a vector, and therefore the conserved quantity is a
+/double/-vector!!! i.e., a rank two tensor \(T^{\mu\nu}\).
+
+_Lorentz force:_
+\begin{equation}
+\vec{F} = e \left( \vec{E} + \frac{v}{c} \times \vec{H} \right),
+\end{equation}
+or in terms of densities,
+\begin{align}
+\vec{F} & = \int dV \, \left( \rho \vec{E} + \frac{\vec{j}}{c} \times \vec{H} \right) \\
+        & = \frac{1}{4 \pi} \int dV \, \left( ( \div E ) \vec{E} + ( \curl H ) \times \vec{H} \right) \\
+        & = \frac{1}{4 \pi} \int dV \, \left( ( \div E + \curl E \times ) \vec{E} + ( \div H + \curl H  \times) \vec{H} \right) \\
+        & = \frac{1}{4 \pi} \int dV \, \left( \div( \vec{E} E) - \frac{1}{2} \grad E^2 + \div( \vec{H} H) - \frac{1}{2} \grad H^2 \right) \\
+        & = \frac{1}{4 \pi} \int da \, \left( \vec{E} (\vec{n} \cdot \vec{E}) - \frac{1}{2} \vec{n} E^2 + \vec{H} (\vec{n} \cdot \vec{H}) - \frac{1}{2} \vec{n} H^2 \right).
+\end{align}
+
+Therefore, the quantity that flow at /infinity/ is 
+\begin{equation}
+T^{ij} = \frac{1}{4 \pi} \left( E^i E^j + H^i H^j - \frac{1}{2} \delta^{ij} (E^2 + H^2) \right).
+\end{equation} 
+
+
+* Covariant formulation of electrodynamics
+
+** Review of special relativity
+
+| Theory              | Parameter(s)  | Observable(s) |
+|---------------------+---------------+---------------|
+| Newtonian mechanics | \(t\)         | \(\vec{x}\)   |
+| Special relativity  | \(\tau\)      | \(t,\vec{x}\) |
+| Field theory        | \(t,\vec{x}\) | Fields        |
+
+The constancy of the speed of light for all observers, implies that
+the interval \(I = 0 \) is a conserved,
+\begin{align}
+c & = \frac{d |\vec{x}|}{d t} & |\vec{x}| & = \sqrt{x^2 + y^2 + z^2} \\
+c dt  & = d |\vec{x}| & d |\vec{x}|^2     & =  dx^2 + dy ^2 + dz^2 \\
+I = 0 & = - (c \, dt)^2 + dx^2 + dy^2 + dz^2. & &
+\end{align}
+
+Let us propose that the quantity \(I\) is invariant for all the
+observers even for values different than zero. in addition, \(I\) can
+be seen as a quadratic form, 
+\begin{equation}
+I = dx^t \, \eta \, dx, 
+\end{equation}
+where \(dx = (dt, dx, dy, dz) \) and \(\eta = \diag(-1, 1, 1, 1)\).
+
+Moreover, \(I\) is called /interval/, and is interpreted as the
+line element (the square of an infinitesimalldistance) in a four-dimensional spacetime, with Lorentian metric.[fn:1]
+As so, it is usually denoted by \(ds^2\), and since it is an invariant
+quantity, it serves as parameter in the theory. 
+
+
+
+* COMMENT Babel Examples
+
+** Python Example
+
+#+BEGIN_SRC python :results file :exports results
+import matplotlib.pyplot as plt
+plt.plot([1,3,2,4])
+plt.savefig('./myfig.png')
+return './myfig.png'
+#+END_SRC
+
+#+RESULTS:
+[[file:./myfig.png]]
+
+** Octave Example
+
+#+BEGIN_SRC octave
+5-3.3
+#+END_SRC
+
+#+RESULTS:
+: 1.7
+
+** Emacs
+
+#+BEGIN_SRC emacs-lisp
+(expand-file-name
+             "ditaa.jar"
+      (file-name-as-directory
+            (expand-file-name
+                "scripts"
+               (file-name-as-directory
+                  (expand-file-name
+                      "../contrib"
+                     (file-name-directory (org-find-library-dir "org")))))))
+#+END_SRC
+
+#+RESULTS:
+: /home/oscar/.emacs.d/elpa/contrib/scripts/ditaa.jar
+
+** Ditaa
+
+#+BEGIN_SRC ditaa :file ./images/helloworld.png
++----------------+
+| Hello World!!! |
+|                |
++----------------+
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/helloworld.png]]
+
+
+** Maxima
+
+#+BEGIN_SRC maxima 
+a: 2+2;
+print(a);
+#+END_SRC
+
+#+RESULTS:y
+: 4
+
+** LaTeX
+
+#+BEGIN_SRC latex :exports both
+  Here is an interesting (and true) equation: 
+  \begin{equation} 
+  \int uv' = uv - \int u'v \label{int}. 
+  \end{equation}
+  And that happens to be equation \eqref{int} on page \pageref{int}.
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_EXPORT latex
+Here is an interesting (and true) equation: 
+\begin{equation} 
+\int uv' = uv - \int u'v \label{int}. 
+\end{equation}
+And that happens to be equation \eqref{int} on page \pageref{int}.
+#+END_EXPORT
+
+* Footnotes
+
+[fn:1] In special relativity, the Lorentian metric is the
+generalisation of a Euclidean metric, but with one of the diagonal
+elements negative.

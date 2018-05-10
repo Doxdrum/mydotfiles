@@ -1,0 +1,412 @@
+% Created 2017-05-12 Fri 14:51
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{minted}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.1 (Org mode 9.0.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Sage and Sagemanifolds}
+\label{sec:org08853a8}
+\subsection{Installation of \texttt{Sage 7.3}\hfill{}\textsc{NOTE}}
+\label{sec:org621869c}
+\begin{minted}[]{shell}
+sudo apt-get install binutils gcc make m4 perl tar git
+sudo apt-get install binutils gcc g++ gfortran make m4 perl tar git
+sudo apt-get install libssl1.0.0 libssl-dev openssh-server openssh-client
+sudo apt-get install tk tk-dev
+cd /path/of/software/folder
+git clone https://github.com/sagemath/sage.git
+cd sage
+export SAGE64=yes
+export MAKE="make -j8"
+make
+\end{minted}
+
+After the \texttt{make}, I checked the installation by open the notebook
+
+\begin{minted}[]{shell}
+sage -n
+\end{minted}
+
+Finally, I install \texttt{SageManifolds}
+
+\begin{minted}[]{shell}
+git checkout -b sagemanifolds
+wget -N http://sagemanifolds.obspm.fr/spkg/sm-install.sh
+bash sm-install.sh
+\end{minted}
+
+Now, \texttt{Sage} is ready to work with \texttt{SageManifolds}
+
+\begin{minted}[]{shell}
+sage -n
+\end{minted}
+
+\section{\LaTeX{}}
+\label{sec:org55e0042}
+
+\subsection{Defining  \texttt{floor} and \texttt{ceil} functions}
+\label{sec:org74b2df4}
+
+From the \href{http://tex.stackexchange.com/a/118217/9823}{webpage}
+
+\begin{minted}[]{latex}
+\documentclass{minimal}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\begin{document}
+  \begin{equation*}
+    \floor*{\frac{x}{2}} < \frac{x}{2} < \ceil*{\frac{x}{2}}
+  \end{equation*}
+\end{document}
+\end{minted}
+
+The \texttt{*} is for ensuring the right size of the brackets!
+
+\section{Emacs}
+\label{sec:org5c975fb}
+\subsection{Initial buffer}
+\label{sec:org64465f8}
+In order to open an initial buffer with your \texttt{emacs} session, add this
+code to your \texttt{init} file,
+\begin{minted}[]{common-lisp}
+(initial-buffer-choice "~/path/to/my/file.org")
+\end{minted}
+\subsection{Useful commands}
+\label{sec:orga2a2ded}
+
+\begin{center}
+\begin{tabular}{ll}
+Command & Description\\
+\hline
+M-<F10> & Maximise frame\\
+<F11> & Full screen\\
+\end{tabular}
+\end{center}
+
+\subsection{Magit}
+\label{sec:org25153ca}
+
+There are some videos by \emph{Renn Seo} which are very usefull
+
+\href{https://www.youtube.com/playlist?list=PLPNohcoOBa5GGreLyc3nnSIGYB9UeVO\_X}{Playlist emacs by Renn Seo}
+
+\subsubsection{Git untrack file (without deletion)\hfill{}\textsc{NOTE}}
+\label{sec:org27d67f5}
+
+from \href{http://source.kohlerville.com/2009/02/untrack-files-in-git/}{this webpage} I found out that this is achieved using the command
+
+\begin{minted}[]{shell}
+git rm --cached filename
+\end{minted}
+
+\textit{[2016-09-09 Fri 07:59]}
+\subsection{Org-mode}
+\label{sec:org9e47825}
+\subsubsection{Defining a macro}
+\label{sec:orgb94c753}
+
+From this \href{http://emacs.stackexchange.com/a/261/2441}{post}:
+
+First, define your macro
+
+\begin{minted}[]{org}
+#+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@ @@ascii:|@@
+\end{minted}
+
+and then call it!
+
+\begin{minted}[]{org}
+#+TITLE: Foo {{{NEWLINE}}} Bar
+\end{minted}
+\subsubsection{\texttt{org-ref}}
+\label{sec:org4fe5338}
+\begin{enumerate}
+\item Download a PDF file from \texttt{doi} (in existing \texttt{BibTeX} entry)
+\label{sec:org00dbb31}
+\begin{itemize}
+\item Go to the \texttt{bib} file
+\item Place the cursor on the \texttt{doi} number
+\item Call the command \texttt{M-x doi-utils-get-bibtex-entry-pdf}
+
+If you have access to the journal, the PDF file will be downloaded
+with the name of the entry ID, in the default
+\texttt{org-ref-pdf-directory}
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Org-plot}
+\label{sec:org280150a}
+
+\begin{center}
+\label{org-plot-example-1}
+\begin{tabular}{rrr}
+independent var & first dependent var & second dependent var\\
+\hline
+0.1 & 0.425 & 0.375\\
+0.2 & 0.3125 & 0.3375\\
+0.3 & 0.24999993 & 0.28333338\\
+0.4 & 0.275 & 0.28125\\
+0.5 & 0.26 & 0.27\\
+0.6 & 0.25833338 & 0.24999993\\
+0.7 & 0.24642845 & 0.23928553\\
+0.8 & 0.23125 & 0.2375\\
+0.9 & 0.23333323 & 0.2333332\\
+1 & 0.2225 & 0.22\\
+1.1 & 0.20909075 & 0.22272708\\
+1.2 & 0.19999998 & 0.21458333\\
+1.3 & 0.19615368 & 0.21730748\\
+1.4 & 0.18571433 & 0.21071435\\
+1.5 & 0.19000008 & 0.2150001\\
+1.6 & 0.1828125 & 0.2046875\\
+1.7 & 0.18088253 & 0.1985296\\
+1.8 & 0.17916675 & 0.18888898\\
+1.9 & 0.19342103 & 0.21315783\\
+2 & 0.19 & 0.21625\\
+2.1 & 0.18214268 & 0.20714265\\
+2.2 & 0.17727275 & 0.2022727\\
+2.3 & 0.1739131 & 0.1989131\\
+2.4 & 0.16770833 & 0.1916667\\
+2.5 & 0.164 & 0.188\\
+2.6 & 0.15769238 & 0.18076923\\
+2.7 & 0.1592591 & 0.1888887\\
+2.8 & 0.1598214 & 0.18928565\\
+2.9 & 0.15603453 & 0.1844828\\
+\end{tabular}
+\end{center}
+
+\subsubsection{{\bfseries\sffamily TODO} Install and configure org-gcal\hfill{}\textsc{org:emacs}}
+\label{sec:orgb255e56}
+
+See the git hub repository 
+
+\subsubsection{{\bfseries\sffamily TODO} Review How to auto-complete python code within \texttt{org}}
+\label{sec:org3ff7a81}
+\textit{[2016-09-07 Wed 11:44]}
+\subsubsection{{\bfseries\sffamily TODO} Review How to include a partial code}
+\label{sec:org05f5b39}
+I want to be able of include a recurrent part of code for using
+\texttt{babel} evaluation.  \textit{[2016-09-07 Wed 11:43]}
+
+
+\section{Cadabra}
+\label{sec:orgf1e3642}
+
+\subsection{Compilation of \texttt{Cadabra2} from \texttt{github}}
+\label{sec:org5e69c45}
+
+\begin{itemize}
+\item Create a folder for the code
+
+\begin{minted}[]{shell}
+mkdir -p ~/Software/
+cd !$
+\end{minted}
+
+\item Install the required dependences
+
+\begin{minted}[]{shell}
+sudo apt-get install cmake python3-dev g++ libpcre3 libpcre3-dev libgmp3-dev libgtkmm-3.0-dev libboost-all-dev libgmp-dev libsqlite3-dev uuid-dev texlive texlive-latex-extra dvipng python3-matplotlib python3-mpmath python3-pip python3-setuptools
+sudo pip3 install sympy
+\end{minted}
+
+\item Download the code
+
+\begin{minted}[]{shell}
+git clone https://github.com/kpeeters/cadabra2
+\end{minted}
+
+\item Compile the code
+
+\begin{minted}[]{shell}
+cd cadabra2
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+\end{minted}
+\end{itemize}
+
+\section{Linux}
+\label{sec:org97d046b}
+
+\subsection{Setting the date and time the CLI way}
+\label{sec:org914892e}
+
+See for example the post by \href{http://www.cyberciti.biz/faq/howto-set-date-time-from-linux-command-prompt/}{nixCraft}
+
+\subsubsection{Show the date and time}
+\label{sec:org9f8b1a1}
+\begin{minted}[]{shell}
+$ date
+\end{minted}
+
+\subsubsection{Hardward clock}
+\label{sec:org569440b}
+\begin{minted}[]{shell}
+$ sudo hwclock -r
+\end{minted}
+or
+\begin{minted}[]{shell}
+$ sudo hwclock --show
+\end{minted}
+
+To see the Universal Time 
+\begin{minted}[]{shell}
+$ sudo hwclock --show --utc
+\end{minted}
+
+\subsubsection{Setting the system time}
+\label{sec:org1b32439}
+\begin{minted}[]{shell}
+$ sudo date +%T "hh:mm:ss"
+\end{minted}
+
+\subsubsection{Setting the hardward clock to system time}
+\label{sec:orgedb0c37}
+\begin{minted}[]{shell}
+$ sudo hwclock --systohc
+\end{minted}
+
+\subsubsection{For OS with \texttt{systemd}}
+\label{sec:org50c8d67}
+There is a new command 
+\begin{minted}[]{shell}
+$ timedatectl
+\end{minted}
+
+\begin{enumerate}
+\item Setting the date and time with \texttt{timedatectl}
+\label{sec:org2fa959a}
+\begin{minted}[]{shell}
+$ sudo timedatectl set-time YYYY-MM-DD HH:MM:SS
+\end{minted}
+\end{enumerate}
+
+\subsection{Installing \texttt{emacs} from \texttt{git} repository}
+\label{sec:orgfa43433}
+
+\begin{minted}[]{shell}
+git clone git://git.savannah.gnu.org/emacs.git
+cd emacs
+git tag -l # show the available releases
+git checkout tags/emacs-25.1 -b emacs-25.1 #create branch for that release
+mkdir ../emacs-25.1 #folder for the compiled version
+./autogen.sh
+./configure --prefix=/global/path/to/emacs-25.1/ #conf in the specified folder
+make bootstrap 
+make install
+cd ../emacs-25.1/bin/
+./emacs &
+\end{minted}
+
+\subsection{Installing \texttt{TeXlive}}
+\label{sec:orgc30c18e}
+
+\subsubsection{Get the installer}
+\label{sec:org2f0bd0a}
+
+\begin{minted}[]{shell}
+wget -np http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+\end{minted}
+
+\subsubsection{Untar it}
+\label{sec:org1be84c0}
+
+\begin{minted}[]{shell}
+tar xzvf install-tl-unx.tar.gz
+\end{minted}
+
+\subsubsection{Go to the folder}
+\label{sec:orga9dd0a9}
+
+\begin{minted}[]{shell}
+cd install-tl-unx
+\end{minted}
+
+\subsubsection{Run the installer}
+\label{sec:org784807e}
+
+\begin{minted}[]{shell}
+sudo ./install-tl
+\end{minted}
+
+\subsubsection{Customise the process (optional) and install}
+\label{sec:org75ad516}
+
+To install the default, press the \texttt{i} key and \texttt{RET}
+
+\subsubsection{Include the installation \texttt{PATH} in the \texttt{.profile} file}
+\label{sec:orgddeb34c}
+
+\begin{minted}[]{shell}
+PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+\end{minted}
+\subsection{Enable touchpad tap}
+\label{sec:orgf4e8eb3}
+
+One needs to change the file
+\begin{minted}[]{shell}
+/usr/share/X11/xorg.conf.d/50-synaptics.conf
+\end{minted}
+so that it have the following information
+\begin{minted}[]{shell}
+Section "InputClass"
+        Identifier "touchpad catchall"
+        Driver "synaptics"
+        MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "RBCornerButton" "3"
+EndSection
+\end{minted}
+
+Details at \href{http://forums.debian.net/viewtopic.php?f=16\&t=103644}{this page}
+
+
+
+\begin{minted}[]{python}
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(3,2))
+plt.plot([1,3,2])
+fig.tight_layout()
+plt.savefig('images/myfig.pdf')
+'images/myfig.pdf'
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{images/myfig.pdf}
+\end{center}
+\end{document}

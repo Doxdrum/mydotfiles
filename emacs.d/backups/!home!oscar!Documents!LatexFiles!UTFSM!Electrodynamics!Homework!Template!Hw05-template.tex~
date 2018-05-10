@@ -1,0 +1,76 @@
+\documentclass[letterpaper,12pt,answers]{exam}
+\usepackage{srcltx}
+
+\newcommand\lecturer{O.~Castillo-Felisola}
+\newcommand\course{Electrodynamics}
+\newcommand\type{Homework}
+\newcommand\cardinal{Fifth}
+\title{\course}
+\author{\lecturer}
+
+%\input{Def-article.tex}
+
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathtools,amsmath,amssymb,amsfonts,dsfont,mathrsfs,amsthm,bm,latexsym}
+\usepackage{xcolor}
+\usepackage{braket}
+\renewcommand\bra[1]{\Bra{#1}}
+\renewcommand\ket[1]{\Ket{#1}}
+\newcommand{\bkt}[3]{\Braket{ {#1} | {#2} | {#3} } }
+\newcommand{\bk}[2]{\Braket{ {#1} | {#2} } }
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\vev}[1]{\ensuremath{\left<#1\right>}}
+\renewcommand{\set}[1]{\ensuremath{\Set{ #1 }}}
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{tikz}
+\usepackage{xparse}
+\usetikzlibrary{shapes,
+  snakes,
+  decorations.pathmorphing,
+  decorations.markings,
+  calc,
+  shadows.blur,
+  shadings}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{centernot}
+\usepackage[dayofweek]{datetime}
+\newdateformat{vardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={\cardinal~\type,~\course},
+  pdfauthor={\lecturer.},
+  pdfkeywords={Electrostatic,}{Magnetostatic,}{PDE,}{Boundary conditions.},
+  pdflang={English}
+}
+
+\pointsinrightmargin
+%% \renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
+
+\firstpageheader{ \bf\large \course\\ \lecturer}{}{\bf\large \cardinal~\type\\ \today}
+\runningheader{\bf\large \course}{}{\bf\large \cardinal~\type (Continued)}
+
+\qformat{\large \bf \thequestion. {\color{blue}\thequestiontitle} \hfill}
+
+
+
+\begin{document}
+%% \usefont{OT1}{pzc}{m}{n}
+%% \fontfamily{pnc}
+
+\begin{questions}
+
+  \input{2018-EM/Hw05.tex}
+  
+\end{questions}
+
+{\color{red} \textbf{\sc To be handed on \longdate\formatdate{18}{04}{2018}.}}
+
+\end{document}

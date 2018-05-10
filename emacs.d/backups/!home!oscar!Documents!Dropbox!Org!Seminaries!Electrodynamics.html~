@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Classical Electrodynamics</title>
+<meta name="author" content="(Oscar Castillo-Felisola)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///home/oscar/Software/git.src/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///home/oscar/Software/git.src/reveal.js/css/theme/my-moon.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///home/oscar/Software/git.src/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition=""><h1 class="title">Classical Electrodynamics</h1><h2 class="author">Oscar Castillo-Felisola</h2><p class="date">Created: 2018-03-13 Tue 06:28</p>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org0a1eba3">1. Mathematical Review</a></li>
+<li><a href="#/slide-org3c9e143">2. Electrostatic</a></li>
+<li><a href="#/slide-org28923a7">3. PDE and the potential problem</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-org0a1eba3" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org0a1eba3"><span class="section-number-2">1</span> Mathematical Review</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org88b4e82" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org88b4e82"><span class="section-number-3">1.1</span> Vectors (Cartesian, 3D)</h3>
+<p>
+Let \(\vec{r}_1 = (x_1, y_1, z_1)\) and \(\vec{r}_2 = (x_2, y_2,
+z_2)\), then
+</p>
+<ul>
+<li>\(\vec{r}_1 + \vec{r}_2 = (x_1+x_2, y_1+y_2 , z_1+z_2)\).</li>
+<li>\(a \vec{r}_1 = (a x_1 , ay_1 , az_1)\).</li>
+<li>\(\vec{r}_1 \cdot \vec{r}_2 = x_1x_2 + y_1y_2 + z_1z_2\).</li>
+<li>\(\vec{r}_1 \times \vec{r}_2 = ( y_1z_2 - z_1y_2 , z_1x_2 - x_1z_2 ,
+  x_1y_2 - y_1x_2)\).</li>
+
+</ul>
+
+
+</section>
+<section  data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+
+<ul>
+<li><p>
+Change of coordinates:
+</p>
+<div>
+\begin{align*}
+  \hat{i}' &= a_{11} \hat{i} + a_{12} \hat{j} + a_{13} \hat{k} \\
+  \hat{j}' &= a_{21} \hat{i} + a_{22} \hat{j} + a_{23} \hat{k} \\
+  \hat{k}' &= a_{31} \hat{i} + a_{32} \hat{j} + a_{33} \hat{k} \\
+\end{align*}
+
+</div></li>
+<li><p>
+Orthogonality condition:
+</p>
+<div>
+\begin{align*}
+  \hat{i}' \cdot \hat{i}' &= 1 & \hat{i}' \cdot \hat{i}' &= 0 & \hat{i}' \cdot \hat{k}' &= 0 \\
+  \hat{i}' \cdot \hat{j}' &= 0 & \hat{i}' \cdot \hat{j}' &= 1 & \hat{j}' \cdot \hat{k}' &= 0 \\
+  \hat{i}' \cdot \hat{k}' &= 0 & \hat{i}' \cdot \hat{k}' &= 0 & \hat{k}' \cdot \hat{k}' &= 1 \\
+\end{align*}
+
+</div></li>
+<li>Orientation: \( (\hat{i}' \times \hat{j}') \cdot \hat{k}' = 1\)</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2a230af" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org2a230af"><span class="section-number-3">1.2</span> Geometrical objects</h3>
+<ul>
+<li>Linear algebra (matrices)</li>
+<li>Closure (group structure)</li>
+<li>Unimodular transformations, \(SO(3)\)</li>
+
+</ul>
+
+<p>
+The <i>geometrical objects</i> can be defined according to their
+transformation properties.
+</p>
+<ul>
+<li>(pseudo)scalars</li>
+<li>(pseudo)vectors aka polar and axial vectors</li>
+<li>Tensors, densities, spinors, etc.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orga4c3321" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orga4c3321"><span class="section-number-3">1.3</span> Differentiation</h3>
+<ul>
+<li>Derivative of a vector wrt time.</li>
+<li><p>
+Derivative of a function wrt space (grad).
+</p>
+<div>
+\begin{equation}
+  \nabla f = \begin{pmatrix} \frac{\partial f}{\partial x} & \frac{\partial f}{\partial y} & \frac{\partial f}{\partial z} \end{pmatrix}
+\end{equation}
+
+</div></li>
+<li><p>
+Derivative of a vector wrt space (curl, div, Lap).
+</p>
+<div>
+\begin{equation}
+  \nabla \cdot \vec{A} = \frac{\partial A_x}{\partial x} + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z} 
+\end{equation}
+
+</div></li>
+
+</ul>
+
+
+<ul>
+<li class="fragment highlight-red">The derivative transforms like a vector!!!</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc4481fa" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc4481fa"><span class="section-number-3">1.4</span> Divergence and Gauß' theorem</h3>
+<ul>
+<li><p>
+<b>Flux:</b> Amount of <i>material</i> passing through a tube.
+</p>
+
+<div>
+\begin{equation}
+\text{Net Flux} = \int_S d\vec{A} \cdot \vec{v}.
+\end{equation}
+
+</div></li>
+
+<li><p>
+<b>Gauß's theorem:</b> Relate the flux through the surface with the
+properties of the vector field inside the volume
+limited by the surface.
+</p>
+<div>
+\begin{equation}
+\oint_S d\vec{A} \cdot \vec{v} = \int_V \nabla \cdot \vec{v} dV.
+\end{equation}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgf280d84" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="slide">
+<div class="slide-header"></div>
+<h3 id="orgf280d84"><span class="section-number-3">1.5</span> EXERCISE</h3>
+<p>
+Using the analogy with the river, prove the Gauß' theorem in:
+</p>
+<ul>
+<li>Cartesian coordinates,</li>
+<li>Cylindrical coordinates, and</li>
+<li>Spherical coordinates.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org222776d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org222776d"><span class="section-number-3">1.6</span> Work, Curl and Stokes' theorem</h3>
+<ul>
+<li><p>
+<b>Work:</b> \(W = \int_a^b \vec{F} \cdot d\vec{s}.\)
+</p>
+
+<p>
+If along a closed loop \(W = 0\), the force is said to be
+<i>conservative</i>.
+</p></li>
+
+<li><p>
+<b>Stokes' theorem:</b>
+</p>
+<div>
+\begin{equation}
+\oint_C \vec{v} \cdot d\vec{s} = \int_S d\vec{A} \cdot ( \nabla \times \vec{v} ).
+\end{equation}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org7fd8301" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org7fd8301"><span class="section-number-3">1.7</span> EXERCISE</h3>
+<p>
+Prove the Stokes' theorem for an infinitesimal (square) loop.
+</p>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org1bbfc12" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org1bbfc12"><span class="section-number-3">1.8</span> Second rank tensors</h3>
+<p>
+Consider a <i>stack</i> of two vectors,
+</p>
+<div>
+\begin{equation}
+T = v \, w.
+\end{equation}
+
+</div>
+<p>
+Then, after a transformation, \(v' = R_v v\) and \(w' = R_w w\), thus
+</p>
+<div>
+\begin{equation}
+T' = v' \, w' = R_v \, R_w \, v \, w = R_v \, R_w \, T.
+\end{equation}
+
+</div>
+<ul>
+<li class="fragment highlight-green">\(T\) is a second rank tensor.</li>
+<li class="fragment highlight-green">Notice the similarity with matrix transf.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org5bdb976" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org5bdb976"><span class="section-number-3">1.9</span> EXERCISE</h3>
+<ul>
+<li>Show that a second rank tensor can be decomposed into its symmetric
+and antisymmetric parts.</li>
+<li>Show that under a similarity transformation, the (anti)symmetric
+part remains (anti)symmetric.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org80c78f6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org80c78f6"><span class="section-number-3">1.10</span> Diagonalization of a second rank tensor</h3>
+<div>
+\begin{equation}
+S' =
+\begin{pmatrix}
+\lambda_1 & 0 & 0 \\
+0 & \lambda_2 & 0 \\
+0 & 0 & \lambda_3
+\end{pmatrix}
+\Leftrightarrow
+S' \hat{i}' = \lambda_1 \hat{i}', \cdots
+\end{equation}
+
+</div>
+<p>
+Therefore
+</p>
+<div>
+\begin{equation}
+S \hat{n} = \lambda \hat{n}, \Rightarrow 
+\begin{Vmatrix}
+S_{11} - \lambda & S_{12} & S_{13} \\
+S_{21} & S_{22} - \lambda & S_{23} \\
+S_{31} & S_{32} & S_{33} - \lambda 
+\end{Vmatrix}
+= 0.
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc97e59a" data-background="#AA0000" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc97e59a"><span class="section-number-3">1.11</span> PROBLEMS</h3>
+<ul>
+<li>Show the identities (\(u,v\) are functions, \(A,B,C\) are vectors):
+<ul>
+<li>\(A \times (B \times C) = B (A \cdot C) - C (A \cdot B)\).</li>
+<li>\(A \cdot (B \times C) = B \cdot (C \times A) = C \cdot (A \times
+     B)\).</li>
+<li>\(\nabla \cdot u A = \nabla u \cdot A + u \nabla \cdot A\).</li>
+<li>\(\nabla \times u A = \nabla u \times A + u \nabla \times A\).</li>
+<li>\(\nabla \cdot (A \times B) = B \cdot \nabla \times A - A \cdot
+     \nabla \times B\)</li>
+<li>\(\nabla \times (\nabla \times A) = \nabla(\nabla \cdot A) -
+     \nabla^2 A\).</li>
+<li>\( \nabla (A \cdot B) = A \times (\nabla \times B) + (A \cdot
+     \nabla) B + (B \leftrightarrow A) \).</li>
+<li>\(\nabla \times (A \times B) = (B \cdot \nabla) A + A (\nabla
+     \cdot B) - (B \leftrightarrow  A)\).</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org3f5fe28" data-background="#AA0000" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org3f5fe28"><span class="section-number-3">1.12</span> </h3>
+<ul>
+<li>Show that \(\nabla \cdot (\nabla \times A) = 0\) and \(\nabla
+   \times \nabla u = 0\).</li>
+<li>Evaluate the expressions:
+<ul>
+<li>\(\nabla \frac{1}{|\vec{r} - \vec{r}'|}\).</li>
+<li>\(\nabla \frac{1}{|\vec{r} - \vec{r}'|^2}\).</li>
+<li>\(\nabla^2 \frac{1}{|\vec{r} - \vec{r}'|}\) for \(\vec{r} \neq
+    \vec{r}'\).</li>
+<li>\(\nabla \times \frac{\vec{r} - \vec{r}'}{|\vec{r} -
+    \vec{r}'|^3}\) for \(\vec{r} \neq \vec{r}'\).</li>
+
+</ul></li>
+<li>Show that the trace and the sum of the squares of all the elements
+of a second rank tensor is invariant under rotations.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org3c9e143" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org3c9e143"><span class="section-number-2">2</span> Electrostatic</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org7109c15" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org7109c15"><span class="section-number-3">2.1</span> Coulomb's law (point particles)</h3>
+<p>
+Phenomenologically,
+\[
+\vec{F}_{ij} = e_i e_j \frac{\vec{r}_i - \vec{r}_j}{r_{ij}^3}  = -
+e_i e_j \vec{\nabla}  \frac{ 1 }{ {r}_{ij} }, 
+\]
+with \(r_{ij} = |\vec{r}_i - \vec{r}_j|\).
+</p>
+
+<ul>
+<li>Superposition
+\[
+  \vec{F}_{i,j+k} = \vec{F}_{ij} + \vec{F}_{jk}.
+  \]</li>
+<li>Conservation of charge.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgcd2d672" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgcd2d672"><span class="section-number-3">2.2</span> System of (point) particles</h3>
+<p>
+\[
+\vec{F}_{ij} = e_i \sum_j e_j \frac{\vec{r}_i - \vec{r}_j}{r_{ij}^3} = -
+e_i \vec{\nabla} \sum_j e_j  \frac{ 1 }{ {r}_{ij} } = e_i \vec{E}(r_i).
+\]
+</p>
+
+<ul>
+<li>\(\vec{E}(r_i) = - \vec{\nabla}  \sum_j e_j  \frac{ 1 }{ {r}_{ij} }\) is the <i>electric field</i>.</li>
+<li>\(\vec{E}(r_i) = - \nabla \phi(r_i)\), with \(\phi\) the
+<i>electrostatic potential</i>.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgbd1a740" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgbd1a740"><span class="section-number-3">2.3</span> Properties</h3>
+<ul>
+<li>The field is conservative (conservation of energy)
+<ul>
+<li>\(\vec{E} = - \nabla \phi.\)</li>
+<li>\(\nabla \times \vec{E} = 0.\)</li>
+<li>\(\int_p^q \vec{E} \cdot d\vec{s} = \phi(p) - \phi(q).\)</li>
+<li>\(\oint_c \vec{E} \cdot d\vec{s} = 0.\)</li>
+
+</ul></li>
+<li>Electric field flux (Gauß' law)
+<ul>
+<li>\(\oint_S \vec{E} \cdot d\vec{a} = 4\pi Q\): with \(Q\) the enclosed charge.</li>
+<li>\(\nabla \cdot \vec{E} = 0 \Rightarrow \nabla^2\phi = 0\): outside
+the charges.</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org360c5b5" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org360c5b5"><span class="section-number-3">2.4</span> Volume densities</h3>
+<ul>
+<li>Number of charges \(\to \infty\).</li>
+<li>Magnitude of individual charge \(\to 0\).</li>
+<li>\(\sum_i e_i \to e = \int \rho dV\): where \(\rho = \lim_{V\to 0}
+  e/V\).</li>
+<li><b>Gauß' thm:</b> \[\nabla \cdot \vec{E} = 4\pi \rho \text{ or } \nabla^2 \phi
+  = - 4 \pi \rho \]</li>
+<li>\(\vec{E}\) and \(\phi\) are regular inside the source region.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org0813425" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org0813425"><span class="section-number-3">2.5</span> Surface densities</h3>
+<ul>
+<li>Surface charge density \(\sigma\).</li>
+<li>\(\phi\) remains finite, and thus continuous at the surface.</li>
+<li><b>Gauß' thm:</b> \[E_{n_1} + E_{n_2} = 4 \pi \sigma\] or along a defined
+direction \[E_{n_1} - E_{n_2} = 4 \pi \sigma.\]</li>
+<li>Normal component of \(\vec{E}\) is discontinuous, but the tangential
+remains continuous.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org5ad4343" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org5ad4343"><span class="section-number-3">2.6</span> Boundaries at conductors</h3>
+<ol>
+<li>No field inside the conductor, \(\vec{E} = 0\).</li>
+<li>No tangential component, \(\vec{E}_\parallel = 0\).</li>
+<li>The gradient of the potential is perpendicular to the surface.</li>
+<li>\(\phi\) is constant along the surface, i.e., <i>equipotential surface</i>.</li>
+
+</ol>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2a9a150" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org2a9a150"><span class="section-number-3">2.7</span> Important theorems</h3>
+<dl>
+<dt>Mean value</dt><dd><blockquote nil>
+<p>
+In a charge-free region the average value of potential
+on the surface of any hypothetical sphere is equal to
+the value of the potential at the center of the
+sphere.
+</p>
+</blockquote></dd>
+
+</dl>
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org3127f59" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org3127f59"><span class="section-number-3">2.8</span> </h3>
+<dl>
+<dt>Earnshaw's theorem</dt><dd><blockquote nil>
+<p>
+\(\phi\) cannot have a local maximum or minimum in a charge-free
+region.
+</p>
+</blockquote></dd>
+
+</dl>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgee8f3c2" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgee8f3c2"><span class="section-number-3">2.9</span> Energy of a (static) configuration \(I\)</h3>
+<p>
+The (potential) energy stored by a system is equal to the work
+required to form the configuration.
+</p>
+
+<p>
+The energy of a system of (point-like) charges is given by
+</p>
+<div>
+\begin{equation}
+U = \sum_{i \neq j} \frac{e_i e_j}{r_{ij}} 
+  = \frac{1}{2} {\sum_{i,j}}' \frac{e_i e_j}{r_{ij}},
+\end{equation}
+
+</div>
+<p>
+or
+</p>
+<div>
+\begin{equation}
+U = \frac{1}{2} \sum_i e_i \phi'_i.
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org86f498d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org86f498d"><span class="section-number-3">2.10</span> Energy of a (static) configuration \(II\)</h3>
+<div>
+\begin{align}
+U &= \frac{1}{2}  \iint dV_p \, dV_q \,\frac{\rho_p \rho_q}{r_{pq}} 
+     + \iint dV_p \, dA_q \, \frac{\rho_p \sigma_q}{r_{pq}} \\ 
+  & \quad   + \frac{1}{2} \iint dA_p \, dA_q \, \frac{\sigma_p \sigma_q}{r_{pq}} 
+\end{align}
+
+</div>
+<p>
+or 
+</p>
+<div>
+\begin{equation}
+U = \frac{1}{8 \pi} \int dV \, \vec{E} \cdot \vec{E}
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org506f5eb" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org506f5eb"><span class="section-number-3">2.11</span> EXERCISE</h3>
+<p>
+Show that for a system of point particles the potential energy is
+given by
+\[
+U = \frac{1}{8 \pi} \int \left( \vec{E} \cdot \vec{E} - \sum_i
+\vec{E}_i^2 \right) dV.
+\]
+</p>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org42e288d" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org42e288d"><span class="section-number-3">2.12</span> Dielectrics</h3>
+<p>
+Consider a charged (plane parallel) condenser in vacuum. The electric
+field between the plates is \(E_x = 4 \pi \sigma\), and the potential
+difference \(\phi_1 - \phi_2 = 4 \pi \sigma d\). When one introduce an
+insulator between the plates:
+</p>
+<ul>
+<li>If it is connected to a battery: \(\Delta \phi = \text{cte}\), and
+\(\Delta Q\) increases.</li>
+<li>If it is insulated: \(Q\) remain constant, the potential difference
+decreases by a factor \(\epsilon\),
+\[
+  \phi_1 - \phi_2 = \frac{4 \pi \sigma}{\epsilon} d.
+  \]</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org914c82f" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org914c82f"><span class="section-number-3">2.13</span> </h3>
+<ul>
+<li>\(\epsilon\) is the <i>dielectric constant</i>.</li>
+<li>Split \(\rho = \rho_t + \rho_p\) and \(\sigma = \sigma_t + \sigma_p\)</li>
+<li>Let \(E^{(e)},E^{(i)}\) be the electric field in vacuum and
+dielectric respectively:
+<ul>
+<li>\(E^{(e)} = 4 \pi \sigma\) and \(E^{(i)} = 4 \pi \sigma_p\).</li>
+<li>\(E^{(i)} = \frac{E^{(e)}}{\epsilon}\) and \(4 \pi \sigma_p = (1 -
+    \epsilon) E^{(i)}\).</li>
+
+</ul></li>
+<li><p>
+In general (\(\epsilon_{\text{vacuum}} = 1\)), one defines \(\vec{D}
+  = \epsilon \vec{E}\)
+</p>
+<div>
+\begin{align}
+D_{n_1} + D_{n_2} & = 4 \pi \sigma_t \\
+E_{n_1} + E_{n_2} & = 4 \pi \sigma
+\end{align}
+
+</div></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org96d0cfa" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org96d0cfa"><span class="section-number-3">2.14</span> </h3>
+<p>
+In the most general case a volume density of polarization charge,
+\(\rho_p\), is produced.
+</p>
+<div>
+\begin{align}
+\nabla \cdot \vec{D} &= \rho_t \\
+\nabla \cdot \vec{E} &= \rho \\
+\nabla \cdot (1 - \epsilon) \vec{E} &= \rho_p
+\end{align} 
+
+</div>
+
+<p>
+Finally
+</p>
+<div>
+\begin{equation}
+\int  \rho_p \, dV + \int \sigma_p \, da = 0.
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org9ba9838" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org9ba9838"><span class="section-number-3">2.15</span> </h3>
+<p>
+If \(\sigma_t = 0\) on a boundary layer between two dielectrics, then:
+</p>
+<ul>
+<li>\(\phi\) is coninuous.</li>
+<li>\(\vec{E} = -\nabla \phi\).</li>
+<li>\(E_\parallel\) is continuous.</li>
+<li>\(D_n\) is continuous, while \(D_\parallel\) in general is not.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orge6942dd" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orge6942dd"><span class="section-number-3">2.16</span> EXERCISE</h3>
+<p>
+Take \(\rho_t\) and \(\phi\) to be the final distributions of free
+charge and potential, respectively, after our system has been
+completely set up. If we had somehow decided to place a factor of
+\(\alpha\) as much charge everywhere, then our potential would be
+changed by the same factor \(\alpha\).
+</p>
+
+<p>
+By bringing the charge from infinity, a little bit at a time,
+i.e. \(\alpha\) go from 0 to 1, show that
+</p>
+<div>
+\begin{equation}
+U = \frac{1}{8 \pi} \int \vec{D} \cdot \vec{E} \, dV.
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org8f95b23" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org8f95b23"><span class="section-number-3">2.17</span> Electric dipolar moment</h3>
+<p>
+Consider a system constituted by two opposite (point) charges
+separated a distance \(\vec{\ell}\). The electric potential is given by
+</p>
+<div>
+\begin{equation}
+\phi(\vec{r}) = q \left( \frac{1}{r'} - \frac{1}{r} \right).
+\end{equation}
+
+</div>
+
+<div class="figure">
+<p><img src="file:///home/oscar/Documents/LatexFiles/UTFSM/Electrodynamics/TikZ/electric-dipole.png" alt="electric-dipole.png" />
+</p>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org811eff2" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org811eff2"><span class="section-number-3">2.18</span> </h3>
+<p>
+For \(r \gg \ell\), the principal contribution to the potential is
+</p>
+<div>
+\begin{equation}
+\phi(\vec{r}) = \frac{q \vec{\ell} \cdot \vec{r}}{r^3} = - \vec{p} \cdot \vec{\nabla} \frac{1}{r}.
+\end{equation}
+
+</div>
+<blockquote nil>
+<p>
+The vector \(\vec{p} = q \vec{\ell}\) is called <i>dipole moment</i> of the system.
+</p>
+</blockquote>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc53aed6" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc53aed6"><span class="section-number-3">2.19</span> </h3>
+<p>
+More generally,
+</p>
+<div>
+\begin{align}
+\phi(\vec{r}) &= \int \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} \, dV'\\
+              &= \frac{1}{r} \int \rho(\vec{r}') \, dV' + \frac{\vec{r}}{r^3} \cdot \int \rho(\vec{r}') \vec{r}' \, dV'
+\end{align}
+
+</div>
+<blockquote nil>
+<p>
+The expansion of the function \(\frac{1}{|\vec{r} - \vec{r}'|}\) yield
+the <i>multipolar moments</i> of the system.
+</p>
+</blockquote>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org28c3d1b" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org28c3d1b"><span class="section-number-3">2.20</span> General theory of capacitance</h3>
+<ul>
+<li>We begin with one or two conductors but then extending ourselves to
+an indefinite number of conductors.</li>
+<li><b>Superposition principle:</b> \(\rho_1 \to \phi_1\) and \(\rho_2 \to
+  \phi_2\), then \(\rho = \rho_1 +\rho_2 \to \phi = \phi_1 + \phi_2\).</li>
+<li>\(\nabla^2 \phi = - 4 \pi \rho\).</li>
+
+</ul>
+
+<blockquote nil>
+<p>
+If we place an amount of charge \(Q\), on a conductor, its potential
+will rise to some value \(\phi_0\). An amount of charge \(\alpha Q\) would lead to a
+potential \(\alpha \phi_0\).
+</p>
+</blockquote>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org4ad3f4a" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org4ad3f4a"><span class="section-number-3">2.21</span> </h3>
+<p>
+Thus,
+</p>
+<div>
+\begin{equation}
+Q = C \phi.
+\end{equation}
+
+</div>
+<p>
+The proportionality constant \(C\) is defined to be the capacitance of
+a single conductor.
+</p>
+
+<p>
+In general, for \(N\) conductors
+</p>
+<div>
+\begin{equation}
+Q_i = \sum_j C_{ij} \phi_j.
+\end{equation}
+
+</div>
+<ul>
+<li>\(C_{ii}\): are called capacities or capacitances.</li>
+<li>\(C_{ij} \text{ for } i \neq j\): are called coefficients of
+induction.</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org333dd95" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org333dd95"><span class="section-number-3">2.22</span> </h3>
+<p>
+The expression can be inverted
+</p>
+<div>
+\begin{equation}
+\phi_i = \sum_j p_{ij} Q_j,
+\end{equation}
+
+</div>
+<p>
+where the \(p_{ij}\) (<i>potential coefficients</i>) depend on the geometry of the conductors.
+</p>
+
+<p>
+Notice that
+</p>
+<div>
+\begin{equation}
+U = \frac{1}{2} \sum_{i,j} C_{ij} \phi_i \phi_j.
+\end{equation}
+
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org6b67500" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org6b67500"><span class="section-number-3">2.23</span> EXERCISE</h3>
+<p>
+Let \(\delta U_Q\) be the change in electrostatic energy of the system
+if the conductors are slightly displaced while the charges are held
+constant. Let \(\delta U_\phi\) be the change in electrostatic energy
+of the system of conductors if their displacement is the same as
+before, while the potentials are held constant. Then we will prove
+that \(\delta U_Q = - \delta U_\phi\).
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-org28923a7" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h2 id="org28923a7"><span class="section-number-2">3</span> PDE and the potential problem</h2>
+<p>
+Methods to solve:
+</p>
+<ul>
+<li>The Laplace (\(\nabla^2 \phi = 0\)) and</li>
+<li>Poisson (\(\nabla^2 \phi = - 4 \pi \rho\)) equations</li>
+
+</ul>
+<p>
+with certain boundary conditions.
+</p>
+
+<p>
+Notice that in general dielectrics the Poisson equation is, \(\nabla
+\cdot \epsilon \nabla \phi = - 4 \pi \rho.\)
+</p>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org2921d25" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org2921d25"><span class="section-number-3">3.1</span> Potential problem</h3>
+<p>
+\(\phi\) must satisfy the following conditions:
+</p>
+<ol>
+<li>At the boundary of a conductor:
+<ul>
+<li><p>
+Isolated: \(\phi = \text{const}\) and
+</p>
+<div>
+\begin{equation}
+- \oint \epsilon \left( \frac{\partial \phi}{\partial n} \right)
+  \, da = 4 \pi Q.
+\end{equation}
+
+</div></li>
+<li>Held at constant potential: \(\phi = \phi_0\) but the charge is
+undetermined.</li>
+
+</ul></li>
+<li>At the boundary of an insulator:
+If \(\sigma_t = 0\), both \(\phi\) and \(\epsilon \frac{\partial
+   \phi}{\partial n}\) are continuous.</li>
+
+</ol>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org80c80ba" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org80c80ba"><span class="section-number-3">3.2</span> Separation of variables</h3>
+<ul>
+<li>Consider a coordinate system \((s,t,u)\).</li>
+<li>Write the Laplacian operator in that coord. syst.</li>
+<li><p>
+Propose that the solution is separable:
+</p>
+<div>
+\begin{equation}
+\phi(s,t,u) = S(s)T(t)U(u).
+\end{equation}
+
+</div></li>
+<li>Find the differential equations for the functions \(S\), \(T\) and
+\(U\).</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgd6858a4" data-background="./images/Q2.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgd6858a4"><span class="section-number-3">3.3</span> EXAMPLE</h3>
+<ul>
+<li><p>
+The covariant derivative of a vector is
+</p>
+<div>
+\begin{equation}
+\nabla_i V^j = \partial_i V^j + \Gamma_{ik}^j V^k,
+\end{equation}
+
+</div>
+<p>
+where \(\Gamma\) are the Christoffel symbols. Use this definition to
+find a expression for the Laplacian in curved reference systems.
+</p></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org091eaaa" data-background="./images/Thinker-30.png" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org091eaaa"><span class="section-number-3">3.4</span> EXERCISE</h3>
+<ul>
+<li>Find the explicit expression for the Laplacian in the following
+coordinate systems:
+<ul>
+<li>Cartesian,</li>
+<li>Cylindrical, and</li>
+<li>Spherical.</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-orgc64f403" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="orgc64f403"><span class="section-number-3">3.5</span> Solution of Laplace equation (Cartesian)</h3>
+<div>
+\begin{equation}
+\nabla^2 \phi = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2} = 0.
+\end{equation}
+
+</div>
+<p>
+Propose \(\phi(x,y,z) = X(x)Y(y)Z(z)\) and then divide by \(\phi\).
+</p>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-org64e56cf" data-background="" data-background-size="" data-background-position="" data-background-repeat="" data-background-transition="">
+<div class="slide-header"></div>
+<h3 id="org64e56cf"><span class="section-number-3">3.6</span> Green's functions</h3>
+<div class="slide-footer"></div>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/oscar/Software/git.src/reveal.js/lib/js/head.min.js"></script>
+<script src="file:///home/oscar/Software/git.src/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: false,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+margin: 0.10,
+minScale: 0.20,
+maxScale: 1.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///home/oscar/Software/git.src/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///home/oscar/Software/git.src/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/oscar/Software/git.src/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///home/oscar/Software/git.src/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///home/oscar/Software/git.src/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+,});
+</script>
+</body>
+</html>

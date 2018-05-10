@@ -1,0 +1,53 @@
+\titledquestion{Gau\ss{}' and Stokes' Theorems}
+
+\begin{parts}
+  \part Using the analogy with the river, prove the Gau\ss{}' theorem in:
+  \begin{subparts}
+    \subpart Cartesian coordinates,
+    \subpart Cylindrical coordinates, and
+    \subpart Spherical coordinates.
+  \end{subparts}
+  \part Prove the Stokes' theorem for an infinitesimal (square) loop.
+\end{parts}
+
+
+\titledquestion{Vector Identities}
+
+\begin{parts}
+  \part Let \(u,v\) be functions and \(A,B,C\) be vectors. Show the
+  identities
+  \begin{subparts}
+    \subpart \(A \times (B \times C) = B (A \cdot C) - C (A \cdot B)\).
+    \subpart \(A \cdot (B \times C) = B \cdot (C \times A) = C \cdot (A \times B)\).
+    \subpart \(\nabla \cdot u A = \nabla u \cdot A + u \nabla \cdot A\).
+    \subpart \(\nabla \times u A = \nabla u \times A + u \nabla \times A\).
+    \subpart \(\nabla \cdot (A \times B) = B \cdot \nabla \times A - A \cdot \nabla \times B\)
+    \subpart \(\nabla \times (\nabla \times A) = \nabla(\nabla \cdot A) - \nabla^2 A\).
+    \subpart \(\nabla (A \cdot B) = A \times (\nabla \times B) + (A \cdot \nabla) B + (B \leftrightarrow A)\).
+    \subpart \(\nabla \times (A \times B) = (B \cdot \nabla) A + A (\nabla \cdot B) - (B \leftrightarrow  A)\).
+    \subpart \(\nabla \cdot (\nabla \times A) = 0\).
+    \subpart \(\nabla \times \nabla u = 0\).
+  \end{subparts}
+  
+  \part Evaluate the expressions:
+  \begin{subparts}
+  \subpart \(\nabla \dfrac{1}{|\vec{r} - \vec{r}'|}\).
+  \subpart \(\nabla \dfrac{1}{|\vec{r} - \vec{r}'|^2}\).
+  \subpart \(\nabla^2 \dfrac{1}{|\vec{r} - \vec{r}'|}\) for \(\vec{r} \neq \vec{r}'\).
+  \subpart \(\nabla \times \dfrac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3}\) for
+    \(\vec{r} \neq \vec{r}'\).
+  \end{subparts}
+\end{parts}
+
+\titledquestion{Second rank tensors: a property}
+\begin{parts}
+  \part Show that a second rank tensor can be decomposed into its symmetric
+  and antisymmetric parts.
+  \part Show that under a similarity transformation, the (anti)symmetric
+  part remains (anti)symmetric.
+\end{parts}
+
+\titledquestion{Invariant Quantities}
+
+Show that the trace and the sum of the squares of all the elements of
+a second rank tensor is invariant under rotations.

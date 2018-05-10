@@ -1,0 +1,162 @@
+% Created 2017-12-19 Tue 05:35
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage[cm]{fullpage}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.1 (Org mode 9.1.4)}, 
+ pdflang={English}}
+\begin{document}
+
+
+\section{Editor}
+\label{sec:org57d70ff}
+Dear Editor,
+
+we have received the comments from the referees. Please find next the
+list of changes encouraged by their suggestions and questions.
+
+\begin{itemize}
+\item Highlighted all changes (including those of the first revision) in blue.
+\item We include the comments about the boundary term, including the
+references suggested by the referee.
+\item We explain the reason why the fields \(\Gamma\), \(T\) and \(A\) are
+independent.
+\item We added an appendix with the derivation of the equation of motion,
+and justification of the vanishing torsion truncation. It includes a
+short comment about the local free falling frame.
+\item We comment on the appearance of the term \(\frac{ \partial
+  L_{matter} }{ \partial g^{00} }\) in Eq. (8)---the Newtonian limit.
+\item We explain that the object in Eq. (16) is not used to lower and
+raise indices, it is NOT a metric (it only looks like one).
+\end{itemize}
+
+Regards,
+the authors.
+
+\section{Referee 1}
+\label{sec:orgbe94777}
+
+Dear referee, first of all we want to apologise for the lack of some
+changes. We lost them in a bad dropbox synchronisation, and we are
+sorry for not noticing it previously. However, we took this
+opportunity to include more explanations in the points you mentioned.
+
+\begin{itemize}
+\item All the (nontrivial) changes were highlighted. Including those of
+the first review.
+\item We added the proper comment about the necessity of extra terms
+according with the boundary conditions:  
+\begin{quote}
+  In order to assure that the
+  variational problem is well-posed, one has to make sure there are
+  no second-class constraints.  Otherwise, higher derivatives may
+  appear and a Gibbons--Hawking--York like term would be needed to
+  ensure the well posedness of the variational problem.  There are
+  studies of the affine analogue to the Gibbons--Hawking--York
+  boundary term.  We refer to the reader to
+  Refs.~[53-58]. In the present
+  model, the existence of second-class constraints has not been
+  proven yet.
+\end{quote}
+\item We explain the reason why the fields \(\Gamma\), \(T\) and \(A\) are
+independent, and thus their field equations are second order:
+\begin{quote}
+  The action in Eq.~(2) depends on the fields and their
+  first derivatives. This characteristic ensures that the field
+  equations are (at most) second order differential equations. Notice
+  that these are second order equations for the irreducible components
+  of connection.
+\end{quote}
+\item We added an appendix (new appendix B) with the derivation of the equation of motion,
+and justification of the vanishing torsion truncation. It includes a
+short comment about the local free falling frame.
+\item We comment on the appearance of the term \(\frac{ \partial
+  L_{matter} }{ \partial g^{00} }\) in Eq. (8)---the Newtonian limit:
+\begin{quote}
+  In Eq.~(8) one can notice the explicit dependence
+  of the \emph{geometry} with the matter distribution, through the
+  term $\frac{ \partial\mathcal{L}_{\text{Matter}} }{ \partial
+    \mathfrak{g}^{00} }$. This relates the \emph{mass of the body}
+  with the generated gravitational potential.
+\end{quote}
+\item We explain that the object in Eq. (16) is not used to lower and
+raise indices, it is NOT a metric (it only looks like one):
+\begin{quote}
+  We would like emphasise that the geometrical object in
+  Eq.~(16), despite the suggestive notation, is \emph{not} a
+  metric. Therefore, we do not raise indices with such a
+  construct. Additionally, although the object is not defined in the
+  limit of vanishing torsion---as does the action in
+  Eq.~(2)---, it induces a nontrivial effect in the field
+  equations of a scalar field, as will be shown in the following.
+\end{quote}
+\item We include some of the comments in the previous response, in the new
+manuscript, for example:
+\begin{quote}
+  We are aware that the use of this definition could be unpleasant or
+  even ill-founded in alternative models to General
+  Relativity. However, the dimensional analysis in
+  Appendix~\ref{sec.im} shows that in our model the most general
+  symmetric, (2,0) tensor density built up from a general connection,
+  possesses the same components---but is not the same---as the one derived
+  from Eddington's recipe. This argument allows as to proceed our
+  analysis without mentioning the variation used by
+  Eddington. Additionally, we clarify that none of this tensors will
+  be used to raise indices, they will be useful only to contract
+  indices.
+\end{quote}
+
+\begin{quote}
+  The significance of the parameter \(\alpha\) is clear in this context,
+  because it plays the role of the Newton's gravitational
+  constant. However, in the analysed sector the parameters \(\beta\) and
+  \(\gamma\) are innocuous and their meaning cannot be extrapolated. We
+  think that these parameter could be relevant for the physical
+  interpretation of (for example) the dark sector of the Universe,
+  once the model is analysed in a different sector, i.e. with torsion.
+\end{quote}
+
+\begin{quote}
+  An interesting feature is that the highest order in (covariant)
+  derivatives, \(c=4\), yields the highest order in curvature. Such
+  term generates terms related with (generalised) Euler and Pontryagin
+  densities, and it has not been considered in the action, since it
+  does not contribute to the field equations. Thus, the structure of
+  the model restricts us to consider an action which is at most
+  quadratic in the curvature.
+
+  Regarding the single derivative terms, they are similar to
+  three point interaction of non-Abelian gauge fields, appearing in
+  the electroweak sector of the standard model of particle physics.
+\end{quote}
+\end{itemize}
+
+We expect to have fulfilled all your requests and answered your
+questions.
+
+Regards,
+The authors.
+\end{document}

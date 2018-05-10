@@ -1,0 +1,772 @@
+* Sage and Sagemanifolds
+** Installation of =Sage 7.3= :NOTE:
+:LOGBOOK:
+CLOCK: [2016-08-17 Wed 09:43]--[2016-08-17 Wed 09:49] =>  0:06
+:END:
+
+#+BEGIN_SRC shell
+sudo apt-get install binutils gcc make m4 perl tar git
+sudo apt-get install binutils gcc g++ gfortran make m4 perl tar git
+sudo apt-get install libssl1.0.0 libssl-dev openssh-server openssh-client
+sudo apt-get install tk tk-dev
+cd /path/of/software/folder
+git clone https://github.com/sagemath/sage.git
+cd sage
+export SAGE64=yes
+export MAKE="make -j8"
+make
+#+END_SRC
+
+After the =make=, I checked the installation by open the notebook
+
+#+BEGIN_SRC shell
+sage -n
+#+END_SRC
+
+Finally, I install =SageManifolds=
+
+#+BEGIN_SRC shell
+git checkout -b sagemanifolds
+wget -N http://sagemanifolds.obspm.fr/spkg/sm-install.sh
+bash sm-install.sh
+#+END_SRC
+
+Now, =Sage= is ready to work with =SageManifolds=
+
+#+BEGIN_SRC shell
+sage -n
+#+END_SRC
+
+* LaTeX
+
+** Defining  =floor= and =ceil= functions
+
+From the [[http://tex.stackexchange.com/a/118217/9823][webpage]]
+
+#+BEGIN_SRC latex
+\documentclass{minimal}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\begin{document}
+  \begin{equation*}
+    \floor*{\frac{x}{2}} < \frac{x}{2} < \ceil*{\frac{x}{2}}
+  \end{equation*}
+\end{document}
+#+END_SRC
+
+The =*= is for ensuring the right size of the brackets!
+
+** AMS classes split title (not in toc)
+
+From [[https://tex.stackexchange.com/a/415386/9823][this tex.SE post]]
+#+BEGIN_EXPORT latex
+\newcommand{\breaktitle}{\for{toc}{ }\except{toc}{\\}}
+#+END_EXPORT
+apparently it works only in AMS classes
+
+* Emacs
+** Initial buffer
+In order to open an initial buffer with your =emacs= session, add this
+code to your =init= file,
+#+BEGIN_SRC emacs-lisp
+(initial-buffer-choice "~/path/to/my/file.org")
+#+END_SRC
+** Useful commands
+
+| Command | Description    |
+|---------+----------------|
+| M-<F10> | Maximise frame |
+| <F11>   | Full screen    |
+
+** Magit
+
+There are some videos by /Renn Seo/ which are very usefull
+
+[[https://www.youtube.com/playlist?list=PLPNohcoOBa5GGreLyc3nnSIGYB9UeVO_X][Playlist emacs by Renn Seo]]
+
+*** Git untrack file (without deletion)                              :NOTE:
+
+from [[http://source.kohlerville.com/2009/02/untrack-files-in-git/][this webpage]] I found out that this is achieved using the command
+
+#+BEGIN_SRC shell
+git rm --cached filename
+#+END_SRC
+
+[2016-09-09 Fri 07:59]
+** Org-mode
+*** Defining a macro
+
+From this [[http://emacs.stackexchange.com/a/261/2441][post]]:
+
+First, define your macro
+
+#+BEGIN_SRC org
+#+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@ @@ascii:|@@
+#+END_SRC
+
+and then call it!
+
+#+BEGIN_SRC org
+#+TITLE: Foo {{{NEWLINE}}} Bar
+#+END_SRC
+*** =org-ref=
+**** Download a PDF file from =doi= (in existing =BibTeX= entry)
+- Go to the =bib= file
+- Place the cursor on the =doi= number
+- Call the command =M-x doi-utils-get-bibtex-entry-pdf=
+  
+  If you have access to the journal, the PDF file will be downloaded
+  with the name of the entry ID, in the default
+  =org-ref-pdf-directory= 
+
+*** Org-plot
+
+#+PLOT: title:"example table" ind:1 type:2d with:lines
+#+PLOT: labels:("first new label" "second column" "last column")
+#+TBLNAME:org-plot-example-1
+| independent var | first dependent var | second dependent var |
+|-----------------+---------------------+----------------------|
+|             0.1 |               0.425 |                0.375 |
+|             0.2 |              0.3125 |               0.3375 |
+|             0.3 |          0.24999993 |           0.28333338 |
+|             0.4 |               0.275 |              0.28125 |
+|             0.5 |                0.26 |                 0.27 |
+|             0.6 |          0.25833338 |           0.24999993 |
+|             0.7 |          0.24642845 |           0.23928553 |
+|             0.8 |             0.23125 |               0.2375 |
+|             0.9 |          0.23333323 |            0.2333332 |
+|               1 |              0.2225 |                 0.22 |
+|             1.1 |          0.20909075 |           0.22272708 |
+|             1.2 |          0.19999998 |           0.21458333 |
+|             1.3 |          0.19615368 |           0.21730748 |
+|             1.4 |          0.18571433 |           0.21071435 |
+|             1.5 |          0.19000008 |            0.2150001 |
+|             1.6 |           0.1828125 |            0.2046875 |
+|             1.7 |          0.18088253 |            0.1985296 |
+|             1.8 |          0.17916675 |           0.18888898 |
+|             1.9 |          0.19342103 |           0.21315783 |
+|               2 |                0.19 |              0.21625 |
+|             2.1 |          0.18214268 |           0.20714265 |
+|             2.2 |          0.17727275 |            0.2022727 |
+|             2.3 |           0.1739131 |            0.1989131 |
+|             2.4 |          0.16770833 |            0.1916667 |
+|             2.5 |               0.164 |                0.188 |
+|             2.6 |          0.15769238 |           0.18076923 |
+|             2.7 |           0.1592591 |            0.1888887 |
+|             2.8 |           0.1598214 |           0.18928565 |
+|             2.9 |          0.15603453 |            0.1844828 |
+
+*** STARTED Install and configure org-gcal                     :org:emacs:
+
+- State "STARTED"    from "TODO"       [2018-04-17 Tue 06:22]
+
+See the git hub repository 
+
+After setting up the configuration, it wasn't running. But I found the
+(possible) answer in the tickets on the github page.
+
+- delete .emacs.d/org-gcal/.org-gcal-token
+- evaluated (C-x C-e, just in scratch buffer):
+  #+BEGIN_SRC emacs-lisp
+  (org-gcal-request-token)
+  #+END_SRC
+- org-gcal-fetch (getting new auth from google)
+- org-gcal-refresh-token
+- org-gcal-fetch
+
+*** TODO Review How to auto-complete python code within =org=
+[2016-09-07 Wed 11:44]
+*** TODO Review How to include a partial code
+I want to be able of include a recurrent part of code for using
+=babel= evaluation.  [2016-09-07 Wed 11:43]
+** Install and configure =mu4e=
+
+#+BEGIN_SRC shell
+sudo apt install offlineimap
+sudo apt-get install libgmime-2.6-dev libxapian-dev
+## optional packages
+## sudo apt-get install guile-2.0-dev html2text xdg-utils
+sudo apt install mu4e ## this will install maildir-utils (contains mu)
+#+END_SRC
+
+Create the file =.offlineimaprc=
+#+BEGIN_VERBATIM
+[general]
+accounts = Gmail
+maxsyncaccounts = 3
+
+[Account Gmail]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Maildir
+
+[Repository Remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = EMAIL@gmail.com
+remotepass = PASSWORD
+
+realdelete = no
+holdconnectionopen = true
+keepalive = 60
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 1
+#+END_VERBATIM
+
+* CERN
+
+** Login to =lxplus=
+#+BEGIN_SRC shell
+ssh -Y -l <username> lxplus.cern.ch
+#+END_SRC
+
+#+BEGIN_SRC shell
+setupATLAS
+voms-proxy-init -voms atlas
+lsetup rucio
+#+END_SRC
+
+* Cadabra
+
+** Compilation of =Cadabra2= from =github=
+
+*** Create a folder for the code
+
+#+BEGIN_SRC shell
+mkdir -p ~/Software/
+cd !$
+#+END_SRC
+
+*** Install the required dependences
+
+#+BEGIN_SRC shell
+sudo apt-get install cmake python3-dev g++ libpcre3 libpcre3-dev libgmp3-dev libgtkmm-3.0-dev libboost-all-dev libgmp-dev libsqlite3-dev uuid-dev texlive texlive-latex-extra dvipng python3-matplotlib python3-mpmath python3-pip python3-setuptools
+sudo pip3 install sympy
+#+END_SRC
+
+*** Download the code
+
+#+BEGIN_SRC shell
+git clone https://github.com/kpeeters/cadabra2
+#+END_SRC
+
+*** Compile the code
+
+#+BEGIN_SRC shell
+cd cadabra2
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+#+END_SRC
+
+* Linux
+
+** Installing =mu= (email client)
+
+#+BEGIN_SRC shell
+sudo apt install maildir-utils
+#+END_SRC
+
+** Install =imaxima= and =imath=
+
+See the [[https://sites.google.com/site/imaximaimath/][webpage]]
+
+It assumes you have installed =texlive= with =texlive-math-extra=, and
+also =maxima=. Make sure you have =gnuplot= and =maxima-emacs= installed
+
+#+BEGIN_SRC shell
+sudo apt install maxima-emacs gnuplot
+#+END_SRC
+
+and add the following to the =.emacs= file
+
+#+BEGIN_SRC emacs-lisp
+(push "/usr/local/share/emacs/site-lisp" load-path)
+(autoload 'imaxima "imaxima" "Frontend of Maxima CAS" t)
+(autoload 'imath "imath" "Interactive Math mode" t)
+(autoload 'imath-mode "imath" "Interactive Math mode" t)
+#+END_SRC
+
+** Installing =CERNBOX=
+#+BEGIN_SRC shell
+sudo apt-get install apt-transport-https
+wget -q -O- https://cernbox.cern.ch/cernbox/doc/Linux/repo/Debian_8.0/Release.key  | sudo apt-key add -
+sudo sh -c "echo 'deb https://cernbox.cern.ch/cernbox/doc/Linux/repo/Debian_8.0/ /' > /etc/apt/sources.list.d/cernbox-client.list"
+sudo apt-get update
+sudo apt-get install cernbox-client
+#+END_SRC
+** Converting a =djvu= file to =pdf=
+
+#+BEGIN_SRC shell
+$ sudo apt-get install djvulibre-bin libtiff-tools
+$ ddjvu -format=tiff file.djvu file.tiff
+$ tiff2pdf -j -o file.pdf file.tiff
+#+END_SRC
+
+** Debian =sources.list=
+   #+BEGIN_SRC shell
+   deb http://deb.debian.org/debian stretch main contrib non-free
+deb-src http://deb.debian.org/debian stretch main contrib non-free
+
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
+deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
+
+deb http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security/ stretch/updates main contrib non-free
+   #+END_SRC
+** Using =wget= to download a specific filetype
+- =-A=: specify the filetype, e.g.: =-A "*.lisp"=
+- =-r=: download recursively
+- =-nd=: download the files without creating a directory
+
+#+BEGIN_SRC shell
+wget -A "*.lisp" -nd -r http://web.csulb.edu/~woollett/
+wget -A "*.mac" -nd -r http://web.csulb.edu/~woollett/
+#+END_SRC
+
+** Install =youtube-dl=
+#+BEGIN_SRC shell
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx !$
+#+END_SRC
+
+** installing =anaconda=
+
+Follow the instructions in
+[[https://conda.io/docs/user-guide/install/linux.html][the webpage]]
+** Install =rtl8723be=
+Documented [[https://akshaycv006.wordpress.com/2017/01/12/installing-realtek-rtl8723be-driver-for-ubuntu-debian-or-fedora/][here]]
+
+*** Install firmware
+#+BEGIN_SRC shell
+sudo apt-get install firmware-realtek
+#+END_SRC
+
+*** Download the new firmware
+#+BEGIN_SRC shell
+cd Software/git.src/
+git clone https://github.com/lwfinger/rtlwifi_new.git
+cd rtlwifi_new
+## git checkout rock.new_btcoex
+#+END_SRC
+
+*** Install the necessary packages for compilation and reboot
+#+BEGIN_SRC shell
+sudo apt-get install linux-headers-$(uname -r) gcc g++ build-essential dkms git
+sudo reboot
+#+END_SRC
+
+*** Compile the new firmware
+#+BEGIN_SRC shell
+cd Software/git.src/rtlwifi_new
+make
+sudo make install
+sudo modprobe -rv rtl8732be
+#+END_SRC
+** Spotify
+
+#+BEGIN_SRC shell
+sudo apt-get install dirmngr
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+## In case of necesity
+## use the following command
+## to search a valid key
+#  sudo gpg --keyserver hkp://keyserver.ubuntu.com --search-key 'Spotify Public Repository Signing Key'
+sudo echo deb http://repository.spotify.com stable non-free > /etc/apt/sources.list.d/spotify.list
+sudo apt-get updates
+sudo apt-get install spotify-client
+#+END_SRC
+
+** Installing =sudo= in Debian
+
+- Use the =su= to install =sudo=
+  #+BEGIN_SRC shell
+  su
+  apt-get install sudo
+  #+END_SRC
+- If needed, add the line
+  =oscar ALL=(ALL:ALL) ALL=
+  to the file =/etc/sudoers=
+
+** Installing the wireless
+
+#+BEGIN_SRC shell
+sudo apt-get install broadcom-sta-common
+#+END_SRC
+
+** Setting the date and time the CLI way
+
+See for example the post by [[http://www.cyberciti.biz/faq/howto-set-date-time-from-linux-command-prompt/][nixCraft]]
+
+*** Show the date and time
+#+BEGIN_SRC shell
+$ date
+#+END_SRC
+
+*** Hardward clock
+#+BEGIN_SRC shell
+$ sudo hwclock -r
+#+END_SRC
+or
+#+BEGIN_SRC shell
+$ sudo hwclock --show
+#+END_SRC
+
+To see the Universal Time 
+#+BEGIN_SRC shell
+$ sudo hwclock --show --utc
+#+END_SRC
+
+*** Setting the system time
+#+BEGIN_SRC shell
+$ sudo date +%T "hh:mm:ss"
+#+END_SRC
+
+*** Setting the hardward clock to system time
+#+BEGIN_SRC shell
+$ sudo hwclock --systohc
+#+END_SRC
+
+*** For OS with =systemd=
+There is a new command 
+#+BEGIN_SRC shell
+$ timedatectl
+#+END_SRC
+
+**** Setting the date and time with =timedatectl=
+#+BEGIN_SRC shell
+$ sudo timedatectl set-time YYYY-MM-DD HH:MM:SS
+#+END_SRC
+
+** Installing =emacs= from =git= repository
+
+#+BEGIN_SRC shell
+git clone git://git.savannah.gnu.org/emacs.git
+cd emacs
+git tag -l # show the available releases
+git checkout tags/emacs-25.1 -b emacs-25.1 #create branch for that release
+mkdir ../emacs-25.1 #folder for the compiled version
+./autogen.sh
+./configure --prefix=/global/path/to/emacs-25.1/ #conf in the specified folder
+make bootstrap 
+make install
+cd ../emacs-25.1/bin/
+./emacs &
+#+END_SRC
+
+** Installing =TeXlive=
+
+*** Get the installer
+
+#+BEGIN_SRC shell
+wget -np http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+#+END_SRC
+
+*** Untar it
+
+#+BEGIN_SRC shell
+tar xzvf install-tl-unx.tar.gz
+#+END_SRC
+
+*** Go to the folder
+
+#+BEGIN_SRC shell
+cd install-tl-unx
+#+END_SRC
+
+*** Run the installer
+
+#+BEGIN_SRC shell
+sudo ./install-tl
+#+END_SRC
+
+*** Customise the process (optional) and install
+
+To install the default, press the =i= key and =RET=
+
+*** Include the installation =PATH= in the =.profile= file
+
+#+BEGIN_SRC shell
+PATH=/usr/local/texlive/2016/bin/x86_64-linux:$PATH; export PATH
+MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH
+INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+#+END_SRC
+** Enable touchpad tap
+
+One needs to change the file
+#+BEGIN_SRC shell
+/usr/share/X11/xorg.conf.d/50-synaptics.conf
+#+END_SRC
+so that it have the following information
+#+BEGIN_SRC shell
+Section "InputClass"
+        Identifier "touchpad catchall"
+        Driver "synaptics"
+        MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "RBCornerButton" "3"
+EndSection
+#+END_SRC
+
+Details at [[http://forums.debian.net/viewtopic.php?f=16&t=103644][this page]]
+** Installing =R=
+
+#+BEGIN_SRC shell
+sudo apt-get install r-base
+#+END_SRC
+* Playing with =Babel=
+
+\begin{equation}
+\vec{F} = m \vec{a}
+\end{equation}
+
+#+BEGIN_SRC python :results file
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(3,2))
+plt.plot([1,3,2])
+fig.tight_layout()
+plt.savefig('./images/myfig.png')
+return './images/myfig.png'
+#+END_SRC
+
+#+RESULTS:
+[[file:./images/myfig.png]]
+
+#+BEGIN_SRC python :results output
+print "Hello"
+#+END_SRC
+
+#+RESULTS:
+: Hello
+
+#+BEGIN_SRC python :results file
+import matplotlib, numpy
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('images/python-matplot-fig.png')
+return 'images/python-matplot-fig.png'
+#+END_SRC
+
+#+RESULTS:
+[[file:images/python-matplot-fig.png]]
+
+#+name: solve-maxima
+#+header: :exports results
+#+begin_src maxima :results output
+  programmode: false;
+  eq: x**2-16 = 0;
+  solution: solve(eq, x);
+  print(solution);
+#+end_src
+
+#+RESULTS: solve-maxima
+: solve: solution:
+:                                     x = - 4
+:                                      x = 4
+: [%t1, %t2] 
+
+
+#+name: 3d-maxima
+#+header: :file images/maxima-3d.png
+#+header: :exports results
+#+header: :results graphics
+#+begin_src maxima 
+  programmode: false;
+  plot3d(atan(-x^2+y^3/4),[x,-4,4],[y,-4,4],[grid,50,50],[gnuplot_pm3d,true]);
+#+end_src
+
+#+RESULTS: 3d-maxima
+[[file:images/maxima-3d.png]]
+
+
+
+#+begin_src gnuplot :exports code :file file.png
+reset
+
+set title "Putting it All Together"
+
+set xlabel "X"
+set xrange [-8:8]
+set xtics -8,2,8
+
+
+set ylabel "Y"
+set yrange [-20:70]
+set ytics -20,10,70
+
+f(x) = x**2
+g(x) = x**3
+h(x) = 10*sqrt(abs(x))
+
+plot f(x) w lp lw 1, g(x) w p lw 2, h(x) w l lw 3
+#+end_src
+
+#+name: test_plot_png
+#+header: :exports results :file test.png 
+#+header: :imagemagick yes :iminoptions -density 600 :imoutoptions -geometry 400 
+#+header: :fit yes :noweb yes :headers '("\\usepackage{tikz}")
+#+begin_src latex :exports results :file test.png 
+  <<test_plot()>>
+#+end_src
+
+#+begin_src R :results output latex
+library(xtable)
+x <- rnorm(100)
+y <- x + rnorm(100)
+xtable(summary(lm(y ~ x)))
+#+end_src
+
+#+RESULTS:
+#+BEGIN_EXPORT latex
+#+END_EXPORT
+
+#+BEGIN_SRC python :results file
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import quad
+from scipy.integrate import odeint
+from scipy.integrate import ode
+from scipy.special import erf,erfc
+
+H0 = 70.0
+Omegab = 0.045
+Omegam = 0.3
+Omegal = 0.7
+Omegar = 8e-5
+fb = Omegab/Omegam # baryon fraction
+fc = 1.0-fb # CDM fraction
+clight = 3e5
+
+def T_baryon(a):
+    # parameterisation of baryon temperature from Tseliakhovich & Hirata 2010
+    return 2.726/a/(1+119.*a/(1.0+(115.*a)**-1.5))
+
+def slow_recombination( a, c1, c2 ):
+    f = 0.5*(1.0-erf((np.log10(a)+3)*16))
+    return f*c1 + (1.0-f)*c2
+
+def fast_recombination( a, c1, c2 ):
+    if a<1e-3:
+        return c1
+    else:
+        return c2
+
+def sound_speed(a):
+    c1 = clight/3.0
+    c0_squared = 0.0112764987
+    # for illustration, make post-recomb c_s 20 times larger!!
+    c2 = np.sqrt(c0_squared*T_baryon(a)) * 20.0
+    cs = slow_recombination(a,c1,c2)
+    return cs
+
+def Hubble_a(a):
+    return H0 * np.sqrt( Omegam * a**-3 +  Omegar * a**-4 + Omegal )
+
+###################################################################
+# the RHS of the coupled equations of baryons and dark matter
+# u[0] = delta_c
+# u[1] = delta_b
+# u[2] = theta_c
+# u[3] = theta_b
+def RHS(u,a,param):
+    k = param[0]
+    du = np.zeros_like(u) # make du the same shape as u
+    H = Hubble_a(a) # we will need H(a), so calculate it
+    cs = sound_speed(a) # we will also need the sound speed at a, so get it
+
+    grav = - 1.5 * Omegam * H0**2.0 * ( fb * u[1] + fc * u[0] ) * a**-2.0
+    
+    # du[0] = - u[2] # RHS for d delta_c / da
+    # du[1] = - u[3] # RHS for d delta_b / da
+    # # RHS for d theta_c / da
+    # du[2] = - 3.0 / 2.0 * a**-2.0 * H0**2.0 * Omegam * ( fb * u[1] + fc * u[0] ) - H * u[2]
+    # # RHS for d theta_b / da
+    # du[3] = - 3.0 / 2.0 * a**-2.0 * H0**2.0 * Omegam * ( fb * u[1] + fc * u[0] ) - H * u[0] + cs / a * k**2.0 * u[1]
+    du[0] = - u[2] / a
+    du[1] = - u[3] / a
+    du[2] = - H * u[2] + grav
+    du[3] = - H * u[3] + grav + cs**2.0 * k**2.0 * u[1] / a
+
+    du = du / H / a
+    
+    return du
+
+ainit=1e-10 # the starting scale factor
+astop=1e-2 # we want to finish at astop
+
+## setup the initial conditions for CDM density and theta, also for baryon
+deltac0 = 1.0
+thetac0 = 0.0
+deltab0 = 0.0
+thetab0 = 0.0
+
+## package all initial conditions into one vector
+uinit = np.array([deltac0, deltab0, thetac0, thetab0])
+
+## these will be the wave numbers k for which we compute the result:
+kvals = np.logspace(-3,1,200)
+
+## setup vectors for the results deltab(k), deltac(k), ...
+deltab = np.zeros_like(kvals)
+deltac = np.zeros_like(kvals)
+thetab = np.zeros_like(kvals)
+thetac = np.zeros_like(kvals)
+
+f1 = np.zeros_like(kvals)
+f2 = np.zeros_like(kvals)
+
+## set the number of time steps in log time in a rough way
+nsteps = 1000 # normally this should depend on k, so check convergence!
+
+## these will be the times at which we evaluate
+asteps = np.logspace(np.log10(ainit),np.log10(astop),nsteps)
+
+## loop over all wave numbers k and evolve them
+for i,k in enumerate(kvals):
+    ## integrate the system for all 'a' in 'asteps',
+    u = odeint(RHS, uinit, asteps, args=([k],))
+    
+    ## store last result (in time) in the respective results
+    deltac[i] = u[-1,0]
+    deltab[i] = u[-1,1]
+    thetac[i] = u[-1,2]
+    thetab[i] = u[-1,3]
+    
+    f1[i] = deltac[i] / deltac[0]
+    f2[i] = deltab[i] / deltac[0]
+
+print 'Finished integration to a=',astop
+
+# plt.ylim( (0,100) )
+# plt.figure(1)
+# plt.subplot(121)
+# plt.xscale('log')
+# plt.plot( kvals, f1, 'b')
+# plt.subplot(122)
+# plt.xscale('log')
+# plt.plot( kvals, f2, 'k')
+# plt.show()
+
+plt.plot( kvals, f1, 'k', kvals, f2, 'r')
+plt.xscale('log')
+## plt.show()
+plt.savefig('images/LSS_2.png')
+return 'images/LSS_2.png'
+#+END_SRC
+
+#+RESULTS:
+[[file:images/LSS_2.png]]

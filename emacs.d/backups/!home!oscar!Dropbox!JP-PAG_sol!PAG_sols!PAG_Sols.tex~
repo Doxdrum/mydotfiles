@@ -1,0 +1,804 @@
+% Created 2018-05-04 Fri 13:54
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[cm]{fullpage}
+\usepackage{cite}
+\usepackage{breqn}
+\allowdisplaybreaks
+\input{/home/oscar/Documents/LatexFiles/Def-org.tex}
+\usepgfplotslibrary{fillbetween}
+\hypersetup{colorlinks=true,allcolors=blue,linktocpage=true}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.12)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\begin{table}[htbp]
+\caption{Clock summary at \textit{[2018-05-04 Fri 06:30]}}
+\centering
+\begin{tabular}{lrl}
+Headline & Time & \\
+\hline
+\textbf{Total time} & \textbf{6:28} & \\
+\hline
+Metric Solutions to the Field Equations & 6:28 & \\
+\hspace*{1.0em}Cosmological metric solution with\ldots{} &  & 2:22\\
+\hspace*{1.0em}Cosmological metric solution with\ldots{} &  & 2:13\\
+\end{tabular}
+\end{table}
+
+
+
+\section{Introduction}
+\label{sec.intro}
+Nowadays, the best model for gravitational interactions is General
+Relativity \cite{einstein15_zur_allgem_relat}, and it has proven to be
+consistent---by itself---with most of the observations (see
+Ref. \cite{will14_confr_between_geren_relat} for a review), including the recent observation
+of gravitational waves by the LIGO and Virgo collaborations
+\cite{abbott16_obser_gravit_waves_from_binar}. On the one hand, within the framework of General
+Relativity, the standard model of cosmology has been developed. On the
+other hand, the standard model of particle physics explains very
+accurately the phenomena of the remaining three fundamental
+interactions. However, when we wanted to conciliate both \emph{standard
+models}, we discovered that nearly the 95\% of the Universe does not
+fit into the picture. Therefore, a (huge) piece of the puzzle is
+missing---the dark sector of the Universe, composed of dark matter and
+dark energy.
+
+In order to solve this problem one needs to add \emph{new physics}. An
+interesting question is: Where should this new physics be added?  The
+answer comes in two main streams, either one changes the content of
+the model of particle physics, or one changes the model of
+gravitational interactions. However, the latter is not necessarily
+independent of the former, because depending of the generalisation of
+the gravitational model one obtains new particles in the spectrum.
+
+In this paper, we focus in the second stream by considering a recently
+proposed polynomial affine gravity \cite{castillo-felisola15_polyn_model_purel_affin_gravit}, whose
+restriction to torsion-free connections yields a simple set of field
+equations, which generalize those obtained in the standard General
+Relativity \cite{castillo-felisola18_einst_gravit_from_polyn_affin_model}.
+
+\section{Polynomial Affine Gravity}
+\label{sec.PAG}
+The standard theory of gravity, General Relativity, was first built up
+as a field theory for the metric of the
+spacetimecite:einstein15\(_{\text{zur}}\)\(_{\text{allgem}}\)\(_{\text{relatcite}}\):einstein15\(_{\text{erklar}}\)\(_{\text{perih}}\)\(_{\text{merkur}}\)\(_{\text{aus}}\)\(_{\text{allgem}}\)\(_{\text{relatcite}}\):hilbert15\(_{\text{grund}}\)\(_{\text{physik}}\), 
+\(g_{\mu\nu}\). However, it understood soon after that the connection,
+\(\Gamma^\mu{}_{\rho\sigma}\), does not need to be related with the
+metric field
+\cite{cartan22_sur_une_de_la_notion,cartan23_sur_les_connex_affin_et,cartan24_sur_les_connex_affin_et,cartan25_sur_les_connex_affin_et,debever79_elie_cartan_alber_einst_letter}.
+An early proposal for a gravitational model built up solely with a
+connection was proposed in Ref. \cite{eddington23}. More recent
+attempts were proposed in the 90's, within the framework of
+metric-affine theories \cite{hehl95_metric_affin_gauge_theor_gravit}, and modern attempts have been
+proposed in Refs. \cite{krasnov11_pure_connec_action_princ_gener_relat,poplawski13_affin_theor_gravit,castillo-felisola15_polyn_model_purel_affin_gravit}.
+In this section we will highlight the model proposed in
+Refs. \cite{castillo-felisola15_polyn_model_purel_affin_gravit,castillo-felisola18_einst_gravit_from_polyn_affin_model}.
+
+In the polynomial affine gravity the action is built up from an affine
+connection, \(\hat{\Gamma}^\mu{}_{\rho\sigma}\), which accepts a
+decomposition on irreducible components as
+\begin{equation}
+\label{eq.gamm_decom}
+  \hat{\Gamma}^\mu{}_{\rho\sigma} 
+  = \hat{\Gamma}^\mu{}_{(\rho\sigma)} + \hat{\Gamma}^\mu{}_{[\rho\sigma]} 
+  = {\Gamma}^\mu{}_{\rho\sigma} + \epsilon_{\rho\sigma\lambda\kappa}T^{\mu,\lambda\kappa}+A_{[\rho}\delta^\mu_{\nu]},
+\end{equation} 
+where \({\Gamma}^\mu{}_{\rho\sigma} =
+\hat{\Gamma}^\mu{}_{(\rho\sigma)}\) is symmetric in the lower indices,
+\(A_\mu\) is a vector field corresponding to the trace of torsion, and
+\(T^{\mu,\lambda\kappa}\) is a Curtright field \cite{curtright85_gener_gauge_field},
+which satisfy the properties \(T^{\kappa,\mu\nu } = -T^{\kappa,\nu\mu}\)
+and \(\epsilon_{\lambda\kappa\mu\nu}T^{\kappa,\mu\nu}=0\).  The metric
+field, which might or might not exists, is not needed for contracting
+nor lowering or raising indices.  The relation between the epsilons
+with lower and upper indices is given by
+\begin{equation}
+\epsilon^{\delta\eta\lambda\kappa}\epsilon_{\mu\nu\rho\sigma}=4!\delta^{\delta}{}_{[\mu}\delta^\eta{}_{\nu}\delta^{\lambda}{}_{\rho} \delta^\kappa{}_{\sigma]}.
+\end{equation}
+
+The most general
+ action preserving diffeomorphisms invariance, written
+in terms of the fields in Eq. \eqref{eq.gamm_decom}, is
+\begin{dmath}
+  \label{eq.4dfull}
+  S[{\Gamma},T,A] =
+  \int\dn{4}{x}\bigg[
+    B_1\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\alpha\beta}T^{\rho,\gamma\delta}\epsilon_{\alpha\beta\gamma\delta}
+    +B_2\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\beta,\mu\nu}T^{\rho,\gamma\delta}\epsilon_{\sigma\beta\gamma\delta}
+    +B_3\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\rho\sigma}A_\sigma
+    +B_4\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\rho,\mu\nu}A_\sigma
+    +B_5\, R_{\mu\nu}{}^{\rho}{}_\rho T^{\sigma,\mu\nu}A_\sigma
+    +C_1\, R_{\mu\rho}{}^{\mu}{}_\nu \nabla_\sigma T^{\nu,\rho\sigma}
+    +C_2\, R_{\mu\nu}{}^{\rho}{}_\rho \nabla_\sigma T^{\sigma,\mu\nu} 
+    +D_1\, T^{\alpha,\mu\nu}T^{\beta,\rho\sigma}\nabla_\gamma T^{(\lambda, \kappa) \gamma}\epsilon_{\beta\mu\nu\lambda}\epsilon_{\alpha\rho\sigma\kappa}
+    +D_2\,T^{\alpha,\mu\nu}T^{\lambda,\beta\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+    +D_3\,T^{\mu,\alpha\beta}T^{\lambda,\nu\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+    +D_4\,T^{\lambda,\mu\nu}T^{\kappa,\rho\sigma}\nabla_{(\lambda} A_{\kappa)} \epsilon_{\mu\nu\rho\sigma}
+    +D_5\,T^{\lambda,\mu\nu}\nabla_{[\lambda}T^{\kappa,\rho\sigma} A_{\kappa]} \epsilon_{\mu\nu\rho\sigma}
+    +D_6\,T^{\lambda,\mu\nu}A_\nu\nabla_{(\lambda} A_{\mu)}
+    +D_7\,T^{\lambda,\mu\nu}A_\lambda\nabla_{[\mu} A_{\nu]} 
+    +E_1\,\nabla_{(\rho} T^{\rho,\mu\nu}\nabla_{\sigma)} T^{\sigma,\lambda\kappa}\epsilon_{\mu\nu\lambda\kappa}
+    +E_2\,\nabla_{(\lambda} T^{\lambda,\mu\nu}\nabla_{\mu)} A_\nu
+    +T^{\alpha,\beta\gamma}T^{\delta,\eta\kappa}T^{\lambda,\mu\nu}T^{\rho,\sigma\tau}
+    \Big(F_1\,\epsilon_{\beta\gamma\eta\kappa}\epsilon_{\alpha\rho\mu\nu}\epsilon_{\delta\lambda\sigma\tau}
+    +F_2\,\epsilon_{\beta\lambda\eta\kappa}\epsilon_{\gamma\rho\mu\nu}\epsilon_{\alpha\delta\sigma\tau}\Big) 
+    +F_3\, T^{\rho,\alpha\beta}T^{\gamma,\mu\nu}T^{\lambda,\sigma\tau}A_\tau \epsilon_{\alpha\beta\gamma\lambda}\epsilon_{\mu\nu\rho\sigma}
+    +F_4\,T^{\eta,\alpha\beta}T^{\kappa,\gamma\delta}A_\eta A_\kappa\epsilon_{\alpha\beta\gamma\delta}\bigg],
+\end{dmath}
+where terms related through partial integration, and topological
+invariant have been dropped.\footnote{An example of four-dimensional topological term is the Euler density.} One can prove via a dimensional
+analysis, the \emph{uniqueness} of the above action (see
+Ref. \cite{castillo-felisola18_einst_gravit_from_polyn_affin_model}).
+
+The action in Eq. \eqref{eq.4dfull} shows up very interesting features:
+(i) it is power-counting renormalizable,\footnote{power-counting renormalizability does not guarantee
+renormalizability.} (ii) all coupling
+constants are dimensionless which hints the conformal invariance of
+the model \cite{buchholz77_dilat_inter}, (iii) yields no three-point
+graviton vertices, which might allow to overcome the \emph{no-go} theorems
+found in
+Refs. \cite{mcgady14_higher_spin_massl_s_dimen,camanho14_causal_const_correc_to_gravit},
+(iv) its non-relativistic geodesic deviation agrees with that produced
+by a Keplerian potential \cite{castillo-felisola15_polyn_model_purel_affin_gravit}, and (v) the
+effective equations of motion in the torsion-free limit are a
+generalization of the Einstein's equations
+\cite{castillo-felisola18_einst_gravit_from_polyn_affin_model}. In the remaining of this section we
+will sketch how to find the relativistic limit of this model, when the
+torsion vanishes.
+
+First, notice that the vanishing torsion condition is equivalent to
+taking both \(T^{\lambda,\mu\nu}\) and \(A_\mu\) to zero. Although this
+limit is not well-defined at the action level, it is well-defined at
+the level of equation of motion.\footnote{The field equations can be consistently truncated under the
+requirement of vanishing torsion. It is worth noticing that this
+condition does not yield the Riemannian theory, since we are not yet
+asking for a metricity condition.} In order to simplify the task of
+finding the equation of equation of motion to take the limit, we
+restrict ourselves to the terms in the action which are linear in
+either \(T^{\lambda,\mu\nu}\) or \(A_\mu\), since these are the only terms
+which will survive after taking the torsion-free limit. Therefore,
+after the described considerations, the effective torsion-free action
+is 
+\begin{equation}
+  \label{eq.eff_action}
+  S_{\text{eff}} = \int\dn{4}{x} \Big( C_1\, R_{\lambda\mu}{}^{\lambda}{}_\nu \nabla_\rho %T^{\nu,\rho\sigma}
+  + C_2 \, R_{\mu\rho}{}^{\lambda}{}_\lambda \nabla_\nu \Big) T^{\nu,\mu\rho}.
+\end{equation}
+The nontrivial equations of motion for this action are those for the
+Curtright field, \(T^{\nu,\mu\rho}\),
+\begin{equation}
+  \nabla_{[\rho} R_{\mu]\nu} + \kappa \nabla_{\nu} R_{\mu\rho}{}^\lambda{}_\lambda = 0,
+  \label{eq.almostSimpleEOM}
+\end{equation}
+where \(\kappa\) a constant related with the original couplings of the
+model.
+
+In the Riemannian formulation of differential geometry, since the curvature
+tersor is anti-symmetric in the last couple of indices, the second
+term in Eq. \eqref{eq.almostSimpleEOM} vanishes identically. However, for
+non-Riemannian connections, such term still vanishes if the connection
+is compatible with a volume form. These connections are known as
+equi-affine connections \cite{nomizu94_affin,bryant_symmet_rieman}. In
+addition, the Ricci tensor for equi-affine connections is
+symmetric. For these connections, the gravitational equations are simply
+\begin{equation}
+  \nabla_{[\rho} R_{\mu]\nu} = 0.
+  \label{eq.SimpleEOM}
+\end{equation}
+
+The Eq. \eqref{eq.SimpleEOM} is a generalisation of the parallel Ricci
+curvature condition, \(\nabla_{\rho} R_{\mu\nu} = 0\), which is a known
+extension of the Einstein's equations
+\cite{derdzinski80_class_certain_compac_rieman_manif,besse07_einst}. Moreover,
+these equations of motion are also obtained from a Yang--Mills
+formulation of gravity proposed in
+Refs. \cite{stephenson58_quadr_lagran_gener_relat,kilmister61,yang74_integ_formal_gauge_field},
+except that in that formulation the existence of a metric field is
+assumed. The Yang--Mills-like gravity giving the above equations is
+\begin{equation}
+  \label{eq.gr_YM}
+  S_{\textsc{ym}} = \int \dn{4}{x} \sqrt{g} \, g^{\mu\nu} g^{\sigma\tau} \, R_{\mu\sigma}{}^\lambda{}_\rho R_{\nu\tau}{}^\rho{}_\lambda,
+\end{equation}
+which can be written using the curvature two-form as
+\begin{equation}
+  \label{eq.SKY}
+  S_{\textsc{ym}} = \int \Tr \left( \Rif{}{} \st \Rif{}{} \right) = \int \left( \Rif{a}{b} \st \Rif{b}{a} \right).
+\end{equation}
+Although the actual field equations of the connection for \eqref{eq.gr_YM} are the harmonic
+curvature condition \cite{bourguignon81_les_de_dimen_signat_non},
+\begin{equation}
+  \label{eq.harm_curv}
+  \nabla_\lambda R_{\mu\nu}{}^\lambda{}_\rho = 0,
+\end{equation}
+these are equivalent to \eqref{eq.SimpleEOM} through the second Bianchi
+identity \cite{derdzinski85_rieman,besse07_einst}.
+
+The Stephenson--Kilmister--Yang (or SKY) model is not a field theory
+for the connection, but for the metric. The field equation for the
+metric is very constraint, and it does not accept Schwarzschild-like
+solutions \cite{zanelli_privat}. However, in the polynomial affine gravity the
+the metric (if exists) does not generate gravitational interaction,
+and its only role is to define distances. Meanwhile, the physical
+field associated with the gravitational interaction is the
+connection. This difference makes a huge distinction in the
+phenomenological interpretation of these models.
+
+In the following sections we shall present solutions to the field
+equations \eqref{eq.SimpleEOM}, in the cases where the connection is
+metric or not. To this end, in appendix \ref{sec.Lie_der} we show how to
+propose an ansatz compatible with the desired symmetries.
+
+\section{Metric Solutions to the Field Equations}
+\label{sec.metr_sol}
+The conditions of isotropy and homogeneity are very stringent, when
+imposed on a symmetric rank-two tensor, and the possible ansatz is
+just the Friedmann--Robertson--Walker metric,
+\begin{equation}
+  \label{eq.ht_metr}
+  g = G_{00}\left(t\right) \mathrm{d} t\otimes \mathrm{d} t +
+  G_{11}\left(t\right) \left(
+  \frac{1}{1 - {\kappa} r^{2}}  \mathrm{d}
+  r\otimes \mathrm{d} r + r^{2} \mathrm{d}
+  {\theta}\otimes \mathrm{d} {\theta} + r^{2} 
+  \sin\left({\theta}\right)^{2} \mathrm{d} {\phi}\otimes \mathrm{d} {\phi} \right).
+\end{equation}
+
+In the following, we shall use the standard parametrisation of a
+Friedmann--Robertson--Walker metric, i.e.,
+\begin{equation}
+  \label{eq.FRW_metr}
+  g = - \mathrm{d} t\otimes \mathrm{d} t +
+  a^2\left(t\right) \left(
+  \frac{1}{1 - {\kappa} r^{2}}  \mathrm{d}
+  r\otimes \mathrm{d} r + r^{2} \mathrm{d}
+  {\theta}\otimes \mathrm{d} {\theta} + r^{2} 
+  \sin\left({\theta}\right)^{2} \mathrm{d} {\phi}\otimes \mathrm{d} {\phi} \right).
+\end{equation}
+
+
+\subsection{Cosmological metric solution with parallel Ricci}
+\label{sec.ht_metr_sol}
+Before considering the actual field equations, Eq. \eqref{eq.SimpleEOM},
+we shall analyse the possible solutions to the parallel Ricci
+equations,
+\begin{equation}
+  \nabla_\lambda R_{\mu\nu} = 0.
+  \label{eq.parall_Ricci}
+\end{equation}
+The independent components of Eq. \eqref{eq.parall_Ricci} for
+the ansätze in Eq. \eqref{eq.FRW_metr} are,
+\begin{align}
+  \nabla_t R_{tt} & \propto \dot{a} \ddot{a} - a \dddot{a} = 0, 
+  %% \label{eq.mpr_cosm_ttt}
+  \\
+  \nabla_r R_{rt} & \propto \left( \dot{a}^2 - {a} \ddot{a} + \kappa \right) \dot{a} = 0.
+  \label{eq.mpr_cosm_rrt}
+\end{align}
+Additionally, Eq.  \eqref{eq.mpr_cosm_ttt} can be rewritten as
+\begin{equation}
+  \label{eq.mpr_cosm_ttt}
+  \frac{d}{dt} \left( \frac{\ddot{a}}{a} \right) = 0 \quad \Rightarrow \quad \ddot{a} + C a = 0.
+\end{equation}
+
+We shall distinguish the cases \(C\) positive, negative and zero. Moreover, 
+we parametrise the constant as
+\begin{equation*}
+  C = 
+  \begin{cases}
+    \omega^2 & \text{ for } C>0 \\
+    \omega=0 & \text{ for } C=0 \\
+    - \omega^2 & \text{ for } C<0 
+  \end{cases}
+\end{equation*}
+
+\subsubsection{Case \(C = \omega = 0\)}
+\label{sec:org8bb7da8}
+
+The solutions to Eq.  \eqref{eq.mpr_cosm_ttt} are linear polynomials in
+\(t\), \(a(t) = A t + B\). Equation  \eqref{eq.mpr_cosm_rrt} is then
+satisfied  iff \(A(A^2 + \kappa) = 0\). Therefore, there are three
+real solutions to these equations---notice that there is no constraint
+in the value of the parameter \(B\)---,
+\begin{equation}
+  a(t) = 
+  \begin{cases}
+  \pm t + B & \kappa = -1 \\
+  B & \text{arbitrary } \kappa
+  \end{cases}
+\end{equation}
+For \(A = 0\), the value of \(\kappa\) is irrelevant, and we obtain the
+standard Minkowski, de Sitter and Anti de Sitter solutions. 
+
+Otherwise, \(A = \pm 1\) and \(\kappa\) is required to be minus one, by
+the reality of the solution. These two solutions have \emph\{line
+element\}
+\begin{equation}
+  ds^2 = - dt^2 + (B \pm t)^2 \left( \frac{dr^2}{1 + r^2} + r^2 d\Omega_{(2)}^2 \right).
+\end{equation}
+The aforementioned solutions are known to be isomorphic to the inner
+sector of the future (equiv. past) light cone. This can be seen after
+a change of coordinates, 
+\begin{align*}
+  ds^2
+  & = - dt^2 + (B \pm t)^2 \left( \frac{dr^2}{1 + r^2} + r^2
+  d\Omega_{(2)}^2 \right)
+  \\
+  & = - dt^{\prime2} + t^{\prime2} \left( \frac{dr^2}{1 + r^2} + r^2
+  d\Omega_{(2)}^2 \right)
+  \\
+  & = - dt^{\prime2} + t^{\prime2} \left( {d\chi^2} + \sinh^2 (\chi)
+  d\Omega_{(2)}^2 \right)
+  \\
+  & = - dT^{2} +  {dR^2} + R^2 d\Omega_{(2)}^2 
+\end{align*}
+
+\begin{tikzpicture}
+  \begin{axis}[
+      axis x line = middle,
+      axis y line = middle,
+      xlabel = $R$,
+      ylabel = $T$,
+      ymin=-1, ymax=5,
+    ]
+    \addplot [name path=A, black] {x};
+    \addplot [name path=B, black] {-x};
+    \addplot [name path=C, white] {6};
+    \addplot [orange] fill between  [of= A and C, soft clip={domain=0:5}];
+    \foreach \i in {1,2,...,5} {\addplot [domain=-2:2,blue] ({\i * sinh(x)}, {\i * cosh(x)}); }
+  \end{axis}
+\end{tikzpicture}
+
+\subsubsection{Case \(C = - \omega^2 < 0\)}
+\label{sec:orgb4ff773}
+In this case, the Eq.  \eqref{eq.mpr_cosm_ttt} is solved by the
+functions of the form,
+\begin{equation}
+  a(t) = A \exp(\omega t) + B \exp( - \omega t).
+\end{equation}
+Using the above form of the scale factor, Eq.  \eqref{eq.mpr_cosm_rrt}
+yields the constraint,
+\begin{equation}
+  \omega ( \kappa - 4 A B \omega^2 ) ( A \exp(\omega t) - B \exp( - \omega t) ) = 0.
+\end{equation}
+
+The above equation requires that \(( \kappa - 4 A B \omega^2 ) =
+0\). Since \(\omega^2 > 0\), the possible solutions of this equation
+are characterised by the quadrant (or axis) on the \(A-B\)-plane, on
+which the solution lies.
+
+\begin{enumerate}
+\item Either \(A \lor B\) vanishes
+\label{sec:orgf8fecb7}
+
+This requires that \(\kappa = 0\), and the scale factor is 
+\begin{equation}
+  a(t) = 
+  \begin{cases}
+    A \exp(\omega t) \\
+    A \exp( - \omega t)
+  \end{cases}
+\end{equation}
+
+\item \(A \land B \in \{QI, QIII\}\)
+\label{sec:orge7e7a61}
+
+If \(A \land B\) lie in the first and third quadrant, the reality of
+the solutions requires that \(\kappa = 1\), and thus
+\begin{equation}
+  A B = \frac{1}{4 \omega^2}.
+\end{equation}
+
+The general scale factor for this case is
+\begin{equation}
+  a(t) = A \left( \exp(\omega t) + \frac{1}{4 A^2 \omega^2} \exp( - \omega t) \right),
+\end{equation}
+however, one can fix the initial time such that in that frame \(A = B\),\footnote{It is achieved by setting \(t_0 = - \frac{2}{\omega} \ln(2 A \omega)\).} in which all factor are
+determined,
+\begin{equation}
+  a(t) = \pm \frac{\cosh(\omega t)}{2 \omega}.
+\end{equation}
+
+\item \(A \land B \in \{QII, QIV\}\)
+\label{sec:org712f33c}
+
+Similarly to the previous case if \(A \land B\) lie in the second and
+fourth quadrant, the reality of the solutions requires that 
+\(\kappa = -1\), and thus
+\begin{equation}
+  A B = - \frac{1}{4 \omega^2}.
+\end{equation}
+By setting the initial time such that \(B = - A\), the scale factor is
+\begin{equation}
+  a(t) = \pm \frac{\sinh(\omega t)}{2 \omega}.
+\end{equation}
+
+\item \textbf{Summary}
+\label{sec:orgc6418b4}
+
+All of these solutions are known to be vacuum solutions of General Relativity.
+\end{enumerate}
+
+\subsubsection{Case \(C = \omega^2 > 0\)}
+\label{sec:org4d033dd}
+From Eq.  \eqref{eq.mpr_cosm_ttt}, the possible solutions are of the
+form
+\begin{equation}
+  a(t) = A \sin(\omega t) + B \cos(\omega t).
+\end{equation}
+Equation  \eqref{eq.mpr_cosm_rrt} requires that
+\begin{equation}
+  \omega ( \kappa + \omega^2(A^2 + B^2)) (A \cos(\omega t) - B \sin(\omega t) ) = 0,
+\end{equation}
+which might have real solutions iff \(\kappa = -1\). 
+
+Without lost of generality, the above equation can be solved by using
+the parametrisation,
+\begin{equation}
+  A = \frac{1}{\omega} \sin(\varphi) \quad \text{and} \quad B = \frac{1}{\omega} \cos(\varphi),
+\end{equation}
+in whose case the scale factor becomes\footnote{A different parametrisation leads to \(a(t) = \frac{1}{\omega} \cos(\omega t + \varphi)\)}
+\begin{equation}
+  a(t) = \frac{1}{\omega} \sin(\omega t + \varphi).
+\end{equation}
+
+\begin{enumerate}
+\item \textbf{Summary}
+\label{sec:orga7383a7}
+
+These solutions are known in General Relativity.
+\end{enumerate}
+
+
+\subsection{Cosmological metric solution with parallel Riemann}
+\label{sec:org53952d8}
+Now that we showed that the solutions of the parallel Ricci equations
+are equivalent to those of General Relativity, we turn our attention
+to the Eq. \eqref{eq.SimpleEOM}. For the metric ansatz in
+Eq. \eqref{eq.FRW_metr}, only an independent equation is obtained,
+\begin{equation*}
+  \frac{2 \, \left(\frac{\partial\,a}{\partial t}\right)^{3} - a \frac{\partial\,a}{\partial t} \frac{\partial^2\,a}{\partial t ^ 2} - a^{2} \frac{\partial^3\,a}{\partial t ^ 3} + 2 \, k \frac{\partial\,a}{\partial t}}{a} = 0,
+\end{equation*}
+which can be rewritten as
+\begin{equation}
+  - \frac{d}{dt} \left( \frac{\ddot{a}}{a} + \frac{\dot{a}^2}{a^2} + \frac{\kappa}{a^2} \right) = 0.
+\end{equation}
+Interestingly, we have a single field equation that should determine
+the scale factor. However, this equation is nonlinear, so the
+uniqueness of the solution is not assured.
+
+Therefore, we focus in solving the equation
+\begin{equation}
+  a \ddot{a} + \dot{a}^2 + \kappa + C \, a^2 = 0.
+  \label{eq.prim_cosm}
+\end{equation}
+For such a task, we propose a Frobenius series for the scale factor,
+\begin{equation}
+  a(t) = \sum_{k=0}^\infty a_k \, t^{\alpha + k},
+\end{equation}
+where the factor \(\alpha\), determined by solving the leading order
+contribution of \(t\) in Eq. \eqref{eq.prim_cosm}, is either \(0\) or \(1/2\). 
+
+
+\subsubsection{Another strategy: cheating!}
+\label{sec:org84e1e21}
+We would like to show that, at least some of, the solutions of
+Einsteins equations with matter, solve the Eq. \eqref{eq.SimpleEOM}. For
+that end, we take the Friedmann equations from General Relativity and
+use Eq. \eqref{eq.prim_cosm} and look for solutions of the scale
+factor.
+
+The Einstein equations for the Friedmann--Robertson--Walker ansatz
+are\footnote{From \(R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R + \Lambda
+g_{\mu\nu} = 8 \pi G_N T_{\mu\nu}\)}
+\begin{align}
+  3 \left( \frac{\dot{a}}{a} \right)^2 + 3 \frac{\kappa}{a^2}
+  & = 8 \pi G_N \rho + \Lambda,
+  \label{eq.FRW00}
+  \\
+  2 \frac{\ddot{a}}{a} + \left( \frac{\dot{a}}{a} \right)^2 +
+  \frac{\kappa}{a^2}
+  & = - 8 \pi G_N p + \Lambda.
+  \label{eq.FRW11}
+\end{align}
+Using Eq. \eqref{eq.prim_cosm} the above can be rewritten as
+\begin{align}
+  \frac{\ddot{a}}{a} - C & = - 8 \pi G_N p + \Lambda
+  \\
+  3 \frac{\ddot{a}}{a} + 3 C & = - 8 \pi G_N \rho - \Lambda
+\end{align}
+or
+\begin{align}
+  6 \frac{\ddot{a}}{a} & = - 8 \pi G_N (\rho + 3 p) + 2 \Lambda,
+  \label{eq.prim_rw1}
+  \\
+  6 C & = - 8 \pi G_N (\rho - 3 p) - 4 \Lambda.
+  \label{eq.prim_rw2}
+\end{align}
+
+Equation \eqref{eq.prim_rw2} implies that \(\rho - 3 p\) cannot depend
+on time. A couple of solutions are,
+\begin{itemize}
+\item \(p = \rho / 3\), which is the equation of state for \emph{hot
+matter}. Moreover, in this case, the integration constant \(C\) is
+related with the cosmological constant,
+\begin{equation*}
+  C = - \frac{2}{3} \Lambda.
+\end{equation*}
+\item \(\rho = \text{const.}\) and \(p = 0\), which is the equation of
+state for \emph{cold matter}. Interestingly, for such case the
+integration constant carries the information of the \emph{matter
+distribution} energy density and the cosmological constant,
+\begin{equation}
+  C = - \frac{4 \pi G_N}{3} \rho - \frac{2}{3} \Lambda.
+\end{equation}
+\end{itemize}
+
+\subsection{Spherically symmetric metric solutions}
+\label{sec.iso_metr_sol}
+In Ref. \cite{castillo-felisola18_einst_gravit_from_polyn_affin_model}, it was shown that for an
+spherically symmetric ansatz for the metric, a Birkhoff-like theorem
+holds, and the functions involved in the metric do not depend on
+time. After a suitable coordinate transformation, the isotropic metric
+ansatz is
+\begin{equation}
+g = -A\left(r\right) \mathrm{d} t\otimes \mathrm{d} t +
+\frac{1}{B\left(r\right)} \mathrm{d} r\otimes \mathrm{d} r + r^{2}
+\mathrm{d} {\theta}\otimes \mathrm{d} {\theta} + r^{2}
+\sin\left({\theta}\right)^{2} \mathrm{d} {\phi}\otimes \mathrm{d} {\phi}.
+\end{equation}
+Although the metric ansatz is just the one used by Schwarzschild, the
+difference is that it is not intended to solve Einstein's equations
+but Eq. \eqref{eq.SimpleEOM}.
+
+The field equations turns to be
+\begin{dmath}
+2 \, r^{2} B\left(r\right) \left(\frac{\partial\,A}{\partial
+r}\right)^{3} + 2 \, r^{2} A\left(r\right)^{2} B\left(r\right)
+\frac{\partial^3\,A}{\partial r^3} + r^{2} A\left(r\right)^{2}
+\frac{\partial\,A}{\partial r} \frac{\partial^2\,B}{\partial r^2} - 2 \,
+r A\left(r\right) B\left(r\right) \frac{\partial\,A}{\partial r}^{2} - 4
+\, A\left(r\right)^{2} B\left(r\right) \frac{\partial\,A}{\partial r} -
+4 \, {\left(r^{2} A\left(r\right) B\left(r\right)
+\frac{\partial\,A}{\partial r} - r A\left(r\right)^{2}
+B\left(r\right)\right)} \frac{\partial^2\,A}{\partial r^2} - {\left(2 \,
+r^{2} A\left(r\right) \frac{\partial\,A}{\partial r}^{2} - 3 \, r^{2}
+A\left(r\right)^{2} \frac{\partial^2\,A}{\partial r^2} - 2 \, r
+A\left(r\right)^{2} \frac{\partial\,A}{\partial r}\right)}
+\frac{\partial\,B}{\partial r} = 0,  
+\label{eq.isot_NL_1}
+\end{dmath}
+and
+\begin{dmath}
+r^{2} B\left(r\right) \left(\frac{\partial\,A}{\partial
+r}\right)^{2} - r^{2} A\left(r\right) \frac{\partial\,A}{\partial r}
+\frac{\partial\,B}{\partial r} - 2 \, r^{2} A\left(r\right)^{2}
+\frac{\partial^2\,B}{\partial r^2} + 4 \, A\left(r\right)^{2}
+B\left(r\right) - 4 \, A\left(r\right)^{2}  = 0 .
+\label{eq.isot_NL_2}
+\end{dmath}
+It is worth noticing that the system of equations turns linear for \(A
+= B\), and in this linear case, the solution of the system is given by
+the well-known AdS-Schwarzschild solution, i.e.,
+\begin{equation}
+A (r) = 1 + \frac{c_1}{r} + c_2 r^2.
+\end{equation}
+
+Next, we check whether the non-linear regime of the equations can be
+solved. A Frobenius power series is proposed for both functions,
+\begin{align}
+A(r) &= \sum_{k = 0}^\infty a_k \, r^{k+\alpha} , \\
+B(r) &= \sum_{k = 0}^\infty b_k \, r^{k+\beta}.
+\end{align}
+From \eqref{eq.isot_NL_1} and \eqref{eq.isot_NL_2}, one gets the
+conditions for the \emph{critical exponents}
+\begin{equation}
+\begin{split}
+\alpha ( \alpha - \beta) - 2 \beta (\beta - 1) &= -4, \\
+\alpha \big[ \beta (\alpha + \beta) - 2 \beta - 4 \big] &= 0.
+\end{split}
+\label{eq.metric_exp}
+\end{equation}
+
+The solutions to Eqs. \eqref{eq.metric_exp} are presented in Table \ref{tab.metr_exp}
+
+\begin{table}[htbp]
+\caption{\label{tab.metr_exp}
+Possible values of \(\alpha\) and \(\beta\), which solve Eq. \eqref{eq.metric_exp}.}
+\centering
+\begin{tabular}{ll|r|r}
+Conditions &  & \(\alpha\) & \(\beta\)\\
+\hline
+\(\beta < 0\) & \(\alpha = 0\) & 0 & -1\\
+ & \(\alpha \neq 0\) & 2 & -2\\
+ &  & -1 & -1\\
+\(\beta = 0\) & \(\alpha \in \R\) & 0 & 0\\
+\(\beta > 0\) & \(\alpha \in \R\) & inconsistent & \\
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Schwarzschild-like solution}
+\label{sec:orgfe545e2}
+
+Consider the power series for the functions \(A\) and \(B\), with \(\alpha
+= \beta = -1\). The substitution of \eqref{eq.metric_exp} into
+Eqs. \eqref{eq.isot_NL_1} and \eqref{eq.isot_NL_2} yields the following
+relation between the firsts expansion coefficients,
+\begin{equation}
+\begin{aligned}
+a_1 &= \frac{ a_0 }{ b_0 } & b_1 &= 1 \\
+a_2 &= 0 & b_2 &= 0 \\
+a_3 &= \text{undetermined} & b_3 &= \text{undetermined} \\
+a_4 &= \frac{ a_3 b_0 - a_0 b_3 }{ b_0^2 } & b_{4} &= \frac{3}{2} \left(\frac{b_{3}}{b_{0}}-\frac{a_{3}}{a_{0}}\right) \\
+a_5 &= \frac{9}{20} \frac{ (a_{0} b_{3}-a_{3} b_{0})}{ b_{0}^3} & b_5 &= \frac{5}{4} \frac{ a_{3} b_{0} - a_{0} b_{3}}{ a_{0} b_{0}^2} \\
+&\vdots & &\vdots
+\end{aligned}
+\end{equation}
+
+Notice that the series are determined once the values of the
+coefficients \(a_0\), \(b_0\), \(a_3\) and \(b_3\) are fixed. Additionally,
+the series truncate (as expected) for \(a_0 = b_0\) and \(a_3 = b_3\),
+case in which the physical interpretation of the parameter is well
+understood, \(a_0\) is related with the mass of the physical object,
+while \(a_3\) is related with the cosmological constant. However, for
+other values of the constants it is not clear whether the asymptotic
+structure of the spacetime characterized by this metric is well
+behaved \cite{geroch13_gener}.
+
+For the case \(a_0 = b_0\), the coefficients are
+\begin{equation}
+\begin{aligned}
+a_{1} &= 1
+&
+b_{1} &= 1
+\\
+a_{2} &= 0
+&
+b_{2} &= 0
+\\
+a_3 &= \text{undetermined} 
+& 
+b_3 &= \text{undetermined} 
+\\
+a_{4} &= \frac{a_{3}-b_{3}}{a_{0}}
+&
+b_{4} &= -\frac{3 (a_{3}-b_{3})}{2 a_{0}}
+\\
+a_{5} &= -\frac{9 (a_{3}-b_{3})}{20 a_{0}^2}
+&
+b_{5} &= \frac{5 (a_{3}-b_{3})}{4 a_{0}^2}
+\\
+&\vdots 
+&
+&\vdots
+\end{aligned}
+\end{equation}
+
+The substitution \(a_0 = -2 M\), \(a_3 = \Lambda\) and  \(b_3 = \Lambda +
+\epsilon\), the coefficients become,
+\begin{equation}
+\begin{aligned}
+a_{1} &= 1, &
+b_{1} &= 1, \\
+a_{2} &= 0, &
+b_{2} &= 0, \\
+a_{4} &= \frac{\epsilon }{2 M}, &
+b_{4} &= -\frac{3 \epsilon }{4 M}, \\
+a_{5} &= \frac{9 \epsilon }{80 M^2}, &
+b_{5} &= -\frac{5 \epsilon }{16 M^2}, \\
+a_{6} &= \frac{\epsilon  \left(70 \Lambda  M^2+9\right)}{390 M^3}, &
+b_{6} &= \frac{\epsilon  \left(10 \Lambda  M^2-21\right)}{156 M^3}, \\
+&\vdots &
+&\vdots
+\end{aligned}
+\end{equation}
+which  \hl{it seems to converge, but I don't have Mathematica
+installed in the computer to check it}
+
+\hl{Expeculation:}
+When \(a_3 \neq b_3\), it seems that we have an extra parameter
+playing (partially) the role of cosmological constant.
+
+
+
+
+\section{Conclusions and remarks}
+\label{sec:org982a60a}
+
+
+
+\appendix
+
+\section{Lie derivative and Killing vectors}
+\label{sec.Lie_der}
+The usual procedure for solving the Einstein's equation is to propose
+an ansatz for the metric. That ansatz must be compatible with the
+symmetries we would like to respect in the problem. A first
+application is seen in the Schwarzschild's metric, which is the \emph{most
+general} symmetric rank-two tensor compatible with the rotation group
+in three dimensions, an thus is \emph{spherically symmetric}.
+
+The formal study of the symmetries of the fields is accomplish via the
+Lie derivative (for reviews, see
+Refs. \cite{yano57_lie,choquet-bruhat89_analy,nakahara05_geomet_topol_physic,mcinerney13_first_steps_differ_geomet}). Below,
+we briefly explain the use of the Lie derivative for obtaining
+ansatzes for either the metric or the connection.
+
+The Lie derivative of a connection possesses an inhomogeneous part, in
+comparison with the one of a rank three tensor. This can be written
+schematically as
+\begin{equation}
+\label{eq.Lie_Gamma}
+\mathcal{L}_{\xi} \Gamma^{a}{}_{bc} = \mathcal{L}_{\xi} T^{a}{}_{bc} + \frac{\partial^2 \xi^{a}}{\partial x^{b} \partial x^c },
+\end{equation}
+where \(\xi\) is the vector defining the symmetry flow.
+
+\section{Useful changes of coordinates}
+\label{sec:org91bc3e9}
+
+\subsection{three-dimensional Flat, Sphere, Hyperbola embedded in four dimensions}
+\label{sec:orga509019}
+
+\begin{equation}
+  ds_4^2 = dx^2 + dy^2 + dz^2 + dw^2.
+\end{equation}
+
+\begin{align*}
+  x^2 + y^2 + z^2 \pm w^2 & = \pm 1
+  \\
+  x \, dx + y \, dy  + z \, dz & = \pm w \, dw
+  \\
+  \frac{(\vec{x} \cdot d\vec{x})^2}{1 \mp r^2} = dw^2,
+\end{align*}
+where we have defined \(r^2 = x^2 + y^2 + z^2\), and \(\vec{x} \cdot
+d\vec{x} = x \, dx + y \, dy  + z \, dz\).
+
+Therefore, the embedding of the sphere and hyperbola can be stated as,
+\begin{equation}
+  ds^2 = dx^2 + dy^2 + dz^2 + \frac{(\vec{x} \cdot d\vec{x})^2}{1 \mp r^2},
+\end{equation}
+It can be generalised to include the flat Euclidean space, which is
+nothing but setting \(dw = 0\), by adding a parameter \(\kappa = -1,
+0, 1\),
+
+\begin{equation}
+  ds^2 = dx^2 + dy^2 + dz^2 + \kappa \frac{(\vec{x} \cdot d\vec{x})^2}{1 - \kappa r^2},
+\end{equation}
+which in spherical coordinates is written as
+\begin{equation}
+  ds^2 = \frac{dr^2}{1 - \kappa r^2} + r^2 d\Omega_{(2)}^2.
+\end{equation}
+
+\section{Bibliography}
+\label{sec:org0fcdf4b}
+
+\bibliographystyle{unsrt}
+\bibliography{../../../Documents/LatexFiles/References}
+\end{document}

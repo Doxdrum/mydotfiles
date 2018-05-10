@@ -1,0 +1,858 @@
+#+latex_header: \usepackage[cm]{fullpage}
+#+latex_header: \usepackage{cite}
+#+latex_header: \usepackage{breqn}
+#+latex_header: \allowdisplaybreaks
+#+latex_header: \input{/home/oscar/Documents/LatexFiles/Def-org.tex}
+#+latex_header: \hypersetup{colorlinks=true,allcolors=blue,linktocpage=true}
+
+#+BEGIN: clocktable :maxlevel 2 :scope file
+#+CAPTION: Clock summary at [2017-05-04 jue 14:47]
+| Headline                                |   Time |      |
+|-----------------------------------------+--------+------|
+| *Total time*                            | *2:37* |      |
+|-----------------------------------------+--------+------|
+| Metric Solutions to the Field Equations |   1:39 |      |
+| Non-metric Solutions to the Field...    |   0:58 |      |
+| \_  Isotropic affine connection         |        | 0:34 |
+| \_  Homogeneous and isotropic affine... |        | 0:23 |
+#+END:
+
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: sec.intro
+:END:
+
+Nowadays, the best model for gravitational interactions is General
+Relativity cite:einstein1915allgemeinen, and it has proven to be
+consistent---by itself---with most of the observations (see
+Ref. cite:Will:2014kxa for a review), including the recent observation
+of gravitational waves by the LIGO and Virgo collaborations
+cite:Abbott:2016blz. On the one hand, within the framework of General
+Relativity, the standard model of cosmology has been developed. On the
+other hand, the standard model of particle physics explains very
+accurately the phenomena of the remaining three fundamental
+interactions. However, when we wanted to conciliate both /standard
+models/, we discovered that nearly the 95% of the Universe does not
+fit into the picture. Therefore, a (huge) piece of the puzzle is
+missing---the dark sector of the Universe, composed of dark matter and
+dark energy.
+
+In order to solve this problem one needs to add /new physics/. An
+interesting question is: Where should this new physics be added?  The
+answer comes in two main streams, either one changes the content of
+the model of particle physics, or one changes the model of
+gravitational interactions. However, the latter is not necessarily
+independent of the former, because depending of the generalisation of
+the gravitational model one obtains new particles in the spectrum.
+
+In this paper, we focus in the second stream by considering a recently
+proposed polynomial affine gravity cite:Skirzewski:2014eta, whose
+restriction to torsion-free connections yields a simple set of field
+equations, which generalize those obtained in the standard General
+Relativity cite:Castillo-Felisola:2015cqa.
+
+* Polynomial Affine Gravity
+:PROPERTIES:
+:CUSTOM_ID: sec.PAG
+:END:
+
+The standard theory of gravity, General Relativity, was first built up
+as a field theory for the metric of the spacetime
+cite:einstein1915allgemeinen,einstein1915feldgleichungen,hilbert1915grundlagen,
+$g_{\mu\nu}$. However, it understood soon after that the connection,
+$\Gamma^\mu{}_{\rho\sigma}$, does not need to be related with the
+metric field
+cite:Cartan1922,Cartan1923,Cartan1924,Cartan1925,Cartan-Einstein.  An
+early proposal for a gravitational model built up solely with a
+connection was proposed in Ref. cite:Eddington1923math. More recent
+attempts were proposed in the 90's, within the framework of
+metric-affine theories cite:Hehl:1994ue, and modern attempts have been
+proposed in Refs. cite:Krasnov:2011pp,Poplawski:2012bw,Skirzewski:2014eta.
+In this section we will highlight the model proposed in Refs. cite:Skirzewski:2014eta,Castillo-Felisola:2015cqa.
+
+In the polynomial affine gravity the action is built up from an affine
+connection, $\hat{\Gamma}^\mu{}_{\rho\sigma}$, which accepts a
+decomposition on irreducible components as
+\begin{equation}
+\label{eq.gamm_decom}
+  \hat{\Gamma}^\mu{}_{\rho\sigma} 
+  = \hat{\Gamma}^\mu{}_{(\rho\sigma)} + \hat{\Gamma}^\mu{}_{[\rho\sigma]} 
+  = {\Gamma}^\mu{}_{\rho\sigma} + \epsilon_{\rho\sigma\lambda\kappa}T^{\mu,\lambda\kappa}+A_{[\rho}\delta^\mu_{\nu]},
+\end{equation} 
+where ${\Gamma}^\mu{}_{\rho\sigma} =
+\hat{\Gamma}^\mu{}_{(\rho\sigma)}$ is symmetric in the lower indices,
+$A_\mu$ is a vector field corresponding to the trace of torsion, and
+$T^{\mu,\lambda\kappa}$ is a Curtright field cite:Curtright:1980yk,
+which satisfy the properties $T^{\kappa,\mu\nu } = -T^{\kappa,\nu\mu}$
+and $\epsilon_{\lambda\kappa\mu\nu}T^{\kappa,\mu\nu}=0$.  The metric
+field, which might or might not exists, is not needed for contracting
+nor lowering or raising indices.  The relation between the epsilons
+with lower and upper indices is given by
+\begin{equation}
+\epsilon^{\delta\eta\lambda\kappa}\epsilon_{\mu\nu\rho\sigma}=4!\delta^{\delta}{}_{[\mu}\delta^\eta{}_{\nu}\delta^{\lambda}{}_{\rho} \delta^\kappa{}_{\sigma]}.
+\end{equation}
+
+The most general
+ action preserving diffeomorphisms invariance, written
+in terms of the fields in Eq. eqref:eq.gamm_decom, is
+#+begin_export latex
+  \begin{dmath}
+    \label{eq.4dfull}
+    S[{\Gamma},T,A] =
+    \int\dn{4}{x}\bigg[
+      B_1\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\alpha\beta}T^{\rho,\gamma\delta}\epsilon_{\alpha\beta\gamma\delta}
+      +B_2\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\beta,\mu\nu}T^{\rho,\gamma\delta}\epsilon_{\sigma\beta\gamma\delta}
+      +B_3\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\rho\sigma}A_\sigma
+      +B_4\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\rho,\mu\nu}A_\sigma
+      +B_5\, R_{\mu\nu}{}^{\rho}{}_\rho T^{\sigma,\mu\nu}A_\sigma
+      +C_1\, R_{\mu\rho}{}^{\mu}{}_\nu \nabla_\sigma T^{\nu,\rho\sigma}
+      +C_2\, R_{\mu\nu}{}^{\rho}{}_\rho \nabla_\sigma T^{\sigma,\mu\nu} 
+      +D_1\, T^{\alpha,\mu\nu}T^{\beta,\rho\sigma}\nabla_\gamma T^{(\lambda, \kappa) \gamma}\epsilon_{\beta\mu\nu\lambda}\epsilon_{\alpha\rho\sigma\kappa}
+      +D_2\,T^{\alpha,\mu\nu}T^{\lambda,\beta\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+      +D_3\,T^{\mu,\alpha\beta}T^{\lambda,\nu\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+      +D_4\,T^{\lambda,\mu\nu}T^{\kappa,\rho\sigma}\nabla_{(\lambda} A_{\kappa)} \epsilon_{\mu\nu\rho\sigma}
+      +D_5\,T^{\lambda,\mu\nu}\nabla_{[\lambda}T^{\kappa,\rho\sigma} A_{\kappa]} \epsilon_{\mu\nu\rho\sigma}
+      +D_6\,T^{\lambda,\mu\nu}A_\nu\nabla_{(\lambda} A_{\mu)}
+      +D_7\,T^{\lambda,\mu\nu}A_\lambda\nabla_{[\mu} A_{\nu]} 
+      +E_1\,\nabla_{(\rho} T^{\rho,\mu\nu}\nabla_{\sigma)} T^{\sigma,\lambda\kappa}\epsilon_{\mu\nu\lambda\kappa}
+      +E_2\,\nabla_{(\lambda} T^{\lambda,\mu\nu}\nabla_{\mu)} A_\nu
+      +T^{\alpha,\beta\gamma}T^{\delta,\eta\kappa}T^{\lambda,\mu\nu}T^{\rho,\sigma\tau}
+      \Big(F_1\,\epsilon_{\beta\gamma\eta\kappa}\epsilon_{\alpha\rho\mu\nu}\epsilon_{\delta\lambda\sigma\tau}
+      +F_2\,\epsilon_{\beta\lambda\eta\kappa}\epsilon_{\gamma\rho\mu\nu}\epsilon_{\alpha\delta\sigma\tau}\Big) 
+      +F_3\, T^{\rho,\alpha\beta}T^{\gamma,\mu\nu}T^{\lambda,\sigma\tau}A_\tau \epsilon_{\alpha\beta\gamma\lambda}\epsilon_{\mu\nu\rho\sigma}
+      +F_4\,T^{\eta,\alpha\beta}T^{\kappa,\gamma\delta}A_\eta A_\kappa\epsilon_{\alpha\beta\gamma\delta}\bigg],
+  \end{dmath}
+#+end_export
+where terms related through partial integration, and topological
+invariant have been dropped.[fn:1] One can prove via a dimensional
+analysis, the /uniqueness/ of the above action (see
+Ref. cite:Castillo-Felisola:2015cqa).
+
+The action in Eq. eqref:eq.4dfull shows up very interesting features: (i)
+it is power-counting renormalizable,[fn:2] (ii) all coupling constants
+are dimensionless which hints the conformal invariance of the model
+cite:Buchholz:1976hz, (iii) yields no three-point graviton vertices,
+which might allow to overcome the /no-go/ theorems found in
+Refs. cite:McGady:2013sga,Camanho:2014apa, (iv) its non-relativistic
+geodesic deviation agrees with that produced by a Keplerian potential
+cite:Skirzewski:2014eta, and (v) the effective equations of motion in
+the torsion-free limit are a generalization of the Einstein's
+equations cite:Castillo-Felisola:2015cqa. In the remaining of this
+section we will sketch how to find the relativistic limit of this
+model, when the torsion vanishes.
+
+First, notice that the vanishing torsion condition is equivalent to
+taking both $T^{\lambda,\mu\nu}$ and $A_\mu$ to zero. Although this
+limit is not well-defined at the action level, it is well-defined at
+the level of equation of motion.[fn:3] In order to simplify the task of
+finding the equation of equation of motion to take the limit, we
+restrict ourselves to the terms in the action which are linear in
+either $T^{\lambda,\mu\nu}$ or $A_\mu$, since these are the only terms
+which will survive after taking the torsion-free limit. Therefore,
+after the described considerations, the effective torsion-free action
+is 
+\begin{equation}
+  \label{eq.eff_action}
+  S_{\text{eff}} = \int\dn{4}{x} \Big( C_1\, R_{\lambda\mu}{}^{\lambda}{}_\nu \nabla_\rho %T^{\nu,\rho\sigma}
+  + C_2 \, R_{\mu\rho}{}^{\lambda}{}_\lambda \nabla_\nu \Big) T^{\nu,\mu\rho}.
+\end{equation}
+The nontrivial equations of motion for this action are those for the
+Curtright field, $T^{\nu,\mu\rho}$,
+\begin{equation}
+  \nabla_{[\rho} R_{\mu]\nu} + \kappa \nabla_{\nu} R_{\mu\rho}{}^\lambda{}_\lambda = 0,
+  \label{eq.almostSimpleEOM}
+\end{equation}
+where $\kappa$ a constant related with the original couplings of the
+model.
+
+In the Riemannian formulation of differential geometry, since the curvature
+tersor is anti-symmetric in the last couple of indices, the second
+term in Eq. eqref:eq.almostSimpleEOM vanishes identically. However, for
+non-Riemannian connections, such term still vanishes if the connection
+is compatible with a volume form. These connections are known as
+equi-affine connections cite:nomizu1994affine,MO-Bryant02. In
+addition, the Ricci tensor for equi-affine connections is
+symmetric. For these connections, the gravitational equations are simply
+\begin{equation}
+  \nabla_{[\rho} R_{\mu]\nu} = 0.
+  \label{eq.SimpleEOM}
+\end{equation}
+
+The Eq. eqref:eq.SimpleEOM is a generalisation of the parallel
+Ricci curvature condition, $\nabla_{\rho} R_{\mu\nu} = 0$, which is a
+known extension of the Einstein's equations
+cite:derdzinski1980classification,Besse. Moreover, these equations of
+motion are also obtained from a Yang--Mills formulation of gravity
+proposed in
+Refs. cite:stephenson1958quadratic,kilmister1961use,Yang1974, except
+that in that formulation the existence of a metric field is
+assumed. The Yang--Mills-like gravity giving the above equations is 
+\begin{equation}
+  \label{eq.gr_YM}
+  S_{\textsc{ym}} = \int \dn{4}{x} \sqrt{g} \, g^{\mu\nu} g^{\sigma\tau} \, R_{\mu\sigma}{}^\lambda{}_\rho R_{\nu\tau}{}^\rho{}_\lambda,
+\end{equation}
+which can be written using the curvature two-form as
+\begin{equation}
+  \label{eq.SKY}
+  S_{\textsc{ym}} = \int \Tr \left( \Rif{}{} \st \Rif{}{} \right) = \int \left( \Rif{a}{b} \st \Rif{b}{a} \right).
+\end{equation}
+Although the actual field equations of the connection for eqref:eq.gr_YM are the harmonic
+curvature condition \cite{bourguignon1981varietes},
+\begin{equation}
+  \label{eq.harm_curv}
+  \nabla_\lambda R_{\mu\nu}{}^\lambda{}_\rho = 0,
+\end{equation}
+these are equivalent to eqref:eq.SimpleEOM through the second Bianchi
+identity cite:Derdzinski:1985,Besse.
+
+The Stephenson--Kilmister--Yang (or SKY) model is not a field theory
+for the connection, but for the metric. The field equation for the
+metric is very constraint, and it does not accept Schwarzschild-like
+solutions cite:JZcomm. However, in the polynomial affine gravity the
+the metric (if exists) does not generate gravitational interaction,
+and its only role is to define distances. Meanwhile, the physical
+field associated with the gravitational interaction is the
+connection. This difference makes a huge distinction in the
+phenomenological interpretation of these models.
+
+In the following sections we shall present solutions to the field
+equations eqref:eq.SimpleEOM, in the cases where the connection is
+metric or not. To this end, in appendix ref:sec.Lie_der we show how to
+propose an ansatz compatible with the desired symmetries.
+
+* Metric Solutions to the Field Equations
+:PROPERTIES:
+:CUSTOM_ID: sec.metr_sol
+:END:
+:LOGBOOK:
+CLOCK: [2017-05-02 mar 14:10]--[2017-05-02 mar 15:49] =>  1:39
+:END:
+
+** Spherically symmetric metric solutions
+:PROPERTIES:
+:CUSTOM_ID: sec.iso_metr_sol
+:END:
+
+In Ref. cite:Castillo-Felisola:2015cqa, it was shown that for an
+spherically symmetric ansatz for the metric, a Birkhoff-like theorem
+holds, and the functions involved in the metric do not depend on
+time. After a suitable coordinate transformation, the isotropic metric
+ansatz is
+\begin{equation}
+g = -A\left(r\right) \mathrm{d} t\otimes \mathrm{d} t +
+\frac{1}{B\left(r\right)} \mathrm{d} r\otimes \mathrm{d} r + r^{2}
+\mathrm{d} {\theta}\otimes \mathrm{d} {\theta} + r^{2}
+\sin\left({\theta}\right)^{2} \mathrm{d} {\phi}\otimes \mathrm{d} {\phi}.
+\end{equation}
+Although the metric ansatz is just the one used by Schwarzschild, the
+difference is that it is not intended to solve Einstein's equations
+but Eq. eqref:eq.SimpleEOM.
+
+The field equations turns to be
+\begin{dmath}
+2 \, r^{2} B\left(r\right) \left(\frac{\partial\,A}{\partial
+r}\right)^{3} + 2 \, r^{2} A\left(r\right)^{2} B\left(r\right)
+\frac{\partial^3\,A}{\partial r^3} + r^{2} A\left(r\right)^{2}
+\frac{\partial\,A}{\partial r} \frac{\partial^2\,B}{\partial r^2} - 2 \,
+r A\left(r\right) B\left(r\right) \frac{\partial\,A}{\partial r}^{2} - 4
+\, A\left(r\right)^{2} B\left(r\right) \frac{\partial\,A}{\partial r} -
+4 \, {\left(r^{2} A\left(r\right) B\left(r\right)
+\frac{\partial\,A}{\partial r} - r A\left(r\right)^{2}
+B\left(r\right)\right)} \frac{\partial^2\,A}{\partial r^2} - {\left(2 \,
+r^{2} A\left(r\right) \frac{\partial\,A}{\partial r}^{2} - 3 \, r^{2}
+A\left(r\right)^{2} \frac{\partial^2\,A}{\partial r^2} - 2 \, r
+A\left(r\right)^{2} \frac{\partial\,A}{\partial r}\right)}
+\frac{\partial\,B}{\partial r} = 0,  
+\label{eq.isot_NL_1}
+\end{dmath}
+and
+\begin{dmath}
+r^{2} B\left(r\right) \left(\frac{\partial\,A}{\partial
+r}\right)^{2} - r^{2} A\left(r\right) \frac{\partial\,A}{\partial r}
+\frac{\partial\,B}{\partial r} - 2 \, r^{2} A\left(r\right)^{2}
+\frac{\partial^2\,B}{\partial r^2} + 4 \, A\left(r\right)^{2}
+B\left(r\right) - 4 \, A\left(r\right)^{2}  = 0 .
+\label{eq.isot_NL_2}
+\end{dmath}
+It is worth noticing that the system of equations turns linear for $A
+= B$, and in this linear case, the solution of the system is given by
+the well-known AdS-Schwarzschild solution, i.e.,
+\begin{equation}
+A (r) = 1 + \frac{c_1}{r} + c_2 r^2.
+\end{equation}
+
+Next, we check whether the non-linear regime of the equations can be
+solved. A Frobenius power series is proposed for both functions,
+\begin{align}
+A(r) &= \sum_{k = 0}^\infty a_k \, r^{k+\alpha} , \\
+B(r) &= \sum_{k = 0}^\infty b_k \, r^{k+\beta}.
+\end{align}
+From eqref:eq.isot_NL_1 and eqref:eq.isot_NL_2, one gets the
+conditions for the /critical exponents/
+\begin{equation}
+\begin{split}
+\alpha ( \alpha - \beta) - 2 \beta (\beta - 1) &= -4, \\
+\alpha \big[ \beta (\alpha + \beta) - 2 \beta - 4 \big] &= 0.
+\end{split}
+\label{eq.metric_exp}
+\end{equation}
+
+The solutions to Eqs. eqref:eq.metric_exp are presented in Table ref:tab.metr_exp
+
+#+attr_latex: :mode table
+#+name: tab.metr_exp
+#+caption: Possible values of \(\alpha\) and \(\beta\), which solve Eq. eqref:eq.metric_exp.
+| Conditions    |                   |   \(\alpha\) | \(\beta\) |
+|---------------+-------------------+--------------+-----------|
+| /             |                   |           <> |           |
+| \(\beta < 0\) | \(\alpha = 0\)    |            0 |        -1 |
+|               | \(\alpha \neq 0\) |            2 |        -2 |
+|               |                   |           -1 |        -1 |
+| \(\beta = 0\) | \(\alpha \in \R\) |            0 |         0 |
+| \(\beta > 0\) | \(\alpha \in \R\) | inconsistent |           |
+
+
+*** Schwarzschild-like solution
+
+Consider the power series for the functions $A$ and $B$, with $\alpha
+= \beta = -1$. The substitution of eqref:eq.metric_exp into
+Eqs. eqref:eq.isot_NL_1 and eqref:eq.isot_NL_2 yields the following
+relation between the firsts expansion coefficients,
+\begin{equation}
+\begin{aligned}
+a_1 &= \frac{ a_0 }{ b_0 } & b_1 &= 1 \\
+a_2 &= 0 & b_2 &= 0 \\
+a_3 &= \text{undetermined} & b_3 &= \text{undetermined} \\
+a_4 &= \frac{ a_3 b_0 - a_0 b_3 }{ b_0^2 } & b_{4} &= \frac{3}{2} \left(\frac{b_{3}}{b_{0}}-\frac{a_{3}}{a_{0}}\right) \\
+a_5 &= \frac{9}{20} \frac{ (a_{0} b_{3}-a_{3} b_{0})}{ b_{0}^3} & b_5 &= \frac{5}{4} \frac{ a_{3} b_{0} - a_{0} b_{3}}{ a_{0} b_{0}^2} \\
+&\vdots & &\vdots
+\end{aligned}
+\end{equation}
+
+Notice that the series are determined once the values of the
+coefficients $a_0$, $b_0$, $a_3$ and $b_3$ are fixed. Additionally,
+the series truncate (as expected) for $a_0 = b_0$ and $a_3 = b_3$,
+case in which the physical interpretation of the parameter is well
+understood, $a_0$ is related with the mass of the physical object,
+while $a_3$ is related with the cosmological constant. However, for
+other values of the constants it is not clear whether the asymptotic
+structure of the spacetime characterized by this metric is well
+behaved cite:geroch13_gener.
+
+For the case $a_0 = b_0$, the coefficients are
+\begin{equation}
+\begin{aligned}
+a_{1} &= 1
+&
+b_{1} &= 1
+\\
+a_{2} &= 0
+&
+b_{2} &= 0
+\\
+a_3 &= \text{undetermined} 
+& 
+b_3 &= \text{undetermined} 
+\\
+a_{4} &= \frac{a_{3}-b_{3}}{a_{0}}
+&
+b_{4} &= -\frac{3 (a_{3}-b_{3})}{2 a_{0}}
+\\
+a_{5} &= -\frac{9 (a_{3}-b_{3})}{20 a_{0}^2}
+&
+b_{5} &= \frac{5 (a_{3}-b_{3})}{4 a_{0}^2}
+\\
+&\vdots 
+&
+&\vdots
+\end{aligned}
+\end{equation}
+
+The substitution $a_0 = -2 M$, $a_3 = \Lambda$ and  $b_3 = \Lambda +
+\epsilon$, the coefficients become,
+\begin{equation}
+\begin{aligned}
+a_{1} &= 1, &
+b_{1} &= 1, \\
+a_{2} &= 0, &
+b_{2} &= 0, \\
+a_{4} &= \frac{\epsilon }{2 M}, &
+b_{4} &= -\frac{3 \epsilon }{4 M}, \\
+a_{5} &= \frac{9 \epsilon }{80 M^2}, &
+b_{5} &= -\frac{5 \epsilon }{16 M^2}, \\
+a_{6} &= \frac{\epsilon  \left(70 \Lambda  M^2+9\right)}{390 M^3}, &
+b_{6} &= \frac{\epsilon  \left(10 \Lambda  M^2-21\right)}{156 M^3}, \\
+&\vdots &
+&\vdots
+\end{aligned}
+\end{equation}
+which @@latex: \hl{it seems to converge, but I don't have Mathematica
+installed in the computer to check it}@@
+
+#+latex: \hl{Expeculation:}
+When \(a_3 \neq b_3\), it seems that we have an extra parameter
+playing (partially) the role of cosmological constant.
+
+** Cosmological metric solution
+:PROPERTIES:
+:CUSTOM_ID: sec.ht_metr_sol
+:END:
+
+The conditions of isotropy and homogeneity are very stringent, when
+imposed on a symmetric rank-two tensor, and the possible ansatz is
+just the Friedmann--Robertson--Walker metric,
+#+BEGIN_EXPORT latex
+\begin{equation}
+  \label{eq.ht_metr}
+  g = G_{00}\left(t\right) \mathrm{d} t\otimes \mathrm{d} t +
+  G_{11}\left(t\right) \left(
+  \frac{1}{1 - {\kappa} r^{2}}  \mathrm{d}
+  r\otimes \mathrm{d} r + r^{2} \mathrm{d}
+  {\theta}\otimes \mathrm{d} {\theta} + r^{2} 
+  \sin\left({\theta}\right)^{2} \mathrm{d} {\phi}\otimes \mathrm{d} {\phi} \right)
+\end{equation}
+#+END_EXPORT
+
+* Non-metric Solutions to the Field Equations
+:PROPERTIES:
+:CUSTOM_ID: sec.non_metr_sol
+:END:
+:LOGBOOK:
+CLOCK: [2017-05-04 jue 13:49]--[2017-05-04 jue 13:50] =>  0:01
+:END:
+
+** Isotropic affine connection
+:LOGBOOK:
+CLOCK: [2017-05-04 jue 13:50]--[2017-05-04 jue 14:24] =>  0:34
+:END:
+
+The strategy used in the previous section can be repeated for an
+affine connection, and we shall end up with the most general isotropic
+(affine) connection. For the sake of simplicity, we do not include the
+differential equations obtained from the calculation of the Lie
+derivative.[fn:4] 
+
+As before, the Lie derivative along the generators of the spherical
+symmetry fix the angular dependence of the connection's
+components. The nonvanishing components of an isotropic
+$\hat{\Gamma}^a{}_{bc}$, are
+#+BEGIN_EXPORT latex
+\begin{align*}
+\hat{\Gamma}_{ \phantom{\, t } \, t \, t }^{ \, t \phantom{\, t
+} \phantom{\, t } } & = F_{000}\left(t, r\right) 
+&
+ \hat{\Gamma}_{
+\phantom{\, t } \, t \, r }^{ \, t \phantom{\, t } \phantom{\, r } }
+& = F_{001}\left(t, r\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, t } \, r \, t
+}^{ \, t \phantom{\, r } \phantom{\, t } } & = F_{010}\left(t,
+r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, t } \, r \, r }^{ \, t \phantom{\, r }
+\phantom{\, r } } & = F_{011}\left(t, r\right) 
+\\
+ \hat{\Gamma}_{
+\phantom{\, t } \, {\theta} \, {\theta} }^{ \, t \phantom{\, {\theta} }
+\phantom{\, {\theta} } } & = F_{033}\left(t, r\right) 
+&
+ \hat{\Gamma}_{
+\phantom{\, t } \, {\theta} \, {\phi} }^{ \, t \phantom{\, {\theta} }
+\phantom{\, {\phi} } } & = F_{023}\left(t, r\right)
+\sin\left({\theta}\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, t } \, {\phi} \, {\theta}
+}^{ \, t \phantom{\, {\phi} } \phantom{\, {\theta} } } & =
+-F_{023}\left(t, r\right) \sin\left({\theta}\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, t
+} \, {\phi} \, {\phi} }^{ \, t \phantom{\, {\phi} } \phantom{\, {\phi} }
+} & = F_{033}\left(t, r\right) \sin^2\left({\theta}\right)
+\\
+ \hat{\Gamma}_{ \phantom{\, r } \, t \, t }^{ \, r \phantom{\, t } \phantom{\, t
+} } & = F_{100}\left(t, r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, r } \, t
+\, r }^{ \, r \phantom{\, t } \phantom{\, r } } & =
+F_{101}\left(t, r\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, r } \, r \, t }^{ \, r
+\phantom{\, r } \phantom{\, t } } & = F_{110}\left(t, r\right)
+&
+ \hat{\Gamma}_{ \phantom{\, r } \, r \, r }^{ \, r \phantom{\, r } \phantom{\, r
+} } & = F_{111}\left(t, r\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, r } \,
+{\theta} \, {\theta} }^{ \, r \phantom{\, {\theta} } \phantom{\,
+{\theta} } } & = F_{133}\left(t, r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, r
+} \, {\theta} \, {\phi} }^{ \, r \phantom{\, {\theta} } \phantom{\,
+{\phi} } } & = F_{123}\left(t, r\right)
+\sin\left({\theta}\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, r } \, {\phi} \, {\theta}
+}^{ \, r \phantom{\, {\phi} } \phantom{\, {\theta} } } & =
+-F_{123}\left(t, r\right) \sin\left({\theta}\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, r
+} \, {\phi} \, {\phi} }^{ \, r \phantom{\, {\phi} } \phantom{\, {\phi} }
+} & = F_{133}\left(t, r\right) \sin^2\left({\theta}\right)
+\\
+ \hat{\Gamma}_{ \phantom{\, {\theta} } \, t \, {\theta} }^{ \, {\theta}
+\phantom{\, t } \phantom{\, {\theta} } } & = F_{303}\left(t,
+r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, {\theta} } \, t \, {\phi} }^{ \, {\theta}
+\phantom{\, t } \phantom{\, {\phi} } } & = -F_{302}\left(t,
+r\right) \sin\left({\theta}\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\, {\theta} } \, r \,
+{\theta} }^{ \, {\theta} \phantom{\, r } \phantom{\, {\theta} } } & = F_{313}\left(t, r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, {\theta} } \, r \,
+{\phi} }^{ \, {\theta} \phantom{\, r } \phantom{\, {\phi} } } & = -F_{312}\left(t, r\right) \sin\left({\theta}\right) 
+\\
+ \hat{\Gamma}_{
+\phantom{\, {\theta} } \, {\theta} \, t }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, t } } & = F_{330}\left(t, r\right) 
+&
+\hat{\Gamma}_{ \phantom{\, {\theta} } \, {\theta} \, r }^{ \, {\theta} \phantom{\,
+{\theta} } \phantom{\, r } } & = F_{331}\left(t, r\right) 
+\\
+\hat{\Gamma}_{ \phantom{\, {\theta} } \, {\phi} \, t }^{ \, {\theta} \phantom{\,
+{\phi} } \phantom{\, t } } & = -F_{320}\left(t, r\right)
+\sin\left({\theta}\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, {\theta} } \, {\phi} \, r
+}^{ \, {\theta} \phantom{\, {\phi} } \phantom{\, r } } & =
+-F_{321}\left(t, r\right) \sin\left({\theta}\right) 
+\\
+ \hat{\Gamma}_{ \phantom{\,
+{\theta} } \, {\phi} \, {\phi} }^{ \, {\theta} \phantom{\, {\phi} }
+\phantom{\, {\phi} } } & = -\cos\left({\theta}\right)
+\sin\left({\theta}\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, {\phi} } \, t \, {\theta}
+}^{ \, {\phi} \phantom{\, t } \phantom{\, {\theta} } } & =
+\frac{F_{302}\left(t, r\right)}{\sin\left({\theta}\right)} 
+\\
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, t \, {\phi} }^{ \, {\phi} \phantom{\, t }
+\phantom{\, {\phi} } } & = F_{303}\left(t, r\right) 
+&
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, r \, {\theta} }^{ \, {\phi} \phantom{\, r }
+\phantom{\, {\theta} } } & = \frac{F_{312}\left(t,
+r\right)}{\sin\left({\theta}\right)} 
+\\
+ \hat{\Gamma}_{ \phantom{\, {\phi} } \, r \,
+{\phi} }^{ \, {\phi} \phantom{\, r } \phantom{\, {\phi} } } & = F_{313}\left(t, r\right) 
+&
+ \hat{\Gamma}_{ \phantom{\, {\phi} } \, {\theta}
+\, t }^{ \, {\phi} \phantom{\, {\theta} } \phantom{\, t } } & = \frac{F_{320}\left(t, r\right)}{\sin\left({\theta}\right)} 
+\\
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, {\theta} \, r }^{ \, {\phi} \phantom{\, {\theta}
+} \phantom{\, r } } & = \frac{F_{321}\left(t,
+r\right)}{\sin\left({\theta}\right)} 
+&
+ \hat{\Gamma}_{ \phantom{\, {\phi} } \,
+{\theta} \, {\phi} }^{ \, {\phi} \phantom{\, {\theta} } \phantom{\,
+{\phi} } } & =
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)} 
+\\
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, {\phi} \, t }^{ \, {\phi} \phantom{\, {\phi} }
+\phantom{\, t } } & = F_{330}\left(t, r\right) 
+&
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, {\phi} \, r }^{ \, {\phi} \phantom{\, {\phi} }
+\phantom{\, r } } & = F_{331}\left(t, r\right) 
+\\
+ \hat{\Gamma}_{
+\phantom{\, {\phi} } \, {\phi} \, {\theta} }^{ \, {\phi} \phantom{\,
+{\phi} } \phantom{\, {\theta} } } & =
+\frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}.
+\end{align*}
+#+END_EXPORT
+This general isotropic connection, depends on twenty functions of the
+coordinates $t$ and $r$, and has nonvanishing torsion and
+non-metricity. Therefore, for our purposes within this paper, we can
+restrict even further to a torsion-free connection, whose components
+are
+#+BEGIN_EXPORT latex
+\begin{equation}
+  \begin{aligned}
+    \Gamma_{ \phantom{\, t } \, t \, t }^{ \, t
+      \phantom{\, t } \phantom{\, t } } & = F_{000}\left(t, r\right)
+    &  \Gamma_{ \phantom{\, t } \, t \, r }^{ \, t \phantom{\, t }
+      \phantom{\, r } } & = F_{001}\left(t, r\right)\\
+    \Gamma_{
+      \phantom{\, t } \, r \, t }^{ \, t \phantom{\, r } \phantom{\, t } }
+    & = F_{001}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, t } \, r
+      \, r }^{ \, t \phantom{\, r } \phantom{\, r } } & =
+    F_{011}\left(t, r\right)\\
+    \Gamma_{ \phantom{\, t } \, {\theta} \,
+      {\theta} }^{ \, t \phantom{\, {\theta} } \phantom{\, {\theta} } } & = F_{033}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, t } \, {\phi}
+      \, {\phi} }^{ \, t \phantom{\, {\phi} } \phantom{\, {\phi} } } & = F_{033}\left(t, r\right) \sin^2\left({\theta}\right)\\
+    \Gamma_{
+      \phantom{\, r } \, t \, t }^{ \, r \phantom{\, t } \phantom{\, t } }
+    & = F_{100}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, r } \, t
+      \, r }^{ \, r \phantom{\, t } \phantom{\, r } } & =
+    F_{101}\left(t, r\right)\\
+    \Gamma_{ \phantom{\, r } \, r \, t }^{ \, r
+      \phantom{\, r } \phantom{\, t } } & = F_{101}\left(t, r\right)
+    &  \Gamma_{ \phantom{\, r } \, r \, r }^{ \, r \phantom{\, r }
+      \phantom{\, r } } & = F_{111}\left(t, r\right)\\
+    \Gamma_{
+      \phantom{\, r } \, {\theta} \, {\theta} }^{ \, r \phantom{\, {\theta} }
+      \phantom{\, {\theta} } } & = F_{133}\left(t, r\right)  & 
+    \Gamma_{ \phantom{\, r } \, {\phi} \, {\phi} }^{ \, r \phantom{\, {\phi}
+      } \phantom{\, {\phi} } } & = F_{133}\left(t, r\right)
+    \sin^2\left({\theta}\right)\\
+    \Gamma_{ \phantom{\, {\theta} } \, t \,
+      {\theta} }^{ \, {\theta} \phantom{\, t } \phantom{\, {\theta} } } & = F_{303}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, {\theta} } \, t
+      \, {\phi} }^{ \, {\theta} \phantom{\, t } \phantom{\, {\phi} } } & = -F_{302}\left(t, r\right) \sin\left({\theta}\right)\\
+    \Gamma_{
+      \phantom{\, {\theta} } \, r \, {\theta} }^{ \, {\theta} \phantom{\, r }
+      \phantom{\, {\theta} } } & = F_{313}\left(t, r\right)  & 
+    \Gamma_{ \phantom{\, {\theta} } \, r \, {\phi} }^{ \, {\theta}
+      \phantom{\, r } \phantom{\, {\phi} } } & = -F_{312}\left(t,
+    r\right) \sin\left({\theta}\right)\\
+    \Gamma_{ \phantom{\, {\theta} } \,
+      {\theta} \, t }^{ \, {\theta} \phantom{\, {\theta} } \phantom{\, t } }
+    & = F_{303}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, {\theta}
+      } \, {\theta} \, r }^{ \, {\theta} \phantom{\, {\theta} } \phantom{\, r
+    } } & = F_{313}\left(t, r\right)\\
+    \Gamma_{ \phantom{\,
+        {\theta} } \, {\phi} \, t }^{ \, {\theta} \phantom{\, {\phi} }
+      \phantom{\, t } } & = -F_{302}\left(t, r\right)
+    \sin\left({\theta}\right) & 
+    \Gamma_{ \phantom{\, {\theta} } \, {\phi}
+      \, r }^{ \, {\theta} \phantom{\, {\phi} } \phantom{\, r } } & = -F_{312}\left(t, r\right) \sin\left({\theta}\right)\\
+    \Gamma_{
+      \phantom{\, {\theta} } \, {\phi} \, {\phi} }^{ \, {\theta} \phantom{\,
+        {\phi} } \phantom{\, {\phi} } } & = -\cos\left({\theta}\right)
+    \sin\left({\theta}\right) & 
+    \Gamma_{ \phantom{\, {\phi} } \, t \,
+      {\theta} }^{ \, {\phi} \phantom{\, t } \phantom{\, {\theta} } } & = \frac{F_{302}\left(t, r\right)}{\sin\left({\theta}\right)} \\
+    \Gamma_{ \phantom{\, {\phi} } \, t \, {\phi} }^{ \, {\phi} \phantom{\, t
+      } \phantom{\, {\phi} } } & = F_{303}\left(t, r\right)  & 
+    \Gamma_{ \phantom{\, {\phi} } \, r \, {\theta} }^{ \, {\phi} \phantom{\,
+        r } \phantom{\, {\theta} } } & = \frac{F_{312}\left(t,
+      r\right)}{\sin\left({\theta}\right)}\\
+    \Gamma_{ \phantom{\, {\phi} } \,
+      r \, {\phi} }^{ \, {\phi} \phantom{\, r } \phantom{\, {\phi} } } & = F_{313}\left(t, r\right) & 
+    \Gamma_{ \phantom{\, {\phi} } \,
+      {\theta} \, t }^{ \, {\phi} \phantom{\, {\theta} } \phantom{\, t } }
+    & = \frac{F_{302}\left(t, r\right)}{\sin\left({\theta}\right)}
+    \\ \Gamma_{ \phantom{\, {\phi} } \, {\theta} \, r }^{ \, {\phi}
+      \phantom{\, {\theta} } \phantom{\, r } } & =
+    \frac{F_{312}\left(t, r\right)}{\sin\left({\theta}\right)} & 
+    \Gamma_{
+      \phantom{\, {\phi} } \, {\theta} \, {\phi} }^{ \, {\phi} \phantom{\,
+        {\theta} } \phantom{\, {\phi} } } & =
+    \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}\\
+    \Gamma_{
+      \phantom{\, {\phi} } \, {\phi} \, t }^{ \, {\phi} \phantom{\, {\phi} }
+      \phantom{\, t } } & = F_{303}\left(t, r\right) & 
+    \Gamma_{
+      \phantom{\, {\phi} } \, {\phi} \, r }^{ \, {\phi} \phantom{\, {\phi} }
+      \phantom{\, r } } & = F_{313}\left(t, r\right)\\
+    \Gamma_{
+      \phantom{\, {\phi} } \, {\phi} \, {\theta} }^{ \, {\phi} \phantom{\,
+        {\phi} } \phantom{\, {\theta} } } & =
+    \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}.
+  \end{aligned}
+  \label{eq.isot_conn_torsion_free}
+\end{equation}
+#+END_EXPORT
+The last connection depends on twelve functions of $t$ and $r$, and
+these are the functions to be fixed by solving the field equations
+eqref:eq.SimpleEOM.
+
+Using the Eq. eqref:eq.isot_conn_torsion_free, we calculated the Ricci
+tensor and noticed that it is not symmetric, because the connection is
+not equi-affine. In order for the Ricci to be symmetric, the following
+conditions must hold,
+#+BEGIN_EXPORT latex
+\begin{equation}
+\label{eq.cond1_equiaffine}
+\frac{ \partial F_{000} }{ \partial r} - \frac{ \partial F_{001} }{ \partial t} + 2 \frac{ \partial F_{303} }{ \partial r} = 0,
+\end{equation}
+#+END_EXPORT
+and
+#+BEGIN_EXPORT latex
+\begin{equation}
+\label{eq.cond2_equiaffine}
+\frac{ \partial F_{101} }{ \partial r} - \frac{ \partial F_{101} }{ \partial t} + 2 \frac{ \partial F_{313} }{ \partial r} = 0.
+\end{equation}
+#+END_EXPORT
+There are several solutions to these conditions, and each of them
+could (in principle) provides a solution to the field equations
+eqref:eq.SimpleEOM. It is worth mentioning that if we do not demand the
+connection to be equi-affine, the field equations to solve would be
+Eq. eqref:eq.almostSimpleEOM, which have and extra term which cannot be
+obtained from the Yang--Mills-like effective action eqref:eq.gr_YM.
+
+** Homogeneous and isotropic affine connection
+:LOGBOOK:
+CLOCK: [2017-05-04 jue 14:24]--[2017-05-04 jue 14:47] =>  0:23
+:END:
+
+Using the Lie derivative, we have found that the general connection
+compatible with the symmetries is,
+#+BEGIN_EXPORT latex
+\begin{align*}
+\hat{\Gamma}_{ \phantom{  t }   t   t }^{   t \phantom{  t } \phantom{  t } } & = G_{000}\left(t\right) &   \hat{\Gamma}_{ \phantom{  t }   r   r }^{   t \phantom{  r } \phantom{  r } } & = \frac{G_{011}\left(t\right)}{ 1 - {\kappa} r^{2} }
+\\
+ \hat{\Gamma}_{ \phantom{  t }   {\theta}   {\theta} }^{   t \phantom{  {\theta} } \phantom{  {\theta} } } & = r^{2} G_{011}\left(t\right) &  \hat{\Gamma}_{ \phantom{  t }   {\phi}   {\phi} }^{   t \phantom{  {\phi} } \phantom{  {\phi} } } & = r^{2} G_{011}\left(t\right) \sin^2\left({\theta}\right)
+\\
+ \hat{\Gamma}_{ \phantom{  r }   t   r }^{   r \phantom{  t } \phantom{  r } } & = G_{101}\left(t\right) &  \hat{\Gamma}_{ \phantom{  r }   r   t }^{   r \phantom{  r } \phantom{  t } } & = G_{110}\left(t\right)
+\\
+ \hat{\Gamma}_{ \phantom{  r }   r   r }^{   r \phantom{  r } \phantom{  r } } & = \frac{{\kappa} r}{ 1 - {\kappa} r^{2} } &   \hat{\Gamma}_{ \phantom{  r }   {\theta}   {\theta} }^{   r \phantom{  {\theta} } \phantom{  {\theta} } } & = {\kappa} r^{3} - r
+\\
+ \hat{\Gamma}_{ \phantom{  r }   {\theta}   {\phi} }^{   r \phantom{  {\theta} } \phantom{  {\phi} } } & = \sqrt{1-{\kappa} r^{2}} r^{2} G_{123}\left(t\right) \sin\left({\theta}\right) &   \hat{\Gamma}_{ \phantom{  r }   {\phi}   {\theta} }^{   r \phantom{  {\phi} } \phantom{  {\theta} } } & = -\sqrt{1-{\kappa} r^{2}} r^{2} G_{123}\left(t\right) \sin\left({\theta}\right)
+\\
+ \hat{\Gamma}_{ \phantom{  r }   {\phi}   {\phi} }^{   r \phantom{  {\phi} } \phantom{  {\phi} } } & = {\left({\kappa} r^{3} - r\right)} \sin^2\left({\theta}\right) &   \hat{\Gamma}_{ \phantom{  {\theta} }   t   {\theta} }^{   {\theta} \phantom{  t } \phantom{  {\theta} } } & = G_{101}\left(t\right)
+\\
+ \hat{\Gamma}_{ \phantom{  {\theta} }   r   {\theta} }^{   {\theta} \phantom{  r } \phantom{  {\theta} } } & = \frac{1}{r} &   \hat{\Gamma}_{ \phantom{  {\theta} }   r   {\phi} }^{   {\theta} \phantom{  r } \phantom{  {\phi} } } & = -\frac{G_{123}\left(t\right) \sin\left({\theta}\right)}{\sqrt{1-{\kappa} r^{2}}}
+\\
+ \hat{\Gamma}_{ \phantom{  {\theta} }   {\theta}   t }^{   {\theta} \phantom{  {\theta} } \phantom{  t } } & = G_{110}\left(t\right) &   \hat{\Gamma}_{ \phantom{  {\theta} }   {\theta}   r }^{   {\theta} \phantom{  {\theta} } \phantom{  r } } & = \frac{1}{r}
+\\
+ \hat{\Gamma}_{ \phantom{  {\theta} }   {\phi}   r }^{   {\theta} \phantom{  {\phi} } \phantom{  r } } & = \frac{G_{123}\left(t\right) \sin\left({\theta}\right)}{\sqrt{1-{\kappa} r^{2}}} &   \hat{\Gamma}_{ \phantom{  {\theta} }   {\phi}   {\phi} }^{   {\theta} \phantom{  {\phi} } \phantom{  {\phi} } } & = -\cos\left({\theta}\right) \sin\left({\theta}\right)
+\\
+ \hat{\Gamma}_{ \phantom{  {\phi} }   t   {\phi} }^{   {\phi} \phantom{  t } \phantom{  {\phi} } } & = G_{101}\left(t\right) &   \hat{\Gamma}_{ \phantom{  {\phi} }   r   {\theta} }^{   {\phi} \phantom{  r } \phantom{  {\theta} } } & = \frac{G_{123}\left(t\right)}{\sqrt{1-{\kappa} r^{2}} \sin\left({\theta}\right)}
+\\
+ \hat{\Gamma}_{ \phantom{  {\phi} }   r   {\phi} }^{   {\phi} \phantom{  r } \phantom{  {\phi} } } & = \frac{1}{r} &   \hat{\Gamma}_{ \phantom{  {\phi} }   {\theta}   r }^{   {\phi} \phantom{  {\theta} } \phantom{  r } } & = -\frac{G_{123}\left(t\right)}{\sqrt{1-{\kappa} r^{2}} \sin\left({\theta}\right)}
+\\
+ \hat{\Gamma}_{ \phantom{  {\phi} }   {\theta}   {\phi} }^{   {\phi} \phantom{  {\theta} } \phantom{  {\phi} } } & =  \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)} &  \hat{\Gamma}_{ \phantom{  {\phi} }   {\phi}   t }^{   {\phi} \phantom{  {\phi} } \phantom{  t } } & = G_{110}\left(t\right)
+\\
+ \hat{\Gamma}_{ \phantom{  {\phi} }   {\phi}   r }^{   {\phi} \phantom{  {\phi} } \phantom{  r } } & = \frac{1}{r} &   \hat{\Gamma}_{ \phantom{  {\phi} }   {\phi}   {\theta} }^{   {\phi} \phantom{  {\phi} } \phantom{  {\theta} } } & = \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)},
+\end{align*}
+#+END_EXPORT
+which is determined by five independent functions, but this affine
+connection still possess torsion.
+
+The imposition of vanishing torsion kills two of the above functions,
+and the remaining components of the connection are
+#+BEGIN_EXPORT latex
+\begin{equation}
+  \begin{aligned}
+    \Gamma_{ \phantom{  t }   t   t }^{   t \phantom{  t } \phantom{  t } } & = G_{000}\left(t\right) & \Gamma_{ \phantom{  t }   r   r }^{   t \phantom{  r } \phantom{  r } } & = \frac{G_{011}\left(t\right)}{ 1 - {\kappa} r^{2} } 
+    \\
+    \Gamma_{ \phantom{  t }   {\theta}   {\theta} }^{   t \phantom{  {\theta} } \phantom{  {\theta} } } & = r^{2} G_{011}\left(t\right) &  \Gamma_{ \phantom{  t }   {\phi}   {\phi} }^{   t \phantom{  {\phi} } \phantom{  {\phi} } } & = r^{2} G_{011}\left(t\right) \sin^2\left({\theta}\right) 
+    \\
+    \Gamma_{ \phantom{  r }   t   r }^{   r \phantom{  t } \phantom{  r } } & = G_{101}\left(t\right) &  \Gamma_{ \phantom{  r }   r   t }^{   r \phantom{  r } \phantom{  t } } & = G_{101}\left(t\right) 
+    \\
+    \Gamma_{ \phantom{  r }   r   r }^{   r \phantom{  r } \phantom{  r } } & = \frac{{\kappa} r}{ 1 - {\kappa} r^{2} } &  \Gamma_{ \phantom{  r }   {\theta}   {\theta} }^{   r \phantom{  {\theta} } \phantom{  {\theta} } } & = {\kappa} r^{3} - r 
+    \\
+    \Gamma_{ \phantom{  r }   {\phi}   {\phi} }^{   r \phantom{  {\phi} } \phantom{  {\phi} } } & = {\left({\kappa} r^{3} - r\right)} \sin^2\left({\theta}\right) & \Gamma_{ \phantom{  {\theta} }   t   {\theta} }^{   {\theta} \phantom{  t } \phantom{  {\theta} } } & = G_{101}\left(t\right) 
+    \\
+    \Gamma_{ \phantom{  {\theta} }   r   {\theta} }^{   {\theta} \phantom{  r } \phantom{  {\theta} } } & = \frac{1}{r} &  \Gamma_{ \phantom{  {\theta} }   {\theta}   t }^{   {\theta} \phantom{  {\theta} } \phantom{  t } } & = G_{101}\left(t\right) 
+    \\
+    \Gamma_{ \phantom{  {\theta} }   {\theta}   r }^{   {\theta} \phantom{  {\theta} } \phantom{  r } } & = \frac{1}{r} &  \Gamma_{ \phantom{  {\theta} }   {\phi}   {\phi} }^{   {\theta} \phantom{  {\phi} } \phantom{  {\phi} } } & = -\cos\left({\theta}\right) \sin\left({\theta}\right) 
+    \\
+    \Gamma_{ \phantom{  {\phi} }   t   {\phi} }^{   {\phi} \phantom{  t } \phantom{  {\phi} } } & = G_{101}\left(t\right) &  \Gamma_{ \phantom{  {\phi} }   r   {\phi} }^{   {\phi} \phantom{  r } \phantom{  {\phi} } } & = \frac{1}{r} 
+    \\
+    \Gamma_{ \phantom{  {\phi} }   {\theta}   {\phi} }^{   {\phi} \phantom{  {\theta} } \phantom{  {\phi} } } & = \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)} &  \Gamma_{ \phantom{  {\phi} }   {\phi}   t }^{   {\phi} \phantom{  {\phi} } \phantom{  t } } & = G_{101}\left(t\right) 
+    \\
+    \Gamma_{ \phantom{  {\phi} }   {\phi}   r }^{   {\phi} \phantom{  {\phi} } \phantom{  r } } & = \frac{1}{r} &  \Gamma_{ \phantom{  {\phi} }   {\phi}   {\theta} }^{   {\phi} \phantom{  {\phi} } \phantom{  {\theta} } } & = \frac{\cos\left({\theta}\right)}{\sin\left({\theta}\right)}
+  \end{aligned}
+  \label{eq.ht_conn_torsion_free}
+\end{equation}
+#+END_EXPORT
+
+Ricci components are
+#+BEGIN_EXPORT latex
+\begin{align}
+R_{  t  t }^{ \phantom{ t } \phantom{ t } }
+& =  3  G_{000}\left(t\right) G_{101}\left(t\right) - 3 
+G_{101}\left(t\right)^{2} - 3  \frac{\partial G_{101}}{\partial t} 
+\\
+R_{  r  r }^{ \phantom{ r } \phantom{ r } } & = 
+\frac{G_{000}\left(t\right) G_{011}\left(t\right) +
+G_{011}\left(t\right) G_{101}\left(t\right) + 2  {\kappa} +
+\frac{\partial G_{011}}{\partial t}}{1 - {\kappa} r^{2} } 
+\\
+ R_{ 
+{\theta}  {\theta} }^{ \phantom{ {\theta} } \phantom{ {\theta} } }
+& =  \left( G_{000}\left(t\right) G_{011}\left(t\right) + 
+G_{011}\left(t\right) G_{101}\left(t\right) + 2  {\kappa}  +
+ \frac{\partial G_{011}}{\partial t} \right) r^{2} 
+\\
+ R_{  {\phi}  {\phi}
+}^{ \phantom{ {\phi} } \phantom{ {\phi} } } & = 
+{\left( G_{000}\left(t\right) G_{011}\left(t\right) + 
+G_{011}\left(t\right) G_{101}\left(t\right) + 2  {\kappa}  +
+ \frac{\partial G_{011}}{\partial t}\right)} r^{2} 
+\sin^2\left({\theta}\right).
+\end{align}
+#+END_EXPORT
+Notice that the Ricci tensor is symmetric, determined by only three
+independent functions and, as expected by the symmetry, just two of
+their components behave differently in time.
+
+* Auto-parallel Analysis
+
+* Concluding Remarks
+
+
+#+BEGIN_EXPORT latex
+\appendix
+#+END_EXPORT
+* Lie derivative and Killing vectors
+:PROPERTIES:
+:CUSTOM_ID: sec.Lie_der
+:END:
+
+The usual procedure for solving the Einstein's equation is to propose
+an ansatz for the metric. That ansatz must be compatible with the
+symmetries we would like to respect in the problem. A first
+application is seen in the Schwarzschild's metric, which is the /most
+general/ symmetric rank-two tensor compatible with the rotation group
+in three dimensions, an thus is /spherically symmetric/.
+
+The formal study of the symmetries of the fields is accomplish via the
+Lie derivative (for reviews, see
+Refs. cite:yano1957theory,Choquet:1989book,Nakahara,McInerney2013). Below,
+we briefly explain the use of the Lie derivative for obtaining
+ansatzes for either the metric or the connection.
+
+The Lie derivative of a connection possesses an inhomogeneous part, in
+comparison with the one of a rank three tensor. This can be written
+schematically as
+\begin{equation}
+\label{eq.Lie_Gamma}
+\mathcal{L}_{\xi} \Gamma^{a}{}_{bc} = \mathcal{L}_{\xi} T^{a}{}_{bc} + \frac{\partial^2 \xi^{a}}{\partial x^{b} \partial x^c },
+\end{equation}
+where $\xi$ is the vector defining the symmetry flow.
+
+* Bibliography
+
+bibliographystyle:unsrt
+bibliography:/home/oscar/Documents/LatexFiles/References.bib
+
+* Footnotes
+
+[fn:4] Notice that in four dimensions and affine connection has
+sixty-four components. Therefore, there are one hundred and ninety two
+differential equations to solve for the three generators of spherical
+symmetry.
+
+[fn:3] The field equations can be consistently truncated under the
+requirement of vanishing torsion. It is worth noticing that this
+condition does not yield the Riemannian theory, since we are not yet
+asking for a metricity condition.
+
+[fn:2] power-counting renormalizability does not guarantee
+renormalizability.
+
+[fn:1] An example of four-dimensional topological term is the Euler density.

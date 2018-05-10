@@ -1,0 +1,6 @@
+\titledquestion{Charge density of a point dipole}
+
+A point dipole with dipole moment p is located at the point x0. From the properties
+of the derivative of a Dirac delta function, show that for calculation of the potential
+Ф or the energy of a dipole in an external field, the dipole can be described by an
+effective charge density

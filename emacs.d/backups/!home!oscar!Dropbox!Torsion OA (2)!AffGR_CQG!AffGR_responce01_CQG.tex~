@@ -1,0 +1,306 @@
+% Created 2017-09-20 Wed 10:43
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{minted}
+\usepackage[cm]{fullpage}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.1 (Org mode 9.1.1)}, 
+ pdflang={English}}
+\begin{document}
+
+
+\section{Editor}
+\label{sec:orgeb7f590}
+
+Dear Editor,
+
+we have received the comments from the referees, and encounter them
+very useful to improve the understanding of the paper. Please find
+next the list of changes encouraged by their suggestions and
+questions (Notice that we include in addition individual responses for
+the referees).
+
+\begin{itemize}
+\item We have corrected several grammar mistakes, and improved some
+explanations.
+\end{itemize}
+
+\section{Referee 1}
+\label{sec:orga194cec}
+
+\begin{enumerate}
+\item \uline{Minor points}: We have corrected the paper according with your
+suggestions regarding the grammar. Concerning the addition of the
+Gibbons--Hawking term, we have added the respective comment and
+references. In addition, we have clarified the meaning of the
+zeroth index in (former) Eq. 3.
+
+\item \uline{what is meant by trace of torsion}: The trace is the contraction
+of a lower and an upper indices, in the case of the torsion,
+\(\mathcal{T}^\mu{}_{\rho\sigma}\), its trace would be either
+\(\mathcal{T}^\mu{}_{\rho\mu}\) or
+\(\mathcal{T}^\mu{}_{\mu\rho}\), which differ in a sign.
+
+\uline{A definition of \(A\) in terms of \(T\) should be useful}: Such
+definition is not possible because \(A\) and \(T\) are different
+irreducible representations of the connection (specifically of the
+torsion). If one imagine the torsion as a set of matrices, \((\mathcal{T}_\rho)^\mu{}_\sigma\), then \(A_\rho\) would be
+proporcional to the trace of \((\mathcal{T}_\rho)\), while
+\(\epsilon T\) would be the traceless part, i.e.,
+\(\epsilon_{\rho\sigma\alpha\beta} T^{\mu,\alpha\beta} =
+   \mathcal{T}^\mu{}_{\rho\sigma} - A_{[\rho} \delta^\mu_{\sigma]}\). Please notice that in this response we are not keeping a
+careful normalisation of the trace nor symmetry of the indices,
+however we have added correct definition in the manuscript.
+
+\uline{does the condition \(\epsilon_{\lambda\kappa\mu\nu} T^{\kappa, \mu\nu} = 0\), imply that the Curtright field's cyclic permutation of the indices vanish?}:
+Yes, indeed. We had mentioned that property explicitly in our previous
+paper, and it could be mention explicitly.
+
+\item \uline{Action presented in Eq.(2) needs more refine discussion}: It is
+now explained that the curvature in the action is only of the
+irreducible component of the connection which is symmetric in the
+lower indices. As so, there is no relation between the curvature
+and the Curtright, since the Curtright represent a different
+irreducible component of the connection. 
+
+As a clarification, \emph{second order} terms in the curvature will
+appear, but we did not consider it because does not contribute to
+the field equations (this issue has been stated in the body of the
+paper). Nonetheless, no other higher order term of the curvature is
+allowed, due to the lack of a metric to lower, raise and contract
+indices.
+
+Regarding the single derivative terms, they are similar to
+three point interaction of non-Abelian gauge fields, appearing in
+the electroweak sector of the standard model of particle physics.
+
+\uline{Is it guaranteed that the field equations will be of second
+order?}: The field equations for the connection will indeed be of
+second order. It can be seen with ease form the Table 2. The value
+of the \(c\) column represents the number of derivative in a
+given term in the action. Notice that in principle we will have up
+to four derivatives. However, the diffeomorphism invariance
+requires that higher order derivatives enter antisymmetrized, which
+leads to curvature terms. For example, for \(c=4\), we get the
+Pointryagin-like densities\footnote{In general, unlike in the Riemannian case, we could have a
+two-dimensional Pointryagin density \(R_{\mu\nu}{}^\lambda{}_\lambda\,
+dx^\mu \wedge dx^\nu\), in addition to the four-dimensional one.} or their products, i.e., 
+\(R_{\mu\nu}{}^\lambda{}_\lambda
+   R_{\rho\sigma}{}^\zeta{}_\zeta\,dx^\mu \wedge dx^\nu \wedge
+   dx^\rho \wedge dx^\sigma\) or \(R_{\mu\nu}{}^\lambda{}_\zeta
+   R_{\rho\sigma}{}^\zeta{}_\lambda\,dx^\mu \wedge dx^\nu \wedge
+   dx^\rho \wedge dx^\sigma\), which at most lead to second order
+equations. On the other hand, for \(c=3\) the diffeomorphism
+invariance will lead to product of the curvature and the derivative
+of the other fields. Such terms yield to second order differential
+equations.
+
+\uline{Interestingly it seems that by equivalence principle the action should vanish in local inertial frame and then by diffeomorphism invariance it should vanish in all frames}:
+Perhaps we are misunderstanding the question but, to our knowledge
+the equivalence principle (in mathematical terms) makes the
+connection to vanish---in the \emph{free falling} frame---, however the
+derivative of the connection should be kept (so not all of the
+curvature effects can be watch out). Using  that definition of
+equivalence principle the nonvanishing terms in the action are
+those with coefficients \(C_1\), \(C_2\), \(E_1\) and \(E_2\).
+
+Interestingly, your comment highlights the \emph{importance} of this
+terms, which are precisely those entering in the perturbation of
+the action, (former) Eq. (23).
+
+The same will happen with your comment 8 (see below).
+
+\item \uline{The definition of the (2,0) tensor in Eq. 7 is absolutely not
+satisfactory}: We agree with your point, the introduction of the
+Eddington inverse metric density relies solely in the fact that for
+the action of Einstein--Hilbert, it really is the inverse metric
+density. Although we used the same concept in our previous
+paper---that's why it is in Section 2---, the point is that the
+dimensional analysis in Appendix A shows that in our model the most
+general symmetric, (2,0) tensor density built up from a general
+connection, possesses the same components as the one derived from
+Eddington's recipe. Please notice that in Sec. 4, when we couple
+scalar matter, we use (former) Eq. (16) without mentioning the
+variation used by Eddington.
+
+\item \uline{In Newtonian limit, \(\Gamma^i_{tt} \propto \nabla_i \phi\),
+having no connection to the matter Lagrangian}: We do not agree
+completely with your view point regarding this statement. In GR the
+importance of the geodesic equation is that it is the \emph{field
+equation} for the point particle, and therefore related with the
+matter Lagrangian. On the other hand, and the fact that
+\(\Gamma^i_{tt} \propto \nabla_i \phi\) is due to the choice of the
+metric ansatz to match the gravitational potential. Here, the
+gravitational potential comes from the decomposition of the
+connection.
+
+\item \uline{Approach presented in the manuscript}: The field equations
+obtained in the manuscript are restricted to the sector of
+vanishing torsion. We argue that the sole nontrivial contribution
+to those equations, come from the terms in the action which are
+linear in the torsion. However, the field equations were studied
+fully and we achieved the same result. We don't present the formal
+derivation because it adds no meaning nor clarity to the
+manuscript. Nonetheless, in future manuscripts we will use those
+results to analyse different sectors of the model.
+
+\uline{It is certainly not true that Einstein’s equations are about
+vacuum solutions}: Right, Einstein's equations are not about vacuum
+solution. However, we present firstly \emph{only} vacuum solutions
+because as you have mentioned, it is difficult to couple matter to
+affine models of gravity. That is the reason we believe Sec. 4
+(Polynomial affine gravity couple with a scalar field) is
+important, although it does not target setups like
+Reissner--Nordström nor FRW, as you have pointed out.
+
+We would like to highlight two points: (i) the difficulty of
+inclusion of matter is due to the fact that the model does not rely
+on the Lorentz symmetry, and thus the \emph{particles} should be
+irreducible representations of the diffeomorphism group; (ii) our
+model possesses solutions which do not exist in GR, it was briefly
+mentioned at the end of Appendix C, that at the moment of
+submitting this manuscript to the journal, we were analysing
+\emph{exotic} Schwarzschild-like solutions. Moreover, the equivalent
+\emph{exotic} FRW-like solutions might posses extra parameters, which
+could be interpreted as contributing to the dark energy density of
+the Universe. We are preparing a manuscript with these considerations.
+
+\item \uline{how one interprets Eq. 15 in the affine formulation?}: Eq. (15)
+cannot be written without using a metric field, due to the presence
+of the Hodge dual. Nevertheless, the field equations for the
+connection are Eq. (12) or equivalently Eq. (11). The critical
+point is that as a metric exists in the theory, the action in
+Eq. (15) yields to field equations for the metric. Those equations
+spoil the niceties of the SKY model.
+
+\item \uline{In local inertial frame the metric defined by the author vanishes,
+so there is no matter in local inertial frame}: As argued in the
+third item, in the local inertial frame the connection vanishes but
+not its derivative. Therefore, the term coupled through the
+\(\alpha\) constant is the relevant one in the local inertial
+frame. In addition, at the level of field equation, that is the
+only term which contribute in the sector of vanishing torsion.
+
+\item \uline{Why \(\beta\) and \(\gamma\) are not appearing in Eq. 8?}: Answered
+in the previous point.
+
+\uline{What are their physical significance?}: As you mention, the
+significance of the parameter \(\alpha\) is clear in this context,
+because it plays the role of the Newton's gravitational
+constant. However, in the analysed sector the parameters \(\beta\)
+and \(\gamma\) are innocuous and their meaning cannot be
+extrapolated. We think that these parameter could be relevant for
+the physical interpretation of (for example) the dark sector of the
+Universe, once the model is analysed in a different sector,
+i.e. with torsion.
+
+\uline{Derivation of Eq. 20 is unclear}: First, notice that In Eq. (19)
+there is a ``Ricci scalar'', defined as \(R_{\mu\nu}
+   g^{\mu\nu}\). Moreover, all indices gymnastic is made with the aid
+of \(g\) and its inverse. Using the Bianchi identity
+\begin{equation*}
+  \nabla_\alpha R_{\beta\gamma}{}^\lambda{}_\rho + \nabla_\beta R_{\gamma\alpha}{}^\lambda{}_\rho + \nabla_\gamma R_{\alpha\beta}{}^\lambda{}_\rho = 0,
+\end{equation*}
+and the the constancy of the tensor \(g\), it can be shown that the
+(covariant) divergence of left-hand-side of Eq. (19) vanishes, and
+thus consistency of the equation imposes Eq. (20).
+
+\item 
+
+
+\item 
+\end{enumerate}
+
+
+
+
+\section{Referee 2}
+\label{sec:org4ae6a08}
+
+\begin{enumerate}
+\item \uline{For the sake of clarity}: We have specified in the manuscript that
+the covariant derivative in the action (2) is w.r.t. the symmetric
+connection, i.e. \(\nabla = \nabla^{\Gamma}\), as well as the
+curvature tensor, i.e. \(R_{ab}{}^c{}_d = R_{ab}{}^c{}_d(\Gamma)\).
+
+\uline{Is the action (2), at least for a specific choice of the parameters, writable directly in terms of the curvatures for the full connection in (1)?}:
+Although it would be desirable, under our assumptions all the terms
+writable in terms of the full connection turn out to be topological
+invariant.
+
+\item \uline{What does `graviton' means here before introducing further
+restrictions?}: Excellent question. Yes, you are right that there
+is no clear equivalent to the graviton in an affine
+theory. However, we are calling graviton to the spin two field
+coming from the symmetric part of the connection, and not from the
+torsion. Of course, that \emph{definition} is inherited from the
+intuition gained in General Relativity.
+
+\uline{why are such (three graviton) vertices not allowed?}: Sticking to
+our definition, the tree level three-graviton vertices need terms
+in the action which are quadratic in the curvature. As mentioned,
+these terms are topological invariant, and do not contribute to the
+equation of motion. However, they could play a role in the
+definition of the real vacuum of the theory, in analogy with the
+\(\theta\)-vacuum in QCD.
+
+\item 
+
+
+\item \uline{Why cannot one use the inverse of the Ricci tensor in its
+construction?}: It cannot be used because it is not a tensor
+density. 
+
+\uline{Is there any restriction on the signature of the metric density?}:
+No, in principle there is no restriction. However, one could
+restrict the \emph{physical} parameter space by asking the ``metric'' to
+preserve a signature. We have not thought about that yet.
+
+\item \uline{About the solution of (former) Eq. (19)}: We say that (former)
+Eq. (18) is a particular solution to (19) in the sense that such
+solution does not consider the antisymmetrization. 
+
+Concerning the introduction of the covariantly constant tensor, we
+remark that it could (in principle) be other than the metric. The
+constant \(\Lambda\) could be zero, and in that case we were saying
+that the covariantly constant tensor is the zero 2-tensor, in whose
+case the field equations cannot be written in the form of Einstein
+but in the form of Ricci.
+
+\uline{Is there any argument that restrict the signature of the metric in
+Eq (19) to (1,3)?}: A mentioned previously, we have not analysed
+(yet) the possible constraints that assure a certain signature in
+the ``metric''. Currently we are working in that direction.
+
+\item \uline{Instabilities: This conclusion is not uncontroversial}: We do
+agree with your comment. Our goal is to hint the analysis of
+physical degrees of freedom. The completion of the task is beyond
+our current capabilities, and despite it is our desire to complete
+the analysis, we comprehend that there are people which can
+accomplish the study with ease.
+
+\item \uline{Typos}: Thank you, the typos were corrected.
+\end{enumerate}
+\end{document}

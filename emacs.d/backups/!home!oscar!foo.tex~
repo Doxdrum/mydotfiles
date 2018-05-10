@@ -1,0 +1,40 @@
+% Created 2018-04-23 Mon 12:19
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\author{Oscar Castillo-Felisola}
+\date{\today}
+\title{Riemannian holonomy by D. Joyce}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={Riemannian holonomy by D. Joyce},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\section{Ch. 1}
+\label{sec:org90b0760}
+
+\subsection{Exterior forms}
+\label{sec:org38f4b74}
+
+if \(T_{ a_1 a_2 \cdots a_k}\) is a tensor with \(k\) indices
+\end{document}

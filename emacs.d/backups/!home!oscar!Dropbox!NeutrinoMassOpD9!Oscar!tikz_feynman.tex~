@@ -1,0 +1,18 @@
+\documentclass[letterpaper]{article}
+
+\usepackage[compat=1.1.0]{tikz-feynman}
+
+\author{Oscar Castillo-Felisola}
+
+\begin{document}
+
+\feynmandiagram [horizontal=a to b] {
+i1 -- [fermion] a -- [fermion] i2,
+a -- [photon] b,
+f1 -- [fermion] b -- [fermion] f2,
+};
+
+\end{document}
+
+
+

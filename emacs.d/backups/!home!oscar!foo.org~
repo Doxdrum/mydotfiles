@@ -1,0 +1,43 @@
+* Outline
+- Buscar
+- Estudiar
+- Calcular
+- Publicar
+- Cobrar el insentivo!
+
+* Desarrollo
+Detalles del proceso
+\begin{equation}
+\vec{F} = m \vec{a} 
+\end{equation}
+
+[[http://www.google.com]]
+
+* Codigo
+
+#+BEGIN_SRC shell
+ls
+#+END_SRC
+
+#+RESULTS:
+| #a.tex#                     |
+| a.tex                       |
+| ATLAS-registration-form.pdf |
+| core                        |
+| Desktop                     |
+| Documents                   |
+| Downloads                   |
+| Dropbox                     |
+| Ebooks                      |
+| #foo.org#                   |
+| foo.pdf                     |
+| foo.py                      |
+| foo.tex                     |
+| Music                       |
+| News                        |
+| octave-workspace            |
+| Pictures                    |
+| Public                      |
+| Software                    |
+| Templates                   |
+| Videos                      |

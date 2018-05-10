@@ -1,0 +1,20 @@
+#+title: Classical Electrodynamics
+#+author: Oscar Castillo-Felisola
+
+* Maxwell's equations
+
+** Electrostatic 
+
+*** Coulomb's law
+
+#+BEGIN_EXPORT latex
+\begin{equation*}
+  E  = \frac{1}{2} \sum_{a \neq b} \frac{e_a e_b}{r_{ab}}
+\end{equation*}
+#+END_EXPORT
+
+** Inference of Maxwell's equations
+
+** Discussion
+
+* Magnetic charge

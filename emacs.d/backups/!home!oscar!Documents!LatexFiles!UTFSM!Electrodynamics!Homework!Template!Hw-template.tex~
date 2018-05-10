@@ -1,0 +1,182 @@
+\documentclass[letterpaper,12pt,answers]{exam}
+\usepackage{srcltx}
+
+\newcommand\lecturer{O.~Castillo-Felisola}
+\newcommand\course{Electrodynamics}
+\newcommand\type{Homework}
+\newcommand\cardinal{Third}
+\title{\course}
+\author{\lecturer}
+
+\usepackage{mathtools,amsmath,amssymb,amsfonts,dsfont,mathrsfs,amsthm,bm,latexsym}
+\usepackage{graphicx}
+\usepackage{centernot}
+\usepackage{xcolor}
+\usepackage{braket}
+\renewcommand\bra[1]{\Bra{#1}}
+\renewcommand\ket[1]{\Ket{#1}}
+\newcommand{\bkt}[3]{\Braket{ {#1} | {#2} | {#3} } }
+\newcommand{\bk}[2]{\Braket{ {#1} | {#2} } }
+\newcommand{\comm}[2]{\left[#1,#2\right]}
+\newcommand{\acomm}[2]{\left\{#1,#2\right\}}
+\newcommand{\vev}[1]{\ensuremath{\left<#1\right>}}
+\renewcommand{\set}[1]{\ensuremath{\Set{ #1 }}}
+\usepackage{comment}
+\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{tikz}
+\usepackage{xparse}
+\usetikzlibrary{shapes,
+  snakes,
+  decorations.pathmorphing,
+  decorations.markings,
+  calc,
+  shadows.blur,
+  shadings}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{centernot}
+\usepackage[dayofweek]{datetime}
+\newdateformat{vardate}{\monthname[\THEMONTH] \ordinal{DAY}, \THEYEAR}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={\cardinal~\type,~\course},
+  pdfauthor={\lecturer.},
+  pdfkeywords={Electrostatic,}{PDE,}{Boundary conditions.},
+  pdflang={English}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%                  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%      BODY        %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%                  %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% opening
+
+\pointsinrightmargin
+%% \renewcommand{\solutiontitle}{\noindent\textbf{Soluci\'on:}\enspace}
+
+\firstpageheader{ \bf\large \course\\ \lecturer}{}{\bf\large \cardinal~\type\\ \today}
+\runningheader{\bf\large \course}{}{\bf\large \cardinal~\type (Continued)}
+
+\qformat{\large \bf \thequestion. {\color{blue}\thequestiontitle} \hfill}
+
+
+
+\begin{document}
+
+\begin{questions}
+
+  \titledquestion{Different unit systems}
+
+  \begin{parts}
+    \part Find the transformation relation between the SI and CGS units systems.
+    \part What is an electro-static unit (esu)? What is a
+    electromagnetic unit (emu)? How are they related between themselves
+    and with the Si and CGS?
+  \end{parts}
+
+  \titledquestion{Continuous charge distributions}
+
+  Using Dirac delta functions in the appropriate coordinates, express the following
+  charge distributions as three-dimensional charge densities \(\rho(x)\).
+  \begin{parts}
+    \part In spherical coordinates, a charge \(Q\) uniformly distributed over a spherical shell of radius \(R\).
+    \part In cylindrical coordinates, a charge \(\lambda\) per unit length uniformly distributed
+    over a cylindrical surface of radius \(b\).
+    \part In cylindrical coordinates, a charge \(Q\) spread uniformly over a flat circular
+    disc of negligible thickness and radius \(R\).
+    \part The same as previous part, but using spherical coordinates.
+  \end{parts}
+
+  \begin{solution}
+    Here there is a solution.... Notice that is a \LaTeX\ environment!
+  \end{solution}
+
+  \titledquestion{Electric fields of charged spheres}
+
+  Each of three charged spheres of radius $a$, one conducting, one having
+  a uniform charge density within its volume, and one having a
+  spherically symmetric charge density that varies radially as $r^n$
+  with $n > -3$, has a total charge \(Q\). Use Gauss's theorem to obtain
+  the electric fields both inside and outside each sphere. Sketch the
+  behavior of the fields as a function of radius for the first two
+  spheres, and for the third with $n = -2, +2$.
+
+  \titledquestion{Charge distribution on a neutral hydrogen atom}
+
+  The time-averaged potential of a neutral hydrogen atom is given by
+  \begin{equation*}
+    \phi = q \frac{e^{-\alpha r}}{r} \left( 1 + \frac{\alpha r}{2} \right)
+  \end{equation*}
+  where $q$ is the magnitude of the electronic charge, and $\alpha^{-1} =
+  a_o/2$, $a_0$ being the Bohr radius. Find the distribution of charge
+  (both continuous and discrete) that will give this potential and
+  interpret your result physically.
+
+  \titledquestion{Energy of a charged system} %% of point particles}
+
+  \begin{parts}
+    \part Show that for a system of point particles the potential energy
+    is given by
+    \begin{equation*}
+      U = \frac{1}{8 \pi} \int \left( \vec{E} \cdot \vec{E} - \sum_i \vec{E}_i^2 \right) dV.
+    \end{equation*}
+
+    \part Take \(\rho_t\) and \(\phi\) to be the final distributions of free
+    charge and potential, respectively, after our system has been
+    completely set up. If we had somehow decided to place a factor of
+    \(\alpha\) as much charge everywhere, then our potential would be changed
+    by the same factor \(\alpha\).
+
+    By bringing the charge from infinity, a little bit at a time,
+    i.e. \(\alpha\) go from 0 to 1, show that
+    \begin{equation*}
+      U = \frac{1}{8 \pi} \int \vec{D} \cdot \vec{E} \, dV.
+    \end{equation*}
+  \end{parts}
+
+  \titledquestion{Capacitances of diverse systems}
+
+  A simple capacitor is a device formed by two insulated conductors
+  adjacent to each other. If equal and opposite charges are placed on
+  the conductors, there will be a certain difference of potential
+  between them. The ratio of the magnitude of the charge on one
+  conductor to the magnitude of the potential difference is called the
+  capacitance. Using Gauss's law, calculate the capacitance of
+  \begin{parts}
+    \part two large, flat, conducting sheets of area \(A\), separated
+    by a small distance $d$;
+    \part two concentric conducting spheres with radii $a, b$ with $b > a$;
+    \part two concentric conducting cylinders of length $L$, large
+    compared to their radii $a,b$ ($b> a$).
+    \part Two long, cylindrical conductors of radii $a_1$ and $a_2$ are
+    parallel and separated by a distance $d$, which is large compared
+    with either radius. Show that the capacitance per unit length is
+    given approximately by
+    \begin{equation*}
+      C \propto \ln \left( \frac{d}{a} \right)^{-1}
+    \end{equation*}
+    where $a$ is the geometrical mean of the two radii.
+  \end{parts}
+
+  \titledquestion{Energy change in a capacitor}
+
+  Let \(\delta U_Q\) be the change in electrostatic energy of the system
+  if the conductors are slightly displaced while the charges are held
+  constant. Let \(\delta U_\phi\) be the change in electrostatic energy
+  of the system of conductors if their displacement is the same as
+  before, while the potentials are held constant. Then we will prove
+  that \(\delta U_Q = - \delta U_\phi\).
+
+\end{questions}
+
+{\color{red} \textbf{\sc To be handed on \longdate\formatdate{02}{04}{2018}.}}
+
+\end{document}
