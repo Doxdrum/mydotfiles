@@ -31,6 +31,7 @@ alias syncE="rsync -av ~/Ebooks/Ebooks\ Collection /media/oscar/TOSHIBA\ EXT/Ebo
 
 ######### Other Software!!!!
 alias sage="bash ~/Software/SageMath/sage"
+alias redspl="bash ~/Software/Reduce-svn4567-src/bin/redpsl"
 ## alias mendeley="python ~/Software/mendeleydesktop-1.15.1-linux-x86_64/bin/mendeleydesktop"
 ## alias jaxo="java -jar /home/oscar/Software/JaxoDraw-2.0-1/#jaxodraw-2.0-1.jar"
 ## alias xmaple="/usr/local/share/maple13/bin/xmaple"

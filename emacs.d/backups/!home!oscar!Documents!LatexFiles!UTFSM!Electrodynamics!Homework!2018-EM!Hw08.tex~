@@ -46,4 +46,58 @@ work out three other possible Green's functions other than the
   \begin{equation*}
     G^{(4)}(x^1, \dots ,x^4) = \frac{1}{4 \pi^2 (x \cdot x)}.
   \end{equation*}
+  By making the complex replacement
+  \begin{equation*}
+    x^4 \to \imath t = \lim_{\epsilon \to 0^+} \exp( \imath (\pi/2 + \epsilon) ) t,
+  \end{equation*}
+  show that \(D_+ = \imath G^{(4)}\) satisfy the differential equation
+  \begin{equation*}
+    - \left( - \partial_t^2 + \nabla^2 \right) D_+(t, \vec{r}) = \delta(t)\delta(\vec{r}).
+  \end{equation*}
+
+  \part Show that 
+  \begin{equation*}
+    D_+(t, \vec{r}) = \frac{\imath}{4 \pi} \frac{1}{r^2 - t^2 + \imath \epsilon},
+  \end{equation*}
+  and its residue is
+  \begin{equation*}
+    \Res( D_+ ) = \frac{1}{4 \pi} \delta(r^2 - t^2) = \frac{1}{8 \pi r} \left(
+    \delta(r-t) + \delta(r+t) \right).
+  \end{equation*}
+
+  The above result is quite similar to that found in class, but
+  without further restrictions it has two terms, the retarded and
+  advanced Green's functions. In the following, we shall repeat the
+  procedure in class---to move the poles in the momenta space---to obtain
+  the four Green's functions.
+
+  \part From the above, we know that the Green's function for the
+  D'Alembertian operator, in Fourier space is
+  \begin{equation*}
+    \tilde{G}(k) = \frac{1}{(\omega - |k|) (\omega + |k|)}.
+  \end{equation*}
+  Calculate the Green's function in the position space by extending
+  the integral in \(\omega\) to the complex plane.
+  \begin{subparts}
+    \subpart Avoid the poles along the integration path by pulling
+    them down the real axis, i.e.,\footnote{Hereon, \(\epsilon > 0\) and
+      going to zero.}
+    \begin{equation*}
+      \tilde{G}_1(k) = \frac{1}{(\omega - |k| + \imath\epsilon) (\omega + |k| + \imath\epsilon)}.
+    \end{equation*}
+    What is the condition on \(t\) for the extra integral not to
+    contribute?
+
+    \subpart Avoid the poles along the integration path by pulling
+    them up the real axis, i.e., 
+    \begin{equation*}
+      \tilde{G}_2(k) = \frac{1}{(\omega - |k| - \imath\epsilon) (\omega + |k| - \imath\epsilon)}.
+    \end{equation*}
+    What is the condition on \(t\) for the extra integral not to
+    contribute?
+
+    
+  \end{subparts}
+
+  
 \end{parts}

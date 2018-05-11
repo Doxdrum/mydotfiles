@@ -2,13 +2,13 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- '(("www.worldscientific.com"
-  [url-cookie "MACHINE_LAST_SEEN" "2018-01-25T05%3A43%3A07.144-08%3A00" "21-Nov-2018 13:43:07.00 GMT" "/" "www.worldscientific.com" nil]
+ '((".www.worldscientific.com"
+  [url-cookie "MAID" "LDFfffkLlmeh6b+Yq+nUfw==" "21-Nov-2018 13:43:07.00 GMT" "/" ".www.worldscientific.com" nil]
+  [url-cookie "MACHINE_LAST_SEEN" "2018-01-25T05%3A43%3A07.144-08%3A00" "21-Nov-2018 13:43:07.00 GMT" "/" ".www.worldscientific.com" nil])
+ ("www.worldscientific.com"
+  [url-cookie "I2KBRCK" "1" "25-Jan-2019 13:43:05.00 GMT" "/" "www.worldscientific.com" nil]
   [url-cookie "MAID" "LDFfffkLlmeh6b+Yq+nUfw==" "21-Nov-2018 13:43:07.00 GMT" "/" "www.worldscientific.com" nil]
-  [url-cookie "I2KBRCK" "1" "25-Jan-2019 13:43:05.00 GMT" "/" "www.worldscientific.com" nil])
- (".www.worldscientific.com"
-  [url-cookie "MACHINE_LAST_SEEN" "2018-01-25T05%3A43%3A07.144-08%3A00" "21-Nov-2018 13:43:07.00 GMT" "/" ".www.worldscientific.com" nil]
-  [url-cookie "MAID" "LDFfffkLlmeh6b+Yq+nUfw==" "21-Nov-2018 13:43:07.00 GMT" "/" ".www.worldscientific.com" nil]))
+  [url-cookie "MACHINE_LAST_SEEN" "2018-01-25T05%3A43%3A07.144-08%3A00" "21-Nov-2018 13:43:07.00 GMT" "/" "www.worldscientific.com" nil]))
 )
 (setq url-cookie-secure-storage
  'nil)

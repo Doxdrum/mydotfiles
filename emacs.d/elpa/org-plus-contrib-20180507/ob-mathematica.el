@@ -26,10 +26,10 @@
 
 (defvar org-babel-default-header-args:mathematica '())
 
-(defvar org-babel-mathematica-command "MathematicaScript -script"
+(defvar org-babel-mathematica-command "wolframscript -code"
   "Name of the command for executing Mathematica code.")
 
-(defvar org-babel-mathematica-command-alt "math -noprompt"
+(defvar org-babel-mathematica-command-alt "Math -noprompt"
   "Name of the command for executing Mathematica code.")
 
 (defun org-babel-expand-body:mathematica (body params)
