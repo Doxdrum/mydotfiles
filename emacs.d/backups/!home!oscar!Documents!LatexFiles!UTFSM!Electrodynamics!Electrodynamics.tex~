@@ -1,4 +1,4 @@
-% Created 2018-04-18 Wed 05:30
+% Created 2018-04-18 Wed 06:13
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -33,10 +33,10 @@
 \maketitle
 
 \section*{Mathematical Review}
-\label{sec:org7b66911}
+\label{sec:org8771400}
 
 \subsection*{Vectors (Cartesian, 3D)}
-\label{sec:orgebad0d5}
+\label{sec:org33f9b2e}
 
 Let \(\vec{r}_1 = (x_1, y_1, z_1)\) and \(\vec{r}_2 = (x_2, y_2,
 z_2)\), then
@@ -66,7 +66,7 @@ z_2)\), then
 \end{itemize}
 
 \subsection*{Geometrical objects}
-\label{sec:orge9e12cb}
+\label{sec:orgeb7edd2}
 
 \begin{itemize}
 \item Linear algebra (matrices)
@@ -83,7 +83,7 @@ transformation properties.
 \end{itemize}
 
 \subsection*{Differentiation}
-\label{sec:orgad4912d}
+\label{sec:orge16a6f3}
 
 \begin{itemize}
 \item Derivative of a vector wrt time.
@@ -103,7 +103,7 @@ transformation properties.
 \end{itemize}
 
 \subsection*{Divergence and Gauß' theorem}
-\label{sec:org29789df}
+\label{sec:orga29e5e7}
 \begin{itemize}
 \item \textbf{Flux:} Amount of \emph{material} passing through a tube.
 
@@ -120,7 +120,7 @@ limited by the surface.
 \end{itemize}
 
 \subsection*{EXERCISE}
-\label{sec:org8b4d10d}
+\label{sec:org0f96bfe}
 Using the analogy with the river, prove the Gauß' theorem in:
 \begin{itemize}
 \item Cartesian coordinates,
@@ -129,7 +129,7 @@ Using the analogy with the river, prove the Gauß' theorem in:
 \end{itemize}
 
 \subsection*{Work, Curl and Stokes' theorem}
-\label{sec:org4d9ccb4}
+\label{sec:orga7e1d52}
 \begin{itemize}
 \item \textbf{Work:} \(W = \int_a^b \vec{F} \cdot d\vec{s}.\)
 
@@ -143,11 +143,11 @@ If along a closed loop \(W = 0\), the force is said to be
 \end{itemize}
 
 \subsection*{EXERCISE}
-\label{sec:orgf7dba33}
+\label{sec:orgfaac9e3}
 Prove the Stokes' theorem for an infinitesimal (square) loop.
 
 \subsection*{Second rank tensors}
-\label{sec:org4cfd4ae}
+\label{sec:orgba7765d}
 
 Consider a \emph{stack} of two vectors,
 \begin{equation}
@@ -163,7 +163,7 @@ T' = v' \, w' = R_v \, R_w \, v \, w = R_v \, R_w \, T.
 \end{itemize}
 
 \subsection*{EXERCISE}
-\label{sec:org570fc6a}
+\label{sec:orge49e39f}
 \begin{itemize}
 \item Show that a second rank tensor can be decomposed into its symmetric
 and antisymmetric parts.
@@ -172,7 +172,7 @@ part remains (anti)symmetric.
 \end{itemize}
 
 \subsection*{Diagonalization of a second rank tensor}
-\label{sec:org9df440b}
+\label{sec:orgda9c248}
 
 \begin{equation}
 S' =
@@ -196,7 +196,7 @@ S_{31} & S_{32} & S_{33} - \lambda
 \end{equation}
 
 \subsection*{PROBLEMS}
-\label{sec:orgb08bfa6}
+\label{sec:orgdc5d885}
 \begin{itemize}
 \item Show the identities (\(u,v\) are functions, \(A,B,C\) are vectors):
 \begin{itemize}
@@ -217,7 +217,7 @@ S_{31} & S_{32} & S_{33} - \lambda
 \end{itemize}
 
 \subsection*{}
-\label{sec:org896d974}
+\label{sec:orgba866f7}
 \begin{itemize}
 \item Show that \(\nabla \cdot (\nabla \times A) = 0\) and \(\nabla
    \times \nabla u = 0\).
@@ -235,10 +235,10 @@ of a second rank tensor is invariant under rotations.
 \end{itemize}
 
 \section*{Electrostatic}
-\label{sec:orgebf63b3}
+\label{sec:orgc0666fc}
 
 \subsection*{Coulomb's law (point particles)}
-\label{sec:orga9c5ef3}
+\label{sec:org0e11bc4}
 
 Phenomenologically,
 \[
@@ -256,7 +256,7 @@ with \(r_{ij} = |\vec{r}_i - \vec{r}_j|\).
 \end{itemize}
 
 \subsection*{System of (point) particles}
-\label{sec:org9798749}
+\label{sec:org16dcdf5}
 
 \[
 \vec{F}_{ij} = e_i \sum_j e_j \frac{\vec{r}_i - \vec{r}_j}{r_{ij}^3} = -
@@ -270,7 +270,7 @@ e_i \vec{\nabla} \sum_j e_j  \frac{ 1 }{ {r}_{ij} } = e_i \vec{E}(r_i).
 \end{itemize}
 
 \subsection*{Properties}
-\label{sec:orge47b5bc}
+\label{sec:orge0c7867}
 
 \begin{itemize}
 \item The field is conservative (conservation of energy)
@@ -289,7 +289,7 @@ the charges.
 \end{itemize}
 
 \subsection*{Volume densities}
-\label{sec:org585c04a}
+\label{sec:org4db5de9}
 
 \begin{itemize}
 \item Number of charges \(\to \infty\).
@@ -302,7 +302,7 @@ the charges.
 \end{itemize}
 
 \subsection*{Surface densities}
-\label{sec:org75caee5}
+\label{sec:orgb6b8818}
 \begin{itemize}
 \item Surface charge density \(\sigma\).
 \item \(\phi\) remains finite, and thus continuous at the surface.
@@ -313,7 +313,7 @@ remains continuous.
 \end{itemize}
 
 \subsection*{Boundaries at conductors}
-\label{sec:org8d52384}
+\label{sec:orgcb5afe2}
 
 \begin{enumerate}
 \item No field inside the conductor, \(\vec{E} = 0\).
@@ -323,7 +323,7 @@ remains continuous.
 \end{enumerate}
 
 \subsection*{Important theorems}
-\label{sec:org1f3ba19}
+\label{sec:org1c02001}
 
 \begin{description}
 \item[{Mean value}] \begin{quote}
@@ -334,7 +334,7 @@ sphere.
 \end{quote}
 \end{description}
 \subsection*{}
-\label{sec:org11cc07e}
+\label{sec:org7bc0791}
 \begin{description}
 \item[{Earnshaw's theorem}] \begin{quote}
 \(\phi\) cannot have a local maximum or minimum in a charge-free
@@ -343,7 +343,7 @@ region.
 \end{description}
 
 \subsection*{Energy of a (static) configuration \(I\)}
-\label{sec:orgd9ec9ee}
+\label{sec:orgc7d527b}
 
 The (potential) energy stored by a system is equal to the work
 required to form the configuration.
@@ -359,7 +359,7 @@ U = \frac{1}{2} \sum_i e_i \phi'_i.
 \end{equation}
 
 \subsection*{Energy of a (static) configuration \(II\)}
-\label{sec:org97aa869}
+\label{sec:org8a39bc9}
 
 \begin{align}
 U &= \frac{1}{2}  \iint dV_p \, dV_q \,\frac{\rho_p \rho_q}{r_{pq}} 
@@ -372,7 +372,7 @@ U = \frac{1}{8 \pi} \int dV \, \vec{E} \cdot \vec{E}
 \end{equation}
 
 \subsection*{EXERCISE}
-\label{sec:orgef17942}
+\label{sec:org52278c0}
 Show that for a system of point particles the potential energy is
 given by
 \[
@@ -381,7 +381,7 @@ U = \frac{1}{8 \pi} \int \left( \vec{E} \cdot \vec{E} - \sum_i
 \]
 
 \subsection*{Dielectrics}
-\label{sec:org5e7d513}
+\label{sec:org8d4ee6a}
 
 Consider a charged (plane parallel) condenser in vacuum. The electric
 field between the plates is \(E_x = 4 \pi \sigma\), and the potential
@@ -398,7 +398,7 @@ decreases by a factor \(\epsilon\),
 \end{itemize}
 
 \subsection*{}
-\label{sec:org638c56d}
+\label{sec:org78f24a9}
 \begin{itemize}
 \item \(\epsilon\) is the \emph{dielectric constant}.
 \item Split \(\rho = \rho_t + \rho_p\) and \(\sigma = \sigma_t + \sigma_p\)
@@ -418,7 +418,7 @@ E_{n_1} + E_{n_2} & = 4 \pi \sigma
 \end{itemize}
 
 \subsection*{}
-\label{sec:org4abf2b5}
+\label{sec:orgcc14b42}
 In the most general case a volume density of polarization charge,
 \(\rho_p\), is produced.
 \begin{align}
@@ -433,7 +433,7 @@ Finally
 \end{equation}
 
 \subsection*{}
-\label{sec:org70aade9}
+\label{sec:orge6df8da}
 If \(\sigma_t = 0\) on a boundary layer between two dielectrics, then:
 \begin{itemize}
 \item \(\phi\) is coninuous.
@@ -443,7 +443,7 @@ If \(\sigma_t = 0\) on a boundary layer between two dielectrics, then:
 \end{itemize}
 
 \subsection*{EXERCISE}
-\label{sec:org740cdd5}
+\label{sec:orgc431185}
 Take \(\rho_t\) and \(\phi\) to be the final distributions of free
 charge and potential, respectively, after our system has been
 completely set up. If we had somehow decided to place a factor of
@@ -457,7 +457,7 @@ U = \frac{1}{8 \pi} \int \vec{D} \cdot \vec{E} \, dV.
 \end{equation}
 
 \subsection*{Electric dipolar moment}
-\label{sec:orgd0a30d1}
+\label{sec:org3b630ea}
 Consider a system constituted by two opposite (point) charges
 separated a distance \(\vec{\ell}\). The electric potential is given by
 \begin{equation}
@@ -468,7 +468,7 @@ separated a distance \(\vec{\ell}\). The electric potential is given by
 \end{center}
 
 \subsection*{}
-\label{sec:orgb793e7b}
+\label{sec:orgf2cfc1e}
 For \(r \gg \ell\), the principal contribution to the potential is
 \begin{equation}
 \phi(\vec{r}) = \frac{q \vec{\ell} \cdot \vec{r}}{r^3} = - \vec{p} \cdot \vec{\nabla} \frac{1}{r}.
@@ -478,7 +478,7 @@ The vector \(\vec{p} = q \vec{\ell}\) is called \emph{dipole moment} of the syst
 \end{quote}
 
 \subsection*{}
-\label{sec:org2288992}
+\label{sec:org1dc2440}
 More generally,
 \begin{align}
 \phi(\vec{r}) &= \int \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|} \, dV'\\
@@ -490,7 +490,7 @@ the \emph{multipolar moments} of the system.
 \end{quote}
 
 \subsection*{General theory of capacitance}
-\label{sec:org776fee2}
+\label{sec:org4ec2df8}
 \begin{itemize}
 \item We begin with one or two conductors but then extending ourselves to
 an indefinite number of conductors.
@@ -506,7 +506,7 @@ potential \(\alpha \phi_0\).
 \end{quote}
 
 \subsection*{}
-\label{sec:orgb1703ba}
+\label{sec:orgfac4e3e}
 Thus,
 \begin{equation}
 Q = C \phi.
@@ -525,7 +525,7 @@ induction.
 \end{itemize}
 
 \subsection*{}
-\label{sec:orge7d3602}
+\label{sec:orgc6393d6}
 The expression can be inverted
 \begin{equation}
 \phi_i = \sum_j p_{ij} Q_j,
@@ -538,7 +538,7 @@ U = \frac{1}{2} \sum_{i,j} C_{ij} \phi_i \phi_j.
 \end{equation}
 
 \subsection*{EXERCISE}
-\label{sec:orgcebb63e}
+\label{sec:orgd7e1d97}
 Let \(\delta U_Q\) be the change in electrostatic energy of the system
 if the conductors are slightly displaced while the charges are held
 constant. Let \(\delta U_\phi\) be the change in electrostatic energy
@@ -547,7 +547,7 @@ before, while the potentials are held constant. Then we will prove
 that \(\delta U_Q = - \delta U_\phi\).
 
 \subsection*{Electrostatic stress tensor}
-\label{sec:org9913b30}
+\label{sec:org14afb16}
 
 Let \(\rho\) be the charge density and \(\vec{E}\) the electric
 field. The total force on a given volume is
@@ -561,7 +561,7 @@ the electric field, one gets
 \end{equation}
 
 \section*{PDE and the potential problem}
-\label{sec:org21f28cd}
+\label{sec:org7e2e833}
 
 Methods to solve:
 \begin{itemize}
@@ -574,7 +574,7 @@ Notice that in general dielectrics the Poisson equation is, \(\nabla
 \cdot \epsilon \nabla \phi = - 4 \pi \rho.\)
 
 \subsection*{Potential problem}
-\label{sec:orgd41ab09}
+\label{sec:org82faf6f}
 
 \(\phi\) must satisfy the following conditions:
 \begin{enumerate}
@@ -594,7 +594,7 @@ If \(\sigma_t = 0\), both \(\phi\) and \(\epsilon \frac{\partial
 \end{enumerate}
 
 \subsection*{Separation of variables}
-\label{sec:orgcdcf4a8}
+\label{sec:orge789e16}
 \begin{itemize}
 \item Consider a coordinate system \((s,t,u)\).
 \item Write the Laplacian operator in that coord. syst.
@@ -607,7 +607,7 @@ If \(\sigma_t = 0\), both \(\phi\) and \(\epsilon \frac{\partial
 \end{itemize}
 
 \subsection*{EXAMPLE}
-\label{sec:org079b23c}
+\label{sec:org6a5328c}
 \begin{itemize}
 \item The covariant derivative of a vector is
 \begin{equation}
@@ -618,7 +618,7 @@ find a expression for the Laplacian in curved reference systems.
 \end{itemize}
 
 \subsection*{EXERCISE}
-\label{sec:orgd1abe7f}
+\label{sec:org75e1014}
 \begin{itemize}
 \item Find the explicit expression for the Laplacian in the following
 coordinate systems:
@@ -630,7 +630,7 @@ coordinate systems:
 \end{itemize}
 
 \subsection*{Solution of Laplace equation (Cartesian)}
-\label{sec:org28bbca2}
+\label{sec:org56e14c4}
 
 \begin{equation}
 \nabla^2 \phi = \frac{\partial^2 \phi}{\partial x^2} + \frac{\partial^2 \phi}{\partial y^2} + \frac{\partial^2 \phi}{\partial z^2} = 0.
@@ -638,7 +638,7 @@ coordinate systems:
 Propose \(\phi(x,y,z) = X(x)Y(y)Z(z)\) and then divide by \(\phi\).
 
 \subsection*{Green's functions}
-\label{sec:orgbd239bf}
+\label{sec:org14f9000}
 
 A Green's function, \(G(x,y)\), for an operator (\(D\)) is defined
 such that
@@ -657,7 +657,7 @@ Notice that no boundary conditions were mention yet!
 \end{quote}
 
 \subsection*{Green's function in Electrodynamics}
-\label{sec:org1a9bba9}
+\label{sec:orgb4b7904}
 
 We already know that
 \begin{equation*}
@@ -671,7 +671,7 @@ Thus, the solution of the Poisson equation is
 which satisfy homogeneous boundary conditions.
 
 \subsection*{Boundary conditions}
-\label{sec:org837fd80}
+\label{sec:orgc786225}
 \begin{itemize}
 \item Superposition.
 \item Gau\ss{}' theorem for \(\vec{V} = f \nabla g\) and \(\vec{V} = f
@@ -689,13 +689,13 @@ which satisfy homogeneous boundary conditions.
 \end{description}
 
 \section*{}
-\label{sec:org89b7fcb}
+\label{sec:orgbba14fb}
 
 \section*{Magnetostatic}
-\label{sec:org69f1802}
+\label{sec:org4d47402}
 
 \subsection*{Generalities}
-\label{sec:org13f1200}
+\label{sec:org54a177c}
 \begin{itemize}
 \item Magnetic fields interact through the magnetic dipoles.
 \item Magnetic monopoles do not exist.
@@ -716,7 +716,7 @@ the second reverse the divergence and curl operators.
 \end{itemize}
 
 \subsection*{Field equations}
-\label{sec:org059041f}
+\label{sec:org6a50b02}
 
 \begin{align}
 \nabla \times  \vec{H} & = 0 & \nabla \cdot \vec{B} & = 0 \\
@@ -733,7 +733,7 @@ The \(\mu\) parameter is the permeability of the material.
 \end{itemize}
 
 \subsection*{Niceties!!! or not?}
-\label{sec:org73f931e}
+\label{sec:orga1ef8da}
 
 \begin{equation}
 \nabla \times \vec{H} = 0 \Longrightarrow \vec{H} = - \nabla \psi.
@@ -750,7 +750,7 @@ vector potential, up to a gradient of a function. Such indetermination
 is the base of the \emph{gauge} invariance.
 
 \subsection*{EXAMPLE}
-\label{sec:orgc9c9fd2}
+\label{sec:org06118cb}
 Since \(H \propto B\), then \(\nabla^2 A = 0\), if one choose the
 \emph{gauge} \(\nabla \cdot A = 0\).
 
@@ -766,10 +766,10 @@ And for a general distribution,
 \end{equation}
 
 \section*{Steady currents}
-\label{sec:org7deb52c}
+\label{sec:orgd11c453}
 
 \subsection*{Generalities}
-\label{sec:org1677bb3}
+\label{sec:org3ced7fb}
 
 An electric  \emph{current}, \(I\), is the electric charge that passes
 through the total cross-sectional area of a conductor per unit time,
@@ -785,7 +785,7 @@ I = \int d\vec{a} \cdot \vec{j}.
 \end{equation}
 
 \subsection*{Continuity equation}
-\label{sec:orgf1261f6}
+\label{sec:orgb079f72}
 
 Conservation of electric charge,
 \begin{equation}
@@ -802,7 +802,7 @@ For steady currents, from the continuity it follows, that
 \end{equation}
 
 \subsection*{Ohm's law}
-\label{sec:org2bc92a3}
+\label{sec:org7038f68}
 
 Phenomenological relation
 \begin{equation}
@@ -811,7 +811,7 @@ Phenomenological relation
 \(\sigma\) is the conductivity of the material.
 
 \subsubsection*{Interpretation:}
-\label{sec:org192211e}
+\label{sec:orgea1c471}
 
 The resistance is a force proportional to the velocity.
 \begin{align}
@@ -839,7 +839,7 @@ thus, from Ohm's law
 As before, \(\vec{E} = - \nabla \phi\), and \(\nabla \times \vec{E} = 0\).
 
 \subsubsection*{Homogeneous conductor}
-\label{sec:orgde67f8d}
+\label{sec:org6cd4126}
 
 \begin{align}
 \phi_1 - \phi_2 & = L E,  \\
@@ -852,7 +852,7 @@ Then,
 with \(R = L/\sigma A\).
 
 \subsection*{Joule's law}
-\label{sec:orge51e632}
+\label{sec:orgf6cf930}
 
 
 
@@ -866,7 +866,7 @@ Q = \vec{j} \cdot \vec{E}.
 \end{equation}
 
 \subsubsection*{Example}
-\label{sec:orgb82f28f}
+\label{sec:org1595f81}
 
 Homogeneous conductor, area \(A\) length \(L\)
 \begin{equation}
@@ -874,7 +874,7 @@ Homogeneous conductor, area \(A\) length \(L\)
 \end{equation}
 
 \subsection*{Current flow in conductors}
-\label{sec:orgd4e10ec}
+\label{sec:org4038b54}
 
 \begin{align}
 \vec{E} &= -\nabla \phi & \vec{j} &= \sigma \vec{E} & \rho &= 0 \\
@@ -891,7 +891,7 @@ Conductors made of inhomogeneous materials
 \end{equation}
 
 \subsection*{Magnetic field of steady currents}
-\label{sec:orgaa8ccb4}
+\label{sec:org1a95197}
 
 Oersted found:
 \begin{equation}
@@ -903,7 +903,7 @@ EXAMPLE:
 Cylindrical conductor, \(H_r = 0\) and \(H_\phi = \frac{2I}{cr}\).
 
 \subsection*{Fundamental laws of steady currents}
-\label{sec:orga468964}
+\label{sec:orgf2975c7}
 
 \begin{align}
 \oint_s d\vec{a} \cdot \vec{E} &= 4 \pi e & \nabla \times \vec{E} &= 0 \\
@@ -911,14 +911,14 @@ Cylindrical conductor, \(H_r = 0\) and \(H_\phi = \frac{2I}{cr}\).
 \end{align}
 
 \subsubsection*{Solenoid}
-\label{sec:org4e667ac}
+\label{sec:orgd7f11ae}
 
 \begin{equation}
 H_z = \frac{4 \pi N}{L} \frac{I}{c}.
 \end{equation}
 
 \subsection*{\ldots{} or by Stokes'}
-\label{sec:org3848071}
+\label{sec:org9710999}
 
 \begin{equation}
 \nabla \times \vec{H} = \frac{4\pi}{c} \vec{j},
@@ -926,7 +926,7 @@ H_z = \frac{4 \pi N}{L} \frac{I}{c}.
 Notice the necessity of \(\nabla \cdot \vec{j} = 0\).
 
 \subsection*{Vector potential}
-\label{sec:orgdd9d3a3}
+\label{sec:org387ac24}
 
 from \(\nabla \cdot \vec{H} = 0\), it follows that \(\vec{H} = \nabla \times
 \vec{A}\).
@@ -943,14 +943,14 @@ The solution is
 \end{equation}
 
 \subsection*{Back to the Magnetic field}
-\label{sec:orgb1fe012}
+\label{sec:orgcdc97bd}
 
 \begin{equation}
 \vec{H} = \frac{1}{c} \int dV \, \vec{j} \times \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|^3} 
 \end{equation}
 
 \subsubsection*{Particular case (a wire)}
-\label{sec:org7fd27f0}
+\label{sec:org5056b53}
 
 \begin{align}
 \vec{A} & = \frac{I}{c} \int \frac{d\vec{s}}{r} , \\
@@ -960,7 +960,7 @@ The solution is
 The last expression is the famous \textbf{Biot-Savart law}.
 
 \subsubsection*{Clever comment}
-\label{sec:orgf5ffb6c}
+\label{sec:org4cfc62e}
 
 \begin{quote}
 The ``\(d\vec{H}\)'' so defined does not satisfy the equations from
@@ -969,7 +969,7 @@ continuity equation.
 \end{quote}
 
 \subsection*{Current loops and magnetic dipoles}
-\label{sec:org800f044}
+\label{sec:org180fc08}
 
 For a loop, one uses Stokes' theorem,
 \begin{equation}
@@ -981,7 +981,7 @@ Comparing with the potential of a magnetic dipole,
 \end{equation}
 
 \subsection*{Volume distribution of dipoles}
-\label{sec:orgcad9455}
+\label{sec:orgd006159}
 
 Define the \emph{magnetitic moment} per unit volume, \(\vec{M}\), as the
 magnetization. Then,
@@ -994,7 +994,7 @@ volume density, \(\vec{j}_m = c \nabla \times \vec{M}\), and a surface
 current density, \(\vec{i}_m = - c \vec{n} \times \vec{M}\).
 
 \subsection*{Three types of currents!!!}
-\label{sec:orgb273129}
+\label{sec:org027d905}
 
 \begin{description}
 \item[{Conduction currents}] Standard currents, \(\vec{j}_c\).
@@ -1014,11 +1014,11 @@ surface currents are present,
 \end{equation}
 
 \subsection*{Ponderomotive forces}
-\label{sec:org475439d}
+\label{sec:orgb8bfcfb}
 
 Magnetic Coulomb's law (unit pole):
 \begin{equation}
-\vec{F} = \frac{1}{c} \int dV \,  \frac{\vec{j} \times (\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|} = \frac{1}{c} \int dV \,  \vec{j} \times (\vec{H}.
+\vec{F} = \frac{1}{c} \int dV \,  \frac{\vec{j} \times (\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|} = \frac{1}{c} \int dV \,  \vec{j} \times \vec{H}.
 \end{equation}
 
 The force per unit volume,
@@ -1043,7 +1043,7 @@ stationary charges.
 \end{quote}
 
 \subsection*{Force among closed linear current loops}
-\label{sec:org62acd6d}
+\label{sec:org5c075ef}
 
 \begin{equation}
 \vec{H}_1 = \frac{I_2}{c} \, \oint_2 \frac{d\vec{s}_2 \times (\vec{r}_1 - \vec{r}_2)}{r_{12}^3},
@@ -1054,7 +1054,7 @@ thus
 \end{equation}
 
 \subsection*{Action, reaction and Maxwell stress tensor.}
-\label{sec:org34ce4f9}
+\label{sec:orgd2eea7d}
 
 Action and reaction: \(\sum_i F_i = 0\).
 
@@ -1084,10 +1084,10 @@ T^{ij} = \frac{1}{4 \pi} \left( E^i E^j + H^i H^j - \frac{1}{2} \delta^{ij} (E^2
 
 
 \section*{Covariant formulation of electrodynamics}
-\label{sec:orgccbec3f}
+\label{sec:org7949471}
 
 \subsection*{Review of special relativity}
-\label{sec:org24ee289}
+\label{sec:orgac7235d}
 
 \begin{center}
 \begin{tabular}{lll}
@@ -1114,4 +1114,20 @@ be seen as a quadratic form,
 I = dx^t \, \eta \, dx, 
 \end{equation}
 where \(dx = (dt, dx, dy, dz)\) and \(\eta = \diag(-1, 1, 1, 1)\).
+
+Moreover, \(I\) is called \emph{interval}, and is interpreted as the
+line element (the square of an infinitesimalldistance) in a four-dimensional spacetime, with Lorentian metric.\footnote{In special relativity, the Lorentian metric is the
+generalisation of a Euclidean metric, but with one of the diagonal
+elements negative.}
+As so, it is usually denoted by \(ds^2\), and since it is an invariant
+quantity, it serves as parameter in the theory. 
+
+A special observer is the one that is not moving wrt the coordinate
+system, and its interval measures the time passed between two
+events. Thus, the special name \emph{proper time}, defined as
+\begin{equation}
+\tau = - \sqrt{ds^2},
+\end{equation}
+for physical observers, i.e. those whose intervals are causal (\(ds\)
+is mostly time, or time-like, or---in our convention---negative).
 \end{document}
