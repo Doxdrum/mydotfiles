@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "doi-utils" "doi-utils.el" (23290 17815 767075
-;;;;;;  364000))
+;;;### (autoloads nil "doi-utils" "doi-utils.el" (23294 37824 245795
+;;;;;;  978000))
 ;;; Generated autoloads from doi-utils.el
 
 (autoload 'doi-utils-get-bibtex-entry-pdf "doi-utils" "\
@@ -130,8 +130,8 @@ Search Crossref with QUERY and use helm to select an entry to add to BIBTEX-FILE
 
 ;;;***
 
-;;;### (autoloads nil "nist-webbook" "nist-webbook.el" (23290 17814
-;;;;;;  883024 813000))
+;;;### (autoloads nil "nist-webbook" "nist-webbook.el" (23294 37823
+;;;;;;  661771 825000))
 ;;; Generated autoloads from nist-webbook.el
 
 (autoload 'nist-webbook-formula "nist-webbook" "\
@@ -146,8 +146,8 @@ Search NIST webbook for NAME.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-arxiv" "org-ref-arxiv.el" (23290 17816
-;;;;;;  363109 675000))
+;;;### (autoloads nil "org-ref-arxiv" "org-ref-arxiv.el" (23294 37825
+;;;;;;  185834 603000))
 ;;; Generated autoloads from org-ref-arxiv.el
 
 (autoload 'arxiv-add-bibtex-entry "org-ref-arxiv" "\
@@ -170,8 +170,8 @@ key.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-bibtex" "org-ref-bibtex.el" (23290
-;;;;;;  17815 995088 418000))
+;;;### (autoloads nil "org-ref-bibtex" "org-ref-bibtex.el" (23294
+;;;;;;  37824 489806 21000))
 ;;; Generated autoloads from org-ref-bibtex.el
 
 (autoload 'org-ref-bibtex-generate-longtitles "org-ref-bibtex" "\
@@ -340,8 +340,8 @@ will clobber the file.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-core" "org-ref-core.el" (23290 17816
-;;;;;;  563121 229000))
+;;;### (autoloads nil "org-ref-core" "org-ref-core.el" (23294 37825
+;;;;;;  417844 71000))
 ;;; Generated autoloads from org-ref-core.el
 
 (autoload 'org-ref-show-link-messages "org-ref-core" "\
@@ -537,8 +537,8 @@ Open the `org-ref' manual.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-glossary" "org-ref-glossary.el" (23290
-;;;;;;  17816 223101 586000))
+;;;### (autoloads nil "org-ref-glossary" "org-ref-glossary.el" (23294
+;;;;;;  37824 737816 227000))
 ;;; Generated autoloads from org-ref-glossary.el
 
 (autoload 'org-ref-add-glossary-entry "org-ref-glossary" "\
@@ -564,8 +564,8 @@ Helm command to insert glossary and acronym entries as links.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-helm" "org-ref-helm.el" (23290 17816
-;;;;;;  43091 187000))
+;;;### (autoloads nil "org-ref-helm" "org-ref-helm.el" (23294 37824
+;;;;;;  537807 996000))
 ;;; Generated autoloads from org-ref-helm.el
 
 (autoload 'org-ref-helm-insert-label-link "org-ref-helm" "\
@@ -601,7 +601,7 @@ Run this with the point in a bibtex entry.
 ;;;***
 
 ;;;### (autoloads nil "org-ref-helm-bibtex" "org-ref-helm-bibtex.el"
-;;;;;;  (23290 17815 951085 899000))
+;;;;;;  (23294 37824 433803 716000))
 ;;; Generated autoloads from org-ref-helm-bibtex.el
 
 (autoload 'org-ref-bibtex-completion-completion "org-ref-helm-bibtex" "\
@@ -646,8 +646,8 @@ With a prefix ARG, browse citation links.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-isbn" "org-ref-isbn.el" (23290 17816
-;;;;;;  87093 729000))
+;;;### (autoloads nil "org-ref-isbn" "org-ref-isbn.el" (23294 37824
+;;;;;;  581809 807000))
 ;;; Generated autoloads from org-ref-isbn.el
 
 (autoload 'org-ref-isbn-clean-bibtex-entry "org-ref-isbn" "\
@@ -672,8 +672,8 @@ in the file. Data comes from worldcat.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-ivy-cite" "org-ref-ivy-cite.el" (23290
-;;;;;;  17814 779018 913000))
+;;;### (autoloads nil "org-ref-ivy-cite" "org-ref-ivy-cite.el" (23294
+;;;;;;  37823 561767 675000))
 ;;; Generated autoloads from org-ref-ivy-cite.el
 
 (autoload 'org-ref-ivy-cite-completion "org-ref-ivy-cite" "\
@@ -683,8 +683,8 @@ Use ivy for completion.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-latex" "org-ref-latex.el" (23290 17814
-;;;;;;  915026 629000))
+;;;### (autoloads nil "org-ref-latex" "org-ref-latex.el" (23294 37823
+;;;;;;  697773 319000))
 ;;; Generated autoloads from org-ref-latex.el
 
 (autoload 'org-ref-latex-debug "org-ref-latex" "\
@@ -699,8 +699,8 @@ Jump to entry clicked on.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-pdf" "org-ref-pdf.el" (23290 17815
-;;;;;;  903083 151000))
+;;;### (autoloads nil "org-ref-pdf" "org-ref-pdf.el" (23294 37824
+;;;;;;  393802 70000))
 ;;; Generated autoloads from org-ref-pdf.el
 
 (autoload 'org-ref-pdf-to-bibtex "org-ref-pdf" "\
@@ -737,8 +737,8 @@ Lookup highlighted text in PDFView in CrossRef.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-pubmed" "org-ref-pubmed.el" (23290
-;;;;;;  17815 19032 538000))
+;;;### (autoloads nil "org-ref-pubmed" "org-ref-pubmed.el" (23294
+;;;;;;  37823 797777 470000))
 ;;; Generated autoloads from org-ref-pubmed.el
 
 (autoload 'pubmed-insert-bibtex-from-pmid "org-ref-pubmed" "\
@@ -769,8 +769,8 @@ Open QUERY in Pubmed in a browser.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-reftex" "org-ref-reftex.el" (23290
-;;;;;;  17816 271104 359000))
+;;;### (autoloads nil "org-ref-reftex" "org-ref-reftex.el" (23294
+;;;;;;  37824 789818 368000))
 ;;; Generated autoloads from org-ref-reftex.el
 
 (autoload 'org-ref-reftex-completion "org-ref-reftex" "\
@@ -794,7 +794,7 @@ get a lot of options.  LINK-STRING is used by the link function.
 ;;;***
 
 ;;;### (autoloads nil "org-ref-scifinder" "org-ref-scifinder.el"
-;;;;;;  (23290 17816 467115 683000))
+;;;;;;  (23294 37825 305839 501000))
 ;;; Generated autoloads from org-ref-scifinder.el
 
 (autoload 'scifinder "org-ref-scifinder" "\
@@ -804,8 +804,8 @@ Open https://scifinder.cas.org/scifinder/view/scifinder/scifinderExplore.jsf in 
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-scopus" "org-ref-scopus.el" (23290
-;;;;;;  17814 951028 671000))
+;;;### (autoloads nil "org-ref-scopus" "org-ref-scopus.el" (23294
+;;;;;;  37823 729774 647000))
 ;;; Generated autoloads from org-ref-scopus.el
 
 (autoload 'scopus-related-by-keyword-url "org-ref-scopus" "\
@@ -841,7 +841,7 @@ Open QUERY as an advanced search at scopus.com.
 ;;;***
 
 ;;;### (autoloads nil "org-ref-url-utils" "org-ref-url-utils.el"
-;;;;;;  (23290 17816 135096 502000))
+;;;;;;  (23294 37824 633811 947000))
 ;;; Generated autoloads from org-ref-url-utils.el
 
 (autoload 'org-ref-url-debug-url "org-ref-url-utils" "\
@@ -868,8 +868,8 @@ Drag-n-drop function to download the first DOI in a url.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-utils" "org-ref-utils.el" (23290 17815
-;;;;;;  811077 884000))
+;;;### (autoloads nil "org-ref-utils" "org-ref-utils.el" (23294 37824
+;;;;;;  289797 789000))
 ;;; Generated autoloads from org-ref-utils.el
 
 (autoload 'org-ref-version "org-ref-utils" "\
@@ -971,8 +971,8 @@ Set link TYPE properties to PARAMETERS.
 
 ;;;***
 
-;;;### (autoloads nil "org-ref-wos" "org-ref-wos.el" (23290 17814
-;;;;;;  847022 771000))
+;;;### (autoloads nil "org-ref-wos" "org-ref-wos.el" (23294 37823
+;;;;;;  629770 497000))
 ;;; Generated autoloads from org-ref-wos.el
 
 (autoload 'wos-search "org-ref-wos" "\
@@ -987,7 +987,7 @@ Open Web of Science search page in a browser.
 
 ;;;***
 
-;;;### (autoloads nil "x2bib" "x2bib.el" (23290 17816 415112 679000))
+;;;### (autoloads nil "x2bib" "x2bib.el" (23294 37825 253837 378000))
 ;;; Generated autoloads from x2bib.el
 
 (autoload 'ris2bib "x2bib" "\
@@ -1013,7 +1013,7 @@ Map over bibtex entries and clean them.
 
 ;;;### (autoloads nil nil ("org-ref-citeproc.el" "org-ref-helm-cite.el"
 ;;;;;;  "org-ref-ivy.el" "org-ref-pkg.el" "org-ref-sci-id.el" "org-ref-worldcat.el"
-;;;;;;  "org-ref.el") (23290 17816 515118 456000))
+;;;;;;  "org-ref.el") (23294 37825 361841 786000))
 
 ;;;***
 
