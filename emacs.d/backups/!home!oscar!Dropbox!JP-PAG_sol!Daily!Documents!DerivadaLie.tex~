@@ -1,0 +1,665 @@
+%%  \documentclass[letterpaper]{report}
+%%  \usepackage[spanish]{babel}
+%%  \usepackage[ansinew]{inputenc}
+%%  \usepackage{graphicx}
+%%  %\usepackage{txfonts}
+%%  \usepackage[right=1.5cm,left=1.5cm,top=2cm,bottom=1.2cm,headsep=1.2cm,footskip=0.8cm]{geometry}
+%%  \usepackage[pdftex]{color}
+%%  \usepackage{fancyhdr}
+%%  \usepackage{enumitem}
+%%  \usepackage{ifthen,calc}
+%%  %\usepackage{dsfont}
+%%  \usepackage{amsmath}
+%%  \usepackage{amssymb}
+%%  \usepackage{tabularx}
+%%  \usepackage{multirow}
+%%  %Paquete para poder escribir con color%
+%%  \usepackage[dvipsnames]{xcolor}
+
+
+%% \pagestyle{fancy}
+%% \fancyhf{}
+
+%%  \fancyhead[L]{\footnotesize{Universidad T\'ecnica Federico Santa Mar\'ia\\
+%%  Departamento de F\'isica\\ Casa Central}}
+%%  \fancyhead[R]{\footnotesize{Jos\'e Perdiguero\\ 2018-2}}%\\
+%%  \fancyhead[C]{\includegraphics[scale=.2]{UTFSM}}
+
+
+%%  \renewcommand{\headrulewidth}{0.5pt}
+%%  \renewcommand{\footrulewidth}{0.5pt}
+
+%%  \makeatletter
+%%  \let\savees@listquot\es@listquot
+%%  \def\es@listquot{\protect\savees@listquot}
+%%  %\makeatletter
+
+%%  \setenumerate{nolistsep}
+%%  \setenumerate[1]{label=\textcolor{black}{\bfseries \arabic*.},topsep=2pt,
+%%  ref=\theenumi,leftmargin=*,itemsep=10pt}
+%%  \setenumerate[2]{noitemsep,label=\textcolor{red}{\bfseries{\alph*.}},ref=(\alph*),
+%%  leftmargin=*,font=\rm,topsep=2pt}
+%%  \setenumerate[3]{noitemsep,label=\textcolor{red}{\bfseries{\roman*.}},ref=(\roman*),
+%%  leftmargin=*,font=\rm,topsep=2pt,labelindent=0pt}
+
+
+%% \hyphenation{es-pe-ra-da fa-lla ma-yor re-pre-sen-tar res-pec-to}
+
+
+%%  \begin{document}
+%%  \newcolumntype{Y}{>{\centering\arraybackslash}X} % esto se pone antes de hacer una tabla
+
+\chapter{Derivada de Lie}
+\section{Derivada de Lie}
+
+La derivada de Lie es un operador matem\'atico que nos permite encontrar condiciones para imponer simetr\'ias. Para un escalar la derivada de Lie es simplemente la derivada direccional $L_{V}\phi=V^{\mu}\partial _{\mu}\phi$. Si queremos construir la derivada de Lie para un tensor de rango (p,q) utilizamos la siguiente regla:\\
+
+\begin{enumerate}
+\item La derivada direccional de T a lo largo de V
+\item p terminos con signo (-), que involucran la derivada covariante de V contra\'ida con cada indice superior.
+\item q terminos con signo (+), que involucran la derivada covariante de V contra\'ida con cada indice inferior.\\
+\end{enumerate}
+
+Como ejemplo:
+
+\begin{eqnarray*}
+L_{V}W^{\mu} &=& V^{\nu}\partial _{\nu} W^{\mu} - W^{\mu}\partial _{\nu}V^{\mu}\\
+L_{V}H_{\nu} &=& V^{\rho}\nabla _{\rho}H_{\nu}  + H_{\rho }\nabla _{\nu}V^{\rho}\\
+L_{V}G^{\mu}_{\nu} &=& V^{\rho}\nabla _{\rho}G^{\mu}_{\nu} - G^{\rho}_{\nu}\nabla _{\rho}V^{\mu} + G^{\mu}_{\rho }\nabla _{\nu}V^{\rho}\\
+L_{V}T^{\mu}_{\nu \lambda} &=& V^{\rho}\nabla _{\rho}T^{\mu}_{\nu \lambda} - T^{\rho}_{\nu \lambda}\nabla _{\rho}V^{\mu} + T^{\mu}_{\rho \lambda}\nabla _{\nu}V^{\rho} + T^{\mu}_{\nu \rho}\nabla _{\lambda}V^{\rho}
+\end{eqnarray*}
+
+Dada la busqueda del tensor mas gen\'erico posible, es que debemos usar un tensor de la forma $T_{\mu \nu} (t,r,\theta,\varphi)$, cuya derivada de Lie , siguiendo las reglas escritas es:\\
+
+\begin{eqnarray*}
+L_{V}T_{\mu \nu} = V^{\rho}\nabla _{\rho}T_{\mu \nu}  + T_{\mu \rho }\nabla _{\nu}V^{\rho}+ T_{ \rho \nu }\nabla _{\mu}V^{\rho}\\
+\end{eqnarray*}
+
+El met\'odo para proceder en este caso es el siguiente, dado los vectores de Killing encontrados para generar las simetr\'ias buscadas, en este caso buscamos la isotrop\'ia y la homogeneidad, vamos a calcular la derivada de Lie a lo largo de estos 3 vectores. Contamos con 3 vectores de killing para isotrop\'ia $J_{1},J_{2},J_{3}$ para el caso de homogeneidad son 3 tambien $J_{1'},J_{2'},J_{3'}$, como mencionamos calculamos la derivada de Lie a lo largo de cada uno de estos vectores y esto nos va a generar un set de ecuacioens diferenciales que se debe resolver en orden para poder encontrar el tensor mas gen\'erico posible, esto nos impondra condiciones sobre el tensor $T_{\mu \nu}$ y como deben ser sus componentes y cual debe ser su dependencia en funci\'on de las variables $(t,r,\theta, \varphi)$\\
+
+Para realizar los calculos usaremos el programa SAGE, la ventaja de usar este programa es que  nos permite calcular todo lo que necesitamos relacionado con la derivada de Lie de forma explicita, pero la desventaja es que a medida que vamos calculando las derivadas de Lie a lo largo de un vector J vamos a encontrar algunas ecuaciones diferenciales que se pueden resolver y podremos encontrar como es la dependencia radial o angular de la componente del tensor $T_{\mu \nu}$ sin embargo para seguir trabajando vamos a tener que renombrar las variables para que el programa pueda funcionar correctamente. Lo mas importante que se debe tener en mente usando el programa, es que una vez calculada la derivada de Lie , se resuelven las ecuaciones encontradas , se imponen las condiciones halladas y nuevamente se calcula la derivada de Lie esto con el fin de que se calcule nuevamente bajo las simetr\'ias impuestas.\\
+
+El proceso termina cuando la derivada de Lie a lo largo de cada uno del vectores que generan una simetr\'ia es cero, esto nos da entender que el tensor no va a cambiar bajo ese campo vectorial. En este trabajo se comienzan los calculos para la condici\'on de isotrop\'ia y despues homogeneidad.
+
+%% \newpage
+
+\section{Tensor M\'etrico}
+
+Empezamos el estudio con el tensor mas gen\'erico posible de rango (0,2) que sea funci\'on de todas las coordenadas que definen el sistema, esto es un tensor de la forma $T_{\mu \nu} = T_{\mu \nu} (t,r,\theta, \varphi)$
+
+\subsection{Tensor Isotr\'opico}
+Los vectores de killing que generan las simetr\'ias bajo condiciones de isotrop\'ia pueden ser escritos en coordenadas esfericas:
+
+\begin{eqnarray}
+J_{1} &=& (0 , 0 , -\cos (\varphi) , \cot (\theta)\sin (\varphi) )\\
+J_{2} &=& (0 , 0 , \sin (\varphi) , \cot (\theta)\cos (\varphi) )\\
+J_{3} &=& (0 , 0 , 0 , 1)
+\end{eqnarray}
+
+Deseamos construir el  tensor de rango (0,2) de 4 dimensiones mas generico posible bajo condiciones de isotrop\'ia. Para esto usamos la derivada de Lie:
+
+\begin{equation}
+L_{V} T_{\nu \lambda} = V^{\rho}\nabla _{\rho}T_{\nu\lambda}+T_{\rho\lambda}\nabla _{\nu}V^{\rho}+T _{\nu \rho}\nabla _{\lambda}V^{\rho}
+\end{equation}
+
+Primero definimos el tensor a utilizar de la forma mas general posible $T_{\mu \nu} (t,r,\theta \varphi)$ utilizamos la derivada de Lie usando el vector $J_{3}$, de esto vemos que el resultado es directo, un set de ecuaciones de la forma:
+
+\begin{equation}
+L_{J_{3}}T_{\mu \nu} = \frac{\partial T_{\mu \nu}}{\partial \varphi}
+\end{equation}
+
+Solo es cero si, el tensor $T_{\mu \nu}$ no es funci\'on de $\varphi$, luego podemos concluir que utilizando el vector $J_{3}$ nos  impone una condici\'on sobre el tensor $T_{\mu \nu}$ y es que este debe ser de la forma $T_{\mu \nu} (t,r,\theta)$.\\
+
+Ahora usamos el vector $J_{1}$ aplicado a la derivada de Lie y obtenemos un set de ecuaciones diferenciales de las cuales solo 4 presentan una soluci\'on directa:
+
+\begin{eqnarray}
+L_{J_{1}}T_{tt} &=& -\cos (\varphi)\frac{\partial T_{00}}{\partial \theta}\\
+L_{J_{1}}T_{tr} &=& -\cos (\varphi)\frac{\partial T_{01}}{\partial \theta}\\
+L_{J_{1}}T_{rt} &=& -\cos (\varphi)\frac{\partial T_{10}}{\partial \theta}\\
+L_{J_{1}}T_{rr} &=& -\cos (\varphi)\frac{\partial T_{11}}{\partial \theta}\\
+\end{eqnarray}
+
+De esto deducimos que las componentes $ T_{00}$,$ T_{01}$,$ T_{10}$,$ T_{11}$ no depende de la coordenada $\theta$:
+
+\begin{eqnarray}
+T_{00} &=&T_{00} (t,r)\\
+T_{01} &=&T_{01} (t,r)\\
+T_{10} &=&T_{10} (t,r)\\
+T_{11} &=&T_{11} (t,r)
+\end{eqnarray}
+
+Dada la simetr\'ia que existe entre el vector $J_{1}$ y $J_{2}$ si usamos $J_{2}$ vamos a obtener un resultado similar, por lo tanto para seguir buscando por la forma mas gen\'erica para el tensor $T _{\mu \nu}$ usamos combinaciones lineales de la derivada de Lie, en part\'icular usaremos la suma:
+
+\begin{eqnarray}
+L_{J_{1}} T_{\nu \lambda}\sin (\varphi) +L_{J_{2}} T_{\nu \lambda}\cos (\varphi) &=&0
+\end{eqnarray}
+
+De esto, se obtienen un set de ecuaciones : 
+
+\begin{eqnarray}
+L_{J_{1}}T_{02}\sin (\varphi) + L_{J_{2}}T_{02}\cos(\varphi) &=&-\frac{T_{0,3}}{\sin^{2}(\theta)}\\ 
+L_{J_{1}}T_{03}\sin (\varphi) + L_{J_{2}}T_{03}\cos(\varphi)  &=&T_{0,2}\\ 
+L_{J_{1}}T_{12}\sin (\varphi) + L_{J_{2}}T_{12}\cos(\varphi)  &=&-\frac{T_{1,3}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{13}\sin (\varphi) + L_{J_{2}}T_{13}\cos(\varphi)  &=&T_{1,2}\\
+L_{J_{1}}T_{20}\sin (\varphi) + L_{J_{2}}T_{20}\cos(\varphi)  &=&-\frac{T_{3,0}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{21}\sin (\varphi)+ L_{J_{2}}T_{21}\cos(\varphi)  &=&-\frac{T_{3,1}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{22}\sin (\varphi)+ L_{J_{2}}T_{22}\cos(\varphi)  &=&-\frac{T_{2,3}+T_{3,2}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{23}\sin (\varphi)+ L_{J_{2}}T_{23}\cos(\varphi)  &=&\frac{T_{2,2}\sin ^{2}(\theta)-T_{3,3}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{30}\sin (\varphi)+ L_{J_{2}}T_{30}\cos(\varphi)  &=&T_{2,0}\\
+L_{J_{1}}T_{31}\sin (\varphi) + L_{J_{2}}T_{31}\cos(\varphi)  &=&T_{2,1}\\
+L_{J_{1}}T_{32}\sin (\varphi) + L_{J_{2}}T_{32}\cos(\varphi) &=& \frac{T_{22}\sin^{2}\theta - T_{33}}{\sin^{2}(\theta)}\\
+L_{J_{1}}T_{33}\sin (\varphi) + L_{J_{2}}T_{33}\cos(\varphi) &=& T_{23}+T_{32}
+\end{eqnarray}
+
+y las siguientes condiciones para el tensor $T_{\mu \nu}$:
+
+\begin{eqnarray}
+T_{0,3} &=& 0\\
+T_{0,2} &=& 0 \\
+T_{1,3} &=& 0\\
+T_{1,2} &=& 0\\
+T_{3,0} &=& 0\\
+T_{3,1} &=& 0\\
+T_{3,2} &=& -T _{2,3}\\
+T_{3,3} &=& T_{2,2}\sin ^{2}(\theta)\\
+T_{2,0} &=& 0\\
+T_{2,1} &=& 0\\
+\end{eqnarray}
+
+Luego calculamos una segunda combinaci\'on lineal, esta vez la resta:
+
+\begin{eqnarray}
+L_{J_{1}} T_{\nu \lambda}*\sin (\varphi) -L_{J_{2}}T_{\nu \lambda}*\cos (\varphi) &=&0
+\end{eqnarray}
+
+El set de ecuaciones es:
+
+\begin{eqnarray}
+L_{J_{1}} T_{22}*\sin (\varphi) -L_{J_{2}}T_{22}*\cos (\varphi)  &=& -2 \cos (\varphi) \sin (\varphi) \frac{\partial T_{2,2} }{\partial \theta}\\
+L_{J_{1}} T_{23}*\sin (\varphi) -L_{J_{2}}T_{23}*\cos (\varphi)  &=& 2\left(\frac{T_{2,3} \cos (\varphi)\cos (\theta)\sin(\varphi)-\cos(\varphi)\sin (\varphi)\sin(\theta)\frac{\partial T _{23}}{\partial \theta}}{\sin (\theta)}\right)\\
+L_{J_{1}} T_{32}*\sin (\varphi) -L_{J_{2}}T_{32}*\cos (\varphi)  &=& -2 \cos (\varphi) \sin (\varphi) \frac{\partial T_{2,2} }{\partial \theta}\\
+L_{J_{1}} T_{33}*\sin (\varphi) -L_{J_{2}}T_{33}*\cos (\varphi)  &=& 2\left(\frac{T_{2,3} \cos (\varphi)\cos (\theta)\sin(\varphi)-\cos(\varphi)\sin (\varphi)\sin(\theta)\frac{\partial T _{23}}{\partial \theta}}{\sin (\theta)}\right)
+\end{eqnarray}
+
+De la primera ecuaci\'on encontramos que $T_{22} = T_{22} (t,r)$ y para encontrar informaci\'on de la segunda ecuaci\'on debemos resolver la E.D.O. :
+
+\begin{eqnarray}
+0 &=& 2\left(\frac{T_{2,3} \cos (\varphi)\cos (\theta)\sin(\varphi)-\cos(\varphi)\sin (\varphi)\sin(\theta)\frac{\partial T _{23}}{\partial \theta}}{\sin (\theta)}\right)\\
+0 &=&T_{2,3} \cos (\theta)-\sin(\theta)\frac{\partial T _{23}}{\partial \theta}\\
+T_{2,3} &=& \sin (\theta)
+\end{eqnarray}
+
+De esta forma encontramos la dependencia angular de $T _{2,3} (t,r,\theta)=T_{2,3}(t,r)\sin(\theta)$ como estamos trabajando con el software Sage, es conveniente renombrar la parte radial como un nuevo tensor $T _{2,3} (t,r,\theta)=H(t,r)\sin(\theta)$\\
+
+Finalmente el tensor $T_{\mu \nu}$ mas gen\'erico bajo condiciones de isotrop\'ia es :
+
+\begin{gather}
+ T_{\mu \nu}
+ =
+   \begin{bmatrix}
+   T_{00}(t,r)&T_{01}(t,r)&0&0\\
+   T_{10}(t,r) &T_{11}(t,r)&0&0\\
+   0&0&T_{22}(t,r)&H(t,r)\sin(\theta)\\   \label{r1}
+   0&0&-H(t,r)\sin(\theta)&T_{22}(t,r)\sin ^{2}(\theta)\\
+   \end{bmatrix}
+\end{gather}
+
+%% \newpage
+
+\subsection{Tensor Homog\'eneo}
+
+Ahora buscamos que el tensor (\ref{r1}) sea homogeneo, para esto consideramos los nuevos vectores de simetr\'ia:
+
+\begin{eqnarray}
+J_{1'} &=& \sqrt{1-kr^{2}}\left( 0 , \cos(\varphi)\sin(\theta) , \frac{\cos(\varphi)\cos(\theta)}{r} , -\frac{\sin(\varphi)}{r\sin(\theta)}\right)\\
+J_{2'} &=& \sqrt{1-kr^{2}}\left( 0 , \sin(\varphi)\sin(\theta) , \frac{\sin(\varphi)\cos(\theta)}{r} , \frac{\cos(\varphi)}{r\sin(\theta)}\right)\\
+J_{3'} &=& \sqrt{1-kr^{2}}\left( 0 , \cos(\theta) ,-\frac{\sin(\theta)}{r} , 0\right)
+\end{eqnarray}
+
+Dado que el tensor $T_{\mu \nu}$ ya presenta isotrop\'ia y ahora queremos que sea homogeneo, basta con usar solo un vector de simetr\'ia, con el motivo de simplificar los calculos usaremos $J_{3'}$, calculamos la derivada de Lie a lo largo de ese vector $L_{J_{3'}}T_{\mu\nu} $ y nos entrega el siguiente set de ecuaciones:
+
+\begin{eqnarray}
+L_{J_{3'}}T_{tt} &=& \sqrt{1-kr^{2}}\cos (\theta) \frac{\partial T_{00}}{\partial r}\\
+L_{J_{3'}}T_{tr} &=&- \frac{\left(krT_{01}+(kr^{2}-1)\frac{\partial T_{01}}{\partial r}\right)\cos (\theta)}{\sqrt{1-kr^{2}}}\\
+L_{J_{3'}}T_{t\theta} &=&- \sqrt{1-kr^{2}}T_{01}(t,r)\sin(\theta)\\
+L_{J_{3'}}T_{rt} &=&- \frac{\left(krT_{10}+(kr^{2}-1)\frac{\partial T_{10}}{\partial r}\right)\cos (\theta)}{\sqrt{1-kr^{2}}}\\
+L_{J_{3'}}T_{rr} &=&- \frac{\sqrt{1-kr^{2}}\left(2krT_{11}+(kr^{2}-1)\frac{\partial T_{11}}{\partial r}\right)\cos (\theta)}{\sqrt{1-kr^{2}}}\\
+L_{J_{3'}}T_{r\theta} &=&  \frac{\left(\left(kr^{4}-r^{2}\right)T_{11}(t,r)+T_{22}(t,r)\right)\sin(\theta)}{\sqrt{1-kr^{2}}r^{2}}\\
+L_{J_{3'}}T_{r\varphi} &=& \frac{T_{23}(t,r)\sin ^{2}(\theta)}{\sqrt{1-kr^{2}}r^{2}}\\
+L_{J_{3'}}T_{\theta t} &=&-\sqrt{-1-kr^{2}}T_{10}\\
+L_{J_{3'}}T_{\theta r} &=& \frac{\left(\left(kr^{4}-r^{2}\right)T_{11}(t,r)+T_{22}(t,r)\right)\sin(\theta)}{\sqrt{1-kr^{2}}r^{2}}\\
+L_{J_{3'}}T_{\theta \theta} &=&\frac{\sqrt{1-kr^{2}}\left(r\frac{\partial T_{22}}{\partial r}-2T_{22}(t,r)\right)\cos (\theta)}{r}\\
+L_{J_{3'}}T_{\theta \varphi} &=&\frac{\sqrt{1-kr^{2}}\left(r\frac{\partial T_{23}}{\partial r}-2T_{23}(t,r)\right)\cos (\theta)\sin(\theta)}{r}\\
+L_{J_{3'}}T_{\varphi r} &=& \frac{T_{23}(t,r)\sin ^{2}(\theta)}{\sqrt{1-kr^{2}}r^{2}}\\
+L_{J_{3'}}T_{\varphi \theta } &=&-\frac{\sqrt{1-kr^{2}}\left(r\frac{\partial T_{23}}{\partial r}-2T_{23}(t,r)\right)\cos (\theta)\sin(\theta)}{r}\\
+L_{J_{3'}}T_{\varphi \varphi } &=&-\frac{\sqrt{1-kr^{2}}\left(r\frac{\partial T_{22}}{\partial r}-2T_{22}(t,r)\right)\cos (\theta)\sin ^{2}(\theta)}{r}
+\end{eqnarray}
+
+Obtenemos un set de 14 ecuaciones que se deben resolver, con esto encontramos las condiciones para tener un tensor homogeneo, las soluciones directa nos imponen las siguientes restricciones sobre el tensor $T_{\mu \nu}$
+
+\begin{eqnarray}
+T_{00}(t,r) &=& T_{00}(t)\\
+T_{01}(t,r) &=& 0\\
+T_{10}(t,r)&=& 0\\
+T_{23}(t,r)&=& 0\\
+T_{32}(t,r) &=& 0\\
+\end{eqnarray}
+
+La funci\'on $T_{00}(t)$ se va a renombrar como $G_{00}(t)$ por razones que mas adelante seran evidentes.
+Quedan 5 ecuaciones por resolver, de las cuales solo debemos resolver 3, esto debido a que algunas se repiten. Veamos cuales son:
+
+\begin{eqnarray}
+\frac{\sqrt{1-kr^{2}}\left(2krT_{11}+(kr^{2}-1)\frac{\partial T_{11}}{\partial r}\right)\cos (\theta)}{\sqrt{1-kr^{2}}} &=& 0
+\end{eqnarray}
+
+De esta ec. obtenemos la relaci\'on de dependencia radial $T_{11}(t,r)$ en funci\'on de r: $T_{11}(r)= \frac{1}{kr^{2}-1}$, luego por las mismas razones expuestas anteriormente cambiamos el nombre de $T_{11}(t) = \frac{G_{11}(t)}{kr^{2}-1}$.Sigamos con otra ecuaci\'on:
+
+\begin{equation}
+ \frac{\left(\left(kr^{4}-r^{2}\right)T_{11}(t,r)+T_{22}(t,r)\right)\sin(\theta)}{\sqrt{1-kr^{2}}r^{2}} = 0
+\end{equation}
+
+De esta concluimos una relaci\'on para la componente $T_{22}$ en funci\'on de $T_{11}$
+
+\begin{equation}
+T_{22} = T_{11}r^{2}(1-kr^{2})
+\end{equation}
+
+De la \'ultima ec. podemos encontrar la dependencia radial de la funci\'on $T_{22}(t,r)$:
+
+\begin{equation}
+-\frac{\sqrt{1-kr^{2}}\left(r\frac{\partial T_{22}}{\partial r}-2T_{22}(t,r)\right)\cos (\theta)\sin ^{2}(\theta)}{r} = 0
+\end{equation}
+
+Al resolver la ec. obtenemos $T_{22} (t,r) = r^{2}$ con esto encontramos la dependencia radial de la funci\'on y al igual que antes vamos a renombra la funci\'on $T_{22} (t,r) = G_{22}(t)r^{2}$.\\
+
+A continuaci\'on se muestra el resultado final:
+
+\begin{gather}
+ G_{\mu \nu}
+ =
+   \begin{bmatrix}
+   G_{00}(t)&0&0&0\\
+   0&\frac{G_{11}(t)}{1-kr^{2}}&0&0\\
+   0&0&r^{2}G_{11}(t)&0\\   
+   0&0&0&r^{2}G_{11}(t)\sin ^{2}(\theta)\\
+   \end{bmatrix}
+\end{gather}
+
+Que es equivalente a:
+
+\begin{equation}
+T = G_{00}(t)dt\otimes dt+ \frac{G_{11}(t)}{1-kr^{2}}dr\otimes dr + r^{2}G_{11}(t)d\theta \otimes d\theta + r^{2}G_{11}(t)\sin^{2}(\theta)d\varphi \otimes d\varphi
+\end{equation}
+
+Notamos que este tensor es identico al tensor de FLRW:
+
+\begin{equation}
+T = - dt\otimes dt+ \frac{a^{2}(t)}{1-kr^{2}}dr\otimes dr + r^{2}a^{2}(t)d\theta \otimes d\theta + r^{2}a^{2}(t)\sin^{2}(\theta)d\varphi \otimes d\varphi \label{eqfinal}
+\end{equation}
+
+Bajo el siguiente cambio de variable:
+
+\begin{eqnarray}
+G_{00} (t) &\rightarrow & -1\\
+G_{11} (t) &\rightarrow & a^{2}(t)
+\end{eqnarray}
+
+De ac\'a en adelante seguiremos trabajando con ec. (\ref{eqfinal}).
+
+%% \newpage
+
+\subsection{Comentarios}
+Notemos que ec. \ref{r1} tiene una forma muy part\'icular, si imponemos condiciones para que sea un tensor simetr\'ico entonces:
+
+\begin{gather}
+ T_{\mu \nu}
+ =
+   \begin{bmatrix}
+   T_{00}(t,r)&T_{10}(t,r)&0&0\\
+   T_{10}(t,r) &T_{11}(t,r)&0&0\\
+   0&0&T_{22}(t,r)&0\\   
+   0&0&0&T_{22}(t,r)\sin ^{2}(\theta)\\
+   \end{bmatrix}
+\end{gather}
+
+Vamos a escribirla de otra forma:
+
+\begin{equation}
+ds^{2} = T_{00}(t,r)dt^{2} + 2T_{10}(t,r)dtdr + T_{11}dr^{2}+T_{22}d\theta ^{2}+T_{22}\sin ^{2} d\varphi^{2} \label{eqcf}
+\end{equation}
+
+Vamos hacer una redifinici\'on de la coordenada temporal:
+
+\begin{eqnarray}
+T(t,r) &=& t + \psi(r)\\
+dT(t,r)&=& dt+\psi ' (r)dr\\
+dT^{2}(t,r) &=& dt^{2}+\psi '^{2}(r)dr^{2}+\psi'(r)drdt
+\end{eqnarray}
+
+De esto despejamos $dt^{2} = dT^{2}(t,r)-\psi '^{2}(r)dr^{2}-2\psi'(r)drdt$ y reemplazamos en ec (\ref{eqcf}):
+
+\begin{eqnarray}
+ds^{2} &=& -T_{00}\left(dT^{2}(t,r)-\psi '^{2}(r)dr^{2}-2\psi'(r)drdt\right)+ 2T_{10}(t,r)dtdr + T_{11}dr^{2}+T_{22}d\theta ^{2}+T_{22}\sin ^{2} d\varphi^{2}\\
+ds^{2} &=& -T_{00}dT^{2} +T_{00}\psi '^{2}(r)dr^{2}+\left(2T_{00}\psi'(r)drdt+2T_{10}(t,r)dtdr\right)+T_{11}dr^{2}+T_{22}d\Omega^{2}\\
+ds^{2} &=& -T_{00}dT^{2} +(T_{00}\psi '^{2}(r)+T_{11})dr^{2}+\left(2T_{00}\psi'(r)drdt+2T_{10}(t,r)dtdr\right)+T_{22}d\Omega^{2} \label{ds}
+\end{eqnarray}
+
+Vemos que en orden para eliminar los terminos de la diagonal, debemos resolver la ecuaci\'on:
+
+\begin{eqnarray}
+2T_{00}\psi'(r)drdt+2T_{10}(t,r)dtdr &=& 0\\
+\frac{d\psi(r)}{dr}&=& -\frac{T_{10}(t,r)}{T_{00}(t,r)} \label{cv}
+\end{eqnarray}
+
+Por razones historicas, se elige que $T_{10}(t,r) = 0$ de esta forma $\psi (r) = cte$ y reemplazamos esto en \ref{ds}:
+
+\begin{equation}
+ds^{2} = -T_{00}(t,r)dT^{2} +T_{11}(t,r)dr^{2}+T_{22}(t,r)d\Omega^{2}
+\end{equation}
+
+Donde $d\Omega^{2} = d\theta^{2}+\sin^{2}\theta d\varphi^{2}$.Finalmente encontramos el tensor mas gen\'erico, el cual toma la forma standar:
+
+\begin{gather}
+ g_{\mu \nu}
+ =
+   \begin{bmatrix}
+   T_{00}(t,r)&0&0&0\\
+   0&T_{11}(t,r)&0&0\\
+   0&0&T_{22}(t,r)&0\\   
+   0&0&0&T_{22}(t,r)\sin ^{2}(\theta)\\
+   \end{bmatrix}
+\end{gather}
+
+%% \newpage
+
+\section{Conexi\'on}
+
+Empezamos el estudio usando un tensor tipo conexi\'on lo mas gen\'erico posible de rango (1,2) que sea funci\'on de todas las coordenadas que definen el sistema, esto es una conexi\'on de la forma $T^{\lambda}_{\mu \nu} = T^{\lambda}_{\mu \nu} (t,r,\theta, \varphi)$ y la idea es repetir el mismo procedimiento de antes.
+
+\subsection{Conexi\'on isotr\'opica}
+
+Los vectores de killing que generan las simetr\'ias bajo condiciones de isotrop\'ia pueden ser escritos en coordenadas esfericas:
+
+\begin{eqnarray}
+J_{1} &=& (0 , 0 , -\cos (\varphi) , \cot (\theta)\sin (\varphi) )\\
+J_{2} &=& (0 , 0 , \sin (\varphi) , \cot (\theta)\cos (\varphi) )\\
+J_{3} &=& (0 , 0 , 0 , 1)
+\end{eqnarray}
+
+Deseamos construir la conexi\'on de rango (1,2) de 4 dimensiones mas generico posible bajo condiciones de isotrop\'ia. Para esto usamos la derivada de Lie:
+
+\begin{equation}
+L_{V} T^{\mu}_{\nu \lambda} = V^{\rho}\nabla _{\rho}T^{\mu}_{\nu\lambda}-T^{\rho}_{\nu \lambda}\partial _{\rho}V^{\mu}+T^{\mu}_{\rho\lambda}\nabla _{\nu}V^{\rho}+T _{\nu \rho}\nabla _{\lambda}V^{\rho} +\frac{\partial ^{2} V^{\mu}}{\partial x^{\nu} \partial x^{\lambda}}
+\end{equation}
+
+Primero definimos el tensor a utilizar de la forma mas general posible $T^{\lambda}_{\mu \nu} (t,r,\theta \varphi)$ utilizamos la derivada de Lie usando el vector $J_{3}$, de esto vemos que el resultado es directo, un set de ecuaciones de la forma:
+
+\begin{equation}
+L_{J_{3}}T^{\lambda}{\mu \nu} = \frac{\partial T^{\lambda}_{\mu \nu}}{\partial \varphi}
+\end{equation}
+
+Solo es cero si, el tensor $T^{\lambda}_{\mu \nu}$ no es funci\'on de $\varphi$, luego podemos concluir que utilizando el vector $J_{3}$ nos  impone una condici\'on sobre el tensor $T^{\lambda}_{\mu \nu}$ y es que este debe ser de la forma $T_{\mu \nu} (t,r,\theta)$.\\
+
+Ahora usamos el vector $J_{1}$ aplicado a la derivada de Lie y obtenemos un set de ecuaciones diferenciales de las cuales solo 8  presentan una soluci\'on directa:
+
+\begin{eqnarray}
+L_{J_{1}} T^{t}_{tt} &=& -\cos \varphi \frac{\partial T^{0}_{00}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{t}_{tr} &=& -\cos \varphi \frac{\partial T^{0}_{01}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{t}_{rt} &=& -\cos \varphi \frac{\partial T^{0}_{10}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{t}_{rr} &=& -\cos \varphi \frac{\partial T^{0}_{11}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{r}_{tt} &=& -\cos \varphi \frac{\partial T^{1}_{00}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{r}_{tr} &=& -\cos \varphi \frac{\partial T^{1}_{01}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{r}_{rt} &=& -\cos \varphi \frac{\partial T^{1}_{10}(t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{r}_{rr} &=& -\cos \varphi \frac{\partial T^{1}_{11}(t,r,\theta)}{\partial \theta}\\
+\end{eqnarray}
+
+De esto deducimos que las componentes escritas anteriormente de la conexi\'on no depende de la coordenada $\theta$:
+
+\begin{eqnarray}
+T^{0}_{00} &=&T^{0}_{00} (t,r)\\
+T^{0}_{01} &=&T^{0}_{01} (t,r)\\
+T^{0}_{10} &=&T^{0}_{10} (t,r)\\
+T^{0}_{11} &=&T^{0}_{11} (t,r)\\
+T^{1}_{00} &=&T^{1}_{00} (t,r)\\
+T^{1}_{01} &=&T^{1}_{01} (t,r)\\
+T^{1}_{10} &=&T^{1}_{10} (t,r)\\
+T^{1}_{11} &=&T^{1}_{11} (t,r)
+\end{eqnarray}
+
+Dada la simetr\'ia que existe entre el vector $J_{1}$ y $J_{2}$ si usamos $J_{2}$ vamos a obtener un resultado similar, por lo tanto para seguir buscando por la forma mas gen\'erica para la conexi\'on $T^{\lambda} _{\mu \nu}$ usamos combinaciones lineales de la derivada de Lie, en part\'icular usaremos la suma y resta:
+
+\begin{eqnarray}
+L_{J_{1}} T^{\mu}_{\nu \lambda}\sin (\varphi) +L_{J_{2}} T^{\mu}_{\nu \lambda}\cos (\varphi) &=&0\\
+L_{J_{1}} T^{\mu}_{\nu \lambda}\sin (\varphi) -L_{J_{2}} T^{\mu}_{\nu \lambda}\cos (\varphi) &=&0\\
+\end{eqnarray}
+
+De esto, se obtienen un set de ecuaciones, que se deben resolver para poder encontrar las condiciones a imponer. Empezaremos por la componente $t$, despues $r$,$\theta$ y finalmente $\varphi$:\\
+
+\begin{enumerate}
+\item Componente $t$:\\
+
+\begin{enumerate}
+\item $L_{J_{1}} T^{t}_{\nu \lambda}\sin (\varphi) +L_{J_{2}} T^{t}_{\nu \lambda}\cos (\varphi) =0$
+
+\begin{eqnarray}
+L_{J_{1}} T^{t}_{t\theta}\sin (\varphi) +L_{J_{2}} T^{t}_{t\theta}\cos (\varphi) &=& \frac{-T^{0}_{03}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{t\varphi}\sin (\varphi) +L_{J_{2}} T^{t}_{t\varphi}\cos (\varphi) &=& T^{0}_{02}(t,r,\theta)\\
+L_{J_{1}} T^{t}_{r\theta}\sin (\varphi) +L_{J_{2}} T^{t}_{r\theta}\cos (\varphi) &=& \frac{-T^{0}_{13}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{r\varphi}\sin (\varphi) +L_{J_{2}} T^{t}_{r\varphi}\cos (\varphi) &=& T^{0}_{12}(t,r,\theta)\\
+L_{J_{1}} T^{t}_{\theta t}\sin (\varphi) +L_{J_{2}} T^{t}_{\theta t}\cos (\varphi) &=& \frac{-T^{0}_{30}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{\theta r}\sin (\varphi) +L_{J_{2}} T^{t}_{\theta r}\cos (\varphi) &=& \frac{-T^{0}_{31}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{\theta \theta}\sin (\varphi) +L_{J_{2}} T^{t}_{\theta \theta }\cos (\varphi) &=& -\frac{T^{0}_{23}(t,r,\theta)+T^{0}_{32}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{\theta \varphi}\sin (\varphi) +L_{J_{2}} T^{t}_{\theta \varphi }\cos (\varphi) &=& \frac{T^{0}_{22}(t,r,\theta)\sin ^{2}\theta -T^{0}_{33}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{\varphi t}\sin (\varphi) +L_{J_{2}} T^{t}_{\varphi t}\cos (\varphi) &=& T^{0}_{20}(t,r,\theta)\\
+L_{J_{1}} T^{t}_{\varphi r}\sin (\varphi) +L_{J_{2}} T^{t}_{\varphi r}\cos (\varphi) &=& T^{0}_{21}(t,r,\theta)\\
+L_{J_{1}} T^{t}_{\varphi \theta}\sin (\varphi) +L_{J_{2}} T^{t}_{\varphi \theta  }\cos (\varphi) &=& \frac{T^{0}_{22}(t,r,\theta)\sin ^{2}\theta -T^{0}_{33}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{t}_{\varphi \varphi}\sin (\varphi) +L_{J_{2}} T^{t}_{\varphi}\cos (\varphi) &=& T^{0}_{23}(t,r,\theta)+T^{0}_{32}(t,r,\theta)
+\end{eqnarray}
+
+De estas ecuaciones podemos imponer las siguientes restricciones:
+
+\begin{eqnarray}
+T^{0}_{03} &=&0\\
+T^{0}_{02} &=&0\\
+T^{0}_{13} &=&0\\
+T^{0}_{12} &=&0\\
+T^{0}_{30} &=&0\\
+T^{0}_{31} &=&0\\
+T^{0}_{32} &=& -T^{0}_{23}\\
+T^{0}_{33} &=& T^{0}_{22}\sin ^{2} \theta \\
+T^{0}_{20} &=&0\\
+T^{0}_{21} &=&0\\
+\end{eqnarray}
+
+
+\item $L_{J_{1}} T^{\mu}_{\nu \lambda}\sin (\varphi) -L_{J_{2}} T^{\mu}_{\nu \lambda}\cos (\varphi) =0$
+
+\begin{eqnarray}
+L_{J_{1}} T^{t}_{\theta \theta}\sin (\varphi) -L_{J_{2}} T^{t}_{\theta \theta}\cos (\varphi) &=& -2 \cos \varphi \sin \varphi \frac{\partial T^{0}_{22}}{\partial _{\theta}}\\
+L_{J_{1}} T^{t}_{\theta \varphi}\sin (\varphi) -L_{J_{2}} T^{t}_{\theta \varphi}\cos (\varphi) &=& \frac{2T^{0}_{23} \cos \varphi\cos \theta \sin \varphi  - \cos \varphi \sin\theta \sin\theta \frac{\partial T^{0}_{23}}{\partial \theta}}{\sin \theta} \\
+L_{J_{1}} T^{t}_{\varphi \theta }\sin (\varphi) -L_{J_{2}} T^{t}_{\varphi \theta}\cos (\varphi) &=& \frac{2T^{0}_{23} \cos \varphi\cos \theta \sin \varphi  - \cos \varphi \sin\theta \sin\theta \frac{\partial T^{0}_{23}}{\partial \theta}}{\sin \theta} \\
+L_{J_{1}} T^{t}_{\theta \theta}\sin (\varphi) -L_{J_{2}} T^{t}_{\theta \theta}\cos (\varphi) &=& -2 \cos \varphi \sin \varphi  \sin ^{2} \theta\frac{\partial T^{0}_{22}}{\partial _{\theta}}
+\end{eqnarray}
+
+Imponemos dos condiciones, una de estas es directa y la otra se obtiene de resolver la ec. diferencial:
+
+\begin{eqnarray}
+T^{0}_{22} (t,r,\theta) &=& T ^{0}_{22} (t,r)\\
+T^{0}_{23} (t,r,\theta) &=& T^{0}_{23}(t,r) \sin \theta
+\end{eqnarray}
+
+Donde la segunda condici\'on nos dice que la dependencia angular de $T^{0}_{23}(\theta) = \sin \theta$
+
+\end{enumerate}
+
+\item Componente $r$:\\
+
+\begin{enumerate}
+\item $L_{J_{1}} T^{r}_{\nu \lambda}\sin (\varphi) +L_{J_{2}} T^{r}_{\nu \lambda}\cos (\varphi) =0$
+
+\begin{eqnarray}
+L_{J_{1}} T^{r}_{t\theta}\sin (\varphi) +L_{J_{2}} T^{r}_{t\theta}\cos (\varphi) &=& \frac{-T^{1}_{03}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{t\varphi}\sin (\varphi) +L_{J_{2}} T^{r}_{t\varphi}\cos (\varphi) &=& T^{1}_{02}(t,r,\theta)\\
+L_{J_{1}} T^{r}_{r\theta}\sin (\varphi) +L_{J_{2}} T^{r}_{r\theta}\cos (\varphi) &=& \frac{-T^{1}_{13}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{r\varphi}\sin (\varphi) +L_{J_{2}} T^{r}_{r\varphi}\cos (\varphi) &=& T^{1}_{12}(t,r,\theta)\\
+L_{J_{1}} T^{r}_{\theta t}\sin (\varphi) +L_{J_{2}} T^{r}_{\theta t}\cos (\varphi) &=& \frac{-T^{1}_{30}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{\theta r}\sin (\varphi) +L_{J_{2}} T^{r}_{\theta r}\cos (\varphi) &=& \frac{-T^{1}_{31}(t,r\,theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{\theta \theta}\sin (\varphi) +L_{J_{2}} T^{r}_{\theta \theta}\cos (\varphi) &=& -\frac{T^{1}_{23}(t,r,\theta)+T^{1}_{32}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{\theta \varphi}\sin (\varphi) +L_{J_{2}} T^{r}_{\theta \varphi}\cos (\varphi) &=& -\frac{T^{1}_{22}(t,r,\theta)\sin ^{2}\theta - T^{1}_{33}(t,r,\theta)}{\sin ^{2}\theta}
+\end{eqnarray}
+
+\begin{eqnarray}
+L_{J_{1}} T^{r}_{\varphi t}\sin (\varphi) +L_{J_{2}} T^{r}_{\varphi t}\cos (\varphi) &=& T^{1}_{20}(t,r,\theta)\\
+L_{J_{1}} T^{r}_{\varphi r}\sin (\varphi) +L_{J_{2}} T^{r}_{\varphi r}\cos (\varphi) &=& T^{1}_{21}(t,r,\theta)\\
+L_{J_{1}} T^{r}_{\varphi \theta}\sin (\varphi) +L_{J_{2}} T^{r}_{\varphi \theta}\cos (\varphi) &=& -\frac{T^{1}_{22}(t,r,\theta)\sin ^{2}\theta - T^{1}_{33}(t,r,\theta)}{\sin ^{2}\theta}\\
+L_{J_{1}} T^{r}_{\varphi \varphi}\sin (\varphi) +L_{J_{2}} T^{r}_{\varphi \varphi}\cos (\varphi) &=& T^{1}_{23}(t,r,\theta)+T^{1}_{32}(t,r\theta)
+\end{eqnarray}
+
+De estas ecuaciones podemos imponer las siguientes restricciones:
+
+\begin{eqnarray}
+T^{1}_{03} &=& 0\\
+T^{1}_{02} &=& 0\\
+T^{1}_{13} &=& 0\\
+T^{1}_{12} &=& 0\\
+T^{1}_{30} &=& 0\\
+T^{1}_{31} &=& 0\\
+T^{1}_{32} &=& -T^{1}_{23}\\
+T^{1}_{33} &=& T^{1}_{22}\sin^{2}\theta \\
+T^{1}_{20} &=& 0\\
+T^{1}_{21} &=& 0
+\end{eqnarray}
+
+\item $L_{J_{1}} T^{r}_{\nu \lambda}\sin (\varphi) -L_{J_{2}} T^{r}_{\nu \lambda}\cos (\varphi) =0$
+
+\begin{eqnarray}
+L_{J_{1}} T^{r}_{\theta \theta}\sin (\varphi) -L_{J_{2}} T^{r}_{\theta \theta}\cos (\varphi) &=& -2 \cos \varphi \sin \varphi \frac{\partial T^{1}_{22}}{\partial _{\theta}}\\
+L_{J_{1}} T^{r}_{\theta \varphi}\sin (\varphi) -L_{J_{2}} T^{r}_{\theta \varphi}\cos (\varphi) &=& \frac{2T^{1}_{23} \cos \varphi\cos \theta \sin \varphi  - \cos \varphi \sin\theta \sin\theta \frac{\partial T^{1}_{23}}{\partial \theta}}{\sin \theta} \\
+L_{J_{1}} T^{r}_{\varphi \theta }\sin (\varphi) -L_{J_{2}} T^{r}_{\varphi \theta}\cos (\varphi) &=& \frac{2T^{1}_{23} \cos \varphi\cos \theta \sin \varphi  - \cos \varphi \sin\theta \sin\theta \frac{\partial T^{1}_{23}}{\partial \theta}}{\sin \theta} \\
+L_{J_{1}} T^{r}_{\theta \theta}\sin (\varphi) -L_{J_{2}} T^{r}_{\theta \theta}\cos (\varphi) &=& -2 \cos \varphi \sin \varphi  \sin ^{2} \theta\frac{\partial T^{1}_{22}}{\partial _{\theta}}
+\end{eqnarray}
+
+Imponemos dos condiciones, una de estas es directa y la otra se obtiene de resolver la ec. diferencial:
+
+\begin{eqnarray}
+T^{1}_{22} (t,r,\theta) &=& T ^{1}_{22} (t,r)\\
+T^{1}_{23} (t,r,\theta) &=& T^{1}_{23}(t,r) \sin \theta
+\end{eqnarray}
+
+Donde la segunda condici\'on nos dice que la dependencia angular de $T^{1}_{23}(\theta) = \sin \theta$
+
+\end{enumerate}
+
+
+\item Componente $\theta$:\\
+
+
+
+\begin{enumerate}
+\item  $L_{J_{1}} T^{\theta}_{\nu \lambda}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\nu \lambda}\cos (\varphi) =0$
+
+
+\begin{eqnarray}
+L_{J_{1}} T^{\theta}_{tt}\sin (\varphi) +L_{J_{2}} T^{\theta}_{tt}\cos (\varphi)  &=& -T^{3}_{00} (t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{tr}\sin (\varphi) +L_{J_{2}} T^{\theta}_{tr}\cos (\varphi)  &=& -T^{3}_{01} (t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{t\theta}\sin (\varphi) +L_{J_{2}} T^{\theta}_{t\theta}\cos (\varphi)  &=& -\frac{T^{3}_{02} (t,r,\theta)\sin ^{2} +T^{2}_{03}(t,r,\theta)}{\sin^{2} \theta}\\
+L_{J_{1}} T^{\theta}_{t\varphi}\sin (\varphi) +L_{J_{2}} T^{\theta}_{t\varphi}\cos (\varphi)  &=& T^{2}_{02} (t,r,\theta) - T^{3}_{03}\\
+L_{J_{1}} T^{\theta}_{rt}\sin (\varphi) +L_{J_{2}} T^{\theta}_{rt}\cos (\varphi)  &=& -T^{3}_{10} (t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{rr}\sin (\varphi) +L_{J_{2}} T^{\theta}_{rr}\cos (\varphi)  &=& -T^{3}_{11} (t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{r\theta}\sin (\varphi) +L_{J_{2}} T^{\theta}_{r\theta}\cos (\varphi)  &=& -\frac{T^{3}_{12} (t,r,\theta)\sin ^{2} \theta+ T^{2}_{13}(t,r,\theta)}{\sin^{2} \theta}
+\end{eqnarray}
+
+\begin{eqnarray}
+L_{J_{1}} T^{\theta}_{r\varphi}\sin (\varphi) +L_{J_{2}} T^{\theta}_{r\varphi}\cos (\varphi)  &=& T^{2}_{12} (t,r,\theta) - T^{3}_{13}(t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{\theta t}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\theta t}\cos (\varphi)  &=& -\frac{T^{3}_{20} (t,r,\theta)\sin ^{2} \theta+ T^{2}_{30}(t,r,\theta)}{\sin^{2} \theta}\\
+L_{J_{1}} T^{\theta}_{\theta r}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\theta r}\cos (\varphi)  &=& -\frac{T^{3}_{21} (t,r,\theta)\sin ^{2} \theta+ T^{2}_{31}(t,r,\theta)}{\sin^{2} \theta}\\
+L_{J_{1}} T^{\theta}_{\theta \theta}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\theta \theta}\cos (\varphi)  &=&\textcolor{red}{-\frac{T^{3}_{22} (t,r,\theta)\sin ^{2} \theta+ T^{2}_{23}(t,r,\theta)+T^{2}_{32}(t,r,\theta)}{\sin^{2} \theta}}\\
+L_{J_{1}} T^{\theta}_{\theta \varphi}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\theta \varphi}\cos (\varphi)  &=&\textcolor{red}{-\frac{(T^{2}_{22} (t,r,\theta)- T^{3}_{23}(t,r,\theta))\sin ^{2} \theta+T^{2}_{33}(t,r,\theta)}{\sin^{2} \theta}}\\
+L_{J_{1}} T^{\theta}_{\varphi t}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\varphi t}\cos (\varphi)  &=& T^{2}_{20} (t,r,\theta) - T^{3}_{30}(t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{\varphi r}\sin (\varphi) +L_{J_{2}} T^{\theta}_{\varphi r}\cos (\varphi)  &=& T^{2}_{21} (t,r,\theta) - T^{3}_{31}(t,r,\theta)\\
+L_{J_{1}} T^{\theta}_{ \varphi \theta }\sin (\varphi) +L_{J_{2}} T^{\theta}_{ \varphi \theta}\cos (\varphi)  &=&\textcolor{red}{-\frac{(T^{2}_{22} (t,r,\theta)- T^{3}_{23}(t,r,\theta))\sin ^{2} \theta+T^{2}_{33}(t,r,\theta)}{\sin^{2} \theta}}\\
+L_{J_{1}} T^{\theta}_{ \varphi \varphi }\sin (\varphi) +L_{J_{2}} T^{\theta}_{ \varphi \varphi}\cos (\varphi)  &=&\textcolor{red}{T^{2}_{23} (t,r,\theta) + T^{2}_{32}(t,r,\theta) - T^{3}_{33}(t,r,\theta)}
+\end{eqnarray}
+
+Las expresiones de color rojo, se agruparan al final de los calculos para resolver el sistema de ecuaciones. De estas ecuaciones podemos imponer las siguientes restricciones:
+
+\begin{eqnarray}
+T^{3}_{00} &=& 0\\
+T^{3}_{01} &=& 0\\
+T^{2}_{03} &=& -T^{3}_{02}\sin ^{2}\theta\\
+T^{2}_{02} &=& T^{3}_{03}\\
+T^{3}_{10} &=& 0\\
+T^{3}_{11} &=& 0\\
+T^{2}_{13} &=& -T^{3}_{12}\sin ^{2}\theta \\
+T^{2}_{12} &=& T^{3}_{13}\\
+T^{2}_{30} &=& -T^{3}_{20}\sin ^{2}\theta \\
+T^{2}_{31} &=& -T^{3}_{21}\sin ^{2}\theta \\
+T^{2}_{20} &=& T^{3}_{30}\\
+T^{2}_{21} &=& T^{3}_{31}\\
+T^{3}_{23} &=& T^{3}_{32}\\
+T^{3}_{33} &=& -T^{3}_{22}\sin ^{2}\theta 
+\end{eqnarray}
+
+\item  $L_{J_{1}} T^{\theta}_{\nu \lambda}\sin (\varphi) -L_{J_{2}} T^{\theta}_{\nu \lambda}\cos (\varphi) =0$
+
+\begin{eqnarray}
+L_{J_{1}} T^{\theta}_{tt}\sin (\varphi) - L_{J_{2}} T^{\theta}_{tt}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{2}_{00} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{tr}\sin (\varphi) - L_{J_{2}} T^{\theta}_{tr}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{2}_{01} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{t\theta}\sin (\varphi) - L_{J_{2}} T^{\theta}_{t\theta}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{3}_{03} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{t\varphi}\sin (\varphi) - L_{J_{2}} T^{\theta}_{t\varphi}\cos (\varphi)  &=& 2 T^{3}_{02} (t,r,\theta)\cos\varphi \cos \theta \sin \varphi \sin \theta + 2 \cos \varphi \sin \varphi \sin ^{2}\theta \frac{\partial T^{3}_{02}}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{rt}\sin (\varphi) - L_{J_{2}} T^{\theta}_{rt}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{2}_{10} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{rr}\sin (\varphi) - L_{J_{2}} T^{\theta}_{rr}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{2}_{11} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{r\theta}\sin (\varphi) - L_{J_{2}} T^{\theta}_{r\theta}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{3}_{13} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{r\varphi}\sin (\varphi) - L_{J_{2}} T^{\theta}_{r\varphi}\cos (\varphi)  &=& 2 T^{3}_{12} (t,r,\theta)\cos\varphi \cos \theta \sin \varphi \sin \theta + 2 \cos \varphi \sin \varphi \sin ^{2}\theta \frac{\partial T^{3}_{12}}{\partial \theta}
+\end{eqnarray}
+
+\begin{eqnarray}
+L_{J_{1}} T^{\theta}_{\theta t}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\theta t}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{3}_{30} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{\theta r}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\theta r}\cos (\varphi)  &=& -2 \cos\varphi \sin \varphi \frac{ \partial T^{3}_{31} (t,r,\theta)}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{\varphi t}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\varphi t}\cos (\varphi)  &=& 2 T^{3}_{20} (t,r,\theta)\cos\varphi \cos \theta \sin \varphi \sin \theta + 2 \cos \varphi \sin \varphi \sin ^{2}\theta \frac{\partial T^{3}_{20}}{\partial \theta}\\
+L_{J_{1}} T^{\theta}_{\varphi r}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\varphi r}\cos (\varphi)  &=& 2 T^{3}_{21} (t,r,\theta)\cos\varphi \cos \theta \sin \varphi \sin \theta + 2 \cos \varphi \sin \varphi \sin ^{2}\theta \frac{\partial T^{3}_{21}}{\partial \theta}
+\end{eqnarray}
+
+De estas ecuaciones podemos imponer las siguientes restricciones:
+
+\begin{eqnarray}
+T^{2}_{00} (t,r,\theta) &=& T^{2}_{00} (t,r)\\
+T^{2}_{01} (t,r,\theta) &=& T^{2}_{01} (t,r)\\
+T^{3}_{03} (t,r,\theta) &=& T^{3}_{03} (t,r)\\
+T^{3}_{02} (t,r,\theta) &=& \frac{ T^{3}_{02}(t,r)}{ \sin \theta}\\
+T^{2}_{10} (t,r,\theta) &=& T^{2}_{10} (t,r)\\
+T^{2}_{11} (t,r,\theta) &=& T^{2}_{11} (t,r)\\
+T^{3}_{13} (t,r,\theta) &=& T^{3}_{13} (t,r)\\
+T^{3}_{12} (t,r,\theta) &=& \frac{T^{3}_{12}(t,r)}{\sin \theta}\\
+T^{3}_{30} (t,r,\theta) &=& T^{3}_{30} (t,r)\\
+T^{3}_{31} (t,r,\theta) &=& T^{3}_{31} (t,r)\\
+T^{3}_{20} (t,r,\theta) &=& \frac{T^{3}_{20}(t,r)}{\sin \theta}\\
+T^{3}_{21} (t,r,\theta) &=& \frac{T^{3}_{21}(t,r)}{\sin \theta}
+\end{eqnarray}
+
+
+Para este caso en part\'icular no se escribieron las expresiones para:
+
+\begin{eqnarray}
+L_{J_{1}} T^{\theta}_{\theta \theta}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\theta \theta}\cos (\varphi)\\
+L_{J_{1}} T^{\theta}_{\theta \varphi}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\theta \varphi}\cos (\varphi)\\
+L_{J_{1}} T^{\theta}_{\varphi \theta}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\varphi \theta}\cos (\varphi)\\
+L_{J_{1}} T^{\theta}_{\varphi \varphi}\sin (\varphi) - L_{J_{2}} T^{\theta}_{\varphi \varphi}\cos (\varphi)
+\end{eqnarray}
+
+Esto debido a que son ecuaciones diferenciales que dependen de mas de una componente de la conexi\'on, sin embargno no ser\'a necesario trabajar con estas ecuaciones , pues resolviendo para las otras componentes bastara para conseguir todas las simetr\'ias posibles.
+
+\end{enumerate}
+
+\item Componente $\varphi$:\\
+
+\begin{enumerate}
+\item  $L_{J_{1}} T^{\varphi}_{\nu \lambda}\sin (\varphi) + L_{J_{2}} T^{\varphi}_{\nu \lambda}\cos (\varphi) =0$
+\item  $L_{J_{1}} T^{\varphi}_{\nu \lambda}\sin (\varphi) + L_{J_{2}} T^{\varphi}_{\nu \lambda}\cos (\varphi) =0$
+\end{enumerate}
+\end{enumerate}
+%% \newpage
+
+\subsection{Conexi\'on homog\'enea}
+
+%% \end{document}

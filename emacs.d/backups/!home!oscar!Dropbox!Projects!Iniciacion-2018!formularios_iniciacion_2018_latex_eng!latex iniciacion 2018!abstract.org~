@@ -1,0 +1,127 @@
+#+latex_class_options: [10pt,letterpaper]
+#+latex_header: \usepackage[cm]{fullpage}
+#+latex_header: \usepackage{array}
+#+options: toc:nil title:nil author:nil num:nil
+
+#+BEGIN: clocktable :scope file :maxlevel 2
+#+CAPTION: Clock summary at [2018-05-16 Wed 13:34]
+| Headline        | Time   |      |
+|-----------------+--------+------|
+| *Total time*    | *0:45* |      |
+|-----------------+--------+------|
+|                 | 0:45   |      |
+| \_  Goals       |        | 0:05 |
+| \_  Methodology |        | 0:40 |
+#+END:
+
+
+* Proposal abstract:
+
+#+attr_latex: :align |m{.4\textwidth}|m{.5\textwidth}|
+|----------------------------------+--------------------------------|
+| *Name of principal investigator* | Oscar Castillo Felisola        |
+|----------------------------------+--------------------------------|
+| /                                | <30>                           |
+| *Proposal title:*                | Particle and astroparticle physics in the context of generalized models of gravity |
+|----------------------------------+--------------------------------|
+
+* 
+
+Describe the main issues to be addressed: goals, methodology and
+expected results. *The maximum length for this section is 1
+page* (Must use letter size, Verdana size 10 or similar).
+
+** Goals 
+:LOGBOOK:
+CLOCK: [2018-05-15 Tue 09:45]--[2018-05-15 Tue 09:50] =>  0:05
+:END:
+
+The aim of this project is to explore the phenomenological
+implications induced in particle and astroparticle physics, by its
+interaction with generalized alternatives of gravitational
+interaction.  The necessity of considering such scenarios is driven by
+the lack of phenomenological understanding of the dark sector of the
+Universe.
+
+The goal is to discriminate between the considered models by comparing
+their predictions with the accelerator or cosmological observations,
+and search for a possible viable explanation to the dark
+sector. 
+
+# The aim of this project is to explore the phenomenological
+# implications in particle and astroparticle physics, in models
+# interacting with generalized alternatives of gravitational
+# interactions. The necessity of considering this scenarios is driven by
+# the lack of phenomenological understanding of the dark sector of the
+# Universe.
+
+# From the view point of fundamental interactions, in order to provide a
+# (minimal) viable explanation to the dark sector---including dark
+# matter and dark energy---, one needs to modify either the matter
+# content of the particle model (with the possibility of even adding
+# mediators of new interactions) or modifying the theory of
+# gravitational interactions.
+
+# On the one hand, the former approach has been explored extensively,
+# given rise to an incredible amount of beyond standard model
+# generalizations. However, none of them provide a phenomenologically
+# consistent solution to the problem.
+
+# On the other hand, the particularities of the model of gravity (as
+# provided by the theory of General Relativity) when compared with the
+# remaining fundamental interactions,[fn:1] have driven the community to
+# search alternative models of gravitation, which might either be
+# compatible with the methods used with the other interactions or
+# solve (at least partially) the problem of the dark sector of the
+# Universe. 
+
+# In this project, the focus will be the study of particle and
+# astroparticle physics phenomena, induced by the interaction with
+# generalizations of gravity, and trying to discriminate between the
+# considered models by comparing their predictions with the accelerator
+# or cosmological observations.
+
+
+** Methodology
+:LOGBOOK:
+CLOCK: [2018-05-15 Tue 10:25]--[2018-05-15 Tue 10:37] =>  0:12
+CLOCK: [2018-05-15 Tue 09:50]--[2018-05-15 Tue 10:18] =>  0:28
+:END:
+
+Since the purpose of the investigation is to obtain (astro)particle
+phenomenology, we will consider the matter content of the standard
+model of particle physics, interacting with a /curved/ spacetime
+through a gravitational interaction given by generalizations of
+General Relativity.
+
+Although the alternative models of gravity are abundant, we will
+restrict ourselves to two types of these generalizations, known as
+Lovelock--Cartan and Polynomial Affine Gravity. The first kind is the
+model built up under the same precepts than General Relativity
+(invariant under local Lorentz and diffeomorphisms, and yield second
+order field equations), but allows existence of torsion, and the model
+depends on the dimension in which is defined. The Polynomial Affine
+Gravity is a model which assumes that the gravitational interaction is
+mediated by the connection, and thus its action is built up solely
+from the connection, however, it is known to have a sector in which
+its field equations generalize those of General Relativity (in
+vacuum).
+
+The idea is to focus in finding the new possible interactions induced
+in particle physics, by (for example) the process of dimensional
+reduction of a Lovelock--Cartan model, or mediated by the
+gravitational torsion, and so on; and then use those new interaction
+terms to analyze their contribution to physical observables in
+accelerator physics and cosmology. It is important to use both
+accelerators and cosmological data, because with the former we could
+bound the parameters of the models, and then use them to determine the
+contribution in cosmology. This procedure might shed light in the
+(partial) understanding of either dark matter or dark energy.
+
+** Expected results
+
+* Footnotes
+
+[fn:1] To know: (i) It is not a gauge theory, (ii) It is not
+renormalizable, (iii) It is not consistently quantizable through
+standard methods.

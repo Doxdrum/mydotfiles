@@ -1,0 +1,82 @@
+\documentclass{usm-thesis}
+
+\usepackage{lipsum}
+\usepackage[english]{babel}
+
+\definethesis{Cosmologia en gravedad afin polinomial  %Here the title
+}{Jos\'e Perdiguero   %Here the Author
+}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%       BODY
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%% ------------------------------
+%%  Generate the title page
+%% ------------------------------
+\thesistitlepage{Advisor: Oscar Castillo-Felisola % Name of the advisor
+}{Trabajo de tesis presentado en cumplimiento parcial de los requisitos para el grado de Magister en Ciencias, menci\'on f\'isica, de la Universidad T\'ecnica Federico Santa Mar\'ia. % The thesis statement
+}{March, 2020 % The date
+}
+
+
+
+%% ------------------------------
+%%  Front matter
+%% ------------------------------
+\frontmatter
+
+
+%% %% ---------- Committee page
+%% \committee{
+%%   {Iv\'an Schmidt}{USM},
+%%   {Jorge Zanelli}{CECS},
+%%   {Claudio Dib}{USM},
+%%   {Stanley Kubrick}{Bates}
+%% }
+
+%% %% ---------- Dedication
+%% \Dedication{to my family}
+
+%% ---------- Creative Commons License
+\CC[by-sa]
+
+%% ---------- Table of Contents
+\tableofcontents
+
+
+
+
+
+%% ------------------------------
+%% Main matter
+%% ------------------------------
+\mainmatter
+
+
+\input{Documents/DerivadaLie}
+\input{Documents/vectores_de_killing}
+\input{Documents/ch3}
+
+\appendix
+
+\input{Documents/ap1}
+\input{Documents/ap2}
+
+
+%% ------------------------------
+%% Back matter
+%% ------------------------------
+\backmatter
+
+
+\nocite{IAS1,IAS2,Gilmore,Curtis,Bertlmann,Arnold,Freed, Nakahara,SUGRA-book,WeinbergQFT1,WeinbergQFT2,WeinbergQFT3,Castillo-Felisola:2013jva,Sternberg,Ivey,IASPark1,joyce2000,Joyce2007,CY-friends}
+
+%% ---------- Bibliography
+\bibliographystyle{utphys}
+\bibliography{References}
+\addcontentsline{toc}{chapter}{\bibname}
+
+
+\end{document}

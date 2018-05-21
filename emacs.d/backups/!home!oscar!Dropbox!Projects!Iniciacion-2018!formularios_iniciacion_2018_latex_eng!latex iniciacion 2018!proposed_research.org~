@@ -1,0 +1,830 @@
+#+latex_class_options: [10pt,letterpaper]
+#+latex_header: \usepackage[cm]{fullpage}
+#+latex_header: \usepackage{tikz,calc}
+#+latex_header: \usepackage{array,cite,siunitx,breqn,pgfgantt}
+#+latex_header: \usepackage{xcolor}
+#+latex_header: \hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue}
+#+options: toc:nil title:nil author:nil 
+
+** Proposed research
+:PROPERTIES:
+:CUSTOM_ID: sec.useless
+:UNNUMBERED: t
+:END:
+
+#+attr_latex: :align |m{.9\textwidth}|
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The maximum length of this file is *10 pages* (Must use letter size, Verdana size 10 or similar). For an adequate evaluation of your proposal merits,this file must include the following aspects: Proposal description, Hypothesis,Goals, Methodology, Work Plan, Work in progress and Available Resources. |
+|                                                                                                                                                                                                                                                                                                              |
+| Keep in mind the Bases del Concurso de Proyectos FONDECYT Iniciación 2017 and Application Instructions.                                                                                                                                                                                                      |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+#+TBLFM: 
+
+* Particle and astroparticle physics in the context of generalized models of gravity: affine gravity, extra dimension and higher order terms
+:PROPERTIES:
+:CUSTOM_ID: sec.title
+:UNNUMBERED: nil
+:END:
+
+** Description
+:PROPERTIES:
+:CUSTOM_ID: sec.desc
+:END:
+
+Recently, there has been a lot of excitement in the physics community,
+because of the experimental results which have detected, on the one
+hand, the Higgs particle
+cite:Aaltonen:2012qt,Aad:2012tfa,Chatrchyan:2012ufa, which was the
+missing key ingredient of the standard model of particle physics, and
+on the other hand, the accelerated expansion of the Universe
+cite:Riess:1998cb,perlmutter99 and also the direct detection of
+gravitational waves cite:Abbott:2016blz,Abbott:2017nmj. They represent
+the triumph of technological development, as well as a milestone for
+the theoretical modeling.
+
+The success of the /modern physics/ stands on two theories, which
+describe (quite accurately), what we believe are, the four fundamental
+interactions in Nature. 
+
+The standard model of particle physics covers three of these
+interactions: Electromagnetic, Weak and Strong. It is a quantum field
+theory, in which the interactions are modeled by gauge theories of the
+\(SU(3)_c \times SU(2)_L \times U(1)_Y\) groups, the fermionic matter
+is modelled by fields transforming in the spinorial representation of
+the Lorentz group \(SO(1,3)\),[fn:13] and moreover the whole model is
+renormalizable. Although it is the most successful model in the realm
+of particle physics, it lacks a consistent matching with the fourth
+fundamental interaction, i.e., gravity. The (theoretical) achievements
+of the standard model assume that the spacetime is flat, and thus
+cannot agree with General Relativity. 
+
+General Relativity describes the gravitational interaction
+cite:einstein1915allgemeinen, and has passed most of the observational
+test cite:Will:2014kxa. It is the only fundamental theory which is not
+mediated by a gauge field, has not been consistently quantized (not
+for lack of trying cite:Rovelli:2000aw), and does not enter into the
+category of renormalizable theory. In addition, cosmological
+observations suggest that the matter content of the Universe is
+approximately twenty times bigger than what we observe, and therefore
+that huge amount of missing matter (and energy) has been hypothesised
+exist whilst been /dark/, in the sense that it is detected only though
+their gravitational interaction instead of electromagnetic
+ones. Nowadays, there is evidence of the /existence/ of the dark
+sector. Unfortunately it is unknown what the constituents are, except
+that they come in two pieces called dark energy
+cite:Riess:1998cb,perlmutter99 and dark matter
+cite:trimble87_exist_natur_dark_matter_univer.
+
+The relevant fact is that we are able to measure the effects, but we
+have no certainty of what is causing those effects. Of course,
+hypothesise the existence of new forms of matter and energy is
+suitable, as long as we are capable of (eventually) measure them. So
+far, we do not have an explanation for what dark matter and dark
+energy are made of. This lack of explanation made us wonder whether
+there is a misunderstanding in our models, or they are incomplete, or
+our precepts are incompatible.
+
+The search of answers to these questions has open roads to considering
+alternative models of gravity and particle physics (others than the
+standard model). 
+
+Notice that the proposal of the dark sector is a modification in the
+side of the standard model of particles, while the gravitational
+interaction is still modeled by General Relativity. An different
+approach is to leave the standard model untouched,[fn:1] and
+considering alternative models of gravity. In this project, we shall
+focus in the latter, and shall analyse particular models of gravity.
+Nowadays, there are lots of alternative models of gravity, but from
+our view point only a handful of them appear as natural to be
+consider.  
+
+The first kind of model we are interested in, are models with general
+connections. Einstein's model of gravity gives a geometrical meaning
+to the interaction, by interpreting the curvature of the spacetime as
+the responsible of the gravitational /force/. The model rely on the
+fact that all the geometrical information of the spacetime is encoded
+in the metric field, \(g_{\mu\nu}\). However, mathematically, the
+curvature (\(R_{\mu\nu}{}^\lambda{}_\rho\)) is a geometrical quantity
+defined in terms of the connection (\(\Gamma_\mu{}^\lambda{}_\nu\)),
+and therefore the theory of Einstein can be generalised if one
+considers a connection which is not defined (completely) in terms of
+the metric. This was pointed out during the 20's by Cartan
+cite:Cartan1922,Cartan1923,Cartan1924,Cartan1925, but was consider to
+be relevant only when people started coupling fermions to
+gravity. Cartan's generalization of gravity needs another field,
+besides the metric, called the torsion (\(T_\mu{}^\lambda{}_\nu =
+\Gamma_\mu{}^\lambda{}_\nu - \Gamma_\nu{}^\lambda{}_\mu\)).[fn:2]
+
+The /minimal/ generalization of General Relativity introduced by
+Cartan, however, it was consider a plausible physical model when
+physicist considered gravity coupled with fermions,[fn:3] because the
+fermionic matter density acts as source for the torsion. It was also
+noticed that gravity could be thought as /almost/ as a gauge theory
+for the Lorentz group[fn:4] cite:Kibble:1961ba,Sciama:1964wt. The
+playground adapted to the study of these formulations of gravity is
+the one of orthogonal frames cite:cartan2001riemannian, due to
+Cartan. The usual action for pure gravity in General relativity,
+#+BEGIN_EXPORT latex
+\begin{equation}
+  S_{\text{gr}} = \int \mathrm{d}^4x \, \sqrt{g} ( R + 2 \Lambda ),
+\end{equation}
+#+END_EXPORT
+can be written in the new formalism as
+#+BEGIN_EXPORT latex
+\begin{equation}
+  S_{\text{gr}} = \int \epsilon_{abcd} \big( \mathcal{R}^{ab} + \frac{1}{\ell^2} e^a \wedge
+  e^b \big) \wedge e^c \wedge e^d,
+\end{equation}
+#+END_EXPORT
+where the information provided by the metric is encoded in the
+vielbien 1-forms, \(e^a\), the connection is changed by a Lorentz
+connection 1-form[fn:14] (\(\omega^{ab}\)), and the objects
+\(\mathcal{R}^{ab}\) and \(\mathcal{T}^a\) are the curvature and
+torsion 2-form, defined through the structure equations
+#+BEGIN_EXPORT latex
+\begin{align}
+  \mathrm{d} e^a + \omega^a{}_b \wedge e^b & = \mathcal{T}^a
+  &
+  \mathrm{d} \omega^{ab} + \omega^a{}_c \wedge \omega^{cb} & = \mathcal{R}^{ab}.
+\end{align}
+#+END_EXPORT
+It is worth noticing that in this formalism it is clearer that vanishing
+torsion allows to define the connection as a function of the vielbein
+(or equivalently the metric).
+
+In the Einstein--Cartan theory the field equations for the torsion are
+algebraic, an therefore the torsion can be integrated out and yields
+standard General Relativity plus a four-fermion contact interaction,
+whose phenomenology could---in principle---be tested in accelerators,
+its suppressed by the gravitational scale, i.e., the mass of Planck
+(\(M_{pl} \sim \SI{e19}{\GeV}\)), which makes impossible to observe
+such effects. In order to obtain phenomenological interesting models,
+one has to extend either the Einstein--Hilbert or the Einstein--Cartan
+model.
+
+A very interesting extension was proposed by Lovelock
+cite:lovelock1969uniqueness,Lovelock:1971yv, who built the most
+general action (in any dimension) compatible with the axioms
+supporting General Relativity:
+- Invariance under general coordinate transformations,
+- Invariance under local Lorentz transformations, and
+- Field equations should be second order partial differential
+  equations.[fn:5]
+The theories satisfying these conditions are known as theories of
+Einstein--Lovelock, and can be written in terms of differential forms
+as
+#+BEGIN_EXPORT latex
+\begin{align}
+  S_{\text{EL}} & = \sum_{p = 0}^{[\tfrac{n}{2}]} S_{\text{EL}}^{(p)};
+  &
+  S_{\text{EL}}^{(p)} & = \int \epsilon_{a_1 \cdots a_n}
+  \Big( \mathcal{R} + \frac{1}{\ell^2} e \wedge e \Big)^{a_1 a_2}
+  \wedge \cdots \wedge
+  \Big( \mathcal{R} + \frac{1}{\ell^2} e \wedge e \Big)^{a_{2p-1} a_{2p}}
+  e^{a_{2p+1}} \wedge \cdots \wedge e^{a_n}.
+\end{align}
+#+END_EXPORT
+In four dimensions the most general action (up to
+a topological term) is the Einstein--Hilbert action, but in higher
+dimensional spacetimes there are nontrivial terms build with
+polynomial curvature tensors.
+
+The proposal of considering model with extra dimensions goes back to
+the works by Kaluza cite:Kaluza and Klein cite:Klein, who found that
+extending Einstein's theory to five dimensions, where the fifth
+dimension is compact and tiny, yield to an effective four-dimensional
+theory which /unify/ gravity and electromagnetism. Through the years,
+the proposal got more adepts because the existence of those extra
+dimensions could serve to explain deep conceptual troubles, such as
+the /hierarchy/ problem cite:ADD1,RS1. However, it leaves the task of
+compactifying the model and getting a plausible physical effective
+theory in four dimensions, which has been extensively explored.
+
+The Einstein--Lovelock theory is built with the Levi-Cività
+connection, and we encounter the same limitations as in the
+Einstein-Hilbert model, when trying to couple gravity with fermionic
+matter. Therefore, it was proposed to consider a Cartan connection
+cite:Mardones:1990qc. Nonetheless, the inclusion of torsional in
+arbitrary dimensions allows terms with are not in the Lovelock series,
+and that might induce interesting particle physics and cosmological
+effects in the effective theory. There are four kinds of these terms:
+#+BEGIN_EXPORT latex
+\begin{align}
+  \mathcal{R}_A & = \mathcal{R}^{a_1}{}_{a_2} \wedge \cdots \wedge \mathcal{R}^{a_A}{}_{a_1},
+  &
+  \mathcal{V}_A & = e_{a_1} \wedge \mathcal{R}^{a_1}{}_{a_2} \wedge \cdots \wedge \mathcal{R}^{a_A}{}_{b} \wedge e^b,
+  \\
+  \mathcal{T}_A & = \mathcal{T}_{a_1} \wedge \mathcal{R}^{a_1}{}_{a_2} \wedge \cdots \wedge \mathcal{R}^{a_A}{}_{b} \wedge \mathcal{T}^b,
+  &
+  \mathcal{K}_A & = \mathcal{T}_{a_1} \wedge \mathcal{R}^{a_1}{}_{a_2} \wedge \cdots \wedge \mathcal{R}^{a_A}{}_{b} \wedge e^b.
+\end{align}
+#+END_EXPORT
+One of the goals of the project is to analyse in detail the
+phenomenology of the aforementioned effective models, as for example
+Ref. cite:castillo-felisola16_kaluz_klein_cosmol_from_five, where we
+consider the effects in cosmology induced by the five-dimensional
+Lovelock--Cartan theory (including the extra torsional term).
+
+To some extent, we first shall compactify the Lovelock--Cartan
+theories taking into account the nontrivial terms of the torsion. This
+term have never been considered in the compactification procedure, and
+we believe that they will source new phenomena which could be
+observed. It is expected that the Kaluza--Klein tower of the fields
+will correct the short-range behaviour of the interactions, but the
+/zero modes/ will contribute to the dark matter density. Thus, we
+shall analyse both the cosmological effects (expansion of the
+Universe, rotation of galaxies, inflation, etc.), and /matter/ effects
+(accelerator and cosmic rays phenomenology, neutrino physics,
+etc.). On the other hand, the existence of new geometrical terms, in
+the effective four-dimensional theory, could introduce novel
+contributions to the vacuum energy, and therefore explain---at least
+partially---the problem of the cosmological constant.
+
+It is important to highlight that, using non-minimal introductions of
+gravitational torsion there is room to explaining the dark sector of
+the Universe
+cite:Poplawski:2010jv,Poplawski:2010kb,Poplawski:2011xf,Vignolo:2014wva,alvarez-castillo17_dark_matter_candid_helic_effec,
+and also accelerator phenomenology
+cite:Belyaev:1997zv,Belyaev:1998ax,Belyaev:2007fn,Capozziello:2012gw,Capozziello:2013dja. However,
+our proposal is based on a different approach, which might be called
+quasi-minimal.[fn:6]
+
+The second stream of our proposal is to further developing the formal
+and phenomenological aspects of a novel model called /Polynomial
+Affine Gravity/ cite:Skirzewski:2014eta. This model is built under the
+premise of diffeomorphism invariance, and the solely field is the
+gravitational connection.[fn:7] The interest in affine theories of
+gravity goes back to the 1920's, with the works of Cartan
+cite:Cartan1922,Cartan1923,Cartan1924,Cartan1925, Eddington
+cite:Eddington1923math, due to the fact that the geometrical object
+defining the curvature (as mentioned already) is not the metric, but
+the connection. Although those early proposals were not fruitful,
+along the years new affine models have been proposed
+cite:schrodinger1950space,kijowski78_new_variat_princ_gener_relat,ferraris81_gener_relat_is_gauge_type_theor,ferraris82_equiv_relat_theor_gravit,poplawski07_unified_purel_affin_theor_gravit_elect,Krasnov:2007ei,Krasnov:2007uu,Krasnov:2007ky,Krasnov:2011pp,poplawski13_affin_theor_gravit,Skirzewski:2014eta,Castillo-Felisola:2015cqa.
+
+One of the motivations to consider an affine model of gravity is that,
+as for any other fundamental theory, it would be mediated by a
+connection field. Moreover, there are innuendo pointing to the
+possibility of quantize an affine theory of gravity. We shall restrict
+ourselves to the Polynomial Affine Gravity proposed in
+Ref. cite:Skirzewski:2014eta,Castillo-Felisola:2015cqa.
+
+The action of the Polynomial Affine Gravity is given, in terms of the
+irreducible components of the affine connection
+\(\hat{\Gamma}^\mu{}_{\rho\sigma} =
+\hat{\Gamma}^\mu{}_{(\rho\sigma)} + \hat{\Gamma}^\mu{}_{[\rho\sigma]}
+= {\Gamma}^\mu{}_{\rho\sigma} +
+\epsilon_{\rho\sigma\lambda\kappa}T^{\mu,\lambda\kappa}+A_{[\rho}\delta^\mu_{\nu]},\)
+by
+#+BEGIN_EXPORT latex
+\begin{dmath}
+  \label{4dfull}
+  S[{\Gamma},T,A] =
+  \int\mathrm{d}^4\!x\Bigg[
+    B_1\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\alpha\beta}T^{\rho,\gamma\delta}\epsilon_{\alpha\beta\gamma\delta}
+    +B_2\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\beta,\mu\nu}T^{\rho,\gamma\delta}\epsilon_{\sigma\beta\gamma\delta}
+    +B_3\, R_{\mu\nu}{}^{\mu}{}_{\rho} T^{\nu,\rho\sigma}A_\sigma
+    +B_4\, R_{\mu\nu}{}^{\sigma}{}_\rho T^{\rho,\mu\nu}A_\sigma
+    +B_5\, R_{\mu\nu}{}^{\rho}{}_\rho T^{\sigma,\mu\nu}A_\sigma
+    +C_1\, R_{\mu\rho}{}^{\mu}{}_\nu \nabla_\sigma T^{\nu,\rho\sigma}
+    +C_2\, R_{\mu\nu}{}^{\rho}{}_\rho \nabla_\sigma T^{\sigma,\mu\nu} 
+    +D_1\, T^{\alpha,\mu\nu}T^{\beta,\rho\sigma}\nabla_\gamma T^{(\lambda, \kappa) \gamma}\epsilon_{\beta\mu\nu\lambda}\epsilon_{\alpha\rho\sigma\kappa}
+    +D_2\,T^{\alpha,\mu\nu}T^{\lambda,\beta\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+    +D_3\,T^{\mu,\alpha\beta}T^{\lambda,\nu\gamma}\nabla_\lambda T^{\delta,\rho\sigma}\epsilon_{\alpha\beta\gamma\delta}\epsilon_{\mu\nu\rho\sigma}
+    +D_4\,T^{\lambda,\mu\nu}T^{\kappa,\rho\sigma}\nabla_{(\lambda} A_{\kappa)} \epsilon_{\mu\nu\rho\sigma}
+    +D_5\,T^{\lambda,\mu\nu}\nabla_{[\lambda}T^{\kappa,\rho\sigma} A_{\kappa]} \epsilon_{\mu\nu\rho\sigma}
+    +D_6\,T^{\lambda,\mu\nu}A_\nu\nabla_{(\lambda} A_{\mu)}
+    +D_7\,T^{\lambda,\mu\nu}A_\lambda\nabla_{[\mu} A_{\nu]} 
+    +E_1\,\nabla_{(\rho} T^{\rho,\mu\nu}\nabla_{\sigma)} T^{\sigma,\lambda\kappa}\epsilon_{\mu\nu\lambda\kappa}
+    +E_2\,\nabla_{(\lambda} T^{\lambda,\mu\nu}\nabla_{\mu)} A_\nu
+    +T^{\alpha,\beta\gamma}T^{\delta,\eta\kappa}T^{\lambda,\mu\nu}T^{\rho,\sigma\tau}
+    \Big(F_1\,\epsilon_{\beta\gamma\eta\kappa}\epsilon_{\alpha\rho\mu\nu}\epsilon_{\delta\lambda\sigma\tau}
+    +F_2\,\epsilon_{\beta\lambda\eta\kappa}\epsilon_{\gamma\rho\mu\nu}\epsilon_{\alpha\delta\sigma\tau}\Big) 
+    +F_3\, T^{\rho,\alpha\beta}T^{\gamma,\mu\nu}T^{\lambda,\sigma\tau}A_\tau \epsilon_{\alpha\beta\gamma\lambda}\epsilon_{\mu\nu\rho\sigma}
+    +F_4\,T^{\eta,\alpha\beta}T^{\kappa,\gamma\delta}A_\eta A_\kappa\epsilon_{\alpha\beta\gamma\delta}\Bigg].
+\end{dmath}
+#+END_EXPORT
+Some of the features of the Polynomial Affine Gravity are:
+- The action is invariant under diffeomorphisms.
+- The gravitational field is an affine connection, with torsion and
+  non-metricity condition.[fn:8]
+- The most general action has a finite number of terms, which makes it
+  robust under the appearance of counter-terms in a (yet hypothetical)
+  quantum version of the model.
+- The nonexistence of three-point functions[fn:9] allows to bypass a no-go
+  theorem imposed by causality and analyticity of the \(S\)-matrix.
+- If the connection is a metric potential[fn:10] for a /spherically
+  symmetric/ metric, there is a Birkhoff-like theorem.
+- In the sector with vanishing torsion, \(T^{\lambda,\mu\nu} \to 0\)
+  and \(A_\eta \to 0\), the field equations reduce to
+  a generalisation of Einstein's equation, and are similar to the
+  Yang--Mills equations,
+  #+BEGIN_EXPORT latex
+  \begin{equation}
+    \nabla_\mu R_{\nu\lambda} - \nabla_\nu R_{\mu\lambda} = 0,
+  \end{equation}
+  #+END_EXPORT
+  or in terms of the curvature (due to the Bianchi identity)
+  #+BEGIN_EXPORT latex
+  \begin{equation}
+    \nabla_\lambda R_{\mu\nu}{}^\lambda{}_\rho = 0.
+  \end{equation}
+  #+END_EXPORT
+  Notice that the above field equations are second order partial
+  differential equations for the components of the
+  connection. However, if one considers the connection to be
+  determined by a metric, the field equations for become third order
+  partial differential equations.[fn:15]
+- In the torsion-free sector, the coupling with a scalar field yields
+  to equivalent field equations to those of General Relativity, with
+  the proviso that instead of a metric tensor, one only needs a
+  covariantly constant, invertible, symmetric @@latex:
+  \mbox{\(\binom{0}{2}\)-tensor}@@.
+
+Despite all of these nice characteristics, there is still a lot of
+possibilities to be considered when studying the Polynomial Affine
+Gravity. The second stream of the project will be focus in analysing
+those possibilities. Among them we mention:
+- Finding solutions to the field equations, at least in the sector of
+  vanishing torsion, which satisfy the cosmological or spherical
+  symmetries. There will be metric and non-metric solutions. The
+  latter are determined by the connection coefficients, which
+  introduces the complication that the number of independent
+  components increases much more that the number of available
+  equations.
+- Once the solutions are found, the following step is to narrow the
+  physical consequences, in particular for connection driven
+  solutions.
+  - In the case of cosmological solutions, it would be important to
+    determine the cosmic evolution: inflation epoch, Hubble parameter,
+    accelerated expansion, and others. This will provide useful
+    information when compared with the available cosmological data.
+  - For the spherically symmetric solutions, it is worth to study the
+    geodesics[fn:11] of matter, in order to compare with astronomical
+    measurements coming from the Solar system and galactic scales.
+- A proper way of coupling matter, other than scalar fields, is still
+  missing. The correct formulation would become important for
+  obtaining an admissible phenomenology of the cosmic evolution of the
+  Universe. Particularly interesting would be to couple fermions,
+  which (in the standard formulation) require a local Lorentz
+  structure.[fn:12]
+
+In summary, we propose to inquire two viable generalisations of the
+known models for gravity, in order for deducing phenomena which might
+be observed either in accelerator or in cosmological
+experiments. Although the models seem to provide different kind of
+phenomenology, the binding of the two streams would be a major goal,
+pointing to the starting of a research branch of astroparticle physics
+at the University.
+
+** Hypothesis
+:PROPERTIES:
+:CUSTOM_ID: sec.hypothesis
+:END:
+
+The study of particle physics in the context of generalised models of
+gravity will shed some light in understanding problems concerning to
+particle physics, astroparticle physics and cosmology; as the
+hierarchy problem, the cosmological constant, the missing of matter in
+the Universe, sources of ultra-high energetic cosmic rays, /et cetera/.
+
+** Goals
+:PROPERTIES:
+:CUSTOM_ID: sec.goals
+:END:
+
++ Analysing the phenomenology of the standard model of particle
+  physics coupled with generalised models of gravitational
+  interaction with non-symmetric connections and/or extra dimensions.
+
+*** Specific goals
+:PROPERTIES:
+:CUSTOM_ID: sec.goals_spec
+:END:
+
+- Building particle models in gravitational backgrounds which
+  generalise Einstein's theory.
+- Analysing the cosmological implications of these models, as well as
+  the induced phenomenology in accelerator physics.
+- Developing the formal aspects of the matter coupling with the
+  Polynomial Affine Gravity, and their phenomenological implications.
+- Explore the phenomenology of cosmological models in Polynomial Affine
+  Gravity, which generalise those of Friedmann--Robertson--Walker.
+
+** Methodology
+:PROPERTIES:
+:CUSTOM_ID: sec.methodology
+:END:
+
+#+begin_comment
+The methodology will be to consider alternative models of
+gravitational interactions, which might shed light in the
+understanding of the dark sector of the Universe. These alternative
+models can be split in two groups: (i) A modification of gravity in
+four dimensions, which does not require extra matter content, or not
+as much as 95% of the total matter/energy, and (ii) A model of gravity
+in scenarios with extra dimensions, whose effective reduction down to
+four dimensions contain the additional fields required to explain the
+dark sector. The two splittings will be consider in this project.
+
+Although the alternative models of gravity are abundant, our target
+will be a set of generalizations known as Einstein--Cartan (and its
+Lovelock extensions), Lovelock--Cartan and the Polynomial Affine
+Gravity. Among these theories, only the last one is defined in four
+dimension, and it has several features which might be relevant if one
+would be interested in a quantum theory of gravitation. The others are
+build under the same requirements than General Relativity (in any
+dimension), with the exception that torsion is not assumed to vanish
+in the Lovelock--Cartan models.
+
+The Polynomial Affine Gravity is a model built up from a connection,
+without the aid of a metric field. It is worth mentioning that the
+interaction is independent of the existence of a metric, so the
+connection does not necessarily satisfy a metricity condition. It was
+shown that---at least in the sector of vanishing torsion---, the field
+equations are a generalization of those of General Relativity, and
+being a theory for a connection, the equations are similar to those of
+the Yang--Mills theories. We shall focus on the study of cosmological
+models and the coupling of matter with this affine model of gravity,
+as well as the phenomenology which might be observed in accelerators.
+#+end_comment
+
+A thorough analysis of the different models under consideration will
+performed, by comparing their phenomenology with the available data
+coming from both: accelerator physics and cosmology. This will allows
+to discriminate between physically interesting models and /toy/
+models.
+
+The strategies to be applied in order to fulfill our goals include:
+- Application of methods in differential geometry and field theory, in
+  order for dealing with the models and its phenomenology.
+  - We shall use also computational software which include: Sage
+    cite:sage,sagemanifolds, Cadabra
+    cite:Peeters2007550,Peeters:2007wn,peeters2007symbolic,
+    Mathematica, CalcHEP, MadGraph, and others.
+- To get involvement in some experimental collaboration. It will allow
+  to get in contact with physicists with a different perspective,
+  which enriches the attains of the project. Additionally, this would
+  give us a quicker access to the experimental data.
+- The strengthening of collaboration with researchers of other
+  national and international institutions.
+  - Academic stays will serve as initial approach to
+    collaboration. Particularly for participating in an experimental
+    collaboration, or to developing formal aspects of the project.
+  - Attending conferences and workshops open new collaborative
+    possibilities, and serve to communicate the obtained results.
+- A closer work up with graduate students, as well as undergraduates,
+  in physics and mathematics majors, who in the long term will become
+  part of an astroparticle physics groups.
+
+** Working Plan 
+:PROPERTIES:
+:CUSTOM_ID: sec.plan
+:END:
+
+#+begin_comment
+What is known as /modern physics/, developed during the last century,
+stands on two pillars: the quantum theory of particles and Einstein's
+principle of relativity. The major achievements of these pillar is the
+built up of the Standard Model of particles and the theory of General
+Relativity, which by them selves are the most successful models of
+fundamental interactions. Despite their success, there are still
+remarkable issues to be understood.
+
+On the side of the standard model of particles one could ask oneself:
+Why the Higgs is the only fundamental scalar field? How could the
+stability problem of the Higgs potential be solved? Are there any
+other fundamental interactions or families of fermions? Does
+supersymmetry exists? Do we need to extend the standard model in a
+nontrivial way?
+
+On the side of gravitational interactions one could also ask: Why is
+General Relativity the only theory of a fundamental interaction
+without a consistent quantization program? Is there a natural
+explanation to the hierarchy problem? What about the problem of the
+cosmological constant? Why the 95% of the content of the Universe
+manifests as dark matter and dark energy? 
+
+Therefore, one sees that a mixture of the two pillars above does not
+provide a complete description of the fundamental physics. In order to
+move forward in our understanding of the fundamentals of physics, it
+is necessary to change the models existing nowadays.
+
+A vast number of generalizations and extensions of either the Standard
+Model and General Relativity have been proposed, but satisfactory
+solutions to the addressed problems are not yet found. Hence the
+exploration of alternative models is a must.
+
+The aim of this project is to continue such exploration, by
+analyzing in detail the particle physics phenomenology in models where
+the gravitational theory is modified. The modifications which will be
+considered are Einstein--Cartan gravity (and its Lovelock extension),
+Lovelock--Cartan gravity and the recently proposed Polynomial Affine
+Gravity.
+#+end_comment
+
+The major achievements of these pillar is the built up of the Standard
+Model of particles and the theory of General Relativity, which by them
+selves are the most successful models of fundamental
+interactions. Despite their success, there are still remarkable issues
+to be understood.
+
+On the side of the standard model of particles one could ask oneself:
+Why the Higgs is the only fundamental scalar field? How could the
+stability problem of the Higgs potential be solved? Are there any
+other fundamental interactions or families of fermions? Does
+supersymmetry exists? Do we need to extend the standard model in a
+nontrivial way?
+
+On the side of gravitational interactions one could also ask: Why is
+General Relativity the only theory of a fundamental interaction
+without a consistent quantization program? Is there a natural
+explanation to the hierarchy problem? What about the problem of the
+cosmological constant? Why the 95% of the content of the Universe
+manifests as dark matter and dark energy?
+
+Therefore, one sees that a mixture of the two pillars above does not
+provide a complete description of the fundamental physics. In order to
+move forward in our understanding of the fundamentals of physics, it
+is necessary to change the models existing nowadays. A vast number of
+generalizations and extensions of either the Standard Model and
+General Relativity have been proposed, but satisfactory solutions to
+the addressed problems are not yet found. Hence the exploration of
+alternative models is a must.
+
+The aim of this project is to continue such exploration, by
+analyzing in detail the particle physics phenomenology in models where
+the gravitational theory is modified. The modifications which will be
+considered are Einstein--Cartan gravity (and its Lovelock extension),
+Lovelock--Cartan gravity and the recently proposed Polynomial Affine
+Gravity.
+ 
+The road map is sketched in the Gantt chart.
+
+#+BEGIN_EXPORT latex
+\noindent\resizebox{\textwidth}{!}{
+  \begin{ganttchart}[
+      vgrid,
+      time slot format=isodate-yearmonth,
+      compress calendar,
+      title/.append style={draw=none, fill=blue!50!black},
+      title label font=\sffamily\bfseries\color{white},
+      title height=1,
+      y unit chart=.8cm,
+      bar/.style={fill=black!70},
+      group top shift=0.7,
+      group height=.3,
+      group peaks width={0.2},
+      bar progress label anchor = center,
+      bar/.append style={fill=green},
+      bar incomplete/.append style={fill=black!20},
+      %% group label node/.append style={%
+      %%   align=left,
+      %%   text width=\widthof{Polynomial affine gravity},
+      %% },
+      milestone/.append style={color=red},
+      link/.style={-to, very thick},
+    ]{2017-10}{2020-10}
+    \gantttitlecalendar{year}
+    \\
+    \ganttgroup{Lovelock--Cartan}{2017-10}{2019-03}
+    \\
+    \ganttbar[progress=15]{Compactification}{2017-10}{2018-06}
+    \\
+    \ganttlinkedbar[progress=10,name=eff]{Effective models}{2018-07}{2019-03}
+    \\
+    \ganttlinkedmilestone[name=m1]{Model building}{2019-03}
+    \\
+    \ganttgroup{Polynomial affine grav.}{2017-10}{2019-03}
+    \\
+    \ganttbar[progress=10]{Exact solutions}{2017-10}{2018-06}
+    \\
+    \ganttlinkedbar[progress=10,name=matt]{Matter coupling}{2018-07}{2019-03}
+    \\
+    \ganttlinkedmilestone[name=m2]{Formal aspects}{2019-03}
+    \\
+    \ganttgroup{Physical Phenomena}{2019-04}{2020-09}
+    \\
+    \ganttbar[progress=0,name=ap]{Accelerator physics}{2019-04}{2019-12}
+    \\
+    \ganttlinkedbar[progress=0]{Cosmic physics}{2020-01}{2020-09}
+    \\
+    \ganttlinkedmilestone[name=m3]{Phenomenological aspects}{2020-09}
+    \ganttlink[link mid=.75]{m1}{ap}
+    \ganttlink[link mid=.25]{m2}{ap}
+  \end{ganttchart}
+}
+#+END_EXPORT
+
+*** First year
+:PROPERTIES:
+:CUSTOM_ID: sec.year1
+:END:
+
+During the first year the focus of the project would be in model
+building and developing of their formal aspects. In this phase, we
+shall work in parallel the two proposals by first develop the
+formalism to compactify Lovelock--Cartan models, and second solving
+the field equations of the Polynomial Affine Gravity.
+
+Along this period we will visit some of our collaborators, namely
+Dr. Cristobal Corral (UNAM, Mexico), Prof. Aureliano Skirzewski
+(currently in Uruguay) and Prof. Jorge Zanelli (CECs, Valdivia), and
+also it will be important to contact two of the top academic leaders
+on affine gravity, Prof. Kirill Krasnov and Prof. Nikodem
+Popławski. The goal of the visits is to strengthen the collaboration,
+while advancing toward the objective of getting phenomenologically
+viable models coming from the studied frameworks. Additionally, the
+contact with Profs. Krasnov and Popłaski will serve as a starting
+point of collaboration.
+
+In parallel, we shall continue the standard academic activities at the
+University, which serve as link with the students---who will become
+part of the future research group. Also, the majority of the current
+collaborators are affiliated to the host Institution.
+
+*** Second year
+:PROPERTIES:
+:CUSTOM_ID: sec.year2
+:END:
+
+The goal is to achieve two milestones during the second year of the
+project: (i) Completing the model building concerning the
+Lovelock--Cartan models, and (ii) Finding a proper way of coupling
+matter to the Polynomial affine gravity.
+
+We expect to attend a few conferences/meetings/workshops, to present
+our results and getting feedback from our peers. In addition, it would
+be positive to revisit some of the collaborators to speed the
+execution of particular tasks. If possible, the work with student will
+turn into thesis dissertations.
+
+Having in hand the result from the first year and (partially those
+from)  the second year, we will start pushing toward the
+phenomenological analysis of the models. Additionally, we shall start
+contacting the experimental collaborations in which we would like to
+participate.
+
+*** Third year
+:PROPERTIES:
+:CUSTOM_ID: sec.year3
+:END:
+
+For the last year of the project, we shall close the cycle with the
+phenomenological consequences of the models studied during the
+previous years. The central part will be devoted to astroparticle
+physics effects.
+
+At this stage we shall discern which of the built models are
+realistic, and the presentation of our results in
+conference/meetings/workshop will be a must. Complementary, we expect
+to start attending meetings of the experimental collaboration we have
+decided to join.
+
+The work with the student should be starting to give its firsts
+rewards, in terms of publications, thesis, attendance of
+schools/conferences, et cetera.
+
+** Work in progress
+:PROPERTIES:
+:CUSTOM_ID: sec.progress
+:END:
+
+In the last 3 years, we have restrict ourselves to the study of the
+phenomenology induced by the possible existence of gravitational
+torsion. Our focus has been primarily in the Einstein--Cartan models
+in five-dimensional spacetimes.[fn:16] We have published four articles
+concerning with the phenomenology of these models
+cite:Castillo-Felisola:2013jva,Castillo-Felisola:2014iia,Castillo-Felisola:2014xba,Castillo-Felisola:2015ema,
+and currently one extra article has been sent to peer-reviewing
+cite:RojasAbatte:2017vtq. 
+
+Inspired in these models of gravity with more general connections, we
+proposed a novel alternative of affine gravity, which correctly
+describe the leading order of geodesic deviation, i.e. yields a Kepler
+potential cite:Skirzewski:2014eta. Moreover, at least in a certain
+sector of the model, it generalises Einstein's theory (considering a
+purely gravitational system). This work is currently under
+peer-reviewing cite:Castillo-Felisola:2015cqa.
+
+Pointing to the cosmological effects of these models, we lately
+consider a five-dimensional Lovelock--Cartan theory compactified on a
+one-sphere, and analysed all possible effective cosmologies in the
+four-dimensional effective model
+cite:castillo-felisola16_kaluz_klein_cosmol_from_five. Interestingly,
+some of the zero modes of the extra fields might account as dark
+matter, the effective cosmological constant is driven by the /shape/
+of extra dimension, and the new degrees of freedom could  possibly
+generate an inflationary epoch.
+
+Currently, we are working in several aspects of both theories, with
+the aim of directing our results to the astroparticle and accelerator
+phenomenology. Among them we mention:
+1. Compactification of Lovelock--Cartan models on tori and spheres:
+   A generalisation of the work performed in
+   Ref. cite:castillo-felisola16_kaluz_klein_cosmol_from_five, where
+   we expect to formalise the procedure, and obtain different
+   behaviours to compare with the observations.
+2. Addition of matter to the Lovelock--Cartan models: The above task
+   is been done for a pure gravitational system, thus the coupling
+   with matter is a crucial task to consider. 
+3. Analysis of diverse sectors of Polynomial Affine Theory: In the
+   same spirit that in Ref. cite:Castillo-Felisola:2015cqa, where the
+   result where found in the sector of vanishing torsion, we are
+   analysing other sectors, and their field equations.
+4. Exact solutions of the field equations of Polynomial Affine
+   Gravity: We are solving the field equations found in
+   Ref. cite:Castillo-Felisola:2015cqa, with the aim of finding
+   generalisations of cosmological and spherical
+   spacetimes. Currently, we have found exact solutions but we do not
+   have physical interpretations for them. 
+
+** Available resources
+:PROPERTIES:
+:CUSTOM_ID: sec.resources
+:END:
+
+The Universidad Técnica Federico Santa María will be the host of the
+project, providing the infrastructure and the salary of the
+researcher. The group of High Energy Physics is in addition one of the
+most important scientific group in the Country (and the unique with a
+branch in experimental particle physics[fn:17]), and the collaboration
+and exchange of ideas will raise the quality of our project.
+
+Moreover, the Doctoral Program in Physics is a join endeavour with the
+Pontifícia Universidad Católica de Valparaíso, which has one of the
+most prolific groups in Gravitation and Cosmology. This partnership
+could lead to an enhancement of the goals of the project, improvement
+of the research collaboration and developing of novel graduate
+students thesis.
+
+
+
+bibliographystyle:/home/oscar/Documents/LatexFiles/utphys.bst
+bibliography:/home/oscar/Documents/LatexFiles/References.bib
+
+* Footnotes
+
+[fn:17] The Institution collaborates with several laboratories world
+wide, such as /Jefferson Laboratory/, /FermiLab/ and the ATLAS
+experiment in /CERN/. The collaboration does not restrict to data
+analysis, pieces of the experimental set up are manufactured and
+tested in our facilities.
+
+[fn:16] Under the premise that accelerator physics take place a region
+where the curvature of the spacetime is negligible.
+
+[fn:15] These equations were found in the context of building a
+Yang--Mills-like theory of gravity
+cite:stephenson1958quadratic,kilmister1961use,Yang1974. The fact that
+these are third order for the metric, droves the community off from
+this proposal.
+
+[fn:14] Also known as the /spin connection/.
+
+[fn:13] The Lorentz group is the subgroup of the Minkowski spacetime
+isometries which stabilise the origin. The group of isometries is the
+Poincaré group, \(ISO(1,3)\).
+
+[fn:12] It might be possible to bypass this requirement with the use
+of /world spinors/ cite:Hehl:1994ue,WorldSpinors.
+
+[fn:11] In cases where no metric exists, the notion of geodesics
+should be changed by self-parallel curve.
+
+[fn:10] i.e. a Levi-Cività connection for a metric.
+
+[fn:9] It is a feature of the classical model, however, the
+/robustness/ of the action would assure the validity at quantum level.
+
+[fn:8] Although the gravitational interaction is mediated by a
+connection, the existence of a metric field is possible, but it plays
+no rôle in the building of the action.
+
+[fn:7] If one restrict oneself to the purely gravitational theory.
+
+[fn:6] For example the Cartan's generalisations of Lovelock models is
+/minimal/, in the sense that contains the same terms but the
+connection is different.
+
+[fn:5] Due to this last axiom, the formalism which suits the models is
+the one of differential forms. The fact that the differential operator
+is nilpotent implies that the action depends on the fields and its
+first derivative, which the field equations are of second order.
+
+[fn:4] Some proposals suggest that the natural way of interpreting
+gravity as a gauge theory is by enhancing the group to the Poincaré
+group cite:Blagojevic2002Gravitation,Blagojevic2013Gauge.
+
+[fn:3] The extension proposed by Cartan, in a pure gravity model,
+yields to the Einstein--Hilbert theory with vanishing torsion (imposed
+by the field equations).
+
+[fn:2] Although it is possible to describe the Einstein--Cartan
+gravity with the metric and the torsion, it is customary to describe
+it in terms of the metric and the connection as independent field, as
+proposed by Palatini.
+
+[fn:1] We consider that massive neutrinos are include in the standard
+model of particles.
+

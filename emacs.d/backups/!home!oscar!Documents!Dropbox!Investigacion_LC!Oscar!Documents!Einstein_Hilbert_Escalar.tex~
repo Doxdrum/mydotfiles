@@ -1,0 +1,128 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{dsfont,mathrsfs,amsthm}
+\usepackage{bbold}
+\usepackage{slashed}
+\usepackage{color}
+\usepackage{centernot}
+\usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{comment}
+\hypersetup{linktocpage,colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue}
+%\usepackage{feynmf}
+\usepackage{units}
+\usepackage{array}
+\title{Einstein-Hilbert acoplado a un campo escalar}
+\author{Francisca Ram\'irez Carrasco}
+
+\newcommand{\G}{\mathit{G}}
+\newcommand{\form}[1]{\boldsymbol{#1}}
+\newcommand{\viel}[1]{\boldsymbol{e}^{#1}}
+\newcommand{\D}{\boldsymbol{\mathrm{D}}}
+\newcommand{\conex}{\boldsymbol{\omega}}
+\newcommand{\de}{\boldsymbol{d}}
+\newcommand{\ric}{\mathit{R}}
+
+
+\begin{document}
+
+\maketitle
+
+Se tiene la teor\'ia de Eisntein-Hilbert acoplado a un campo escalar, dada por la Acci\'on
+
+\begin{equation}
+\label{accion.eh.acop.esc}
+	S_{(E-H-E)} = \dfrac{1}{32 \phi\G} \int\epsilon_{abcd}\Big[ \form{R}^{ab}\viel{c}\viel{d} - \dfrac{\Lambda}{6}\viel{a}\viel{b}\viel{c}\viel{d} + \phi\form{R}^{ab}\form{R}^{cd}\Big].
+\end{equation}
+
+Esta Acci\'on depende de tres campos: $\viel{}$, $\conex$ y $\phi$, por lo tanto son tres las ecuaciones de movimiento:
+\begin{itemize}
+
+\item[i)] Al variar la Acci\'on con respecto a los vielbein, se obtiene
+\begin{align}
+	\delta_{\viel{}}S_{(E-H-E)} = \dfrac{1}{32 \phi\G}\int\epsilon_{abcd}\Big[2\form{R}^{ab}\viel{c}\delta\viel{d} - \dfrac{2\Lambda}{3}\viel{a}\viel{b}\viel{c}\delta\viel{d}\Big] &= 0 \\
+\label{var.viel}
+	\epsilon_{abcd}\Big[\form{R}^{ab} - \dfrac{\Lambda}{3}\viel{a}\viel{b}\Big]\viel{c} &= 0.
+\end{align}
+
+\item[ii)] Al variar la Acci\'on con respecto a la conexi\'on de esp\'in, se obtiene
+\begin{align}
+	\delta_{\conex}S_{(E-H-E)} = \dfrac{1}{32\phi\G}\int\epsilon_{abcd}\Big[\delta_{\conex}\form{R}^{ab}\viel{c}\viel{d} + 2\phi\delta_{\conex}\form{R}^{ab}\form{R}^{cd}\Big] &= 0 \\
+	\dfrac{1}{32\phi\G}\int\epsilon_{abcd}\Big[\D\delta\conex ^{ab}\viel{c}\viel{d} + 2\phi\D\delta\conex ^{ab}\form{R}^{cd}\Big] &= 0 \\
+	\dfrac{1}{32\phi\G}\int\epsilon_{abcd}\Big[ 2\delta\conex ^{ab}\form{T}^{c}\viel{d} + 2\delta\conex ^{ab}\de\phi\form{R}^{cd}\Big] + T.B. &= 0 \\
+\label{var.conex}	
+	\epsilon_{abcd}\Big[\form{T}^{c}\viel{d} + \de\phi\form{R}^{cd}\Big] &= 0.
+\end{align}
+
+\item[iii)] Al variar la Acci\'on con respecto al campo escalar, se obtiene
+\begin{align}
+	\delta_{\phi}S_{(E-H-E)} = \dfrac{1}{32\phi\G}\int\epsilon_{abcd}\delta\phi\form{R}^{ab}\form{R}^{cd} &= 0 \\
+\label{var.phi}	
+	\epsilon_{abcd}\form{R}^{ab}\form{R}^{cd} &= 0.
+\end{align}
+
+\end{itemize}
+
+Se busca encontrar dentro de este conjunto de ecuaciones, un operador diferencial para la contorsi\'on, de modo que es conveniente escribir las ecuaciones en componentes. Desde la ecuaci\'on~\eqref{var.viel}, se escribe en componentes como se presenta a continuaci\'on
+\begin{equation}
+	\epsilon_{abcd}\Big[\dfrac{R^{ab}{}_{mn}}{2}\viel{m}\viel{n}\viel{c} - \dfrac{\Lambda}{3}\viel{a}\viel{b}\viel{c}\Big] = 0,
+\end{equation}
+al aplicar el operardor dual de Hodge $\star$ se obtiene
+\begin{equation}
+	\dfrac{\epsilon_{abcd}}{(4-3)\!}\Big[\dfrac{R^{ab}{}_{mn}}{2}\epsilon^{mnc}{}_{l} - \dfrac{\Lambda}{3}\epsilon^{abc}{}_{l}\Big]\viel{l} = 0,
+\end{equation}
+como esto debe ser cierto para cualquier vielbein, se sigue
+\begin{align}
+	-\dfrac{R^{ab}{}_{mn}}{2}1 !\delta^{mnl}_{abd} + \dfrac{\Lambda}{3}3 !\delta^{l}{}_{d} &= 0 \\
+	\ric\delta^{l}{}_{d} - 2\ric ^{l}{}_{d} - 3\Lambda\delta^{l}{}_{d} &= 0. 
+\end{align}
+Esta \'ultima expresi\'on puede escribirse en la variedad como
+\begin{equation}
+\label{var.viel.curv}
+	\ric g_{\mu\nu} - 2\ric _{\mu\nu} - 3\Lambda g_{\mu\nu} = 0.
+\end{equation}
+
+Del manera similar se procede con la ecuaci\'on~\eqref{var.conex}
+\begin{equation}
+	\epsilon_{abcd}\Big[\dfrac{T^{c}{}_{mn}}{2}\viel{m}\viel{n}\viel{d} + \partial_{m}\phi\dfrac{R^{cd}{}_{nl}}{2}\viel{m}\viel{n}\viel{l}\Big] = 0,
+\end{equation}
+al aplicar el operador dual de Hodge se obtiene
+\begin{equation}
+	\dfrac{1}{2}\dfrac{\epsilon_{abcd}}{(4-3)!}\big[T^{c}{}_{mn}\epsilon^{mnd}{}_{p}\viel{p} + \partial_{m}\phi R^{cd}{}_{nl}\epsilon^{mnl}{}_{p}\viel{p}\big] = 0,
+\end{equation}
+como esta expresi\'on debe ser cierta para todo $\viel{}$, se sigue
+\begin{align}
+	-T^{c}{}_{mn}\epsilon_{abcd}\epsilon^{mnpd} + \partial_{m}\phi R^{cd}{}_{nl}\epsilon_{abcd}\epsilon^{mnlp} &= 0 \\
+	T^{c}{}_{mn}1 !\delta^{mnp}_{abc} - \partial_{m}\phi R^{cd}{}_{nl}\delta^{mnlp}_{abcd} &= 0 \\
+	2 T^{p}{}_{ab} - 4 T^{c}{}_{[ac}\delta^{p}{}_{b]} - \partial_{[a}\phi\ric\delta^{p}{}_{b]} - \partial_{c}\phi R^{cp}{}_{ab} + 2\partial_{[a}\phi\ric ^{p}{}_{b]} + 2\partial_{c}\phi\ric ^{c}{}_{[a}\delta^{p}_{b]} &= 0.
+\end{align}
+Y escrita en la variedad queda de la siguinete forma
+\begin{equation}
+\label{var.conex.curv}
+	2 T_{\rho\mu\nu} - 4 T^{\sigma}{}_{[\mu\sigma}g_{\rho\nu]} - \partial_{[\mu}\phi\ric g_{\rho\nu]} - \partial_{\sigma}\phi R^{\sigma}{}_{\rho\mu\nu} + 2\partial_{\mu}\phi\ric _{\rho\nu]} + 2\partial_{\sigma}\phi\ric ^{\sigma}{}_{[\mu}g_{\rho\nu]} = 0.
+\end{equation}
+
+Finalmente, la ecuaci\'on~\ref{var.phi}
+\begin{equation}
+	\dfrac{\epsilon_{abcd}}{4}R^{ab}{}_{mn}R^{cd}{}_{pq}\viel{m}\viel{n}\viel{p}\viel{q} = 0,
+\end{equation}
+aplicando el operador dual de Hodge
+\begin{align}
+	\dfrac{1}{4}R^{ab}{}_{mn}R^{cd}{}_{pq}\epsilon_{abcd}\epsilon^{mnpq} &= 0\\
+	-\dfrac{1}{4}R^{ab}{}_{mn}R^{cd}{}_{pq}\delta^{mnpq}_{abcd} &= 0 \\
+	R^{ab}{}_{cd}R^{cd}{}_{ab} - 4\ric ^{a}{}_{b}\ric ^{b}{}_{a} + \ric ^{2} &= 0 \\
+\end{align}
+que escrita en los \'indices que recorrer la variaded queda como sigue
+\begin{equation}
+\label{var.phi.curv}
+	R^{\mu\nu}{}_{\sigma\rho}R^{\sigma\rho}{}_{\mu\nu} - 4\ric ^{\mu}{}_{\nu}\ric ^{\nu}{}_{\mu} + \ric ^{2} = 0.
+\end{equation}
+
+A partir de este conjunto de ecuaciones de campo, se buscar extraer un operador diferencial para la contorsi\'on. Adem\'as por simplicidad e interes te\'orico, se busca estudiar solo la parte completamente antisim\'etrica de la contorsi\'on.
+\end{document}

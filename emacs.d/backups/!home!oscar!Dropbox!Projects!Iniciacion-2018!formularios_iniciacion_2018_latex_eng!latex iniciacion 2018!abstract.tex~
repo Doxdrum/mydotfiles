@@ -1,0 +1,137 @@
+% Created 2018-05-17 Thu 10:37
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[cm]{fullpage}
+\usepackage{array}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\begin{table}[htbp]
+\caption{Clock summary at \textit{[2018-05-17 Thu 10:29]}}
+\centering
+\begin{tabular}{lrr}
+Headline & Time & \\
+\hline
+\textbf{Total time} & \textbf{1:48} & \\
+\hline
+ & 1:48 & \\
+\hspace*{1.0em}Goals &  & 0:05\\
+\hspace*{1.0em}Methodology &  & 0:57\\
+\hspace*{1.0em}Expected results &  & 0:46\\
+\end{tabular}
+\end{table}
+
+
+\section*{Proposal abstract:}
+\label{sec:org36e31d6}
+
+\begin{center}
+\begin{tabular}{|m{.4\textwidth}|m{.5\textwidth}|}
+\hline
+\textbf{Name of principal investigator} & Oscar Castillo Felisola\\
+\hline
+\textbf{Proposal title:} & Particle and astroparticle physics in the context of generalized models of gravity\\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{}
+\label{sec:orga0fa285}
+
+Describe the main issues to be addressed: goals, methodology and
+expected results. \textbf{The maximum length for this section is 1
+page} (Must use letter size, Verdana size 10 or similar).
+
+\subsection*{Goals}
+\label{sec:org84a7a7b}
+The aim of this project is to explore the phenomenological
+implications induced in particle and astroparticle physics, by an
+extended gravitational sector.  The necessity of considering such
+scenarios is driven by the lack of phenomenological understanding of
+the dark sector (composed of dark matter and dark energy) of the Universe.
+
+The goal is to discriminate between the considered models by comparing
+their predictions with the accelerator or cosmological observations,
+and search for a possible viable explanation to the dark
+sector. 
+
+
+\subsection*{Methodology}
+\label{sec:org7fe86e6}
+Since the purpose of the investigation is to obtain (astro)particle
+phenomenology, we will consider the matter content of the standard
+model of particle physics, interacting with a \emph{curved} spacetime
+described by  an extended  gravitational model.
+
+Among the abundant alternative models of gravity, we will restrict
+ourselves to two types of these generalizations, known as
+Lovelock--Cartan and Polynomial Affine Gravity. The first kind is the
+model built up under the same precepts than General Relativity
+(invariant under local Lorentz and diffeomorphisms, and yield second
+order field equations), but in an arbitrary number of dimensions and
+allowing existence of gravitational torsion. The Polynomial Affine
+Gravity is a model which assumes that the gravitational interaction is
+mediated by the connection, and thus its action is built up solely
+from the connection, however, it is known to have a sector in which
+its field equations generalize those of General Relativity (in
+vacuum).
+
+The idea is to focus in finding the new possible interactions induced
+in particle physics, and our procedure is two folded. 
+
+In the analysis of the phenomenology coming from the interaction
+between the standard model of particles with the Lovelock--Cartan
+theories of gravity, we shall proceed as follows: (i) Obtain the
+effective interaction in four dimensions, after the dimensional
+reduction; (ii) separate those interactions coming from the existence
+of gravitational torsion, in order to discriminate the relevance of
+torsion; (iii) use the data from accelerator physics to constraint the
+parameters of the gravitational model; (iv) determine the cosmological
+implications of allowing the constrained parameters.
+
+In the branch of phenomenology of Polynomial Affine Gravity, we shall
+follow: (i) Analyze in detail the sector of vanishing torsion, and
+seek for solution of the field equations which are not allowed by
+General Relativity; (ii) explore the cosmological implication of those
+solutions not allowed in General Relativity; (iii) examine the
+possible ways of coupling matter to the gravitational model, a subtle
+issue without the introduction of a metric.
+
+\subsection*{Expected results}
+\label{sec:org0ae273f}
+The scientific results expected include: (i) Obtaining effective
+Lagrangians to describe the particle physics interacting with the
+considered gravitational models; (ii) Restriction of parameters of
+gravity by experimental data; (iii) Formulation of novel cosmological
+models and their physical implication; (iv) Possible reinterpretations
+of the dark sector of the Universe.
+
+The expected products at the end of the projects include: (a) Six
+completed paper, counting the published, in press and sent to
+peer-reviewing; (b) collaboration with national and international
+institutions; (c) participation and organization of international
+scientific events; (d) Advisory of Master and/or Ph.D. thesis.
+\end{document}
