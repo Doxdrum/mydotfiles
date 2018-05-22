@@ -1,0 +1,166 @@
+\documentclass[aps,prd,nofootinbib,showkeys,preprint,floatfix]{revtex4}
+%\synctex=1
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{ulem}
+%\usepackage{axodraw}
+\usepackage{lscape}
+\usepackage{ wasysym }
+
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{mathrsfs}
+\usepackage{slashed}
+% Imaginary unit:
+\newcommand{\ii}{\mathrm{i}}
+
+\usepackage{multirow,rotating}
+
+
+\def\gsim{\raise0.3ex\hbox{$\;>$\kern-0.75em\raise-1.1ex\hbox{$\sim\;$}}}
+\def\lsim{\raise0.3ex\hbox{$\;<$\kern-0.75em\raise-1.1ex\hbox{$\sim\;$}}}
+\def\esl{E \hspace{-0.6em}/\;\:}
+\def\etsl{$E_T$ \hspace{-1.4em}/\;\: \hspace{0.4em}}
+\def\pslash{p \hspace{-0.5em}/\;\:}
+
+\def\znbb{0\nu\beta\beta}
+\def\meff{\langle m_{\nu} \rangle}
+\def\rpv{R_P \hspace{-1.2em}/\;\:}
+
+\def\q{q \hspace{-0.5em}/}
+\def\g{g \hspace{-0.5em}/}
+
+
+\newcommand {\blue} {\color{blue}}
+\newcommand {\red} {\color{red}}
+\newcommand {\green} {\color{green}}
+
+\newcommand{\ba}[1]{\begin{eqnarray} \label{(#1)}}
+\newcommand{\ea}{\end{eqnarray}}
+%\newcommand{\nn}{\nonumber}
+\newcommand{\rf}[1]{(\ref{(#1)})}
+
+\newcommand{\FIG}[1]{fig.~\ref{#1}}
+\newcommand{\TAB}[1]{table~\ref{#1}}
+
+\newcommand{\AddrAHEP}{
+  {\it AHEP Group, Instituto de F\'{\i}sica Corpuscular --
+    C.S.I.C./Universitat de Val{\`e}ncia \\
+    Edificio de Institutos de Paterna, Apartado 22085,
+  E--46071 Val{\`e}ncia, Spain}}
+  
+  \newcommand{\AddrUSerena}{
+Departamento de F\' isica, Facultad de Ciencias, Universidad de La Serena, \\
+Avenida Cisternas 1200, La Serena, Chile.  \\
+Centro-Cient\'\i fico-Tecnol\'{o}gico de Valpara\'\i so, \\ 
+Casilla 110-V, Valpara\'\i so,  Chile.
+}
+
+
+  \newcommand{\AddrUFSM}{
+Universidad T\'ecnica Federico Santa Mar\'\i a, \\ 
+Centro-Cient\'\i fico-Tecnol\'{o}gico de Valpara\'\i so, \\ 
+Casilla 110-V, Valpara\'\i so,  Chile}
+
+
+
+
+
+\def\gsim{\raise0.3ex\hbox{$\;>$\kern-0.75em\raise-1.1ex\hbox{$\sim\;$}}}
+\def\lsim{\raise0.3ex\hbox{$\;<$\kern-0.75em\raise-1.1ex\hbox{$\sim\;$}}}
+
+\def\tb{\tan\beta}
+\def\tbR{\tan\beta_R}
+
+\newcommand{\nn}{\nonumber}
+\newcommand{\Ds}{\Delta m^2_{\odot}}
+\newcommand{\Da}{\Delta m^2_{\textsc{A}}}
+\renewcommand{\baselinestretch}{1.15}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\preprint{IFIC/18-XX}
+
+\title{High-dimensional neutrino masses}
+
+\author{Gaetana Anamiati}\email{anamiati@ific.uv.es}
+\affiliation{\AddrAHEP}
+\author{Renato M. Fonseca}\email{renato.fonseca@ific.uv.es}
+\affiliation{\AddrAHEP}
+\author{J.C. Helo} \email{juancarlos.helo@usm.cl}\affiliation{\AddrUSerena}
+\author{M. Hirsch} \email{mahirsch@ific.uv.es}\affiliation{\AddrAHEP}
+\author{O. Castillo-Felisola} \email{o.castillo.felisola@gmail.com}
+\affiliation{\AddrUFSM}
+
+
+\keywords{Neutrino mass, lepton number violation}
+
+%\pacs{14.60.Pq, 12.60.Jv, 14.80.Cp}
+
+\vskip10mm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+  
+  For Majorana neutrino masses the lowest dimensional operator
+  possible is the Weinberg operator at $d=5$. Here we discuss the
+  possibility that neutrino masses originate from higher dimensional
+  operators. Specifically, we discuss the complete tree-level
+  decomposition of $d=9$, $d=11$ and $d=13$ neutrino mass
+  operators. We find 18 renormalizable topologies and 66 diagrams at
+  $d=9$ level and 92 topologies and 504 diagrams at the $d=11$
+  level. At $d=13$ there are already 576 topologies and 4199
+  diagrams. However, among all these there are only very few genuine
+  neutrino mass models: At $d=(9,11,13)$ we find only (2,2,5)
+  genuine diagrams. Here, we consider a model to be genuine at level
+  $d$, if it automatically forbids lower order neutrino masses {\em
+    without} the use of additional symmetries. We also briefly discuss
+  how neutrino masses and angles can be easily fitted in these
+  high-dimensional models.
+  
+
+
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\tableofcontents
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Intro.tex}
+
+
+\input{Prelim.tex}
+
+\input{Classification.tex}
+
+
+\input{Summary.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bigskip
+\centerline{\bf Acknowledgements}
+
+\bigskip
+This work was supported by the Spanish MICINN grants FPA2017-85216-P,
+SEV-2014-0398, FPU15/03158 (MECD) and PROMETEOII/2014/084 (Generalitat
+Valenciana). J.C.H. is supported by Chile grants Fondecyt No. 1161463,
+Conicyt PIA/ACT 1406 and Basal FB0821.
+
+\bigskip
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\bibliography{references_0nubb}
+\bibliographystyle{h-physrev5}
+
+\end{document}
+

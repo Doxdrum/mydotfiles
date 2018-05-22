@@ -1,0 +1,141 @@
+\section{Introduction}
+\label{sect:intro}
+
+The Weinberg operator \cite{Weinberg:1979sa} is the lowest dimensional
+non-renormalizable operator that one can write down with only standard
+model (SM) fields. It violates lepton number by two units and thus, once
+the electro-weak symmetry is broken, Majorana neutrino masses are
+generated.  The observed smallness of the neutrino masses is then
+usually attributed to the large value of the scale of lepton number
+violation (LNV), typically $\Lambda \sim (10^{14}-10^{15})$ GeV. This
+is the essence of the seesaw mechanism
+\cite{Minkowski:1977sc,Yanagida:1979as,GellMann:1980vs,Mohapatra:1979ia,Magg:1980ut,Schechter:1980gr,Wetterich:1981bx,Lazarides:1980nt,Mohapatra:1980yp,Cheng:1980qt,Foot:1988aq}. While
+simple and elegant, the large mass scale involved in this argument
+makes direct tests of the classical seesaw impossible.
+
+There exist, however, many possibilities to explain the smallness of
+the observed neutrino masses with lower LNV scales. For Majorana
+neutrinos one can write in general \cite{Bonnet:2012kz}
+\begin{equation}\label{eq:mnugen}
+m_{\nu} \propto 
+\epsilon 
+\cdot
+\left( \frac{1}{16 \pi^{2}} \right)^{n}
+\cdot 
+\left(\frac{v}{\Lambda}\right)^{d-5}
+\cdot
+\frac{v^2}{\Lambda} .
+\end{equation}
+Here, $v$ stands for the standard model vacuum expectation value
+(vev), $d$ is the dimension of the operator, $n$ stands for the number
+of loops at which neutrino masses are generated. $\epsilon$ expresses
+symbolically the additional suppression of lepton number violation
+that might arise in particular constructions, such as for example the
+inverse seesaw mechanism \cite{Mohapatra:1986bd}. Finally, in
+addition, small Yukawa or scalar couplings, not shown explicitly in
+eq. (\ref{eq:mnugen}), could lead to smaller than expected neutrino
+masses.
+
+Eq. (\ref{eq:mnugen}) allows to estimate the typical scale $\Lambda$,
+for which the observed neutrino masses could be explained for a given
+$d$ and $n$. Fig. (\ref{fig:scales}) visualizes this estimate.  Here,
+${\cal O}_5$ at tree-level corresponds to the classical seesaw
+mechanism. Note that for ${\cal O}_5$ at tree-level (1-loop level)
+Yukawa couplings of order ${\cal O}(10^{-6})$ (${\cal O}(10^{-3})$)
+would be needed to obtain a scale as low as $\Lambda \simeq 1$ TeV.
+In this figure we also show the estimated reach for three
+colliders. The line denoted LEP reflects that no electrically charged
+particle coupled to SM fermions with masses below roughly 100 GeV can
+exist, after the negative searches performed at the LEP collider
+\cite{Patrignani:2016xqp}. The grey area denoted LHC is a very rough
+estimate of the reach of the LHC. The lower edge of the band is a more
+conservative estimate (pair production of charged particles), while
+the upper edge is roughly the reach of the LHC for particles produced
+in s-channel diagrams and/or with colour.  For $d=9$ and larger one
+expects that LHC experiments will cover an important part of the
+available parameter space of these models. We also show as a dashed
+line a rough estimate of the reach of a hypothetical $\sqrt{s}=100$
+TeV collider, here called FCC. Thus, neutrino mass models generated at
+$d=9$ and higher should be testable in the near future.  This simple
+argument forms the main motivation for our current paper.
+
+\begin{center}
+\begin{figure}%[tbph]
+\begin{centering}
+\includegraphics[scale=0.6]{figures/NuMass_dim_vs_loops_v1a}
+\end{centering}
+%\protect
+\caption{\label{fig:scales} The typical energy scales ($\Lambda$) for
+  which a neutrino mass model with a given dimension and number of
+  loops $(d,n)$ can explain correctly the observed sub-eV neutrino
+  masses. Operators start at $d=5$, corresponding to the Weinberg
+  operator.  Energy ranges have been estimated using couplings in the
+  range of $[0.01,1]$. For higher-dimensional operators, say $d=9$ and
+  larger, LHC is expected to test sizeable parts of the parameter
+  space even for tree-level realizations.  For $d=13$ models the LHC
+  can rule out nearly all of the parameter space of ``genuine''
+  models.  A hypothetical $\sqrt{s}=100$ TeV collider, here denoted as
+  FCC, could test all models ``down'' to ${\cal O}_9$ at 1-loop. The
+  classical seesaw type-I mechanism corresponds to ${\cal O}_5$
+  tree-level and would require couplings of roughly order
+  ${\cal O}(10^{-6})$ for $\Lambda$ in the LHC range.}
+\end{figure}
+%\par
+\end{center}
+
+Here, we will study high-dimensional tree-level diagrams for Majorana
+neutrino masses. We will treat systematically all possible topologies
+for the deconstruction of the $d=9$, $d=11$ and $d=13$ operators. We
+will identify all ``genuine'' diagrams. Here, we call genuine such
+diagrams which can give the leading contribution to the neutrino mass
+matrix, without the use of an extra (discrete or flavour) symmetry.
+We will discuss this requirement in more detail in section
+\ref{subsect:gen}.  Despite the large number of possible topologies,
+for $d=9$ and $d=11$ surprisingly only 4 models survive: 2 at $d=9$
+and 2 at $d=11$, respectively.  For $d=13$ we have found a total of 5
+diagrams, corresponding to XXX-Y distinct models, since some models
+produce more than one diagram.
+
+
+Before presenting our analysis, let us briefly mention that, of
+course, many authors have studied neutrino mass models beyond the
+simplest tree-level seesaw, for a recent review see for example
+\cite{Cai:2017jrq}.  The Zee model \cite{Zee:1980ai}, or the Zee-Babu
+model \cite{Cheng:1980qt,Zee:1985id,Babu:1988ki} are early examples of
+1-loop and 2-loop realizations of the Weinberg operator. A systematic
+analysis of possible neutrino mass models at $d=5$ and 1-loop can be
+found in \cite{Bonnet:2012kz}, for a general analysis of $d=5$ models
+at 2-loop see \cite{Sierra:2014rxa}. For the 3-loop case, no
+systematic analysis has been done so far, but there exist some
+well-known 3-loop models in the literature
+\cite{Krauss:2002px,Gustafsson:2012vj}. Neutrino masses at $d=7$ level
+have also been studied. A systematic analysis at tree-level was done
+in \cite{Bonnet:2009ej}. At $d=7$ tree-level there is only one (in our
+sense) genuine neutrino mass model. This model was first discussed in
+\cite{Babu:2009aq}, we will call it the BNT model below. A general
+analysis of $d=7$ neutrino masses at 1-loop order was recently
+presented in \cite{Cepedello:2017eqf,Cepedello:2017lyo}.
+
+Then there are also some papers on $d=9$ (and higher) neutrino mass
+models, see
+\cite{Picek:2009is,Kumericki:2012bh,Liao:2010cc,McDonald:2013kca,McDonald:2013hsa,Nomura:2017abu}. We
+will come back to these papers briefly in section \ref{sect:prelim},
+where we discuss the main differences between their results and our
+present work. We mention in passing also \cite{Nomura:2016jnl}, which
+uses a scalar septet to construct a model giving $d=13$ neutrino
+masses at 1-loop. Note, however, that this model \cite{Nomura:2016jnl}
+is not genuine in our sense, since it uses a $Z_2$ symmetry to eliminate
+the $d=5$ seesaw contribution.
+
+The rest of this paper is organized as follows. In section
+\ref{sect:prelim} we will set up our notation and briefly discuss
+neutrino mass generation at lower dimensions. This is necessary to
+clearly define, what we mean by ``genuine'' models. Section
+\ref{sect:class} then contains the central piece of our work. We
+explain our methods, discuss topologies and list and briefly discuss
+the genuine models.  In section \ref{sect:cncl} we give a short
+conclusion. In the appendix we discuss, how experimental data on
+neutrino masses and mixing can be easily fitted with these
+high-dimensional models.
+
+

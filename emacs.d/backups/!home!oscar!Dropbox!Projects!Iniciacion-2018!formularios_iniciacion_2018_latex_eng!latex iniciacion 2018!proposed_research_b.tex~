@@ -1,0 +1,128 @@
+% Created 2018-05-18 Fri 14:56
+% Intended LaTeX compiler: pdflatex
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[cm]{fullpage}
+\usepackage{tikz,calc}
+\usepackage{array,cite,siunitx,breqn,pgfgantt}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,citecolor=blue}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Oscar Castillo-Felisola},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.1.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\begin{table}[htbp]
+\caption{Clock summary at \textit{[2018-05-18 Fri 11:24]}}
+\centering
+\begin{tabular}{lrl}
+Headline & Time & \\
+\hline
+\textbf{Total time} & \textbf{1:33} & \\
+\hline
+Particle and astroparticle physics in\ldots{} & 1:17 & \\
+\hspace*{1.0em}Introduction and motivation &  & 1:17\\
+Organization & 0:16 & \\
+\end{tabular}
+\end{table}
+
+
+\subsection*{Proposed research}
+\label{sec.useless}
+\begin{center}
+\begin{tabular}{|m{.9\textwidth}|}
+\hline
+The maximum length of this file is \textbf{10 pages} (Must use letter size, Verdana size 10 or similar). For an adequate evaluation of your proposal merits,this file must include the following aspects: Proposal description, Hypothesis,Goals, Methodology, Work Plan, Work in progress and Available Resources.\\
+\\
+Keep in mind the Bases del Concurso de Proyectos FONDECYT Iniciación 2017 and Application Instructions.\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Particle and astroparticle physics in the context of generalized models of gravity}
+\label{sec.title}
+\subsection{Introduction and motivation}
+\label{sec.intro}
+During the last few decades, the physics community has been witness of
+very important experimental results in both particle physics and
+cosmology. On the one hand, the missing ingredient of the standard
+model of particles---the Higgs boson---, was observed independently by
+two of the experiments of the Large Hadron Collider (ATLAS and CMS)
+\cite{aaltonen12_eviden_partic_produc_assoc_with,aad12_obser_new_partic_searc_stand,chatrchyan12_obser_new_boson_at_mass},
+and on the other hand, the acceleration of expansion of the Universe
+\cite{riess98_obser_eviden_from_super_accel,perlmutter99_measur_oemeg_lambd_from_high_redsh_super},
+and gravitational waves
+\cite{abbott16_obser_gravit_waves_from_binar,abbott16_gw151} were
+measure for the first time, and well as the correlation of Gamma-Ray
+burst with the merging of neutron stars
+\cite{abbott17_gravit_waves_gamma}. These observations represent the
+triumph of technological development, and a milestone for theoretical
+modeling.
+
+The relevant fact is that we are able to measure the effects, but we
+have no certainty of what is causing those effects. Of course,
+hypothesise the existence of new forms of matter and energy is
+suitable, as long as we are capable of (eventually) measure them. So
+far, we do not have an explanation for what dark matter and dark
+energy are made of.
+
+From the theoretical point of view, the scarce interpretation of the
+nature of the dark sector rises a plethora of questions: Are there
+misunderstanding in our models? Are they incomplete or their precepts
+incompatible? Why is there a huge difference between the expected
+value of the cosmological constant from a fundamental quantum field
+theory and the measured value in cosmology? All of these questions join the
+long-standing puzzles: Is there a consistent quantum theory of
+gravity? Is the gauge principle fundamental? If so, Can gravity be
+understood as a gauge theory?, \emph{et cetera}.
+
+In the quest of giving answers to those fundamental questions, we have
+been driven to explore generalizations of both, the standard model of
+particle physics: including new symmetries, exotic matter, etc.; and
+General Relativity: adding torsion, extra dimensions, higher curvature
+and torsion terms, etc. 
+
+During the development of this project, the idea
+is to analyze the phenomenology in the case of leaving the particle
+model unaltered, while modifying the gravity sector.
+
+Although the generalizations of the gravitational sector are abundant,
+we shall focus in analyze two types, known as Lovelock--Cartan and
+Polynomial Affine Gravity.
+
+The first kind of model (Lovelock--Cartan) are built up from the same
+precepts than General Relativity in arbitrary dimension, and allowing
+the torsion of the connection to be nonvanishing
+\cite{mardones91_lovel}. These models mix the \emph{minimal} generalization
+of General Relativity introduced by Cartan
+\cite{cartan22_sur_une_de_la_notion,cartan23_sur_les_connex_affin_et,cartan24_sur_les_connex_affin_et,cartan25_sur_les_connex_affin_et},
+whose proposal was to consider a (metric compatible) connection with
+torsion, and the inclusion of higher curvature terms---in scenarios
+with extra dimensions---
+
+
+\section{Bibliography}
+\label{sec.biblio}
+\bibliographystyle{/home/oscar/Documents/LatexFiles/utphys.bst}
+\bibliography{../../../../../Documents/LatexFiles/References}
+\end{document}

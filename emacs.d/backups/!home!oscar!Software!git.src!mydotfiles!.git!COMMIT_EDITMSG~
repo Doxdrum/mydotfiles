@@ -5,306 +5,1032 @@
 # Your branch is up-to-date with 'origin/master'.
 #
 # Changes to be committed:
-#	new file:   emacs.d/backups/!home!oscar!.bashrc~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!markdown-mode-20171211.2209!markdown-mode-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!metaweblog-20171216.1840!metaweblog-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!ob-ipython-20171209.634!ob-ipython-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-20171211!org-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-20171211!org-loaddefs.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-20171218!org-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-20171218!org-loaddefs.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-plus-contrib-20171211!org-loaddefs.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-plus-contrib-20171211!org-plus-contrib-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-plus-contrib-20171218!org-loaddefs.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-plus-contrib-20171218!org-plus-contrib-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org-ref-20171217.1111!org-ref-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!org2blog-20171216.1848!org2blog-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!pyvenv-20171215.1329!pyvenv-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!swiper-20171206.1251!swiper-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!swiper-20171217.334!swiper-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!elpa!with-editor-20171217.1239!with-editor-autoloads.el~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!ido.last~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!magithub!cache~
-#	new file:   emacs.d/backups/!home!oscar!.emacs.d!url!cookies~
-#	new file:   emacs.d/backups/!home!oscar!.maxima!dirac2.mac~
-#	new file:   emacs.d/backups/!home!oscar!.newsrc-dribble~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!GDH-gravitones!Org-mode!GDH-gravitons.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!GDH-gravitones!Org-mode!GDH-gravitons.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!JP-PAG_sol!Sage!homotropic_tensor___JP.ipynb~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!HEP_school_2018.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!PAG.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Papers!AffGR.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Papers!AffGR.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!Elctrodynamics.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!Electrodynamics.html~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!Electrodynamics.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!Electrodynamics.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!bestowed.html~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!Seminaries!bestowed.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!agenda.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!archive.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!computer.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!computer.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!gmail-agenda.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!reduction.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!referal.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!referal.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!refile.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!References.bib~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!Def-article.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!Def-org.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!PersonalStuff!Miscelaneous!formal_letter_4!formal_letter_4.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!PersonalStuff!Miscelaneous!formal_letter_4!structure.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!2018-list.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Electrodynamics.org~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Electrodynamics.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Ex01.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw01.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw02.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw03.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw04.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw05.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw06.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw07.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!2018-EM!Hw08.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!Base-Hw.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!Hw-template.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!Template!Hw-template.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!Template!Hw01-template.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Electrodynamics!Homework!Template!Hw05-template.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!MathMethods!Base-Hw.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!MathMethods!Homeworks!2018-Hw01.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!MathMethods!Homeworks!2018-Hw02.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!MathMethods!Homeworks!2018-I!2018-Hw03.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!MathMethods!Homeworks!2018-I!Ex01.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Seminaries!Base-talk.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!UTFSM!Seminaries!Docs!2018.01.USM.tex~
-#	new file:   emacs.d/backups/!home!oscar!Documents!LatexFiles!foo.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!4_Fermiones!draft!Oscar!appb!Archive!appolb_proof.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!4_Fermiones!draft!Oscar!appb!Def-org.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!4_Fermiones!draft!Oscar!appb!appb.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!.git!COMMIT_EDITMSG~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!Def-org.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!PAG_Sols.org~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!PAG_Sols.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!Sol_PAG.org~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!Sol_PAG.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!NeutrinoMassOpD9!Oscar!tikz_feynman.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!Org!computer.org~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!Torsion OA (2)!AffGR_CQG!AffGR.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!Torsion OA (2)!AffGR_CQG!AffGR_responce01_CQG.tex~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!Torsion OA (2)!AffGR_CQG!response02_CQG.org~
-#	new file:   emacs.d/backups/!home!oscar!Dropbox!Torsion OA (2)!AffGR_CQG!response02_CQG.tex~
-#	new file:   emacs.d/backups/!home!oscar!Maildir![Gmail].Drafts!cur!1524473639.a51dec3fb3af0f7a.cartan:2,DS~
-#	new file:   emacs.d/backups/!home!oscar!Maildir![Gmail].Drafts!cur!1524746024.106a38b7bd12c076.cartan:2,DS~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!Doxdrum.github.io!.git!COMMIT_EDITMSG~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!Doxdrum.github.io!index.html~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!Doxdrum.github.io!index.org~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!mydotfiles!.git!COMMIT_EDITMSG~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!mydotfiles!conkerorrc~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!mydotfiles!emacs.d!oauth2.plstore~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!mydotfiles!offlineimaprc~
-#	new file:   emacs.d/backups/!home!oscar!Software!git.src!reveal.js!css!theme!my-moon.css~
-#	new file:   emacs.d/backups/!home!oscar!Software!root_v6.10.08.source!root-6.10.08!README.md~
-#	new file:   emacs.d/backups/!home!oscar!foo.bib~
-#	new file:   emacs.d/backups/!home!oscar!foo.org~
-#	new file:   emacs.d/backups/!home!oscar!foo.tex~
-#	new file:   emacs.d/backups/!home!oscar!fooo~
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck-autoloads.el -> emacs.d/elpa/flycheck-20180509.845/flycheck-autoloads.el
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck-buttercup.el -> emacs.d/elpa/flycheck-20180509.845/flycheck-buttercup.el
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck-ert.el -> emacs.d/elpa/flycheck-20180509.845/flycheck-ert.el
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck-ert.elc -> emacs.d/elpa/flycheck-20180509.845/flycheck-ert.elc
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck-pkg.el -> emacs.d/elpa/flycheck-20180509.845/flycheck-pkg.el
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck.el -> emacs.d/elpa/flycheck-20180509.845/flycheck.el
-#	renamed:    emacs.d/elpa/flycheck-20180422.2106/flycheck.elc -> emacs.d/elpa/flycheck-20180509.845/flycheck.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-adaptive.el -> emacs.d/elpa/helm-20180509.2230/helm-adaptive.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-adaptive.elc -> emacs.d/elpa/helm-20180509.2230/helm-adaptive.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-autoloads.el -> emacs.d/elpa/helm-20180509.2230/helm-autoloads.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-bookmark.el -> emacs.d/elpa/helm-20180509.2230/helm-bookmark.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-bookmark.elc -> emacs.d/elpa/helm-20180509.2230/helm-bookmark.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-buffers.el -> emacs.d/elpa/helm-20180509.2230/helm-buffers.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-buffers.elc -> emacs.d/elpa/helm-20180509.2230/helm-buffers.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-color.el -> emacs.d/elpa/helm-20180509.2230/helm-color.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-color.elc -> emacs.d/elpa/helm-20180509.2230/helm-color.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-command.el -> emacs.d/elpa/helm-20180509.2230/helm-command.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-command.elc -> emacs.d/elpa/helm-20180509.2230/helm-command.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-config.el -> emacs.d/elpa/helm-20180509.2230/helm-config.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-config.elc -> emacs.d/elpa/helm-20180509.2230/helm-config.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-dabbrev.el -> emacs.d/elpa/helm-20180509.2230/helm-dabbrev.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-dabbrev.elc -> emacs.d/elpa/helm-20180509.2230/helm-dabbrev.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-easymenu.el -> emacs.d/elpa/helm-20180509.2230/helm-easymenu.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-easymenu.elc -> emacs.d/elpa/helm-20180509.2230/helm-easymenu.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-elisp-package.el -> emacs.d/elpa/helm-20180509.2230/helm-elisp-package.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-elisp-package.elc -> emacs.d/elpa/helm-20180509.2230/helm-elisp-package.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-elisp.el -> emacs.d/elpa/helm-20180509.2230/helm-elisp.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-elisp.elc -> emacs.d/elpa/helm-20180509.2230/helm-elisp.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-eshell.el -> emacs.d/elpa/helm-20180509.2230/helm-eshell.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-eshell.elc -> emacs.d/elpa/helm-20180509.2230/helm-eshell.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-eval.el -> emacs.d/elpa/helm-20180509.2230/helm-eval.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-eval.elc -> emacs.d/elpa/helm-20180509.2230/helm-eval.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-external.el -> emacs.d/elpa/helm-20180509.2230/helm-external.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-external.elc -> emacs.d/elpa/helm-20180509.2230/helm-external.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-files.el -> emacs.d/elpa/helm-20180509.2230/helm-files.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-files.elc -> emacs.d/elpa/helm-20180509.2230/helm-files.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-find.el -> emacs.d/elpa/helm-20180509.2230/helm-find.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-find.elc -> emacs.d/elpa/helm-20180509.2230/helm-find.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-font.el -> emacs.d/elpa/helm-20180509.2230/helm-font.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-font.elc -> emacs.d/elpa/helm-20180509.2230/helm-font.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-for-files.el -> emacs.d/elpa/helm-20180509.2230/helm-for-files.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-for-files.elc -> emacs.d/elpa/helm-20180509.2230/helm-for-files.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-grep.el -> emacs.d/elpa/helm-20180509.2230/helm-grep.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-grep.elc -> emacs.d/elpa/helm-20180509.2230/helm-grep.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-help.el -> emacs.d/elpa/helm-20180509.2230/helm-help.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-help.elc -> emacs.d/elpa/helm-20180509.2230/helm-help.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-id-utils.el -> emacs.d/elpa/helm-20180509.2230/helm-id-utils.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-id-utils.elc -> emacs.d/elpa/helm-20180509.2230/helm-id-utils.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-imenu.el -> emacs.d/elpa/helm-20180509.2230/helm-imenu.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-imenu.elc -> emacs.d/elpa/helm-20180509.2230/helm-imenu.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-info.el -> emacs.d/elpa/helm-20180509.2230/helm-info.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-info.elc -> emacs.d/elpa/helm-20180509.2230/helm-info.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-locate.el -> emacs.d/elpa/helm-20180509.2230/helm-locate.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-locate.elc -> emacs.d/elpa/helm-20180509.2230/helm-locate.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-man.el -> emacs.d/elpa/helm-20180509.2230/helm-man.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-man.elc -> emacs.d/elpa/helm-20180509.2230/helm-man.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-misc.el -> emacs.d/elpa/helm-20180509.2230/helm-misc.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-misc.elc -> emacs.d/elpa/helm-20180509.2230/helm-misc.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-mode.el -> emacs.d/elpa/helm-20180509.2230/helm-mode.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-mode.elc -> emacs.d/elpa/helm-20180509.2230/helm-mode.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-net.el -> emacs.d/elpa/helm-20180509.2230/helm-net.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-net.elc -> emacs.d/elpa/helm-20180509.2230/helm-net.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-org.el -> emacs.d/elpa/helm-20180509.2230/helm-org.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-org.elc -> emacs.d/elpa/helm-20180509.2230/helm-org.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-pkg.el -> emacs.d/elpa/helm-20180509.2230/helm-pkg.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-regexp.el -> emacs.d/elpa/helm-20180509.2230/helm-regexp.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-regexp.elc -> emacs.d/elpa/helm-20180509.2230/helm-regexp.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-ring.el -> emacs.d/elpa/helm-20180509.2230/helm-ring.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-ring.elc -> emacs.d/elpa/helm-20180509.2230/helm-ring.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-semantic.el -> emacs.d/elpa/helm-20180509.2230/helm-semantic.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-semantic.elc -> emacs.d/elpa/helm-20180509.2230/helm-semantic.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-sys.el -> emacs.d/elpa/helm-20180509.2230/helm-sys.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-sys.elc -> emacs.d/elpa/helm-20180509.2230/helm-sys.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-tags.el -> emacs.d/elpa/helm-20180509.2230/helm-tags.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-tags.elc -> emacs.d/elpa/helm-20180509.2230/helm-tags.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-types.el -> emacs.d/elpa/helm-20180509.2230/helm-types.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-types.elc -> emacs.d/elpa/helm-20180509.2230/helm-types.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-utils.el -> emacs.d/elpa/helm-20180509.2230/helm-utils.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-utils.elc -> emacs.d/elpa/helm-20180509.2230/helm-utils.elc
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-x-files.el -> emacs.d/elpa/helm-20180509.2230/helm-x-files.el
-#	renamed:    emacs.d/elpa/helm-20180507.903/helm-x-files.elc -> emacs.d/elpa/helm-20180509.2230/helm-x-files.elc
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-core-autoloads.el -> emacs.d/elpa/helm-core-20180509.2230/helm-core-autoloads.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-core-pkg.el -> emacs.d/elpa/helm-core-20180509.2230/helm-core-pkg.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-lib.el -> emacs.d/elpa/helm-core-20180509.2230/helm-lib.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-lib.elc -> emacs.d/elpa/helm-core-20180509.2230/helm-lib.elc
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-multi-match.el -> emacs.d/elpa/helm-core-20180509.2230/helm-multi-match.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-multi-match.elc -> emacs.d/elpa/helm-core-20180509.2230/helm-multi-match.elc
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-source.el -> emacs.d/elpa/helm-core-20180509.2230/helm-source.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm-source.elc -> emacs.d/elpa/helm-core-20180509.2230/helm-source.elc
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm.el -> emacs.d/elpa/helm-core-20180509.2230/helm.el
-#	renamed:    emacs.d/elpa/helm-core-20180508.143/helm.elc -> emacs.d/elpa/helm-core-20180509.2230/helm.elc
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/colir.el -> emacs.d/elpa/ivy-20180509.919/colir.el
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/colir.elc -> emacs.d/elpa/ivy-20180509.919/colir.elc
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy-autoloads.el -> emacs.d/elpa/ivy-20180509.919/ivy-autoloads.el
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy-overlay.el -> emacs.d/elpa/ivy-20180509.919/ivy-overlay.el
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy-overlay.elc -> emacs.d/elpa/ivy-20180509.919/ivy-overlay.elc
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy-pkg.el -> emacs.d/elpa/ivy-20180509.919/ivy-pkg.el
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy.el -> emacs.d/elpa/ivy-20180509.919/ivy.el
-#	renamed:    emacs.d/elpa/ivy-20180506.1303/ivy.elc -> emacs.d/elpa/ivy-20180509.919/ivy.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/git-rebase.el -> emacs.d/elpa/magit-20180509.913/git-rebase.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/git-rebase.elc -> emacs.d/elpa/magit-20180509.913/git-rebase.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-apply.el -> emacs.d/elpa/magit-20180509.913/magit-apply.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-apply.elc -> emacs.d/elpa/magit-20180509.913/magit-apply.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-autoloads.el -> emacs.d/elpa/magit-20180509.913/magit-autoloads.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-autorevert.el -> emacs.d/elpa/magit-20180509.913/magit-autorevert.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-autorevert.elc -> emacs.d/elpa/magit-20180509.913/magit-autorevert.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-bisect.el -> emacs.d/elpa/magit-20180509.913/magit-bisect.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-bisect.elc -> emacs.d/elpa/magit-20180509.913/magit-bisect.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-blame.el -> emacs.d/elpa/magit-20180509.913/magit-blame.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-blame.elc -> emacs.d/elpa/magit-20180509.913/magit-blame.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-bookmark.el -> emacs.d/elpa/magit-20180509.913/magit-bookmark.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-bookmark.elc -> emacs.d/elpa/magit-20180509.913/magit-bookmark.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-branch.el -> emacs.d/elpa/magit-20180509.913/magit-branch.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-branch.elc -> emacs.d/elpa/magit-20180509.913/magit-branch.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-collab.el -> emacs.d/elpa/magit-20180509.913/magit-collab.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-collab.elc -> emacs.d/elpa/magit-20180509.913/magit-collab.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-commit.el -> emacs.d/elpa/magit-20180509.913/magit-commit.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-commit.elc -> emacs.d/elpa/magit-20180509.913/magit-commit.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-core.el -> emacs.d/elpa/magit-20180509.913/magit-core.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-core.elc -> emacs.d/elpa/magit-20180509.913/magit-core.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-diff.el -> emacs.d/elpa/magit-20180509.913/magit-diff.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-diff.elc -> emacs.d/elpa/magit-20180509.913/magit-diff.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-ediff.el -> emacs.d/elpa/magit-20180509.913/magit-ediff.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-ediff.elc -> emacs.d/elpa/magit-20180509.913/magit-ediff.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-extras.el -> emacs.d/elpa/magit-20180509.913/magit-extras.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-extras.elc -> emacs.d/elpa/magit-20180509.913/magit-extras.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-files.el -> emacs.d/elpa/magit-20180509.913/magit-files.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-files.elc -> emacs.d/elpa/magit-20180509.913/magit-files.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-git.el -> emacs.d/elpa/magit-20180509.913/magit-git.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-git.elc -> emacs.d/elpa/magit-20180509.913/magit-git.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-imenu.el -> emacs.d/elpa/magit-20180509.913/magit-imenu.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-imenu.elc -> emacs.d/elpa/magit-20180509.913/magit-imenu.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-log.el -> emacs.d/elpa/magit-20180509.913/magit-log.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-log.elc -> emacs.d/elpa/magit-20180509.913/magit-log.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-margin.el -> emacs.d/elpa/magit-20180509.913/magit-margin.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-margin.elc -> emacs.d/elpa/magit-20180509.913/magit-margin.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-merge.el -> emacs.d/elpa/magit-20180509.913/magit-merge.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-merge.elc -> emacs.d/elpa/magit-20180509.913/magit-merge.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-mode.el -> emacs.d/elpa/magit-20180509.913/magit-mode.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-mode.elc -> emacs.d/elpa/magit-20180509.913/magit-mode.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-notes.el -> emacs.d/elpa/magit-20180509.913/magit-notes.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-notes.elc -> emacs.d/elpa/magit-20180509.913/magit-notes.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-obsolete.el -> emacs.d/elpa/magit-20180509.913/magit-obsolete.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-obsolete.elc -> emacs.d/elpa/magit-20180509.913/magit-obsolete.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-pkg.el -> emacs.d/elpa/magit-20180509.913/magit-pkg.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-process.el -> emacs.d/elpa/magit-20180509.913/magit-process.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-process.elc -> emacs.d/elpa/magit-20180509.913/magit-process.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-refs.el -> emacs.d/elpa/magit-20180509.913/magit-refs.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-refs.elc -> emacs.d/elpa/magit-20180509.913/magit-refs.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-remote.el -> emacs.d/elpa/magit-20180509.913/magit-remote.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-remote.elc -> emacs.d/elpa/magit-20180509.913/magit-remote.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-repos.el -> emacs.d/elpa/magit-20180509.913/magit-repos.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-repos.elc -> emacs.d/elpa/magit-20180509.913/magit-repos.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-reset.el -> emacs.d/elpa/magit-20180509.913/magit-reset.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-reset.elc -> emacs.d/elpa/magit-20180509.913/magit-reset.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-section.el -> emacs.d/elpa/magit-20180509.913/magit-section.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-section.elc -> emacs.d/elpa/magit-20180509.913/magit-section.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-sequence.el -> emacs.d/elpa/magit-20180509.913/magit-sequence.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-sequence.elc -> emacs.d/elpa/magit-20180509.913/magit-sequence.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-stash.el -> emacs.d/elpa/magit-20180509.913/magit-stash.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-stash.elc -> emacs.d/elpa/magit-20180509.913/magit-stash.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-status.el -> emacs.d/elpa/magit-20180509.913/magit-status.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-status.elc -> emacs.d/elpa/magit-20180509.913/magit-status.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-submodule.el -> emacs.d/elpa/magit-20180509.913/magit-submodule.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-submodule.elc -> emacs.d/elpa/magit-20180509.913/magit-submodule.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-subtree.el -> emacs.d/elpa/magit-20180509.913/magit-subtree.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-subtree.elc -> emacs.d/elpa/magit-20180509.913/magit-subtree.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-tag.el -> emacs.d/elpa/magit-20180509.913/magit-tag.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-tag.elc -> emacs.d/elpa/magit-20180509.913/magit-tag.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-utils.el -> emacs.d/elpa/magit-20180509.913/magit-utils.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-utils.elc -> emacs.d/elpa/magit-20180509.913/magit-utils.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-wip.el -> emacs.d/elpa/magit-20180509.913/magit-wip.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-wip.elc -> emacs.d/elpa/magit-20180509.913/magit-wip.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-worktree.el -> emacs.d/elpa/magit-20180509.913/magit-worktree.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit-worktree.elc -> emacs.d/elpa/magit-20180509.913/magit-worktree.elc
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit.el -> emacs.d/elpa/magit-20180509.913/magit.el
-#	renamed:    emacs.d/elpa/magit-20180506.723/magit.elc -> emacs.d/elpa/magit-20180509.913/magit.elc
-#	renamed:    emacs.d/elpa/magit-popup-20180507.1453/magit-popup-autoloads.el -> emacs.d/elpa/magit-popup-20180509.1041/magit-popup-autoloads.el
-#	renamed:    emacs.d/elpa/magit-popup-20180507.1453/magit-popup-pkg.el -> emacs.d/elpa/magit-popup-20180509.1041/magit-popup-pkg.el
-#	renamed:    emacs.d/elpa/magit-popup-20180507.1453/magit-popup.el -> emacs.d/elpa/magit-popup-20180509.1041/magit-popup.el
-#	renamed:    emacs.d/elpa/magit-popup-20180507.1453/magit-popup.elc -> emacs.d/elpa/magit-popup-20180509.1041/magit-popup.elc
+#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Investigacion_LC!Oscar!Base.tex~
+#	new file:   emacs.d/backups/!home!oscar!Documents!Dropbox!Investigacion_LC!Oscar!Documents!Einstein_Hilbert_Escalar.tex~
+#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!Daily!Base.tex~
+#	new file:   emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!Daily!Documents!DerivadaLie.tex~
+#	new file:   emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!abstract.org~
+#	new file:   emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!abstract.tex~
+#	new file:   emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!proposed_research.org~
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-autoloads.el
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-company.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-contents-api.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-core.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-inspector.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-jedi.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-jupyter.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-kernel.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-notebook.el
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-notebook.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-notebooklist.el
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-notebooklist.elc
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-pkg.el
+#	deleted:    emacs.d/elpa/ein-20180516.1411/ein-utils.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/debug-ein.el -> emacs.d/elpa/ein-20180520.642/debug-ein.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/debug-ein.elc -> emacs.d/elpa/ein-20180520.642/debug-ein.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ac.el -> emacs.d/elpa/ein-20180520.642/ein-ac.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ac.elc -> emacs.d/elpa/ein-20180520.642/ein-ac.elc
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-autoloads.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell-edit.el -> emacs.d/elpa/ein-20180520.642/ein-cell-edit.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell-edit.elc -> emacs.d/elpa/ein-20180520.642/ein-cell-edit.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell-output.el -> emacs.d/elpa/ein-20180520.642/ein-cell-output.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell-output.elc -> emacs.d/elpa/ein-20180520.642/ein-cell-output.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell.el -> emacs.d/elpa/ein-20180520.642/ein-cell.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-cell.elc -> emacs.d/elpa/ein-20180520.642/ein-cell.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-classes.el -> emacs.d/elpa/ein-20180520.642/ein-classes.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-classes.elc -> emacs.d/elpa/ein-20180520.642/ein-classes.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-company.el -> emacs.d/elpa/ein-20180520.642/ein-company.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-company.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-completer.el -> emacs.d/elpa/ein-20180520.642/ein-completer.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-completer.elc -> emacs.d/elpa/ein-20180520.642/ein-completer.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-connect.el -> emacs.d/elpa/ein-20180520.642/ein-connect.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-connect.elc -> emacs.d/elpa/ein-20180520.642/ein-connect.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-console.el -> emacs.d/elpa/ein-20180520.642/ein-console.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-console.elc -> emacs.d/elpa/ein-20180520.642/ein-console.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-contents-api.el -> emacs.d/elpa/ein-20180520.642/ein-contents-api.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-contents-api.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-core.el -> emacs.d/elpa/ein-20180520.642/ein-core.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-core.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-dev.el -> emacs.d/elpa/ein-20180520.642/ein-dev.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-dev.elc -> emacs.d/elpa/ein-20180520.642/ein-dev.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-events.el -> emacs.d/elpa/ein-20180520.642/ein-events.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-events.elc -> emacs.d/elpa/ein-20180520.642/ein-events.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-file.el -> emacs.d/elpa/ein-20180520.642/ein-file.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-file.elc -> emacs.d/elpa/ein-20180520.642/ein-file.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-helm.el -> emacs.d/elpa/ein-20180520.642/ein-helm.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-helm.elc -> emacs.d/elpa/ein-20180520.642/ein-helm.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-hy.el -> emacs.d/elpa/ein-20180520.642/ein-hy.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-hy.elc -> emacs.d/elpa/ein-20180520.642/ein-hy.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-iexec.el -> emacs.d/elpa/ein-20180520.642/ein-iexec.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-iexec.elc -> emacs.d/elpa/ein-20180520.642/ein-iexec.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-inspector.el -> emacs.d/elpa/ein-20180520.642/ein-inspector.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-inspector.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ipdb.el -> emacs.d/elpa/ein-20180520.642/ein-ipdb.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ipdb.elc -> emacs.d/elpa/ein-20180520.642/ein-ipdb.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ipynb-mode.el -> emacs.d/elpa/ein-20180520.642/ein-ipynb-mode.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-ipynb-mode.elc -> emacs.d/elpa/ein-20180520.642/ein-ipynb-mode.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-jedi.el -> emacs.d/elpa/ein-20180520.642/ein-jedi.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-jedi.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-junk.el -> emacs.d/elpa/ein-20180520.642/ein-junk.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-junk.elc -> emacs.d/elpa/ein-20180520.642/ein-junk.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-jupyter.el -> emacs.d/elpa/ein-20180520.642/ein-jupyter.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-jupyter.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-jupyterhub.el -> emacs.d/elpa/ein-20180520.642/ein-jupyterhub.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-jupyterhub.elc -> emacs.d/elpa/ein-20180520.642/ein-jupyterhub.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-kernel.el -> emacs.d/elpa/ein-20180520.642/ein-kernel.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-kernel.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-kernelinfo.el -> emacs.d/elpa/ein-20180520.642/ein-kernelinfo.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-kernelinfo.elc -> emacs.d/elpa/ein-20180520.642/ein-kernelinfo.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-kill-ring.el -> emacs.d/elpa/ein-20180520.642/ein-kill-ring.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-kill-ring.elc -> emacs.d/elpa/ein-20180520.642/ein-kill-ring.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-loaddefs.el -> emacs.d/elpa/ein-20180520.642/ein-loaddefs.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-log.el -> emacs.d/elpa/ein-20180520.642/ein-log.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-log.elc -> emacs.d/elpa/ein-20180520.642/ein-log.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-multilang-fontify.el -> emacs.d/elpa/ein-20180520.642/ein-multilang-fontify.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-multilang-fontify.elc -> emacs.d/elpa/ein-20180520.642/ein-multilang-fontify.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-multilang.el -> emacs.d/elpa/ein-20180520.642/ein-multilang.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-multilang.elc -> emacs.d/elpa/ein-20180520.642/ein-multilang.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-node.el -> emacs.d/elpa/ein-20180520.642/ein-node.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-node.elc -> emacs.d/elpa/ein-20180520.642/ein-node.elc
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-notebook.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-notebook.elc
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-notebooklist.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-notebooklist.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-notification.el -> emacs.d/elpa/ein-20180520.642/ein-notification.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-notification.elc -> emacs.d/elpa/ein-20180520.642/ein-notification.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-org.el -> emacs.d/elpa/ein-20180520.642/ein-org.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-org.elc -> emacs.d/elpa/ein-20180520.642/ein-org.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-output-area.el -> emacs.d/elpa/ein-20180520.642/ein-output-area.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-output-area.elc -> emacs.d/elpa/ein-20180520.642/ein-output-area.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pager.el -> emacs.d/elpa/ein-20180520.642/ein-pager.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pager.elc -> emacs.d/elpa/ein-20180520.642/ein-pager.elc
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-pkg.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pseudo-console.el -> emacs.d/elpa/ein-20180520.642/ein-pseudo-console.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pseudo-console.elc -> emacs.d/elpa/ein-20180520.642/ein-pseudo-console.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-python.el -> emacs.d/elpa/ein-20180520.642/ein-python.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-python.elc -> emacs.d/elpa/ein-20180520.642/ein-python.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pytools.el -> emacs.d/elpa/ein-20180520.642/ein-pytools.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-pytools.elc -> emacs.d/elpa/ein-20180520.642/ein-pytools.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-query.el -> emacs.d/elpa/ein-20180520.642/ein-query.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-query.elc -> emacs.d/elpa/ein-20180520.642/ein-query.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-scratchsheet.el -> emacs.d/elpa/ein-20180520.642/ein-scratchsheet.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-scratchsheet.elc -> emacs.d/elpa/ein-20180520.642/ein-scratchsheet.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-shared-output.el -> emacs.d/elpa/ein-20180520.642/ein-shared-output.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-shared-output.elc -> emacs.d/elpa/ein-20180520.642/ein-shared-output.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-skewer.el -> emacs.d/elpa/ein-20180520.642/ein-skewer.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-skewer.elc -> emacs.d/elpa/ein-20180520.642/ein-skewer.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-smartrep.el -> emacs.d/elpa/ein-20180520.642/ein-smartrep.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-smartrep.elc -> emacs.d/elpa/ein-20180520.642/ein-smartrep.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-subpackages.el -> emacs.d/elpa/ein-20180520.642/ein-subpackages.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-subpackages.elc -> emacs.d/elpa/ein-20180520.642/ein-subpackages.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-timestamp.el -> emacs.d/elpa/ein-20180520.642/ein-timestamp.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-timestamp.elc -> emacs.d/elpa/ein-20180520.642/ein-timestamp.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-traceback.el -> emacs.d/elpa/ein-20180520.642/ein-traceback.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-traceback.elc -> emacs.d/elpa/ein-20180520.642/ein-traceback.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-utils.el -> emacs.d/elpa/ein-20180520.642/ein-utils.el
+#	new file:   emacs.d/elpa/ein-20180520.642/ein-utils.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-websocket.el -> emacs.d/elpa/ein-20180520.642/ein-websocket.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-websocket.elc -> emacs.d/elpa/ein-20180520.642/ein-websocket.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-worksheet.el -> emacs.d/elpa/ein-20180520.642/ein-worksheet.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein-worksheet.elc -> emacs.d/elpa/ein-20180520.642/ein-worksheet.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein.el -> emacs.d/elpa/ein-20180520.642/ein.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ein.elc -> emacs.d/elpa/ein-20180520.642/ein.elc
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ob-ein.el -> emacs.d/elpa/ein-20180520.642/ob-ein.el
+#	renamed:    emacs.d/elpa/ein-20180516.1411/ob-ein.elc -> emacs.d/elpa/ein-20180520.642/ob-ein.elc
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy-autoloads.el
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy-pkg.el
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy-shell.el
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy-shell.elc
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy.el
+#	deleted:    emacs.d/elpa/elpy-20180504.444/elpy.elc
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy-autoloads.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-django.el -> emacs.d/elpa/elpy-20180520.1401/elpy-django.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-django.elc -> emacs.d/elpa/elpy-20180520.1401/elpy-django.elc
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy-pkg.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-profile.el -> emacs.d/elpa/elpy-20180520.1401/elpy-profile.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-profile.elc -> emacs.d/elpa/elpy-20180520.1401/elpy-profile.elc
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-refactor.el -> emacs.d/elpa/elpy-20180520.1401/elpy-refactor.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/elpy-refactor.elc -> emacs.d/elpa/elpy-20180520.1401/elpy-refactor.elc
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy-shell.el
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy-shell.elc
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy.el
+#	new file:   emacs.d/elpa/elpy-20180520.1401/elpy.elc
+#	renamed:    emacs.d/elpa/elpy-20180504.444/snippets/python-mode/.yas-setup.el -> emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/.yas-setup.el
+#	renamed:    emacs.d/elpa/elpy-20180504.444/snippets/python-mode/.yas-setup.elc -> emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/.yas-setup.elc
+#	deleted:    emacs.d/elpa/ghub+-20180330.1738/ghub+-autoloads.el
+#	deleted:    emacs.d/elpa/ghub+-20180330.1738/ghub+-pkg.el
+#	deleted:    emacs.d/elpa/ghub+-20180330.1738/ghub+.el
+#	deleted:    emacs.d/elpa/ghub+-20180330.1738/ghub+.elc
+#	new file:   emacs.d/elpa/ghub+-20180519.1143/ghub+-autoloads.el
+#	new file:   emacs.d/elpa/ghub+-20180519.1143/ghub+-pkg.el
+#	new file:   emacs.d/elpa/ghub+-20180519.1143/ghub+.el
+#	new file:   emacs.d/elpa/ghub+-20180519.1143/ghub+.elc
+#	deleted:    emacs.d/elpa/helm-20180512.51/helm-autoloads.el
+#	deleted:    emacs.d/elpa/helm-20180512.51/helm-files.el
+#	deleted:    emacs.d/elpa/helm-20180512.51/helm-files.elc
+#	deleted:    emacs.d/elpa/helm-20180512.51/helm-pkg.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-adaptive.el -> emacs.d/elpa/helm-20180519.934/helm-adaptive.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-adaptive.elc -> emacs.d/elpa/helm-20180519.934/helm-adaptive.elc
+#	new file:   emacs.d/elpa/helm-20180519.934/helm-autoloads.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-bookmark.el -> emacs.d/elpa/helm-20180519.934/helm-bookmark.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-bookmark.elc -> emacs.d/elpa/helm-20180519.934/helm-bookmark.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-buffers.el -> emacs.d/elpa/helm-20180519.934/helm-buffers.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-buffers.elc -> emacs.d/elpa/helm-20180519.934/helm-buffers.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-color.el -> emacs.d/elpa/helm-20180519.934/helm-color.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-color.elc -> emacs.d/elpa/helm-20180519.934/helm-color.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-command.el -> emacs.d/elpa/helm-20180519.934/helm-command.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-command.elc -> emacs.d/elpa/helm-20180519.934/helm-command.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-config.el -> emacs.d/elpa/helm-20180519.934/helm-config.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-config.elc -> emacs.d/elpa/helm-20180519.934/helm-config.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-dabbrev.el -> emacs.d/elpa/helm-20180519.934/helm-dabbrev.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-dabbrev.elc -> emacs.d/elpa/helm-20180519.934/helm-dabbrev.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-easymenu.el -> emacs.d/elpa/helm-20180519.934/helm-easymenu.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-easymenu.elc -> emacs.d/elpa/helm-20180519.934/helm-easymenu.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-elisp-package.el -> emacs.d/elpa/helm-20180519.934/helm-elisp-package.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-elisp-package.elc -> emacs.d/elpa/helm-20180519.934/helm-elisp-package.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-elisp.el -> emacs.d/elpa/helm-20180519.934/helm-elisp.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-elisp.elc -> emacs.d/elpa/helm-20180519.934/helm-elisp.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-eshell.el -> emacs.d/elpa/helm-20180519.934/helm-eshell.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-eshell.elc -> emacs.d/elpa/helm-20180519.934/helm-eshell.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-eval.el -> emacs.d/elpa/helm-20180519.934/helm-eval.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-eval.elc -> emacs.d/elpa/helm-20180519.934/helm-eval.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-external.el -> emacs.d/elpa/helm-20180519.934/helm-external.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-external.elc -> emacs.d/elpa/helm-20180519.934/helm-external.elc
+#	new file:   emacs.d/elpa/helm-20180519.934/helm-files.el
+#	new file:   emacs.d/elpa/helm-20180519.934/helm-files.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-find.el -> emacs.d/elpa/helm-20180519.934/helm-find.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-find.elc -> emacs.d/elpa/helm-20180519.934/helm-find.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-font.el -> emacs.d/elpa/helm-20180519.934/helm-font.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-font.elc -> emacs.d/elpa/helm-20180519.934/helm-font.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-for-files.el -> emacs.d/elpa/helm-20180519.934/helm-for-files.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-for-files.elc -> emacs.d/elpa/helm-20180519.934/helm-for-files.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-grep.el -> emacs.d/elpa/helm-20180519.934/helm-grep.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-grep.elc -> emacs.d/elpa/helm-20180519.934/helm-grep.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-help.el -> emacs.d/elpa/helm-20180519.934/helm-help.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-help.elc -> emacs.d/elpa/helm-20180519.934/helm-help.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-id-utils.el -> emacs.d/elpa/helm-20180519.934/helm-id-utils.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-id-utils.elc -> emacs.d/elpa/helm-20180519.934/helm-id-utils.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-imenu.el -> emacs.d/elpa/helm-20180519.934/helm-imenu.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-imenu.elc -> emacs.d/elpa/helm-20180519.934/helm-imenu.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-info.el -> emacs.d/elpa/helm-20180519.934/helm-info.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-info.elc -> emacs.d/elpa/helm-20180519.934/helm-info.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-locate.el -> emacs.d/elpa/helm-20180519.934/helm-locate.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-locate.elc -> emacs.d/elpa/helm-20180519.934/helm-locate.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-man.el -> emacs.d/elpa/helm-20180519.934/helm-man.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-man.elc -> emacs.d/elpa/helm-20180519.934/helm-man.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-misc.el -> emacs.d/elpa/helm-20180519.934/helm-misc.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-misc.elc -> emacs.d/elpa/helm-20180519.934/helm-misc.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-mode.el -> emacs.d/elpa/helm-20180519.934/helm-mode.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-mode.elc -> emacs.d/elpa/helm-20180519.934/helm-mode.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-net.el -> emacs.d/elpa/helm-20180519.934/helm-net.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-net.elc -> emacs.d/elpa/helm-20180519.934/helm-net.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-org.el -> emacs.d/elpa/helm-20180519.934/helm-org.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-org.elc -> emacs.d/elpa/helm-20180519.934/helm-org.elc
+#	new file:   emacs.d/elpa/helm-20180519.934/helm-pkg.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-regexp.el -> emacs.d/elpa/helm-20180519.934/helm-regexp.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-regexp.elc -> emacs.d/elpa/helm-20180519.934/helm-regexp.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-ring.el -> emacs.d/elpa/helm-20180519.934/helm-ring.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-ring.elc -> emacs.d/elpa/helm-20180519.934/helm-ring.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-semantic.el -> emacs.d/elpa/helm-20180519.934/helm-semantic.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-semantic.elc -> emacs.d/elpa/helm-20180519.934/helm-semantic.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-sys.el -> emacs.d/elpa/helm-20180519.934/helm-sys.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-sys.elc -> emacs.d/elpa/helm-20180519.934/helm-sys.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-tags.el -> emacs.d/elpa/helm-20180519.934/helm-tags.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-tags.elc -> emacs.d/elpa/helm-20180519.934/helm-tags.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-types.el -> emacs.d/elpa/helm-20180519.934/helm-types.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-types.elc -> emacs.d/elpa/helm-20180519.934/helm-types.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-utils.el -> emacs.d/elpa/helm-20180519.934/helm-utils.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-utils.elc -> emacs.d/elpa/helm-20180519.934/helm-utils.elc
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-x-files.el -> emacs.d/elpa/helm-20180519.934/helm-x-files.el
+#	renamed:    emacs.d/elpa/helm-20180512.51/helm-x-files.elc -> emacs.d/elpa/helm-20180519.934/helm-x-files.elc
+#	deleted:    emacs.d/elpa/magit-20180517.1443/magit-autoloads.el
+#	deleted:    emacs.d/elpa/magit-20180517.1443/magit-diff.el
+#	deleted:    emacs.d/elpa/magit-20180517.1443/magit-diff.elc
+#	deleted:    emacs.d/elpa/magit-20180517.1443/magit-pkg.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/git-rebase.el -> emacs.d/elpa/magit-20180519.1008/git-rebase.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/git-rebase.elc -> emacs.d/elpa/magit-20180519.1008/git-rebase.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-apply.el -> emacs.d/elpa/magit-20180519.1008/magit-apply.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-apply.elc -> emacs.d/elpa/magit-20180519.1008/magit-apply.elc
+#	new file:   emacs.d/elpa/magit-20180519.1008/magit-autoloads.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-autorevert.el -> emacs.d/elpa/magit-20180519.1008/magit-autorevert.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-autorevert.elc -> emacs.d/elpa/magit-20180519.1008/magit-autorevert.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-bisect.el -> emacs.d/elpa/magit-20180519.1008/magit-bisect.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-bisect.elc -> emacs.d/elpa/magit-20180519.1008/magit-bisect.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-blame.el -> emacs.d/elpa/magit-20180519.1008/magit-blame.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-blame.elc -> emacs.d/elpa/magit-20180519.1008/magit-blame.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-bookmark.el -> emacs.d/elpa/magit-20180519.1008/magit-bookmark.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-bookmark.elc -> emacs.d/elpa/magit-20180519.1008/magit-bookmark.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-branch.el -> emacs.d/elpa/magit-20180519.1008/magit-branch.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-branch.elc -> emacs.d/elpa/magit-20180519.1008/magit-branch.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-collab.el -> emacs.d/elpa/magit-20180519.1008/magit-collab.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-collab.elc -> emacs.d/elpa/magit-20180519.1008/magit-collab.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-commit.el -> emacs.d/elpa/magit-20180519.1008/magit-commit.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-commit.elc -> emacs.d/elpa/magit-20180519.1008/magit-commit.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-core.el -> emacs.d/elpa/magit-20180519.1008/magit-core.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-core.elc -> emacs.d/elpa/magit-20180519.1008/magit-core.elc
+#	new file:   emacs.d/elpa/magit-20180519.1008/magit-diff.el
+#	new file:   emacs.d/elpa/magit-20180519.1008/magit-diff.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-ediff.el -> emacs.d/elpa/magit-20180519.1008/magit-ediff.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-ediff.elc -> emacs.d/elpa/magit-20180519.1008/magit-ediff.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-extras.el -> emacs.d/elpa/magit-20180519.1008/magit-extras.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-extras.elc -> emacs.d/elpa/magit-20180519.1008/magit-extras.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-files.el -> emacs.d/elpa/magit-20180519.1008/magit-files.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-files.elc -> emacs.d/elpa/magit-20180519.1008/magit-files.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-git.el -> emacs.d/elpa/magit-20180519.1008/magit-git.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-git.elc -> emacs.d/elpa/magit-20180519.1008/magit-git.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-imenu.el -> emacs.d/elpa/magit-20180519.1008/magit-imenu.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-imenu.elc -> emacs.d/elpa/magit-20180519.1008/magit-imenu.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-log.el -> emacs.d/elpa/magit-20180519.1008/magit-log.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-log.elc -> emacs.d/elpa/magit-20180519.1008/magit-log.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-margin.el -> emacs.d/elpa/magit-20180519.1008/magit-margin.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-margin.elc -> emacs.d/elpa/magit-20180519.1008/magit-margin.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-merge.el -> emacs.d/elpa/magit-20180519.1008/magit-merge.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-merge.elc -> emacs.d/elpa/magit-20180519.1008/magit-merge.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-mode.el -> emacs.d/elpa/magit-20180519.1008/magit-mode.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-mode.elc -> emacs.d/elpa/magit-20180519.1008/magit-mode.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-notes.el -> emacs.d/elpa/magit-20180519.1008/magit-notes.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-notes.elc -> emacs.d/elpa/magit-20180519.1008/magit-notes.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-obsolete.el -> emacs.d/elpa/magit-20180519.1008/magit-obsolete.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-obsolete.elc -> emacs.d/elpa/magit-20180519.1008/magit-obsolete.elc
+#	new file:   emacs.d/elpa/magit-20180519.1008/magit-pkg.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-process.el -> emacs.d/elpa/magit-20180519.1008/magit-process.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-process.elc -> emacs.d/elpa/magit-20180519.1008/magit-process.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-refs.el -> emacs.d/elpa/magit-20180519.1008/magit-refs.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-refs.elc -> emacs.d/elpa/magit-20180519.1008/magit-refs.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-remote.el -> emacs.d/elpa/magit-20180519.1008/magit-remote.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-remote.elc -> emacs.d/elpa/magit-20180519.1008/magit-remote.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-repos.el -> emacs.d/elpa/magit-20180519.1008/magit-repos.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-repos.elc -> emacs.d/elpa/magit-20180519.1008/magit-repos.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-reset.el -> emacs.d/elpa/magit-20180519.1008/magit-reset.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-reset.elc -> emacs.d/elpa/magit-20180519.1008/magit-reset.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-section.el -> emacs.d/elpa/magit-20180519.1008/magit-section.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-section.elc -> emacs.d/elpa/magit-20180519.1008/magit-section.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-sequence.el -> emacs.d/elpa/magit-20180519.1008/magit-sequence.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-sequence.elc -> emacs.d/elpa/magit-20180519.1008/magit-sequence.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-stash.el -> emacs.d/elpa/magit-20180519.1008/magit-stash.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-stash.elc -> emacs.d/elpa/magit-20180519.1008/magit-stash.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-status.el -> emacs.d/elpa/magit-20180519.1008/magit-status.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-status.elc -> emacs.d/elpa/magit-20180519.1008/magit-status.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-submodule.el -> emacs.d/elpa/magit-20180519.1008/magit-submodule.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-submodule.elc -> emacs.d/elpa/magit-20180519.1008/magit-submodule.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-subtree.el -> emacs.d/elpa/magit-20180519.1008/magit-subtree.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-subtree.elc -> emacs.d/elpa/magit-20180519.1008/magit-subtree.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-tag.el -> emacs.d/elpa/magit-20180519.1008/magit-tag.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-tag.elc -> emacs.d/elpa/magit-20180519.1008/magit-tag.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-utils.el -> emacs.d/elpa/magit-20180519.1008/magit-utils.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-utils.elc -> emacs.d/elpa/magit-20180519.1008/magit-utils.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-wip.el -> emacs.d/elpa/magit-20180519.1008/magit-wip.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-wip.elc -> emacs.d/elpa/magit-20180519.1008/magit-wip.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-worktree.el -> emacs.d/elpa/magit-20180519.1008/magit-worktree.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit-worktree.elc -> emacs.d/elpa/magit-20180519.1008/magit-worktree.elc
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit.el -> emacs.d/elpa/magit-20180519.1008/magit.el
+#	renamed:    emacs.d/elpa/magit-20180517.1443/magit.elc -> emacs.d/elpa/magit-20180519.1008/magit.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-autoloads.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-ci.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-ci.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-comment.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-core.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-core.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-dash.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-dash.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-edit-mode.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-post.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-post.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-view.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-issue.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-issue.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-label.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-notification.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-pkg.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-settings.el
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-settings.elc
+#	deleted:    emacs.d/elpa/magithub-20180417.1912/magithub-user.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-autoloads.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-ci.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-ci.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-comment.el -> emacs.d/elpa/magithub-20180519.1216/magithub-comment.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-comment.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-completion.el -> emacs.d/elpa/magithub-20180519.1216/magithub-completion.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-completion.elc -> emacs.d/elpa/magithub-20180519.1216/magithub-completion.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-core.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-core.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-dash.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-dash.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-edit-mode.el -> emacs.d/elpa/magithub-20180519.1216/magithub-edit-mode.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-edit-mode.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-faces.el -> emacs.d/elpa/magithub-20180519.1216/magithub-faces.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-faces.elc -> emacs.d/elpa/magithub-20180519.1216/magithub-faces.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-issue-post.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-issue-post.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-tricks.el -> emacs.d/elpa/magithub-20180519.1216/magithub-issue-tricks.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-tricks.elc -> emacs.d/elpa/magithub-20180519.1216/magithub-issue-tricks.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-issue-view.el -> emacs.d/elpa/magithub-20180519.1216/magithub-issue-view.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-issue-view.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-issue.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-issue.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-label.el -> emacs.d/elpa/magithub-20180519.1216/magithub-label.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-label.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-notification.el -> emacs.d/elpa/magithub-20180519.1216/magithub-notification.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-notification.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-orgs.el -> emacs.d/elpa/magithub-20180519.1216/magithub-orgs.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-orgs.elc -> emacs.d/elpa/magithub-20180519.1216/magithub-orgs.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-pkg.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-repo.el -> emacs.d/elpa/magithub-20180519.1216/magithub-repo.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-repo.elc -> emacs.d/elpa/magithub-20180519.1216/magithub-repo.elc
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-settings.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-settings.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub-user.el -> emacs.d/elpa/magithub-20180519.1216/magithub-user.el
+#	new file:   emacs.d/elpa/magithub-20180519.1216/magithub-user.elc
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub.el -> emacs.d/elpa/magithub-20180519.1216/magithub.el
+#	renamed:    emacs.d/elpa/magithub-20180417.1912/magithub.elc -> emacs.d/elpa/magithub-20180519.1216/magithub.elc
+#	deleted:    emacs.d/elpa/org-20180514/org-autoloads.el
+#	deleted:    emacs.d/elpa/org-20180514/org-loaddefs.el
+#	deleted:    emacs.d/elpa/org-20180514/org-pkg.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-C.el -> emacs.d/elpa/org-20180521/ob-C.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-C.elc -> emacs.d/elpa/org-20180521/ob-C.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-J.el -> emacs.d/elpa/org-20180521/ob-J.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-J.elc -> emacs.d/elpa/org-20180521/ob-J.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-R.el -> emacs.d/elpa/org-20180521/ob-R.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-R.elc -> emacs.d/elpa/org-20180521/ob-R.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-abc.el -> emacs.d/elpa/org-20180521/ob-abc.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-abc.elc -> emacs.d/elpa/org-20180521/ob-abc.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-asymptote.el -> emacs.d/elpa/org-20180521/ob-asymptote.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-asymptote.elc -> emacs.d/elpa/org-20180521/ob-asymptote.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-awk.el -> emacs.d/elpa/org-20180521/ob-awk.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-awk.elc -> emacs.d/elpa/org-20180521/ob-awk.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-calc.el -> emacs.d/elpa/org-20180521/ob-calc.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-calc.elc -> emacs.d/elpa/org-20180521/ob-calc.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-clojure.el -> emacs.d/elpa/org-20180521/ob-clojure.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-clojure.elc -> emacs.d/elpa/org-20180521/ob-clojure.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-comint.el -> emacs.d/elpa/org-20180521/ob-comint.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-comint.elc -> emacs.d/elpa/org-20180521/ob-comint.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-coq.el -> emacs.d/elpa/org-20180521/ob-coq.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-coq.elc -> emacs.d/elpa/org-20180521/ob-coq.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-core.el -> emacs.d/elpa/org-20180521/ob-core.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-core.elc -> emacs.d/elpa/org-20180521/ob-core.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-css.el -> emacs.d/elpa/org-20180521/ob-css.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-css.elc -> emacs.d/elpa/org-20180521/ob-css.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ditaa.el -> emacs.d/elpa/org-20180521/ob-ditaa.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ditaa.elc -> emacs.d/elpa/org-20180521/ob-ditaa.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-dot.el -> emacs.d/elpa/org-20180521/ob-dot.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-dot.elc -> emacs.d/elpa/org-20180521/ob-dot.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ebnf.el -> emacs.d/elpa/org-20180521/ob-ebnf.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ebnf.elc -> emacs.d/elpa/org-20180521/ob-ebnf.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-emacs-lisp.el -> emacs.d/elpa/org-20180521/ob-emacs-lisp.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-emacs-lisp.elc -> emacs.d/elpa/org-20180521/ob-emacs-lisp.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-eval.el -> emacs.d/elpa/org-20180521/ob-eval.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-eval.elc -> emacs.d/elpa/org-20180521/ob-eval.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-exp.el -> emacs.d/elpa/org-20180521/ob-exp.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-exp.elc -> emacs.d/elpa/org-20180521/ob-exp.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-forth.el -> emacs.d/elpa/org-20180521/ob-forth.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-forth.elc -> emacs.d/elpa/org-20180521/ob-forth.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-fortran.el -> emacs.d/elpa/org-20180521/ob-fortran.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-fortran.elc -> emacs.d/elpa/org-20180521/ob-fortran.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-gnuplot.el -> emacs.d/elpa/org-20180521/ob-gnuplot.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-gnuplot.elc -> emacs.d/elpa/org-20180521/ob-gnuplot.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-groovy.el -> emacs.d/elpa/org-20180521/ob-groovy.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-groovy.elc -> emacs.d/elpa/org-20180521/ob-groovy.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-haskell.el -> emacs.d/elpa/org-20180521/ob-haskell.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-haskell.elc -> emacs.d/elpa/org-20180521/ob-haskell.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-hledger.el -> emacs.d/elpa/org-20180521/ob-hledger.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-hledger.elc -> emacs.d/elpa/org-20180521/ob-hledger.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-io.el -> emacs.d/elpa/org-20180521/ob-io.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-io.elc -> emacs.d/elpa/org-20180521/ob-io.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-java.el -> emacs.d/elpa/org-20180521/ob-java.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-java.elc -> emacs.d/elpa/org-20180521/ob-java.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-js.el -> emacs.d/elpa/org-20180521/ob-js.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-js.elc -> emacs.d/elpa/org-20180521/ob-js.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-keys.el -> emacs.d/elpa/org-20180521/ob-keys.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-keys.elc -> emacs.d/elpa/org-20180521/ob-keys.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-latex.el -> emacs.d/elpa/org-20180521/ob-latex.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-latex.elc -> emacs.d/elpa/org-20180521/ob-latex.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ledger.el -> emacs.d/elpa/org-20180521/ob-ledger.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ledger.elc -> emacs.d/elpa/org-20180521/ob-ledger.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-lilypond.el -> emacs.d/elpa/org-20180521/ob-lilypond.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-lilypond.elc -> emacs.d/elpa/org-20180521/ob-lilypond.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-lisp.el -> emacs.d/elpa/org-20180521/ob-lisp.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-lisp.elc -> emacs.d/elpa/org-20180521/ob-lisp.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-lob.el -> emacs.d/elpa/org-20180521/ob-lob.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-lob.elc -> emacs.d/elpa/org-20180521/ob-lob.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-lua.el -> emacs.d/elpa/org-20180521/ob-lua.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-lua.elc -> emacs.d/elpa/org-20180521/ob-lua.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-makefile.el -> emacs.d/elpa/org-20180521/ob-makefile.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-makefile.elc -> emacs.d/elpa/org-20180521/ob-makefile.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-matlab.el -> emacs.d/elpa/org-20180521/ob-matlab.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-matlab.elc -> emacs.d/elpa/org-20180521/ob-matlab.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-maxima.el -> emacs.d/elpa/org-20180521/ob-maxima.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-maxima.elc -> emacs.d/elpa/org-20180521/ob-maxima.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-mscgen.el -> emacs.d/elpa/org-20180521/ob-mscgen.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-mscgen.elc -> emacs.d/elpa/org-20180521/ob-mscgen.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ocaml.el -> emacs.d/elpa/org-20180521/ob-ocaml.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ocaml.elc -> emacs.d/elpa/org-20180521/ob-ocaml.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-octave.el -> emacs.d/elpa/org-20180521/ob-octave.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-octave.elc -> emacs.d/elpa/org-20180521/ob-octave.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-org.el -> emacs.d/elpa/org-20180521/ob-org.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-org.elc -> emacs.d/elpa/org-20180521/ob-org.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-perl.el -> emacs.d/elpa/org-20180521/ob-perl.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-perl.elc -> emacs.d/elpa/org-20180521/ob-perl.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-picolisp.el -> emacs.d/elpa/org-20180521/ob-picolisp.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-picolisp.elc -> emacs.d/elpa/org-20180521/ob-picolisp.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-plantuml.el -> emacs.d/elpa/org-20180521/ob-plantuml.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-plantuml.elc -> emacs.d/elpa/org-20180521/ob-plantuml.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-processing.el -> emacs.d/elpa/org-20180521/ob-processing.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-processing.elc -> emacs.d/elpa/org-20180521/ob-processing.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-python.el -> emacs.d/elpa/org-20180521/ob-python.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-python.elc -> emacs.d/elpa/org-20180521/ob-python.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ref.el -> emacs.d/elpa/org-20180521/ob-ref.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ref.elc -> emacs.d/elpa/org-20180521/ob-ref.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-ruby.el -> emacs.d/elpa/org-20180521/ob-ruby.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-ruby.elc -> emacs.d/elpa/org-20180521/ob-ruby.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-sass.el -> emacs.d/elpa/org-20180521/ob-sass.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-sass.elc -> emacs.d/elpa/org-20180521/ob-sass.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-scheme.el -> emacs.d/elpa/org-20180521/ob-scheme.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-scheme.elc -> emacs.d/elpa/org-20180521/ob-scheme.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-screen.el -> emacs.d/elpa/org-20180521/ob-screen.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-screen.elc -> emacs.d/elpa/org-20180521/ob-screen.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-sed.el -> emacs.d/elpa/org-20180521/ob-sed.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-sed.elc -> emacs.d/elpa/org-20180521/ob-sed.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-shell.el -> emacs.d/elpa/org-20180521/ob-shell.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-shell.elc -> emacs.d/elpa/org-20180521/ob-shell.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-shen.el -> emacs.d/elpa/org-20180521/ob-shen.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-shen.elc -> emacs.d/elpa/org-20180521/ob-shen.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-sql.el -> emacs.d/elpa/org-20180521/ob-sql.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-sql.elc -> emacs.d/elpa/org-20180521/ob-sql.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-sqlite.el -> emacs.d/elpa/org-20180521/ob-sqlite.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-sqlite.elc -> emacs.d/elpa/org-20180521/ob-sqlite.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-stan.el -> emacs.d/elpa/org-20180521/ob-stan.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-stan.elc -> emacs.d/elpa/org-20180521/ob-stan.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-table.el -> emacs.d/elpa/org-20180521/ob-table.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-table.elc -> emacs.d/elpa/org-20180521/ob-table.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-tangle.el -> emacs.d/elpa/org-20180521/ob-tangle.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-tangle.elc -> emacs.d/elpa/org-20180521/ob-tangle.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob-vala.el -> emacs.d/elpa/org-20180521/ob-vala.el
+#	renamed:    emacs.d/elpa/org-20180514/ob-vala.elc -> emacs.d/elpa/org-20180521/ob-vala.elc
+#	renamed:    emacs.d/elpa/org-20180514/ob.el -> emacs.d/elpa/org-20180521/ob.el
+#	renamed:    emacs.d/elpa/org-20180514/ob.elc -> emacs.d/elpa/org-20180521/ob.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-agenda.el -> emacs.d/elpa/org-20180521/org-agenda.el
+#	renamed:    emacs.d/elpa/org-20180514/org-agenda.elc -> emacs.d/elpa/org-20180521/org-agenda.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-archive.el -> emacs.d/elpa/org-20180521/org-archive.el
+#	renamed:    emacs.d/elpa/org-20180514/org-archive.elc -> emacs.d/elpa/org-20180521/org-archive.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-attach.el -> emacs.d/elpa/org-20180521/org-attach.el
+#	renamed:    emacs.d/elpa/org-20180514/org-attach.elc -> emacs.d/elpa/org-20180521/org-attach.elc
+#	new file:   emacs.d/elpa/org-20180521/org-autoloads.el
+#	renamed:    emacs.d/elpa/org-20180514/org-bbdb.el -> emacs.d/elpa/org-20180521/org-bbdb.el
+#	renamed:    emacs.d/elpa/org-20180514/org-bbdb.elc -> emacs.d/elpa/org-20180521/org-bbdb.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-bibtex.el -> emacs.d/elpa/org-20180521/org-bibtex.el
+#	renamed:    emacs.d/elpa/org-20180514/org-bibtex.elc -> emacs.d/elpa/org-20180521/org-bibtex.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-capture.el -> emacs.d/elpa/org-20180521/org-capture.el
+#	renamed:    emacs.d/elpa/org-20180514/org-capture.elc -> emacs.d/elpa/org-20180521/org-capture.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-clock.el -> emacs.d/elpa/org-20180521/org-clock.el
+#	renamed:    emacs.d/elpa/org-20180514/org-clock.elc -> emacs.d/elpa/org-20180521/org-clock.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-colview.el -> emacs.d/elpa/org-20180521/org-colview.el
+#	renamed:    emacs.d/elpa/org-20180514/org-colview.elc -> emacs.d/elpa/org-20180521/org-colview.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-compat.el -> emacs.d/elpa/org-20180521/org-compat.el
+#	renamed:    emacs.d/elpa/org-20180514/org-compat.elc -> emacs.d/elpa/org-20180521/org-compat.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-crypt.el -> emacs.d/elpa/org-20180521/org-crypt.el
+#	renamed:    emacs.d/elpa/org-20180514/org-crypt.elc -> emacs.d/elpa/org-20180521/org-crypt.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-ctags.el -> emacs.d/elpa/org-20180521/org-ctags.el
+#	renamed:    emacs.d/elpa/org-20180514/org-ctags.elc -> emacs.d/elpa/org-20180521/org-ctags.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-datetree.el -> emacs.d/elpa/org-20180521/org-datetree.el
+#	renamed:    emacs.d/elpa/org-20180514/org-datetree.elc -> emacs.d/elpa/org-20180521/org-datetree.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-docview.el -> emacs.d/elpa/org-20180521/org-docview.el
+#	renamed:    emacs.d/elpa/org-20180514/org-docview.elc -> emacs.d/elpa/org-20180521/org-docview.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-duration.el -> emacs.d/elpa/org-20180521/org-duration.el
+#	renamed:    emacs.d/elpa/org-20180514/org-duration.elc -> emacs.d/elpa/org-20180521/org-duration.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-element.el -> emacs.d/elpa/org-20180521/org-element.el
+#	renamed:    emacs.d/elpa/org-20180514/org-element.elc -> emacs.d/elpa/org-20180521/org-element.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-entities.el -> emacs.d/elpa/org-20180521/org-entities.el
+#	renamed:    emacs.d/elpa/org-20180514/org-entities.elc -> emacs.d/elpa/org-20180521/org-entities.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-eshell.el -> emacs.d/elpa/org-20180521/org-eshell.el
+#	renamed:    emacs.d/elpa/org-20180514/org-eshell.elc -> emacs.d/elpa/org-20180521/org-eshell.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-eww.el -> emacs.d/elpa/org-20180521/org-eww.el
+#	renamed:    emacs.d/elpa/org-20180514/org-eww.elc -> emacs.d/elpa/org-20180521/org-eww.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-faces.el -> emacs.d/elpa/org-20180521/org-faces.el
+#	renamed:    emacs.d/elpa/org-20180514/org-faces.elc -> emacs.d/elpa/org-20180521/org-faces.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-feed.el -> emacs.d/elpa/org-20180521/org-feed.el
+#	renamed:    emacs.d/elpa/org-20180514/org-feed.elc -> emacs.d/elpa/org-20180521/org-feed.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-footnote.el -> emacs.d/elpa/org-20180521/org-footnote.el
+#	renamed:    emacs.d/elpa/org-20180514/org-footnote.elc -> emacs.d/elpa/org-20180521/org-footnote.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-gnus.el -> emacs.d/elpa/org-20180521/org-gnus.el
+#	renamed:    emacs.d/elpa/org-20180514/org-gnus.elc -> emacs.d/elpa/org-20180521/org-gnus.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-habit.el -> emacs.d/elpa/org-20180521/org-habit.el
+#	renamed:    emacs.d/elpa/org-20180514/org-habit.elc -> emacs.d/elpa/org-20180521/org-habit.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-id.el -> emacs.d/elpa/org-20180521/org-id.el
+#	renamed:    emacs.d/elpa/org-20180514/org-id.elc -> emacs.d/elpa/org-20180521/org-id.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-indent.el -> emacs.d/elpa/org-20180521/org-indent.el
+#	renamed:    emacs.d/elpa/org-20180514/org-indent.elc -> emacs.d/elpa/org-20180521/org-indent.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-info.el -> emacs.d/elpa/org-20180521/org-info.el
+#	renamed:    emacs.d/elpa/org-20180514/org-info.elc -> emacs.d/elpa/org-20180521/org-info.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-inlinetask.el -> emacs.d/elpa/org-20180521/org-inlinetask.el
+#	renamed:    emacs.d/elpa/org-20180514/org-inlinetask.elc -> emacs.d/elpa/org-20180521/org-inlinetask.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-install.el -> emacs.d/elpa/org-20180521/org-install.el
+#	renamed:    emacs.d/elpa/org-20180514/org-irc.el -> emacs.d/elpa/org-20180521/org-irc.el
+#	renamed:    emacs.d/elpa/org-20180514/org-irc.elc -> emacs.d/elpa/org-20180521/org-irc.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-lint.el -> emacs.d/elpa/org-20180521/org-lint.el
+#	renamed:    emacs.d/elpa/org-20180514/org-lint.elc -> emacs.d/elpa/org-20180521/org-lint.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-list.el -> emacs.d/elpa/org-20180521/org-list.el
+#	renamed:    emacs.d/elpa/org-20180514/org-list.elc -> emacs.d/elpa/org-20180521/org-list.elc
+#	new file:   emacs.d/elpa/org-20180521/org-loaddefs.el
+#	renamed:    emacs.d/elpa/org-20180514/org-macro.el -> emacs.d/elpa/org-20180521/org-macro.el
+#	renamed:    emacs.d/elpa/org-20180514/org-macro.elc -> emacs.d/elpa/org-20180521/org-macro.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-macs.el -> emacs.d/elpa/org-20180521/org-macs.el
+#	renamed:    emacs.d/elpa/org-20180514/org-macs.elc -> emacs.d/elpa/org-20180521/org-macs.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-mhe.el -> emacs.d/elpa/org-20180521/org-mhe.el
+#	renamed:    emacs.d/elpa/org-20180514/org-mhe.elc -> emacs.d/elpa/org-20180521/org-mhe.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-mobile.el -> emacs.d/elpa/org-20180521/org-mobile.el
+#	renamed:    emacs.d/elpa/org-20180514/org-mobile.elc -> emacs.d/elpa/org-20180521/org-mobile.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-mouse.el -> emacs.d/elpa/org-20180521/org-mouse.el
+#	renamed:    emacs.d/elpa/org-20180514/org-mouse.elc -> emacs.d/elpa/org-20180521/org-mouse.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-pcomplete.el -> emacs.d/elpa/org-20180521/org-pcomplete.el
+#	renamed:    emacs.d/elpa/org-20180514/org-pcomplete.elc -> emacs.d/elpa/org-20180521/org-pcomplete.elc
+#	new file:   emacs.d/elpa/org-20180521/org-pkg.el
+#	renamed:    emacs.d/elpa/org-20180514/org-plot.el -> emacs.d/elpa/org-20180521/org-plot.el
+#	renamed:    emacs.d/elpa/org-20180514/org-plot.elc -> emacs.d/elpa/org-20180521/org-plot.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-protocol.el -> emacs.d/elpa/org-20180521/org-protocol.el
+#	renamed:    emacs.d/elpa/org-20180514/org-protocol.elc -> emacs.d/elpa/org-20180521/org-protocol.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-rmail.el -> emacs.d/elpa/org-20180521/org-rmail.el
+#	renamed:    emacs.d/elpa/org-20180514/org-rmail.elc -> emacs.d/elpa/org-20180521/org-rmail.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-src.el -> emacs.d/elpa/org-20180521/org-src.el
+#	renamed:    emacs.d/elpa/org-20180514/org-src.elc -> emacs.d/elpa/org-20180521/org-src.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-table.el -> emacs.d/elpa/org-20180521/org-table.el
+#	renamed:    emacs.d/elpa/org-20180514/org-table.elc -> emacs.d/elpa/org-20180521/org-table.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-timer.el -> emacs.d/elpa/org-20180521/org-timer.el
+#	renamed:    emacs.d/elpa/org-20180514/org-timer.elc -> emacs.d/elpa/org-20180521/org-timer.elc
+#	renamed:    emacs.d/elpa/org-20180514/org-version.el -> emacs.d/elpa/org-20180521/org-version.el
+#	renamed:    emacs.d/elpa/org-20180514/org-w3m.el -> emacs.d/elpa/org-20180521/org-w3m.el
+#	renamed:    emacs.d/elpa/org-20180514/org-w3m.elc -> emacs.d/elpa/org-20180521/org-w3m.elc
+#	renamed:    emacs.d/elpa/org-20180514/org.el -> emacs.d/elpa/org-20180521/org.el
+#	renamed:    emacs.d/elpa/org-20180514/org.elc -> emacs.d/elpa/org-20180521/org.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-ascii.el -> emacs.d/elpa/org-20180521/ox-ascii.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-ascii.elc -> emacs.d/elpa/org-20180521/ox-ascii.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-beamer.el -> emacs.d/elpa/org-20180521/ox-beamer.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-beamer.elc -> emacs.d/elpa/org-20180521/ox-beamer.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-html.el -> emacs.d/elpa/org-20180521/ox-html.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-html.elc -> emacs.d/elpa/org-20180521/ox-html.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-icalendar.el -> emacs.d/elpa/org-20180521/ox-icalendar.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-icalendar.elc -> emacs.d/elpa/org-20180521/ox-icalendar.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-latex.el -> emacs.d/elpa/org-20180521/ox-latex.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-latex.elc -> emacs.d/elpa/org-20180521/ox-latex.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-man.el -> emacs.d/elpa/org-20180521/ox-man.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-man.elc -> emacs.d/elpa/org-20180521/ox-man.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-md.el -> emacs.d/elpa/org-20180521/ox-md.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-md.elc -> emacs.d/elpa/org-20180521/ox-md.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-odt.el -> emacs.d/elpa/org-20180521/ox-odt.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-odt.elc -> emacs.d/elpa/org-20180521/ox-odt.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-org.el -> emacs.d/elpa/org-20180521/ox-org.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-org.elc -> emacs.d/elpa/org-20180521/ox-org.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-publish.el -> emacs.d/elpa/org-20180521/ox-publish.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-publish.elc -> emacs.d/elpa/org-20180521/ox-publish.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox-texinfo.el -> emacs.d/elpa/org-20180521/ox-texinfo.el
+#	renamed:    emacs.d/elpa/org-20180514/ox-texinfo.elc -> emacs.d/elpa/org-20180521/ox-texinfo.elc
+#	renamed:    emacs.d/elpa/org-20180514/ox.el -> emacs.d/elpa/org-20180521/ox.el
+#	renamed:    emacs.d/elpa/org-20180514/ox.elc -> emacs.d/elpa/org-20180521/ox.elc
+#	deleted:    emacs.d/elpa/org-plus-contrib-20180514/org-loaddefs.el
+#	deleted:    emacs.d/elpa/org-plus-contrib-20180514/org-plus-contrib-autoloads.el
+#	deleted:    emacs.d/elpa/org-plus-contrib-20180514/org-plus-contrib-pkg.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-C.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-C.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-C.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-C.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-J.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-J.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-J.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-J.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-R.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-R.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-R.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-R.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-abc.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-abc.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-abc.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-abc.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-asymptote.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-asymptote.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-asymptote.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-asymptote.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-awk.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-awk.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-awk.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-awk.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-calc.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-calc.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-calc.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-calc.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-clojure.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-clojure.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-clojure.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-clojure.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-comint.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-comint.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-comint.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-comint.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-coq.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-coq.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-coq.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-coq.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-core.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-core.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-core.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-core.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-csharp.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-csharp.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-csharp.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-csharp.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-css.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-css.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-css.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-css.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ditaa.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ditaa.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ditaa.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ditaa.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-dot.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-dot.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-dot.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-dot.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ebnf.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ebnf.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ebnf.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ebnf.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-emacs-lisp.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-emacs-lisp.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-emacs-lisp.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-emacs-lisp.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-eukleides.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-eukleides.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-eukleides.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-eukleides.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-eval.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-eval.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-eval.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-eval.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-exp.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-exp.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-exp.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-exp.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-fomus.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-fomus.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-fomus.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-fomus.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-forth.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-forth.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-forth.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-forth.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-fortran.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-fortran.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-fortran.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-fortran.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-gnuplot.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-gnuplot.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-gnuplot.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-gnuplot.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-groovy.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-groovy.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-groovy.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-groovy.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-haskell.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-haskell.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-haskell.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-haskell.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-hledger.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-hledger.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-hledger.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-hledger.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-io.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-io.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-io.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-io.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-java.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-java.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-java.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-java.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-js.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-js.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-js.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-js.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-julia.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-julia.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-julia.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-julia.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-keys.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-keys.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-keys.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-keys.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-latex.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-latex.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-latex.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-latex.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ledger.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ledger.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ledger.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ledger.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lilypond.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-lilypond.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lilypond.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-lilypond.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lisp.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-lisp.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lisp.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-lisp.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lob.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-lob.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lob.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-lob.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lua.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-lua.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-lua.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-lua.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-makefile.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-makefile.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-makefile.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-makefile.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mathematica.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-mathematica.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mathematica.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-mathematica.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mathomatic.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-mathomatic.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mathomatic.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-mathomatic.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-matlab.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-matlab.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-matlab.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-matlab.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-maxima.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-maxima.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-maxima.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-maxima.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mscgen.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-mscgen.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-mscgen.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-mscgen.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ocaml.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ocaml.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ocaml.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ocaml.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-octave.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-octave.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-octave.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-octave.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-org.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-org.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-org.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-org.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-oz.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-oz.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-oz.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-oz.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-perl.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-perl.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-perl.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-perl.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-picolisp.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-picolisp.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-picolisp.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-picolisp.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-plantuml.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-plantuml.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-plantuml.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-plantuml.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-processing.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-processing.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-processing.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-processing.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-python.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-python.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-python.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-python.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ref.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ref.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ref.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ref.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ruby.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-ruby.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-ruby.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-ruby.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sass.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-sass.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sass.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-sass.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-scheme.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-scheme.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-scheme.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-scheme.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sclang.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-sclang.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-screen.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-screen.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-screen.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-screen.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sed.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-sed.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sed.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-sed.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-shell.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-shell.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-shell.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-shell.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-shen.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-shen.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-shen.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-shen.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sql.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-sql.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sql.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-sql.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sqlite.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-sqlite.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-sqlite.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-sqlite.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-stan.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-stan.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-stan.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-stan.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-stata.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-stata.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-stata.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-stata.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-table.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-table.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-table.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-table.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-tangle.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-tangle.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-tangle.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-tangle.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-tcl.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-tcl.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-tcl.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-tcl.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-vala.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-vala.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-vala.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-vala.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-vbnet.el -> emacs.d/elpa/org-plus-contrib-20180521/ob-vbnet.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob-vbnet.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob-vbnet.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob.el -> emacs.d/elpa/org-plus-contrib-20180521/ob.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ob.elc -> emacs.d/elpa/org-plus-contrib-20180521/ob.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-agenda.el -> emacs.d/elpa/org-plus-contrib-20180521/org-agenda.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-agenda.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-agenda.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-annotate-file.el -> emacs.d/elpa/org-plus-contrib-20180521/org-annotate-file.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-annotate-file.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-annotate-file.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-archive.el -> emacs.d/elpa/org-plus-contrib-20180521/org-archive.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-archive.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-archive.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-attach.el -> emacs.d/elpa/org-plus-contrib-20180521/org-attach.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-attach.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-attach.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bbdb.el -> emacs.d/elpa/org-plus-contrib-20180521/org-bbdb.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bbdb.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-bbdb.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bibtex-extras.el -> emacs.d/elpa/org-plus-contrib-20180521/org-bibtex-extras.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bibtex-extras.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-bibtex-extras.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bibtex.el -> emacs.d/elpa/org-plus-contrib-20180521/org-bibtex.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bibtex.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-bibtex.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bookmark.el -> emacs.d/elpa/org-plus-contrib-20180521/org-bookmark.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-bookmark.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-bookmark.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-capture.el -> emacs.d/elpa/org-plus-contrib-20180521/org-capture.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-capture.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-capture.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-checklist.el -> emacs.d/elpa/org-plus-contrib-20180521/org-checklist.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-checklist.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-checklist.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-choose.el -> emacs.d/elpa/org-plus-contrib-20180521/org-choose.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-choose.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-choose.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-clock.el -> emacs.d/elpa/org-plus-contrib-20180521/org-clock.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-clock.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-clock.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-collector.el -> emacs.d/elpa/org-plus-contrib-20180521/org-collector.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-collector.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-collector.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-colview.el -> emacs.d/elpa/org-plus-contrib-20180521/org-colview.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-colview.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-colview.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-compat.el -> emacs.d/elpa/org-plus-contrib-20180521/org-compat.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-compat.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-compat.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-contacts.el -> emacs.d/elpa/org-plus-contrib-20180521/org-contacts.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-contacts.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-contacts.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-contribdir.el -> emacs.d/elpa/org-plus-contrib-20180521/org-contribdir.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-contribdir.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-contribdir.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-crypt.el -> emacs.d/elpa/org-plus-contrib-20180521/org-crypt.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-crypt.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-crypt.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-ctags.el -> emacs.d/elpa/org-plus-contrib-20180521/org-ctags.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-ctags.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-ctags.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-datetree.el -> emacs.d/elpa/org-plus-contrib-20180521/org-datetree.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-datetree.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-datetree.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-depend.el -> emacs.d/elpa/org-plus-contrib-20180521/org-depend.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-depend.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-depend.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-docview.el -> emacs.d/elpa/org-plus-contrib-20180521/org-docview.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-docview.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-docview.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-drill.el -> emacs.d/elpa/org-plus-contrib-20180521/org-drill.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-drill.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-drill.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-duration.el -> emacs.d/elpa/org-plus-contrib-20180521/org-duration.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-duration.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-duration.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-effectiveness.el -> emacs.d/elpa/org-plus-contrib-20180521/org-effectiveness.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-effectiveness.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-effectiveness.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eldoc.el -> emacs.d/elpa/org-plus-contrib-20180521/org-eldoc.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eldoc.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-eldoc.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-element.el -> emacs.d/elpa/org-plus-contrib-20180521/org-element.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-element.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-element.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-elisp-symbol.el -> emacs.d/elpa/org-plus-contrib-20180521/org-elisp-symbol.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-elisp-symbol.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-elisp-symbol.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-entities.el -> emacs.d/elpa/org-plus-contrib-20180521/org-entities.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-entities.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-entities.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eshell.el -> emacs.d/elpa/org-plus-contrib-20180521/org-eshell.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eshell.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-eshell.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eval-light.el -> emacs.d/elpa/org-plus-contrib-20180521/org-eval-light.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eval-light.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-eval-light.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eval.el -> emacs.d/elpa/org-plus-contrib-20180521/org-eval.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eval.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-eval.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eww.el -> emacs.d/elpa/org-plus-contrib-20180521/org-eww.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-eww.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-eww.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-expiry.el -> emacs.d/elpa/org-plus-contrib-20180521/org-expiry.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-expiry.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-expiry.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-faces.el -> emacs.d/elpa/org-plus-contrib-20180521/org-faces.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-faces.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-faces.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-feed.el -> emacs.d/elpa/org-plus-contrib-20180521/org-feed.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-feed.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-feed.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-footnote.el -> emacs.d/elpa/org-plus-contrib-20180521/org-footnote.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-footnote.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-footnote.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-git-link.el -> emacs.d/elpa/org-plus-contrib-20180521/org-git-link.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-git-link.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-git-link.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-gnus.el -> emacs.d/elpa/org-plus-contrib-20180521/org-gnus.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-gnus.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-gnus.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-habit.el -> emacs.d/elpa/org-plus-contrib-20180521/org-habit.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-habit.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-habit.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-id.el -> emacs.d/elpa/org-plus-contrib-20180521/org-id.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-id.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-id.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-indent.el -> emacs.d/elpa/org-plus-contrib-20180521/org-indent.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-indent.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-indent.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-index.el -> emacs.d/elpa/org-plus-contrib-20180521/org-index.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-index.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-index.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-info.el -> emacs.d/elpa/org-plus-contrib-20180521/org-info.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-info.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-info.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-inlinetask.el -> emacs.d/elpa/org-plus-contrib-20180521/org-inlinetask.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-inlinetask.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-inlinetask.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-install.el -> emacs.d/elpa/org-plus-contrib-20180521/org-install.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-interactive-query.el -> emacs.d/elpa/org-plus-contrib-20180521/org-interactive-query.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-interactive-query.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-interactive-query.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-invoice.el -> emacs.d/elpa/org-plus-contrib-20180521/org-invoice.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-invoice.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-invoice.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-irc.el -> emacs.d/elpa/org-plus-contrib-20180521/org-irc.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-irc.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-irc.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-learn.el -> emacs.d/elpa/org-plus-contrib-20180521/org-learn.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-learn.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-learn.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-license.el -> emacs.d/elpa/org-plus-contrib-20180521/org-license.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-license.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-license.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-link-edit.el -> emacs.d/elpa/org-plus-contrib-20180521/org-link-edit.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-link-edit.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-link-edit.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-lint.el -> emacs.d/elpa/org-plus-contrib-20180521/org-lint.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-lint.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-lint.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-list.el -> emacs.d/elpa/org-plus-contrib-20180521/org-list.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-list.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-list.elc
+#	new file:   emacs.d/elpa/org-plus-contrib-20180521/org-loaddefs.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mac-iCal.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mac-iCal.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mac-iCal.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mac-iCal.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mac-link.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mac-link.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mac-link.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mac-link.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-macro.el -> emacs.d/elpa/org-plus-contrib-20180521/org-macro.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-macro.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-macro.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-macs.el -> emacs.d/elpa/org-plus-contrib-20180521/org-macs.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-macs.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-macs.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mairix.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mairix.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mairix.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mairix.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-man.el -> emacs.d/elpa/org-plus-contrib-20180521/org-man.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-man.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-man.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mew.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mew.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mew.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mew.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mhe.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mhe.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mhe.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mhe.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mobile.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mobile.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mobile.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mobile.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mouse.el -> emacs.d/elpa/org-plus-contrib-20180521/org-mouse.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-mouse.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-mouse.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-notify.el -> emacs.d/elpa/org-plus-contrib-20180521/org-notify.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-notify.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-notify.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-notmuch.el -> emacs.d/elpa/org-plus-contrib-20180521/org-notmuch.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-notmuch.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-notmuch.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-panel.el -> emacs.d/elpa/org-plus-contrib-20180521/org-panel.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-panel.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-panel.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-passwords.el -> emacs.d/elpa/org-plus-contrib-20180521/org-passwords.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-passwords.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-passwords.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-pcomplete.el -> emacs.d/elpa/org-plus-contrib-20180521/org-pcomplete.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-pcomplete.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-pcomplete.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-plot.el -> emacs.d/elpa/org-plus-contrib-20180521/org-plot.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-plot.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-plot.elc
+#	new file:   emacs.d/elpa/org-plus-contrib-20180521/org-plus-contrib-autoloads.el
+#	new file:   emacs.d/elpa/org-plus-contrib-20180521/org-plus-contrib-pkg.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-protocol.el -> emacs.d/elpa/org-plus-contrib-20180521/org-protocol.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-protocol.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-protocol.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-registry.el -> emacs.d/elpa/org-plus-contrib-20180521/org-registry.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-registry.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-registry.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-rmail.el -> emacs.d/elpa/org-plus-contrib-20180521/org-rmail.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-rmail.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-rmail.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-screen.el -> emacs.d/elpa/org-plus-contrib-20180521/org-screen.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-screen.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-screen.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-screenshot.el -> emacs.d/elpa/org-plus-contrib-20180521/org-screenshot.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-screenshot.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-screenshot.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-secretary.el -> emacs.d/elpa/org-plus-contrib-20180521/org-secretary.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-secretary.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-secretary.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-src.el -> emacs.d/elpa/org-plus-contrib-20180521/org-src.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-src.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-src.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-static-mathjax.el -> emacs.d/elpa/org-plus-contrib-20180521/org-static-mathjax.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-static-mathjax.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-static-mathjax.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-sudoku.el -> emacs.d/elpa/org-plus-contrib-20180521/org-sudoku.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-sudoku.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-sudoku.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-table.el -> emacs.d/elpa/org-plus-contrib-20180521/org-table.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-table.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-table.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-timer.el -> emacs.d/elpa/org-plus-contrib-20180521/org-timer.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-timer.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-timer.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-toc.el -> emacs.d/elpa/org-plus-contrib-20180521/org-toc.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-toc.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-toc.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-track.el -> emacs.d/elpa/org-plus-contrib-20180521/org-track.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-track.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-track.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-velocity.el -> emacs.d/elpa/org-plus-contrib-20180521/org-velocity.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-velocity.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-velocity.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-version.el -> emacs.d/elpa/org-plus-contrib-20180521/org-version.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-vm.el -> emacs.d/elpa/org-plus-contrib-20180521/org-vm.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-vm.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-vm.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-w3m.el -> emacs.d/elpa/org-plus-contrib-20180521/org-w3m.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-w3m.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-w3m.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-wikinodes.el -> emacs.d/elpa/org-plus-contrib-20180521/org-wikinodes.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-wikinodes.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-wikinodes.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-wl.el -> emacs.d/elpa/org-plus-contrib-20180521/org-wl.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org-wl.elc -> emacs.d/elpa/org-plus-contrib-20180521/org-wl.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org.el -> emacs.d/elpa/org-plus-contrib-20180521/org.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/org.elc -> emacs.d/elpa/org-plus-contrib-20180521/org.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/orgtbl-sqlinsert.el -> emacs.d/elpa/org-plus-contrib-20180521/orgtbl-sqlinsert.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/orgtbl-sqlinsert.elc -> emacs.d/elpa/org-plus-contrib-20180521/orgtbl-sqlinsert.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-ascii.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-ascii.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-ascii.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-ascii.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-beamer.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-beamer.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-beamer.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-beamer.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-bibtex.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-bibtex.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-bibtex.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-bibtex.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-confluence.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-confluence.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-confluence.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-confluence.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-deck.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-deck.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-deck.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-deck.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-extra.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-extra.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-extra.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-extra.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-freemind.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-freemind.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-freemind.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-freemind.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-groff.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-groff.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-groff.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-groff.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-html.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-html.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-html.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-html.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-icalendar.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-icalendar.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-icalendar.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-icalendar.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-koma-letter.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-koma-letter.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-koma-letter.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-koma-letter.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-latex.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-latex.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-latex.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-latex.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-man.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-man.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-man.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-man.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-md.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-md.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-md.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-md.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-odt.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-odt.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-odt.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-odt.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-org.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-org.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-org.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-org.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-publish.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-publish.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-publish.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-publish.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-rss.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-rss.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-rss.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-rss.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-s5.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-s5.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-s5.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-s5.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-taskjuggler.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-taskjuggler.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-taskjuggler.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-taskjuggler.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-texinfo.el -> emacs.d/elpa/org-plus-contrib-20180521/ox-texinfo.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox-texinfo.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox-texinfo.elc
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox.el -> emacs.d/elpa/org-plus-contrib-20180521/ox.el
+#	renamed:    emacs.d/elpa/org-plus-contrib-20180514/ox.elc -> emacs.d/elpa/org-plus-contrib-20180521/ox.elc
+#	deleted:    emacs.d/elpa/zerodark-theme-20180503.125/zerodark-theme-autoloads.el
+#	deleted:    emacs.d/elpa/zerodark-theme-20180503.125/zerodark-theme-pkg.el
+#	deleted:    emacs.d/elpa/zerodark-theme-20180503.125/zerodark-theme.el
+#	new file:   emacs.d/elpa/zerodark-theme-20180518.151/zerodark-theme-autoloads.el
+#	new file:   emacs.d/elpa/zerodark-theme-20180518.151/zerodark-theme-pkg.el
+#	new file:   emacs.d/elpa/zerodark-theme-20180518.151/zerodark-theme.el
 #
 # Changes not staged for commit:
+#	modified:   emacs.d/backups/!home!oscar!.emacs.d!ido.last~
+#	modified:   emacs.d/backups/!home!oscar!.emacs.d!url!cookies~
+#	modified:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!archive.org~
+#	modified:   emacs.d/backups/!home!oscar!Documents!Dropbox!Org!gmail-agenda.org~
+#	modified:   emacs.d/backups/!home!oscar!Documents!Dropbox!References.bib~
+#	modified:   emacs.d/backups/!home!oscar!Software!git.src!mydotfiles!.git!COMMIT_EDITMSG~
 #	modified:   emacs.d/elpa/archives/gnu/archive-contents
 #	modified:   emacs.d/elpa/archives/gnu/archive-contents.signed
 #	modified:   emacs.d/elpa/archives/melpa/archive-contents
 #	modified:   emacs.d/elpa/archives/org/archive-contents
+#	modified:   emacs.d/org-gcal/.org-gcal-token
 #
 # Untracked files:
+#	#bash_aliases#
 #	bash_aliases~
 #	emacs.d/#ido.last#
 #	emacs.d/.sage_shell_input_history
-#	emacs.d/abbrev_defs
 #	emacs.d/auto-save-list/
-#	emacs.d/elpa/0blayout-readme.txt
+#	emacs.d/backups/!home!oscar!Dropbox!Investigacion_LC!Oscar!.git!COMMIT_EDITMSG~
+#	emacs.d/backups/!home!oscar!Dropbox!JP-PAG_sol!PAG_sols!hhhhhh.tex~
+#	emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!.git!COMMIT_EDITMSG~
+#	emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!proposed_research_b.org~
+#	emacs.d/backups/!home!oscar!Dropbox!Projects!Iniciacion-2018!formularios_iniciacion_2018_latex_eng!latex iniciacion 2018!proposed_research_b.tex~
+#	emacs.d/backups/!home!oscar!Maildir![Gmail].Drafts!cur!1525963629.1ec49d2dfb1115be.cartan:2,DS~
+#	emacs.d/backups/!home!oscar!Maildir![Gmail].Drafts!cur!1526462203.6e126397a00fd76e.cartan:2,DS~
 #	emacs.d/elpa/anaconda-mode-readme.txt
 #	emacs.d/elpa/apt-sources-list-readme.txt
 #	emacs.d/elpa/avy-readme.txt
@@ -323,175 +1049,175 @@
 #	emacs.d/elpa/conkeror-minor-mode-readme.txt
 #	emacs.d/elpa/contrib/
 #	emacs.d/elpa/crux-readme.txt
-#	emacs.d/elpa/ein-20180507.1416/ein.py
-#	emacs.d/elpa/ein-20180507.1416/ein_inspector.py
-#	emacs.d/elpa/elpy-20180504.444/NEWS.rst
-#	emacs.d/elpa/elpy-20180504.444/elpy/
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__abs__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__add__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__and__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__bool__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__call__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__cmp__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__coerce__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__complex__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__contains__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__del__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__delattr__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__delete__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__delitem__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__div__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__divmod__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__enter__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__eq__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__exit__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__float__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__floordiv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ge__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__get__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__getattr__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__getattribute__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__getitem__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__gt__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__hash__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__hex__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__iadd__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__iand__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__idiv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ifloordiv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ilshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__imod__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__imul__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__index__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__init__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__instancecheck__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__int__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__invert__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ior__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ipow__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__irshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__isub__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__iter__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__itruediv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ixor__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__le__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__len__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__long__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__lshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__lt__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__mod__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__mul__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ne__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__neg__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__new__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__nonzero__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__oct__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__or__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__pos__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__pow__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__radd__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rand__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rdivmod__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__repr__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__reversed__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rfloordiv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rlshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rmod__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rmul__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__ror__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rpow__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rrshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rshift__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rsub__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rtruediv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__rxor__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__set__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__setattr__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__setitem__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__slots__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__str__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__sub__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__subclasscheck__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__truediv__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__unicode__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/__xor__
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/ase
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/asne
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/asr
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/class
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/defs
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/enc
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/env
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/from
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/pdb
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/py3
-#	emacs.d/elpa/elpy-20180504.444/snippets/python-mode/super
-#	emacs.d/elpa/ess-20180504.716/allnews.info
-#	emacs.d/elpa/ess-20180504.716/announc.info
-#	emacs.d/elpa/ess-20180504.716/authors.info
-#	emacs.d/elpa/ess-20180504.716/bugrept.info
-#	emacs.d/elpa/ess-20180504.716/credits.info
-#	emacs.d/elpa/ess-20180504.716/currfeat.info
-#	emacs.d/elpa/ess-20180504.716/dir
-#	emacs.d/elpa/ess-20180504.716/ess-defs.info
-#	emacs.d/elpa/ess-20180504.716/ess.info
-#	emacs.d/elpa/ess-20180504.716/etc/BACKBUG5.BAT
-#	emacs.d/elpa/ess-20180504.716/etc/BACKBUGS.BAT
-#	emacs.d/elpa/ess-20180504.716/etc/C-cC-c-probl.R
-#	emacs.d/elpa/ess-20180504.716/etc/ESSR/
-#	emacs.d/elpa/ess-20180504.716/etc/Extract.factor.Rd
-#	emacs.d/elpa/ess-20180504.716/etc/Makefile
-#	emacs.d/elpa/ess-20180504.716/etc/R-ESS-bugs.R
-#	emacs.d/elpa/ess-20180504.716/etc/R-oxygen-ex.R
-#	emacs.d/elpa/ess-20180504.716/etc/R-pager.R
-#	emacs.d/elpa/ess-20180504.716/etc/R_error_patterns.R
-#	emacs.d/elpa/ess-20180504.716/etc/Rnw-ess-bugs.Rnw
-#	emacs.d/elpa/ess-20180504.716/etc/SAS-bugs.sas
-#	emacs.d/elpa/ess-20180504.716/etc/TODO.org
-#	emacs.d/elpa/ess-20180504.716/etc/backbug5
-#	emacs.d/elpa/ess-20180504.716/etc/backbug5.sparc
-#	emacs.d/elpa/ess-20180504.716/etc/backbugs
-#	emacs.d/elpa/ess-20180504.716/etc/backbugs.sparc
-#	emacs.d/elpa/ess-20180504.716/etc/checkTriple.Rd
-#	emacs.d/elpa/ess-20180504.716/etc/chol2inv-ex.Rd
-#	emacs.d/elpa/ess-20180504.716/etc/completion_ideas.R
-#	emacs.d/elpa/ess-20180504.716/etc/config.guess
-#	emacs.d/elpa/ess-20180504.716/etc/ess-julia.jl
-#	emacs.d/elpa/ess-20180504.716/etc/ess-roxy-tests.R
-#	emacs.d/elpa/ess-20180504.716/etc/ess-rutils-help-start.R
-#	emacs.d/elpa/ess-20180504.716/etc/ess-s4.S
-#	emacs.d/elpa/ess-20180504.716/etc/ess-sas-sh-command
-#	emacs.d/elpa/ess-20180504.716/etc/ess-sp3.S
-#	emacs.d/elpa/ess-20180504.716/etc/function-outline.S
-#	emacs.d/elpa/ess-20180504.716/etc/gpl-check
-#	emacs.d/elpa/ess-20180504.716/etc/icons/
-#	emacs.d/elpa/ess-20180504.716/etc/in-string-bug-ex.Rnw
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/README
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/asaprc.ps
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/gradexmp.s
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/sprd-emc.s
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/sprd-grd.s
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/sprd-spr.s
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/sprd-txt.s
-#	emacs.d/elpa/ess-20180504.716/etc/other/S-spread/sprd3d.how
-#	emacs.d/elpa/ess-20180504.716/etc/other/test
-#	emacs.d/elpa/ess-20180504.716/etc/pkg-Maintainers
-#	emacs.d/elpa/ess-20180504.716/etc/pkg1/
-#	emacs.d/elpa/ess-20180504.716/etc/sas-keys.doc
-#	emacs.d/elpa/ess-20180504.716/etc/sas-keys.ps
-#	emacs.d/elpa/ess-20180504.716/etc/sas-keys.rtf
-#	emacs.d/elpa/ess-20180504.716/etc/sje-ess-notes.txt
-#	emacs.d/elpa/ess-20180504.716/etc/slow-long-output.R
-#	emacs.d/elpa/ess-20180504.716/getting.info
-#	emacs.d/elpa/ess-20180504.716/installation.info
-#	emacs.d/elpa/ess-20180504.716/license.info
-#	emacs.d/elpa/ess-20180504.716/mailing.info
-#	emacs.d/elpa/ess-20180504.716/news.info
-#	emacs.d/elpa/ess-20180504.716/onews.info
-#	emacs.d/elpa/ess-20180504.716/readme.info
-#	emacs.d/elpa/ess-20180504.716/requires.info
-#	emacs.d/elpa/ess-20180504.716/stabilty.info
-#	emacs.d/elpa/flycheck-pycheckers-20180508.1449/bin/
+#	emacs.d/elpa/ein-20180520.642/ein.py
+#	emacs.d/elpa/ein-20180520.642/ein_inspector.py
+#	emacs.d/elpa/elpy-20180520.1401/NEWS.rst
+#	emacs.d/elpa/elpy-20180520.1401/elpy/
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__abs__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__add__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__and__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__bool__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__call__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__cmp__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__coerce__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__complex__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__contains__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__del__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__delattr__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__delete__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__delitem__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__div__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__divmod__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__enter__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__eq__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__exit__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__float__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__floordiv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ge__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__get__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__getattr__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__getattribute__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__getitem__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__gt__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__hash__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__hex__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__iadd__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__iand__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__idiv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ifloordiv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ilshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__imod__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__imul__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__index__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__init__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__instancecheck__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__int__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__invert__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ior__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ipow__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__irshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__isub__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__iter__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__itruediv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ixor__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__le__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__len__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__long__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__lshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__lt__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__mod__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__mul__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ne__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__neg__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__new__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__nonzero__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__oct__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__or__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__pos__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__pow__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__radd__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rand__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rdivmod__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__repr__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__reversed__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rfloordiv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rlshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rmod__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rmul__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__ror__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rpow__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rrshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rshift__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rsub__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rtruediv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__rxor__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__set__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__setattr__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__setitem__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__slots__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__str__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__sub__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__subclasscheck__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__truediv__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__unicode__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/__xor__
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/ase
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/asne
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/asr
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/class
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/defs
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/enc
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/env
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/from
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/pdb
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/py3
+#	emacs.d/elpa/elpy-20180520.1401/snippets/python-mode/super
+#	emacs.d/elpa/ess-20180514.721/allnews.info
+#	emacs.d/elpa/ess-20180514.721/announc.info
+#	emacs.d/elpa/ess-20180514.721/authors.info
+#	emacs.d/elpa/ess-20180514.721/bugrept.info
+#	emacs.d/elpa/ess-20180514.721/credits.info
+#	emacs.d/elpa/ess-20180514.721/currfeat.info
+#	emacs.d/elpa/ess-20180514.721/dir
+#	emacs.d/elpa/ess-20180514.721/ess-defs.info
+#	emacs.d/elpa/ess-20180514.721/ess.info
+#	emacs.d/elpa/ess-20180514.721/etc/BACKBUG5.BAT
+#	emacs.d/elpa/ess-20180514.721/etc/BACKBUGS.BAT
+#	emacs.d/elpa/ess-20180514.721/etc/C-cC-c-probl.R
+#	emacs.d/elpa/ess-20180514.721/etc/ESSR/
+#	emacs.d/elpa/ess-20180514.721/etc/Extract.factor.Rd
+#	emacs.d/elpa/ess-20180514.721/etc/Makefile
+#	emacs.d/elpa/ess-20180514.721/etc/R-ESS-bugs.R
+#	emacs.d/elpa/ess-20180514.721/etc/R-oxygen-ex.R
+#	emacs.d/elpa/ess-20180514.721/etc/R-pager.R
+#	emacs.d/elpa/ess-20180514.721/etc/R_error_patterns.R
+#	emacs.d/elpa/ess-20180514.721/etc/Rnw-ess-bugs.Rnw
+#	emacs.d/elpa/ess-20180514.721/etc/SAS-bugs.sas
+#	emacs.d/elpa/ess-20180514.721/etc/TODO.org
+#	emacs.d/elpa/ess-20180514.721/etc/backbug5
+#	emacs.d/elpa/ess-20180514.721/etc/backbug5.sparc
+#	emacs.d/elpa/ess-20180514.721/etc/backbugs
+#	emacs.d/elpa/ess-20180514.721/etc/backbugs.sparc
+#	emacs.d/elpa/ess-20180514.721/etc/checkTriple.Rd
+#	emacs.d/elpa/ess-20180514.721/etc/chol2inv-ex.Rd
+#	emacs.d/elpa/ess-20180514.721/etc/completion_ideas.R
+#	emacs.d/elpa/ess-20180514.721/etc/config.guess
+#	emacs.d/elpa/ess-20180514.721/etc/ess-julia.jl
+#	emacs.d/elpa/ess-20180514.721/etc/ess-roxy-tests.R
+#	emacs.d/elpa/ess-20180514.721/etc/ess-rutils-help-start.R
+#	emacs.d/elpa/ess-20180514.721/etc/ess-s4.S
+#	emacs.d/elpa/ess-20180514.721/etc/ess-sas-sh-command
+#	emacs.d/elpa/ess-20180514.721/etc/ess-sp3.S
+#	emacs.d/elpa/ess-20180514.721/etc/function-outline.S
+#	emacs.d/elpa/ess-20180514.721/etc/gpl-check
+#	emacs.d/elpa/ess-20180514.721/etc/icons/
+#	emacs.d/elpa/ess-20180514.721/etc/in-string-bug-ex.Rnw
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/README
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/asaprc.ps
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/gradexmp.s
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/sprd-emc.s
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/sprd-grd.s
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/sprd-spr.s
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/sprd-txt.s
+#	emacs.d/elpa/ess-20180514.721/etc/other/S-spread/sprd3d.how
+#	emacs.d/elpa/ess-20180514.721/etc/other/test
+#	emacs.d/elpa/ess-20180514.721/etc/pkg-Maintainers
+#	emacs.d/elpa/ess-20180514.721/etc/pkg1/
+#	emacs.d/elpa/ess-20180514.721/etc/sas-keys.doc
+#	emacs.d/elpa/ess-20180514.721/etc/sas-keys.ps
+#	emacs.d/elpa/ess-20180514.721/etc/sas-keys.rtf
+#	emacs.d/elpa/ess-20180514.721/etc/sje-ess-notes.txt
+#	emacs.d/elpa/ess-20180514.721/etc/slow-long-output.R
+#	emacs.d/elpa/ess-20180514.721/getting.info
+#	emacs.d/elpa/ess-20180514.721/installation.info
+#	emacs.d/elpa/ess-20180514.721/license.info
+#	emacs.d/elpa/ess-20180514.721/mailing.info
+#	emacs.d/elpa/ess-20180514.721/news.info
+#	emacs.d/elpa/ess-20180514.721/onews.info
+#	emacs.d/elpa/ess-20180514.721/readme.info
+#	emacs.d/elpa/ess-20180514.721/requires.info
+#	emacs.d/elpa/ess-20180514.721/stabilty.info
+#	emacs.d/elpa/flycheck-pycheckers-20180516.1547/bin/
 #	emacs.d/elpa/flycheck-pycheckers-readme.txt
 #	emacs.d/elpa/flycheck-readme.txt
 #	emacs.d/elpa/fontawesome-readme.txt
@@ -499,28 +1225,28 @@
 #	emacs.d/elpa/ghub-20180417.1527/dir
 #	emacs.d/elpa/ghub-20180417.1527/ghub.info
 #	emacs.d/elpa/gnupg/.gpg-v21-migrated
-#	emacs.d/elpa/helm-20180509.2230/emacs-helm.sh
-#	emacs.d/elpa/ivy-20180509.919/dir
-#	emacs.d/elpa/ivy-20180509.919/ivy-help.org
-#	emacs.d/elpa/ivy-20180509.919/ivy.info
-#	emacs.d/elpa/magit-20180509.913/AUTHORS.md
-#	emacs.d/elpa/magit-20180509.913/LICENSE
-#	emacs.d/elpa/magit-20180509.913/dir
-#	emacs.d/elpa/magit-20180509.913/magit.info
-#	emacs.d/elpa/magit-20180509.913/magit.info-1
-#	emacs.d/elpa/magit-20180509.913/magit.info-2
+#	emacs.d/elpa/helm-20180519.934/emacs-helm.sh
+#	emacs.d/elpa/ivy-20180515.1057/dir
+#	emacs.d/elpa/ivy-20180515.1057/ivy-help.org
+#	emacs.d/elpa/ivy-20180515.1057/ivy.info
+#	emacs.d/elpa/magit-20180519.1008/AUTHORS.md
+#	emacs.d/elpa/magit-20180519.1008/LICENSE
+#	emacs.d/elpa/magit-20180519.1008/dir
+#	emacs.d/elpa/magit-20180519.1008/magit.info
+#	emacs.d/elpa/magit-20180519.1008/magit.info-1
+#	emacs.d/elpa/magit-20180519.1008/magit.info-2
 #	emacs.d/elpa/magit-popup-20180509.1041/dir
 #	emacs.d/elpa/magit-popup-20180509.1041/magit-popup.info
-#	emacs.d/elpa/magithub-20180417.1912/dir
-#	emacs.d/elpa/magithub-20180417.1912/magithub.info
+#	emacs.d/elpa/magithub-20180519.1216/dir
+#	emacs.d/elpa/magithub-20180519.1216/magithub.info
 #	emacs.d/elpa/ob-browser-readme.txt
 #	emacs.d/elpa/ob-ipython-20180224.153/client.py
-#	emacs.d/elpa/org-20180507/COPYING
-#	emacs.d/elpa/org-20180507/README_ELPA
-#	emacs.d/elpa/org-20180507/dir
-#	emacs.d/elpa/org-20180507/etc/
-#	emacs.d/elpa/org-20180507/org
-#	emacs.d/elpa/org-20180507/orgcard.pdf
+#	emacs.d/elpa/org-20180521/COPYING
+#	emacs.d/elpa/org-20180521/README_ELPA
+#	emacs.d/elpa/org-20180521/dir
+#	emacs.d/elpa/org-20180521/etc/
+#	emacs.d/elpa/org-20180521/org
+#	emacs.d/elpa/org-20180521/orgcard.pdf
 #	emacs.d/elpa/org-board-readme.txt
 #	emacs.d/elpa/org-brain-readme.txt
 #	emacs.d/elpa/org-download-readme.txt
@@ -531,20 +1257,20 @@
 #	emacs.d/elpa/org-mind-map-readme.txt
 #	emacs.d/elpa/org-noter-readme.txt
 #	emacs.d/elpa/org-pdfview-readme.txt
-#	emacs.d/elpa/org-plus-contrib-20180507/COPYING
-#	emacs.d/elpa/org-plus-contrib-20180507/README_ELPA
-#	emacs.d/elpa/org-plus-contrib-20180507/dir
-#	emacs.d/elpa/org-plus-contrib-20180507/etc/
-#	emacs.d/elpa/org-plus-contrib-20180507/org
-#	emacs.d/elpa/org-plus-contrib-20180507/orgcard.pdf
+#	emacs.d/elpa/org-plus-contrib-20180521/COPYING
+#	emacs.d/elpa/org-plus-contrib-20180521/README_ELPA
+#	emacs.d/elpa/org-plus-contrib-20180521/dir
+#	emacs.d/elpa/org-plus-contrib-20180521/etc/
+#	emacs.d/elpa/org-plus-contrib-20180521/org
+#	emacs.d/elpa/org-plus-contrib-20180521/orgcard.pdf
 #	emacs.d/elpa/org-present-readme.txt
-#	emacs.d/elpa/org-ref-20180507.1958/citeproc/csl/acs-nano.csl
-#	emacs.d/elpa/org-ref-20180507.1958/citeproc/readme-author-year.org
-#	emacs.d/elpa/org-ref-20180507.1958/citeproc/readme-unsrt.org
-#	emacs.d/elpa/org-ref-20180507.1958/citeproc/readme.bib
-#	emacs.d/elpa/org-ref-20180507.1958/citeproc/readme.org
-#	emacs.d/elpa/org-ref-20180507.1958/org-ref.bib
-#	emacs.d/elpa/org-ref-20180507.1958/org-ref.org
+#	emacs.d/elpa/org-ref-20180517.1704/citeproc/csl/acs-nano.csl
+#	emacs.d/elpa/org-ref-20180517.1704/citeproc/readme-author-year.org
+#	emacs.d/elpa/org-ref-20180517.1704/citeproc/readme-unsrt.org
+#	emacs.d/elpa/org-ref-20180517.1704/citeproc/readme.bib
+#	emacs.d/elpa/org-ref-20180517.1704/citeproc/readme.org
+#	emacs.d/elpa/org-ref-20180517.1704/org-ref.bib
+#	emacs.d/elpa/org-ref-20180517.1704/org-ref.org
 #	emacs.d/elpa/org-wc-readme.txt
 #	emacs.d/elpa/org-web-tools-readme.txt
 #	emacs.d/elpa/org2web-20171005.1617/documents/
@@ -948,6 +1674,7 @@
 #	emacs.d/org2web/
 #	emacs.d/session.1018fa218ad74d1ac3151490146924818700000012290063
 #	emacs.d/session.101bf8001d7c2d3c4415136159918773000000012480061
+#	emacs.d/session.1041eae3fd8532ff1b15264596438992100000011030031
 #	emacs.d/session.106227c555244228f8151567391366742400000012060061
 #	emacs.d/session.1084b5f3909fbde9a7151662499564587300000012940063
 #	emacs.d/session.10974695ac4618fc5f151569431637566900000011960062

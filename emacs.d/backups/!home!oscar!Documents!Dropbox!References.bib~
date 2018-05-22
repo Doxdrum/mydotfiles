@@ -19313,3 +19313,47 @@ connections and connections in a manifold.},
   primaryClass = {math-ph},
 }
 
+@article{joohy18_ordin_compl_differ_equat_with,
+  author =	 {Joohy, Ali K.},
+  title =	 {Ordinary Complex Differential Equations With
+                  Applications in Science and Engineering},
+  journal =	 {CoRR},
+  year =	 2018,
+  url =		 {http://arxiv.org/abs/1805.03201v1},
+  abstract =	 {In this work, we spotted the light on one of the
+                  really important concepts and turned it into a
+                  mathematical branch instead of separate equations
+                  studied individually in different specializations of
+                  science. The existence and uniqueness of solutions
+                  for complex differential equations have been proved
+                  with many mathematical generalized tools. Homotopy
+                  Perturbation Method has been used and implemented as
+                  a method for solving linear complex differential
+                  equations with which is the first time such a method
+                  used to solve an equation in the complex plane. An
+                  analytical method of solutions has been investigated
+                  deeply with complex series solutions have
+                  generalized also using Laurent series
+                  expansions. Some really important application in
+                  engineering and complex geometry has been
+                  implemented with deep understand- ing, such as
+                  Airfoil application for airplane and spaceships
+                  wings and the fans of jet engines, and the
+                  Schwarz-Christoffel transformation.},
+  archivePrefix ={arXiv},
+  eprint =	 {1805.03201},
+  primaryClass = {math-ph},
+}
+
+@article{abbott17_gravit_waves_gamma,
+  author =	 {B. P. Abbott and others},
+  title =	 {Gravitational Waves and Gamma-Rays From a Binary
+                  Neutron Star Merger: GW170817 and GRB170817a},
+  DATE_ADDED =	 {Thu May 17 11:48:34 2018},
+  journal =	 AJ,
+  year =	 {2017},
+  volume =	 {848},
+  number =	 {2},
+  pages =	 {L13},
+  doi =		 {10.3847/2041-8213/aa920c},
+}

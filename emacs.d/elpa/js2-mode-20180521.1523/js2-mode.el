@@ -290,7 +290,7 @@ even if this flag is non-nil."
   :type 'boolean
   :group 'js2-mode)
 
-(defcustom js2-strict-trailing-comma-warning t
+(defcustom js2-strict-trailing-comma-warning nil
   "Non-nil to warn about trailing commas in array literals.
 Ecma-262-5.1 allows them, but older versions of IE raise an error."
   :type 'boolean
@@ -852,6 +852,9 @@ be added to `js2-additional-externs'.
 Your post-parse callback may of course also use the simpler and
 faster (but perhaps less robust) approach of simply scanning the
 buffer text for your imports, using regular expressions.")
+
+(put 'js2-additional-externs 'safe-local-variable
+     (lambda (val) (cl-every #'stringp val)))
 
 ;; SKIP:  decompiler
 ;; SKIP:  encoded-source
@@ -12405,6 +12408,8 @@ move backward across N balanced expressions."
     (let (forward-sexp-function
           node (start (point)) pos lp rp child)
       (cond
+       ((js2-string-node-p (js2-node-at-point))
+        (forward-sexp arg))
        ;; backward-sexp
        ;; could probably make this better for some cases:
        ;;  - if in statement block (e.g. function body), go to parent
@@ -12572,8 +12577,11 @@ destroying the region selection."
         (goto-char (cl-cadadr e))))))
 
 (defun js2-mode-create-imenu-index ()
-  "Return an alist for `imenu--index-alist'."
-  ;; This is built up in `js2-parse-record-imenu' during parsing.
+  "Returns an alist for `imenu--index-alist'. Returns nil on first
+scan if buffer size > `imenu-auto-rescan-maxout'."
+  (when (and (not js2-mode-ast)
+             (<= (buffer-size) imenu-auto-rescan-maxout))
+      (js2-reparse))
   (when js2-mode-ast
     ;; if we have an ast but no recorder, they're requesting a rescan
     (unless js2-imenu-recorder
