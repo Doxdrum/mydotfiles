@@ -76,6 +76,8 @@
       calendar-longitude -71.51
       calendar-location-name "Valparaiso, CHILE")
 
+(projectile-global-mode)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq backup-directory-alist '(("." . "/home/oscar/Software/git.src/mydotfiles/emacs.d/backups")))
