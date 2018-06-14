@@ -76,6 +76,9 @@
       calendar-longitude -71.51
       calendar-location-name "Valparaiso, CHILE")
 
+(require 'dashboard)
+(dashboard-setup-startup-hook)
+
 (projectile-global-mode)
 
 (fset 'yes-or-no-p 'y-or-n-p)
