@@ -433,21 +433,22 @@ the restoring themselves.")
 
 (defun ivy-thing-at-point ()
   "Return a string that corresponds to the current thing at point."
-  (or
-   (thing-at-point 'url)
-   (and (eq (ivy-state-collection ivy-last) 'read-file-name-internal)
-        (let ((inhibit-message t))
-          (ignore-errors
-            (ffap-file-at-point))))
-   (let (s)
-     (cond ((stringp (setq s (thing-at-point 'symbol)))
-            (if (string-match "\\`[`']?\\(.*?\\)'?\\'" s)
-                (match-string 1 s)
-              s))
-           ((looking-at "(+\\(\\(?:\\sw\\|\\s_\\)+\\)\\_>")
-            (match-string-no-properties 1))
-           (t
-            "")))))
+  (substring-no-properties
+   (or
+    (thing-at-point 'url)
+    (and (eq (ivy-state-collection ivy-last) 'read-file-name-internal)
+         (let ((inhibit-message t))
+           (ignore-errors
+             (ffap-file-at-point))))
+    (let (s)
+      (cond ((stringp (setq s (thing-at-point 'symbol)))
+             (if (string-match "\\`[`']?\\(.*?\\)'?\\'" s)
+                 (match-string 1 s)
+               s))
+            ((looking-at "(+\\(\\(?:\\sw\\|\\s_\\)+\\)\\_>")
+             (match-string-no-properties 1))
+            (t
+             ""))))))
 
 (defvar ivy-history nil
   "History list of candidates entered in the minibuffer.
@@ -3320,33 +3321,38 @@ FACE is the face to apply to STR."
                   (string-match "^[^:]+:[^:]+:" str))
              (match-end 0)
            0))
-        (re (ivy-generic-regex-to-str ivy--old-re)))
-    (ignore-errors
-      (while (and (string-match re str start)
-                  (> (- (match-end 0) (match-beginning 0)) 0))
-        (setq start (match-end 0))
-        (let ((i 0))
-          (while (<= i ivy--subexps)
-            (let ((face
-                   (cond ((zerop ivy--subexps)
-                          (cadr ivy-minibuffer-faces))
-                         ((zerop i)
-                          (car ivy-minibuffer-faces))
-                         (t
-                          (nth (1+ (mod (+ i 2)
-                                        (1- (length ivy-minibuffer-faces))))
-                               ivy-minibuffer-faces)))))
-              (ivy-add-face-text-property
-               (match-beginning i) (match-end i)
-               face str))
-            (cl-incf i))))))
+        (regexps
+         (if (listp ivy--old-re)
+             (mapcar #'car (cl-remove-if-not #'cdr ivy--old-re))
+           (list ivy--old-re))))
+    (dolist (re regexps)
+      (ignore-errors
+        (while (and (string-match re str start)
+                    (> (- (match-end 0) (match-beginning 0)) 0))
+          (setq start (match-end 0))
+          (let ((i 0))
+            (while (<= i ivy--subexps)
+              (let ((face
+                     (cond ((zerop ivy--subexps)
+                            (cadr ivy-minibuffer-faces))
+                           ((zerop i)
+                            (car ivy-minibuffer-faces))
+                           (t
+                            (nth (1+ (mod (+ i 2)
+                                          (1- (length ivy-minibuffer-faces))))
+                                 ivy-minibuffer-faces)))))
+                (ivy-add-face-text-property
+                 (match-beginning i) (match-end i)
+                 face str))
+              (cl-incf i)))))))
   str)
 
 (defun ivy--format-minibuffer-line (str)
   "Format line STR for use in minibuffer."
-  (let ((str (if (eq ivy-display-style 'fancy)
-                 (funcall ivy--highlight-function (copy-sequence str))
-               (copy-sequence str))))
+  (let* ((str (ivy-cleanup-string str))
+         (str (if (eq ivy-display-style 'fancy)
+                  (funcall ivy--highlight-function (copy-sequence str))
+                (copy-sequence str))))
     (add-text-properties
      0 (length str)
      '(mouse-face
