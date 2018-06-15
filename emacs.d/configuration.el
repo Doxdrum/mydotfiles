@@ -648,7 +648,10 @@
 
 (setq org-gcal-client-id "358090972212-2s1v68nuce286597smbotq4ta4nd54ru.apps.googleusercontent.com"
 	org-gcal-client-secret "y0IrGDvmspnDPvIMMI5puN4b"
-	org-gcal-file-alist '(("o.castillo.felisola@gmail.com" .  "~/Documents/Dropbox/Org/gmail-agenda.org")))
+	org-gcal-file-alist '(("o.castillo.felisola@gmail.com" .  "~/Documents/Dropbox/Org/gmail-agenda.org")
+			      ("j10hh2p19p7j7qmh3bvvn32ilg@group.calendar.google.com" . "~/Documents/Dropbox/Org/gmail-agenda.org")
+			      )
+	)
 
 (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
 (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
