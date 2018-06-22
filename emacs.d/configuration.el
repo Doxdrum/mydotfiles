@@ -70,11 +70,20 @@
 (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
+(setq ring-bell-function 'ignore)
+
 (setq user-full-name "Oscar Castillo-Felisola"
       user-mail-address "o.castillo.felisola@gmail.com"
       calendar-latitude -33.66
       calendar-longitude -71.51
       calendar-location-name "Valparaiso, CHILE")
+
+(require 'multiple-cursors)
+
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (require 'dashboard)
 (dashboard-setup-startup-hook)
