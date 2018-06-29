@@ -3,10 +3,16 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	mark-word
+	mouse-minor-mode-menu
+	org-end-of-line
+	org-force-self-insert
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	org-cycle
 	org-metaright
 	org-self-insert-command
+	org-yank
 	))
